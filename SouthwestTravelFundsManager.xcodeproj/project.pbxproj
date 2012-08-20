@@ -13,9 +13,19 @@
 		3B00779C15DA565000A9FC1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B00779A15DA565000A9FC1B /* InfoPlist.strings */; };
 		3B00779E15DA565000A9FC1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00779D15DA565000A9FC1B /* main.m */; };
 		3B0077A215DA565000A9FC1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077A115DA565000A9FC1B /* AppDelegate.m */; };
-		3B0077A515DA565000A9FC1B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0077A315DA565000A9FC1B /* MainStoryboard_iPhone.storyboard */; };
-		3B0077A815DA565000A9FC1B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0077A615DA565000A9FC1B /* MainStoryboard_iPad.storyboard */; };
-		3B0077AB15DA565000A9FC1B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077AA15DA565000A9FC1B /* ViewController.m */; };
+		3B0077A515DA565000A9FC1B /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0077A315DA565000A9FC1B /* iPhone.storyboard */; };
+		3B0077A815DA565000A9FC1B /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0077A615DA565000A9FC1B /* iPad.storyboard */; };
+		3B0077B315DA56EB00A9FC1B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077B115DA56EB00A9FC1B /* Model.xcdatamodeld */; };
+		3B0077B615DC336D00A9FC1B /* TravelFundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077B515DC336D00A9FC1B /* TravelFundsTableViewController.m */; };
+		3B0077B915DC343300A9FC1B /* FundDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077B815DC343300A9FC1B /* FundDetailTableViewController.m */; };
+		3B0077BC15DC481A00A9FC1B /* AddNewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077BB15DC481A00A9FC1B /* AddNewTableViewController.m */; };
+		3B0077BF15DEF15700A9FC1B /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077BE15DEF15700A9FC1B /* CoreDataTableViewController.m */; };
+		3B0077C215DF27F100A9FC1B /* UpcomingFlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077C115DF27F100A9FC1B /* UpcomingFlightsTableViewController.m */; };
+		3B0077D115E1DEAB00A9FC1B /* Flight+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */; };
+		3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D315E1DECA00A9FC1B /* Fund+Create.m */; };
+		3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0077D715E20C4800A9FC1B /* CoreData.framework */; };
+		3B0077E115E2107E00A9FC1B /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077E015E2107E00A9FC1B /* Flight.m */; };
+		3B0077E415E2107E00A9FC1B /* Fund.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077E315E2107E00A9FC1B /* Fund.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,16 +33,34 @@
 		3B00779115DA565000A9FC1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B00779315DA565000A9FC1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3B00779515DA565000A9FC1B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3B00779915DA565000A9FC1B /* SouthwestTravelFundsManager-Info.plist */ = {isa = PBXFileReference; path = "SouthwestTravelFundsManager-Info.plist"; sourceTree = "<group>"; };
+		3B00779915DA565000A9FC1B /* SouthwestTravelFundsManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SouthwestTravelFundsManager-Info.plist"; sourceTree = "<group>"; };
 		3B00779B15DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B00779D15DA565000A9FC1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3B00779F15DA565000A9FC1B /* SouthwestTravelFundsManager-Prefix.pch */ = {isa = PBXFileReference; path = "SouthwestTravelFundsManager-Prefix.pch"; sourceTree = "<group>"; };
-		3B0077A015DA565000A9FC1B /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		3B00779F15DA565000A9FC1B /* SouthwestTravelFundsManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SouthwestTravelFundsManager-Prefix.pch"; sourceTree = "<group>"; };
+		3B0077A015DA565000A9FC1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B0077A115DA565000A9FC1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3B0077A415DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		3B0077A715DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		3B0077A915DA565000A9FC1B /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
-		3B0077AA15DA565000A9FC1B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3B0077A415DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
+		3B0077A715DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
+		3B0077B215DA56EB00A9FC1B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		3B0077B415DC336D00A9FC1B /* TravelFundsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelFundsTableViewController.h; sourceTree = "<group>"; };
+		3B0077B515DC336D00A9FC1B /* TravelFundsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelFundsTableViewController.m; sourceTree = "<group>"; };
+		3B0077B715DC343300A9FC1B /* FundDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundDetailTableViewController.h; sourceTree = "<group>"; };
+		3B0077B815DC343300A9FC1B /* FundDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundDetailTableViewController.m; sourceTree = "<group>"; };
+		3B0077BA15DC481A00A9FC1B /* AddNewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewTableViewController.h; sourceTree = "<group>"; };
+		3B0077BB15DC481A00A9FC1B /* AddNewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewTableViewController.m; sourceTree = "<group>"; };
+		3B0077BD15DEF15700A9FC1B /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		3B0077BE15DEF15700A9FC1B /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		3B0077C015DF27F100A9FC1B /* UpcomingFlightsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFlightsTableViewController.h; sourceTree = "<group>"; };
+		3B0077C115DF27F100A9FC1B /* UpcomingFlightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFlightsTableViewController.m; sourceTree = "<group>"; };
+		3B0077CF15E1DEAB00A9FC1B /* Flight+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flight+Create.h"; sourceTree = "<group>"; };
+		3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Flight+Create.m"; sourceTree = "<group>"; };
+		3B0077D215E1DECA00A9FC1B /* Fund+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fund+Create.h"; sourceTree = "<group>"; };
+		3B0077D315E1DECA00A9FC1B /* Fund+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fund+Create.m"; sourceTree = "<group>"; };
+		3B0077D715E20C4800A9FC1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3B0077DF15E2107E00A9FC1B /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
+		3B0077E015E2107E00A9FC1B /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		3B0077E215E2107E00A9FC1B /* Fund.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fund.h; sourceTree = "<group>"; };
+		3B0077E315E2107E00A9FC1B /* Fund.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fund.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */,
 				3B00779215DA565000A9FC1B /* UIKit.framework in Frameworks */,
 				3B00779415DA565000A9FC1B /* Foundation.framework in Frameworks */,
 				3B00779615DA565000A9FC1B /* CoreGraphics.framework in Frameworks */,
@@ -69,6 +98,7 @@
 		3B00779015DA565000A9FC1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B0077D715E20C4800A9FC1B /* CoreData.framework */,
 				3B00779115DA565000A9FC1B /* UIKit.framework */,
 				3B00779315DA565000A9FC1B /* Foundation.framework */,
 				3B00779515DA565000A9FC1B /* CoreGraphics.framework */,
@@ -79,12 +109,10 @@
 		3B00779715DA565000A9FC1B /* SouthwestTravelFundsManager */ = {
 			isa = PBXGroup;
 			children = (
-				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
-				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
-				3B0077A315DA565000A9FC1B /* MainStoryboard_iPhone.storyboard */,
-				3B0077A615DA565000A9FC1B /* MainStoryboard_iPad.storyboard */,
-				3B0077A915DA565000A9FC1B /* ViewController.h */,
-				3B0077AA15DA565000A9FC1B /* ViewController.m */,
+				3B0077A315DA565000A9FC1B /* iPhone.storyboard */,
+				3B0077A615DA565000A9FC1B /* iPad.storyboard */,
+				3B0077D615E1DF4700A9FC1B /* ViewControllers */,
+				3B0077D515E1DF0A00A9FC1B /* Model */,
 				3B00779815DA565000A9FC1B /* Supporting Files */,
 			);
 			path = SouthwestTravelFundsManager;
@@ -93,12 +121,47 @@
 		3B00779815DA565000A9FC1B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
+				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
 				3B00779915DA565000A9FC1B /* SouthwestTravelFundsManager-Info.plist */,
 				3B00779A15DA565000A9FC1B /* InfoPlist.strings */,
 				3B00779D15DA565000A9FC1B /* main.m */,
 				3B00779F15DA565000A9FC1B /* SouthwestTravelFundsManager-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B0077D515E1DF0A00A9FC1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B0077E215E2107E00A9FC1B /* Fund.h */,
+				3B0077E315E2107E00A9FC1B /* Fund.m */,
+				3B0077DF15E2107E00A9FC1B /* Flight.h */,
+				3B0077E015E2107E00A9FC1B /* Flight.m */,
+				3B0077B115DA56EB00A9FC1B /* Model.xcdatamodeld */,
+				3B0077CF15E1DEAB00A9FC1B /* Flight+Create.h */,
+				3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */,
+				3B0077D215E1DECA00A9FC1B /* Fund+Create.h */,
+				3B0077D315E1DECA00A9FC1B /* Fund+Create.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3B0077D615E1DF4700A9FC1B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B0077BD15DEF15700A9FC1B /* CoreDataTableViewController.h */,
+				3B0077BE15DEF15700A9FC1B /* CoreDataTableViewController.m */,
+				3B0077B415DC336D00A9FC1B /* TravelFundsTableViewController.h */,
+				3B0077B515DC336D00A9FC1B /* TravelFundsTableViewController.m */,
+				3B0077C015DF27F100A9FC1B /* UpcomingFlightsTableViewController.h */,
+				3B0077C115DF27F100A9FC1B /* UpcomingFlightsTableViewController.m */,
+				3B0077BA15DC481A00A9FC1B /* AddNewTableViewController.h */,
+				3B0077BB15DC481A00A9FC1B /* AddNewTableViewController.m */,
+				3B0077B715DC343300A9FC1B /* FundDetailTableViewController.h */,
+				3B0077B815DC343300A9FC1B /* FundDetailTableViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,8 +216,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B00779C15DA565000A9FC1B /* InfoPlist.strings in Resources */,
-				3B0077A515DA565000A9FC1B /* MainStoryboard_iPhone.storyboard in Resources */,
-				3B0077A815DA565000A9FC1B /* MainStoryboard_iPad.storyboard in Resources */,
+				3B0077A515DA565000A9FC1B /* iPhone.storyboard in Resources */,
+				3B0077A815DA565000A9FC1B /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +230,16 @@
 			files = (
 				3B00779E15DA565000A9FC1B /* main.m in Sources */,
 				3B0077A215DA565000A9FC1B /* AppDelegate.m in Sources */,
-				3B0077AB15DA565000A9FC1B /* ViewController.m in Sources */,
+				3B0077B315DA56EB00A9FC1B /* Model.xcdatamodeld in Sources */,
+				3B0077B615DC336D00A9FC1B /* TravelFundsTableViewController.m in Sources */,
+				3B0077B915DC343300A9FC1B /* FundDetailTableViewController.m in Sources */,
+				3B0077BC15DC481A00A9FC1B /* AddNewTableViewController.m in Sources */,
+				3B0077BF15DEF15700A9FC1B /* CoreDataTableViewController.m in Sources */,
+				3B0077C215DF27F100A9FC1B /* UpcomingFlightsTableViewController.m in Sources */,
+				3B0077D115E1DEAB00A9FC1B /* Flight+Create.m in Sources */,
+				3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */,
+				3B0077E115E2107E00A9FC1B /* Flight.m in Sources */,
+				3B0077E415E2107E00A9FC1B /* Fund.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,20 +254,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		3B0077A315DA565000A9FC1B /* MainStoryboard_iPhone.storyboard */ = {
+		3B0077A315DA565000A9FC1B /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3B0077A415DA565000A9FC1B /* en */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
+			name = iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		3B0077A615DA565000A9FC1B /* MainStoryboard_iPad.storyboard */ = {
+		3B0077A615DA565000A9FC1B /* iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3B0077A715DA565000A9FC1B /* en */,
 			);
-			name = MainStoryboard_iPad.storyboard;
+			name = iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -291,6 +363,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3B0077B115DA56EB00A9FC1B /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B0077B215DA56EB00A9FC1B /* Model.xcdatamodel */,
+			);
+			currentVersion = 3B0077B215DA56EB00A9FC1B /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B00778415DA565000A9FC1B /* Project object */;
 }
