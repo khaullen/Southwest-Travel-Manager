@@ -9,12 +9,25 @@
 #import "UpcomingFlightsTableViewController.h"
 #import "Flight+Create.h"
 #import "Fund.h"
+#import "NewFlightTableViewController.h"
 
-@interface UpcomingFlightsTableViewController ()
+@interface UpcomingFlightsTableViewController () <NewFlightDelegate>
 
 @end
 
 @implementation UpcomingFlightsTableViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"newFlight"]) {
+        NewFlightTableViewController *newFlight = segue.destinationViewController;
+        newFlight.delegate = self;
+    }
+}
+
+- (void)newFlightTableViewController:(NewFlightTableViewController *)sender didEnterFlightInformation:(NSDictionary *)flightInfo {
+    [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
+    [self dismissModalViewControllerAnimated:TRUE];
+}
 
 - (void)setupFetchedResultsController {
     [super setupFetchedResultsController];

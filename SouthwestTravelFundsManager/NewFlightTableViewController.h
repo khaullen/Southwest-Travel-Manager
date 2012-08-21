@@ -8,6 +8,16 @@
 
 #import "GenericFlightTableViewController.h"
 
+@class NewFlightTableViewController;
+
+@protocol NewFlightDelegate <NSObject>
+
+- (void)newFlightTableViewController:(NewFlightTableViewController *)sender didEnterFlightInformation:(NSDictionary *)flightInfo;
+
+@end
+
 @interface NewFlightTableViewController : GenericFlightTableViewController
+
+@property (nonatomic, weak) id <NewFlightDelegate> delegate;
 
 @end

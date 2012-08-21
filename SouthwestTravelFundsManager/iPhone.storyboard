@@ -236,7 +236,7 @@
                     <navigationItem key="navigationItem" title="Upcoming Flights" id="Ul3-68-hoJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zhk-LW-GNx">
                             <connections>
-                                <segue destination="1QL-Zb-GpJ" kind="modal" id="CpS-Ee-Kna"/>
+                                <segue destination="1QL-Zb-GpJ" kind="modal" identifier="newFlight" id="CpS-Ee-Kna"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -889,34 +889,6 @@
             <point key="canvasLocation" x="1856" y="1298"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="GenericFlightTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericFlightTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkInReminderSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="confirmTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="costTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="expirationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="flightTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="notesTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outboundTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="returnTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="roundtripSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="NewFlightTableViewController" superclassName="GenericFlightTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
-        </class>
-        <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
-        </class>
-        <class className="UpcomingFlightsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingFlightsTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

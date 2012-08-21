@@ -13,12 +13,12 @@
 
 @interface Fund : NSManagedObject
 
-@property (nonatomic, retain) NSDecimalNumber * balance;
+@property (nonatomic, retain) NSNumber * balance;
 @property (nonatomic, retain) NSDate * expirationDate;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSNumber * unusedTicket;
-@property (nonatomic, retain) NSSet *flightsAppliedTo;
 @property (nonatomic, retain) Flight *originalFlight;
+@property (nonatomic, retain) NSSet *flightsAppliedTo;
 @end
 
 @interface Fund (CoreDataGeneratedAccessors)

@@ -15,6 +15,7 @@
 
 @dynamic bookingDate;
 @dynamic cancelled;
+@dynamic checkInReminder;
 @dynamic confirmationCode;
 @dynamic cost;
 @dynamic destination;
@@ -31,8 +32,8 @@
 @dynamic roundtrip;
 @dynamic ticketNumber;
 @dynamic used;
-@dynamic fundsUsed;
 @dynamic passenger;
 @dynamic travelFund;
+@dynamic fundsUsed;
 
 @end

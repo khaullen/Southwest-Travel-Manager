@@ -16,7 +16,7 @@
 @dynamic expirationDate;
 @dynamic notes;
 @dynamic unusedTicket;
-@dynamic flightsAppliedTo;
 @dynamic originalFlight;
+@dynamic flightsAppliedTo;
 
 @end
