@@ -2,7 +2,7 @@
 //  Fund.m
 //  SouthwestTravelFundsManager
 //
-//  Created by Colin Regan on 8/19/12.
+//  Created by Colin Regan on 8/21/12.
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
@@ -13,8 +13,9 @@
 @implementation Fund
 
 @dynamic balance;
-@dynamic unusedTicket;
 @dynamic expirationDate;
+@dynamic notes;
+@dynamic unusedTicket;
 @dynamic flightsAppliedTo;
 @dynamic originalFlight;
 

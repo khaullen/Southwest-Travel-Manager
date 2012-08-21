@@ -50,4 +50,13 @@
 // Set to YES to get some debugging output in the console.
 @property BOOL debug;
 
+
+
+
+
+
+// ADDITIONAL CODE
+@property (nonatomic, strong) UIManagedDocument *database;
+- (void)setupFetchedResultsController;
+
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface UpcomingFlightsTableViewController : UITableViewController
+@interface UpcomingFlightsTableViewController : CoreDataTableViewController
 
 @end

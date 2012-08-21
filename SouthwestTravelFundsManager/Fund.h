@@ -2,7 +2,7 @@
 //  Fund.h
 //  SouthwestTravelFundsManager
 //
-//  Created by Colin Regan on 8/19/12.
+//  Created by Colin Regan on 8/21/12.
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
@@ -14,8 +14,9 @@
 @interface Fund : NSManagedObject
 
 @property (nonatomic, retain) NSDecimalNumber * balance;
-@property (nonatomic, retain) NSNumber * unusedTicket;
 @property (nonatomic, retain) NSDate * expirationDate;
+@property (nonatomic, retain) NSString * notes;
+@property (nonatomic, retain) NSNumber * unusedTicket;
 @property (nonatomic, retain) NSSet *flightsAppliedTo;
 @property (nonatomic, retain) Flight *originalFlight;
 @end

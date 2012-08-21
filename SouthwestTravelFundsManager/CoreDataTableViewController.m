@@ -9,6 +9,12 @@
 
 @interface CoreDataTableViewController()
 @property (nonatomic) BOOL beganUpdates;
+
+
+// ADDITIONAL CODE
+- (void)useDocument;
+- (void)addTestDataIntoDocument:(UIManagedDocument *)document;
+
 @end
 
 @implementation CoreDataTableViewController
@@ -19,6 +25,10 @@
 @synthesize suspendAutomaticTrackingOfChangesInManagedObjectContext = _suspendAutomaticTrackingOfChangesInManagedObjectContext;
 @synthesize debug = _debug;
 @synthesize beganUpdates = _beganUpdates;
+
+// ADDITIONAL CODE
+@synthesize database = _database;
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -169,6 +179,55 @@
         [self performSelector:@selector(endSuspensionOfUpdatesDueToContextChanges) withObject:0 afterDelay:0];
     }
 }
+
+
+
+
+
+
+
+
+
+
+// ADDITIONAL CODE
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!self.database) {
+        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        url = [url URLByAppendingPathComponent:@"default_database"];
+        self.database = [[UIManagedDocument alloc] initWithFileURL:url];
+    }
+}
+
+- (void)setDatabase:(UIManagedDocument *)database {
+    if (database != _database) {
+        _database = database;
+        [self useDocument];
+    }
+}
+
+- (void)useDocument {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self.database.fileURL path]]) {
+        // Create database
+        [self.database saveToURL:self.database.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+            [self setupFetchedResultsController];
+            [self addTestDataIntoDocument:self.database];
+        }];
+    } else if (self.database.documentState == UIDocumentStateClosed) {
+        [self.database openWithCompletionHandler:^(BOOL success) {
+            [self setupFetchedResultsController];
+        }];
+    } else if (self.database.documentState == UIDocumentStateNormal) {
+        [self setupFetchedResultsController];
+    }
+}
+
+- (void)addTestDataIntoDocument:(UIManagedDocument *)document {
+    
+}
+
+- (void)setupFetchedResultsController {}
 
 @end
 
