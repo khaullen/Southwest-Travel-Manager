@@ -14,6 +14,12 @@
 
 @implementation NewFlightTableViewController
 
+- (IBAction)donePressed:(UIBarButtonItem *)sender {
+}
+
+- (IBAction)cancelPressed:(UIBarButtonItem *)sender {
+    [self.presentingViewController dismissModalViewControllerAnimated:TRUE];
+}
 
 
 @end

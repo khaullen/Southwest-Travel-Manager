@@ -843,7 +843,18 @@
                             <outlet property="delegate" destination="l48-Fp-vvZ" id="XXb-5L-0Cx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Flight" id="adA-kv-BsZ"/>
+                    <navigationItem key="navigationItem" title="New Flight" id="adA-kv-BsZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="q0x-2I-gR5">
+                            <connections>
+                                <action selector="cancelPressed:" destination="l48-Fp-vvZ" id="nkc-M9-hCc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="mep-dF-P99">
+                            <connections>
+                                <action selector="donePressed:" destination="l48-Fp-vvZ" id="6gS-tV-Pwf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="checkInReminderSwitch" destination="Yxg-4T-mzt" id="7IM-ka-ZvI"/>
                         <outlet property="confirmTextField" destination="CBP-NL-LSO" id="3um-l2-krW"/>
@@ -902,7 +913,7 @@
         <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
         </class>
-        <class className="UpcomingFlightsTableViewController" superclassName="UITableViewController">
+        <class className="UpcomingFlightsTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingFlightsTableViewController.h"/>
         </class>
     </classes>
