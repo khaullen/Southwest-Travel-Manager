@@ -10,7 +10,7 @@
 
 @interface NewFlightTableViewController ()
 
-- (NSDictionary *)gatherDataFromTextFields;
+- (NSDictionary *)gatherData;
 
 @end
 
@@ -24,16 +24,19 @@
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
-    //[self.delegate newFlightTableViewController:self didEnterFlightInformation:[self gatherDataFromTextFields]];
+    //[self.delegate newFlightTableViewController:self didEnterFlightInformation:[self gatherData]];
 }
 
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender {
     [self.presentingViewController dismissModalViewControllerAnimated:TRUE];
 }
 
-- (NSDictionary *)gatherDataFromTextFields {
-    NSArray *objects = [NSArray arrayWithObjects:[self.flightTextField.text substringToIndex:3], [self.flightTextField.text substringFromIndex:4], self.confirmTextField.text, [[self.costTextField.text substringFromIndex:1] doubleValue], self.expirationTextField.text, [NSNumber numberWithBool:self.roundtripSwitch.on], self.outboundTextField.text, self.returnTextField.text, [NSNumber numberWithBool:self.checkInReminderSwitch.on], self.notesTextField.text, nil];
-    NSArray *keys = [NSArray arrayWithObjects:@"origin", @"destination", @"confirmationCode", @"cost", @"travelFund.expirationDate", @"roundtrip", @"outboundDepartureDate", @"returnDepartureDate", @"checkInReminder", @"notes", nil];
+- (NSDictionary *)gatherData {
+    NSArray *objects = [NSArray arrayWithObjects:self.origin, self.destination, self.confirmationCode, self.cost, self.expirationDate, self.roundtrip, self.outboundDepartureDate, self.returnDepartureDate, self.checkInReminder, self.notes, [NSNumber numberWithBool:FALSE], nil];
+    NSArray *keys = [NSArray arrayWithObjects:@"origin", @"destination", @"confirmationCode", @"cost", @"travelFund.expirationDate", @"roundtrip", @"outboundDepartureDate", @"returnDepartureDate", @"checkInReminder", @"notes", @"used", nil];
+    
+    // Also add in passenger info from NSUserDefaults
+    
     NSDictionary *flightInfo = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
     
     

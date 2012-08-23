@@ -22,7 +22,8 @@
 
 - (NSArray *)allAirports {
     if (!_allAirports) {
-        _allAirports = [NSArray arrayWithObjects:@"ABQ", @"BUR", @"LAX", @"SFO", @"OAK", @"ONT", nil];
+        NSString *file = [[NSBundle mainBundle] pathForResource:@"airports" ofType:@"plist"];
+        _allAirports = [NSArray arrayWithContentsOfFile:file];
     }
     return _allAirports;
 }

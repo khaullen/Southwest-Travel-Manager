@@ -28,6 +28,7 @@
 		3B5E3BC215E4207F000D85E2 /* Fund.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BC115E4207F000D85E2 /* Fund.m */; };
 		3B5E3BC515E4207F000D85E2 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BC415E4207F000D85E2 /* Passenger.m */; };
 		3B5E3BC815E42080000D85E2 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BC715E42080000D85E2 /* Flight.m */; };
+		3B5E3BCE15E4BE6A000D85E2 /* airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3BCD15E4BE6A000D85E2 /* airports.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		3B5E3BC415E4207F000D85E2 /* Passenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Passenger.m; sourceTree = "<group>"; };
 		3B5E3BC615E42080000D85E2 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
 		3B5E3BC715E42080000D85E2 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		3B5E3BCD15E4BE6A000D85E2 /* airports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = airports.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
 				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
 				3B00779915DA565000A9FC1B /* SouthwestTravelFundsManager-Info.plist */,
+				3B5E3BCD15E4BE6A000D85E2 /* airports.plist */,
 				3B00779A15DA565000A9FC1B /* InfoPlist.strings */,
 				3B00779D15DA565000A9FC1B /* main.m */,
 				3B00779F15DA565000A9FC1B /* SouthwestTravelFundsManager-Prefix.pch */,
@@ -228,6 +231,7 @@
 				3B00779C15DA565000A9FC1B /* InfoPlist.strings in Resources */,
 				3B0077A815DA565000A9FC1B /* iPad.storyboard in Resources */,
 				3B5E3B7F15E3848D000D85E2 /* iPhone.storyboard in Resources */,
+				3B5E3BCE15E4BE6A000D85E2 /* airports.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
