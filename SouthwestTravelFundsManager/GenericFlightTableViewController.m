@@ -12,6 +12,8 @@
 
 - (void)updatePlaceholderText;
 - (void)setCustomInputViews;
+- (void)datePickerDidEndEditing:(UIDatePicker *)sender;
+- (void)switchDidEndEditing:(UISwitch *)sender;
 
 @end
 
@@ -38,6 +40,9 @@
 @synthesize returnDepartureDate = _returnDepartureDate;
 @synthesize checkInReminder = _checkInReminder;
 @synthesize notes = _notes;
+@synthesize expirationDatePicker = _expirationDatePicker;
+@synthesize outboundDatePicker = _outboundDatePicker;
+@synthesize returnDatePicker = _returnDatePicker;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -74,6 +79,35 @@
     return _airportPickerVC;
 }
 
+- (UIDatePicker *)expirationDatePicker {
+    if (!_expirationDatePicker) {
+        _expirationDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
+        _expirationDatePicker.datePickerMode = UIDatePickerModeDate;
+        [_expirationDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _expirationDatePicker;
+}
+
+- (UIDatePicker *)outboundDatePicker {
+    if (!_outboundDatePicker) {
+        _outboundDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
+        _outboundDatePicker.minuteInterval = 5;
+        _outboundDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:self.origin];
+        [_outboundDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _outboundDatePicker;
+}
+
+- (UIDatePicker *)returnDatePicker {
+    if (!_returnDatePicker) {
+        _returnDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
+        _returnDatePicker.minuteInterval = 5;
+        _returnDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:self.destination];
+        [_returnDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _returnDatePicker;
+}
+
 - (void)setOrigin:(NSString *)origin {
     _origin = origin;
     if (self.destination) self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", origin, self.destination];
@@ -96,13 +130,22 @@
 - (void)setCustomInputViews {
     self.flightTextField.inputView = self.airportPicker;
     self.costTextField.keyboardType = UIKeyboardTypeDecimalPad;
-    
-    // set up date pickers
+    self.expirationTextField.inputView = self.expirationDatePicker;
+    [self.roundtripSwitch addTarget:self action:@selector(switchDidEndEditing:) forControlEvents:UIControlEventValueChanged];
+    self.outboundTextField.inputView = self.outboundDatePicker;
+    self.returnTextField.inputView = self.returnDatePicker;
+    [self.checkInReminderSwitch addTarget:self action:@selector(switchDidEndEditing:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     // move first responder to next text field
-    if ([textField isEqual:self.confirmTextField]) [self.costTextField becomeFirstResponder];
+    if ([textField isEqual:self.confirmTextField]) {
+        if (!self.costTextField.text.length) {
+            [self.costTextField becomeFirstResponder];
+        } else {
+            [self.confirmTextField resignFirstResponder];
+        }
+    }
     return TRUE;
 }
 
@@ -134,6 +177,9 @@
     if ([textField isEqual:self.costTextField]) {
         // add currency symbol when empty
         if (!self.costTextField.text.length) self.costTextField.text = @"$";
+    } else if ([textField isEqual:self.returnTextField]) {
+        // update date to departure date
+        if (!self.returnTextField.text.length) [self.returnDatePicker setDate:self.outboundDatePicker.date animated:TRUE];
     }
 }
 
@@ -148,8 +194,39 @@
         self.cost = [NSNumber numberWithDouble:[numberValue doubleValue]];
         // TODO: use NSNumberFormatter to update text display
         NSLog(@"%@", self.cost);
-    } else if ([textField isEqual:self.expirationTextField]) {
-        
+    } else if ([textField isEqual:self.notesTextField]) {
+        self.notes = self.notesTextField.text;
+        NSLog(@"%@", self.notes);
+    }
+}
+
+- (void)datePickerDidEndEditing:(UIDatePicker *)sender {
+    // update corresponding property and update text field
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    if ([sender isEqual:self.expirationDatePicker]) {
+        self.expirationDate = self.expirationDatePicker.date;
+        [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+        self.expirationTextField.text = [dateFormatter stringFromDate:self.expirationDatePicker.date];        
+        NSLog(@"%@", self.expirationDate);
+    } else if ([sender isEqual:self.outboundDatePicker]) {
+        self.outboundDepartureDate = self.outboundDatePicker.date;
+        [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
+        self.outboundTextField.text = [dateFormatter stringFromDate:self.outboundDatePicker.date];
+        NSLog(@"%@", self.outboundDepartureDate);
+    } else if ([sender isEqual:self.returnDatePicker]) {
+        self.returnDepartureDate = self.returnDatePicker.date;
+        [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
+        self.returnTextField.text = [dateFormatter stringFromDate:self.returnDatePicker.date];
+        NSLog(@"%@", self.returnDepartureDate);
+    }
+}
+
+- (void)switchDidEndEditing:(UISwitch *)sender {
+    // update corresponding property
+    if ([sender isEqual:self.roundtripSwitch]) {
+        self.roundtrip = [NSNumber numberWithBool:self.roundtripSwitch.on];
+    } else if ([sender isEqual:self.checkInReminderSwitch]) {
+        self.checkInReminder = [NSNumber numberWithBool:self.checkInReminderSwitch.on];
     }
 }
 

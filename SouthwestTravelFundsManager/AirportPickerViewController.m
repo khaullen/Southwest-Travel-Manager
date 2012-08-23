@@ -46,6 +46,11 @@
     [self.delegate airportPickerViewController:self selectedOrigin:origin andDestination:destination];
 }
 
+- (NSTimeZone *)timeZoneForAirport:(NSString *)airport {
+    // TODO: implement this method
+    return [NSTimeZone defaultTimeZone];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
