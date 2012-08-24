@@ -7,9 +7,10 @@
 //
 
 #import "GenericFlightTableViewController.h"
+#import "Flight.h"
 
 @interface FlightDetailsTableViewController : GenericFlightTableViewController
 
-
+@property (nonatomic, strong) Flight *flight;
 
 @end

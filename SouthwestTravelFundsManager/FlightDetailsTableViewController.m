@@ -10,4 +10,11 @@
 
 @implementation FlightDetailsTableViewController
 
+@synthesize flight = _flight;
+
+- (void)setFlight:(Flight *)flight {
+    _flight = flight;
+    
+}
+
 @end

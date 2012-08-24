@@ -37,5 +37,3 @@
 #define DATE_TIME_FORMAT @"MM/dd/yyyy hh:mm a"
 
 @end
-
-// change model from flightData to actual Flight object
