@@ -19,7 +19,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"newFlight"]) {
-        NewFlightTableViewController *newFlight = segue.destinationViewController;
+        NewFlightTableViewController *newFlight = (NewFlightTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         newFlight.delegate = self;
     }
 }

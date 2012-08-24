@@ -21,22 +21,15 @@
 @property (weak, nonatomic) IBOutlet UISwitch *checkInReminderSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *notesTextField;
 
-@property (nonatomic, strong) NSString *origin;
-@property (nonatomic, strong) NSString *destination;
-@property (nonatomic, strong) NSString *confirmationCode;
-@property (nonatomic, strong) NSNumber *cost;
-@property (nonatomic, strong) NSDate *expirationDate;
-@property (nonatomic, strong) NSNumber *roundtrip;
-@property (nonatomic, strong) NSDate *outboundDepartureDate;
-@property (nonatomic, strong) NSDate *returnDepartureDate;
-@property (nonatomic, strong) NSNumber *checkInReminder;
-@property (nonatomic, strong) NSString *notes;
+@property (nonatomic, strong) NSMutableDictionary *flightData;
+@property (nonatomic, copy) NSDictionary *requiredFields;
 
 @property (strong, nonatomic) UIPickerView *airportPicker;
 @property (strong, nonatomic) AirportPickerViewController *airportPickerVC;
-
 @property (strong, nonatomic) UIDatePicker *expirationDatePicker;
 @property (strong, nonatomic) UIDatePicker *outboundDatePicker;
 @property (strong, nonatomic) UIDatePicker *returnDatePicker;
+
+- (BOOL)flightTableViewControllerHasIncompleteRequiredFields;
 
 @end

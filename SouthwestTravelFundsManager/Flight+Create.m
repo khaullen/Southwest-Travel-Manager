@@ -7,6 +7,7 @@
 //
 
 #import "Flight+Create.h"
+#import "Fund.h"
 
 @interface Flight (Private)
 
@@ -18,6 +19,7 @@
 @implementation Flight (Create)
 
 + (Flight *)flightWithDictionary:(NSDictionary *)flightInfo inManagedObjectContext:(NSManagedObjectContext *)context {
+    // check for duplicate flight in database
     Flight *flight = [self flight:flightInfo inDatabase:context];
     if (!flight) flight = [self createNewFlight:flightInfo inDatabase:context];
     return flight;
@@ -43,7 +45,16 @@
 
     // populate flight attributes
     
-    
+    newFlight.origin = [flightInfo objectForKey:@"origin"];
+    newFlight.destination = [flightInfo objectForKey:@"destination"];
+    newFlight.confirmationCode = [flightInfo objectForKey:@"confirmationCode"];
+    newFlight.cost = [flightInfo objectForKey:@"cost"];
+    newFlight.travelFund.expirationDate = [flightInfo objectForKey:@"expirationDate"];
+    newFlight.roundtrip = [flightInfo objectForKey:@"roundtrip"];
+    newFlight.outboundDepartureDate = [flightInfo objectForKey:@"outboundDepartureDate"];
+    newFlight.returnDepartureDate = [flightInfo objectForKey:@"returnDepartureDate"];
+    newFlight.checkInReminder = [flightInfo objectForKey:@"checkInReminder"];
+    newFlight.notes = [flightInfo objectForKey:@"notes"];
     
     return newFlight;
 }

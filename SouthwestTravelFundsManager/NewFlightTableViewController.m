@@ -10,8 +10,6 @@
 
 @interface NewFlightTableViewController ()
 
-- (NSDictionary *)gatherData;
-
 @end
 
 @implementation NewFlightTableViewController
@@ -24,23 +22,15 @@
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
-    //[self.delegate newFlightTableViewController:self didEnterFlightInformation:[self gatherData]];
+    NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
+    for (UITextField *field in textFields) {
+        if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
+    }
+    if (![self flightTableViewControllerHasIncompleteRequiredFields]) [self.delegate newFlightTableViewController:self didEnterFlightInformation:self.flightData];
 }
 
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender {
     [self.presentingViewController dismissModalViewControllerAnimated:TRUE];
-}
-
-- (NSDictionary *)gatherData {
-    NSArray *objects = [NSArray arrayWithObjects:self.origin, self.destination, self.confirmationCode, self.cost, self.expirationDate, self.roundtrip, self.outboundDepartureDate, self.returnDepartureDate, self.checkInReminder, self.notes, [NSNumber numberWithBool:FALSE], nil];
-    NSArray *keys = [NSArray arrayWithObjects:@"origin", @"destination", @"confirmationCode", @"cost", @"travelFund.expirationDate", @"roundtrip", @"outboundDepartureDate", @"returnDepartureDate", @"checkInReminder", @"notes", @"used", nil];
-    
-    // Also add in passenger info from NSUserDefaults
-    
-    NSDictionary *flightInfo = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-    
-    
-    return flightInfo;
 }
 
 

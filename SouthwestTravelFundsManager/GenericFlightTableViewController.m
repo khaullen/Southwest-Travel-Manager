@@ -14,6 +14,8 @@
 - (void)setCustomInputViews;
 - (void)datePickerDidEndEditing:(UIDatePicker *)sender;
 - (void)switchDidEndEditing:(UISwitch *)sender;
+- (void)selectAnimated:(NSSet *)incompleteFields;
+- (NSSet *)validateFields:(NSMutableSet *)enteredData;
 
 @end
 
@@ -28,18 +30,10 @@
 @synthesize returnTextField = _returnTextField;
 @synthesize checkInReminderSwitch = _checkInReminderSwitch;
 @synthesize notesTextField = _notesTextField;
+@synthesize flightData = _flightData;
+@synthesize requiredFields = _requiredFields;
 @synthesize airportPicker = _airportPicker;
 @synthesize airportPickerVC = _airportPickerVC;
-@synthesize origin = _origin;
-@synthesize destination = _destination;
-@synthesize confirmationCode = _confirmationCode;
-@synthesize cost = _cost;
-@synthesize expirationDate = _expirationDate;
-@synthesize roundtrip = _roundtrip;
-@synthesize outboundDepartureDate = _outboundDepartureDate;
-@synthesize returnDepartureDate = _returnDepartureDate;
-@synthesize checkInReminder = _checkInReminder;
-@synthesize notes = _notes;
 @synthesize expirationDatePicker = _expirationDatePicker;
 @synthesize outboundDatePicker = _outboundDatePicker;
 @synthesize returnDatePicker = _returnDatePicker;
@@ -59,6 +53,19 @@
     self.returnTextField.delegate = self;
     self.notesTextField.delegate = self;
     [self setCustomInputViews];
+}
+
+- (NSMutableDictionary *)flightData {
+    if (!_flightData) {
+        _flightData = [[NSMutableDictionary alloc] initWithCapacity:10];
+        [_flightData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:@"roundtrip"];
+        [_flightData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:@"checkInReminder"];
+    }
+    return _flightData;
+}
+
+- (NSDictionary *)requiredFields {
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], @"origin", [NSIndexPath indexPathForRow:0 inSection:0], @"destination", [NSIndexPath indexPathForRow:1 inSection:0], @"confirmationCode", [NSIndexPath indexPathForRow:2 inSection:0], @"cost", [NSIndexPath indexPathForRow:3 inSection:0], @"expirationDate", [NSIndexPath indexPathForRow:0 inSection:2], @"checkInReminder", [NSIndexPath indexPathForRow:0 inSection:1], @"roundtrip", [NSIndexPath indexPathForRow:1 inSection:1], @"outboundDepartureDate", self.roundtripSwitch.on ? [NSIndexPath indexPathForRow:2 inSection:1] : nil, @"returnDepartureDate", nil];
 }
 
 - (UIPickerView *)airportPicker {
@@ -92,7 +99,7 @@
     if (!_outboundDatePicker) {
         _outboundDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _outboundDatePicker.minuteInterval = 5;
-        _outboundDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:self.origin];
+        _outboundDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:[self.flightData valueForKey:@"origin"]];
         [_outboundDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
     }
     return _outboundDatePicker;
@@ -102,20 +109,10 @@
     if (!_returnDatePicker) {
         _returnDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _returnDatePicker.minuteInterval = 5;
-        _returnDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:self.destination];
+        _returnDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:[self.flightData valueForKey:@"destination"]];
         [_returnDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
     }
     return _returnDatePicker;
-}
-
-- (void)setOrigin:(NSString *)origin {
-    _origin = origin;
-    if (self.destination) self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", origin, self.destination];
-}
-
-- (void)setDestination:(NSString *)destination {
-    _destination = destination;
-    if (self.origin) self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", self.origin, destination];
 }
 
 - (void)updatePlaceholderText {
@@ -177,6 +174,11 @@
     if ([textField isEqual:self.costTextField]) {
         // add currency symbol when empty
         if (!self.costTextField.text.length) self.costTextField.text = @"$";
+    } else if ([textField isEqual:self.expirationTextField]) {
+        if (!self.expirationTextField.text.length) {
+            [self.expirationDatePicker setDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] animated:TRUE];
+            [self datePickerDidEndEditing:self.expirationDatePicker];
+        }
     } else if ([textField isEqual:self.returnTextField]) {
         // update date to departure date
         if (!self.returnTextField.text.length) [self.returnDatePicker setDate:self.outboundDatePicker.date animated:TRUE];
@@ -186,17 +188,14 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     // update corresponding property
     if ([textField isEqual:self.confirmTextField]) {
-        self.confirmationCode = self.confirmTextField.text;
-        NSLog(@"%@", self.confirmationCode);
+        [self.flightData setObject:self.confirmTextField.text forKey:@"confirmationCode"];
     } else if ([textField isEqual:self.costTextField]) {
         NSString *numberValue;
         if ([self.costTextField.text hasPrefix:@"$"]) numberValue = [self.costTextField.text substringFromIndex:1];
-        self.cost = [NSNumber numberWithDouble:[numberValue doubleValue]];
+        [self.flightData setObject:[NSNumber numberWithDouble:[numberValue doubleValue]] forKey:@"cost"];
         // TODO: use NSNumberFormatter to update text display
-        NSLog(@"%@", self.cost);
     } else if ([textField isEqual:self.notesTextField]) {
-        self.notes = self.notesTextField.text;
-        NSLog(@"%@", self.notes);
+        [self.flightData setObject:self.notesTextField.text forKey:@"notes"];
     }
 }
 
@@ -204,35 +203,65 @@
     // update corresponding property and update text field
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     if ([sender isEqual:self.expirationDatePicker]) {
-        self.expirationDate = self.expirationDatePicker.date;
+        [self.flightData setObject:self.expirationDatePicker.date forKey:@"expirationDate"];
         [dateFormatter setDateFormat:@"MM/dd/yyyy"];
         self.expirationTextField.text = [dateFormatter stringFromDate:self.expirationDatePicker.date];        
-        NSLog(@"%@", self.expirationDate);
     } else if ([sender isEqual:self.outboundDatePicker]) {
-        self.outboundDepartureDate = self.outboundDatePicker.date;
+        [self.flightData setObject:self.outboundDatePicker.date forKey:@"outboundDepartureDate"];
         [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
         self.outboundTextField.text = [dateFormatter stringFromDate:self.outboundDatePicker.date];
-        NSLog(@"%@", self.outboundDepartureDate);
     } else if ([sender isEqual:self.returnDatePicker]) {
-        self.returnDepartureDate = self.returnDatePicker.date;
+        [self.flightData setObject:self.returnDatePicker.date forKey:@"returnDepartureDate"];
         [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
         self.returnTextField.text = [dateFormatter stringFromDate:self.returnDatePicker.date];
-        NSLog(@"%@", self.returnDepartureDate);
     }
 }
 
 - (void)switchDidEndEditing:(UISwitch *)sender {
     // update corresponding property
     if ([sender isEqual:self.roundtripSwitch]) {
-        self.roundtrip = [NSNumber numberWithBool:self.roundtripSwitch.on];
+        [self.flightData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:@"roundtrip"];
     } else if ([sender isEqual:self.checkInReminderSwitch]) {
-        self.checkInReminder = [NSNumber numberWithBool:self.checkInReminderSwitch.on];
+        [self.flightData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:@"checkInReminder"];
     }
 }
 
 - (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSString *)origin andDestination:(NSString *)destination {
-    self.origin = origin;
-    self.destination = destination;
+    self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", origin, destination];
+    [self.flightData setObject:origin forKey:@"origin"];
+    [self.flightData setObject:destination forKey:@"destination"];
+}
+
+- (BOOL)flightTableViewControllerHasIncompleteRequiredFields {
+    NSSet *completedFields = [self validateFields:[NSMutableSet setWithArray:[self.flightData allKeys]]];
+    NSMutableSet *incompleteRequiredFields = [NSMutableSet setWithArray:[self.requiredFields allKeys]];
+    [incompleteRequiredFields minusSet:completedFields];
+    [self selectAnimated:incompleteRequiredFields];
+    return incompleteRequiredFields.count;
+}
+
+- (NSSet *)validateFields:(NSMutableSet *)enteredData {
+    NSMutableSet *invalid = [[NSMutableSet alloc] initWithCapacity:8];
+    for (NSString *field in enteredData) {
+        if ([field isEqualToString:@"confirmationCode"]) {
+            if ([(NSString *)[self.flightData objectForKey:field] length] != 6) [invalid addObject:field];
+        } else if ([field isEqualToString:@"cost"]) {
+            if ([(NSNumber *)[self.flightData objectForKey:field] doubleValue] == 0) [invalid addObject:field];
+        } else if ([field isEqualToString:@"returnDepartureDate"]) {
+            if ([(NSDate *)[self.flightData objectForKey:field] compare:[self.flightData objectForKey:@"outboundDepartureDate"]] == NSOrderedAscending) [invalid addObject:field];
+        }
+    }
+    [enteredData minusSet:invalid];
+    return enteredData;
+}
+
+- (void)selectAnimated:(NSSet *)incompleteFields {
+    for (NSString *field in incompleteFields) {
+        NSIndexPath *indexPath = [self.requiredFields objectForKey:field];
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [cell setSelected:TRUE];
+        [cell setSelected:FALSE animated:TRUE];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
