@@ -29,6 +29,7 @@
 		3B5E3BC515E4207F000D85E2 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BC415E4207F000D85E2 /* Passenger.m */; };
 		3B5E3BC815E42080000D85E2 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BC715E42080000D85E2 /* Flight.m */; };
 		3B5E3BCE15E4BE6A000D85E2 /* airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3BCD15E4BE6A000D85E2 /* airports.plist */; };
+		3B5E3BD815E78005000D85E2 /* FlightDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		3B5E3BC615E42080000D85E2 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
 		3B5E3BC715E42080000D85E2 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
 		3B5E3BCD15E4BE6A000D85E2 /* airports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = airports.plist; sourceTree = "<group>"; };
+		3B5E3BD615E78005000D85E2 /* FlightDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsTableViewController.h; sourceTree = "<group>"; };
+		3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +172,8 @@
 				3B5E3B9615E385AA000D85E2 /* UpcomingFlightsTableViewController.m */,
 				3B5E3B8015E384B4000D85E2 /* GenericFlightTableViewController.h */,
 				3B5E3B8115E384B4000D85E2 /* GenericFlightTableViewController.m */,
+				3B5E3BD615E78005000D85E2 /* FlightDetailsTableViewController.h */,
+				3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */,
 				3B5E3B8E15E38541000D85E2 /* NewFlightTableViewController.h */,
 				3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */,
 				3B5E3BBD15E3B81B000D85E2 /* AirportPickerViewController.h */,
@@ -256,6 +261,7 @@
 				3B5E3BC215E4207F000D85E2 /* Fund.m in Sources */,
 				3B5E3BC515E4207F000D85E2 /* Passenger.m in Sources */,
 				3B5E3BC815E42080000D85E2 /* Flight.m in Sources */,
+				3B5E3BD815E78005000D85E2 /* FlightDetailsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

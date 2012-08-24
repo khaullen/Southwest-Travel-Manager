@@ -10,7 +10,6 @@
 
 @interface GenericFlightTableViewController ()
 
-- (void)updatePlaceholderText;
 - (void)setCustomInputViews;
 - (void)datePickerDidEndEditing:(UIDatePicker *)sender;
 - (void)switchDidEndEditing:(UISwitch *)sender;
@@ -40,7 +39,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self updatePlaceholderText];
 }
 
 - (void)viewDidLoad {
@@ -62,6 +60,10 @@
         [_flightData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:@"checkInReminder"];
     }
     return _flightData;
+}
+
+- (void)setFlightData:(NSMutableDictionary *)flightData {
+    // TODO: complete implementation
 }
 
 - (NSDictionary *)requiredFields {
@@ -113,15 +115,6 @@
         [_returnDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
     }
     return _returnDatePicker;
-}
-
-- (void)updatePlaceholderText {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-    self.expirationTextField.placeholder = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)]];
-    [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
-    self.outboundTextField.placeholder = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*31)]];
-    self.returnTextField.placeholder = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*36)]];
 }
 
 - (void)setCustomInputViews {
@@ -192,6 +185,7 @@
     } else if ([textField isEqual:self.costTextField]) {
         NSString *numberValue;
         if ([self.costTextField.text hasPrefix:@"$"]) numberValue = [self.costTextField.text substringFromIndex:1];
+        if (![numberValue doubleValue] && ![self.costTextField isFirstResponder]) self.costTextField.text = @"";
         [self.flightData setObject:[NSNumber numberWithDouble:[numberValue doubleValue]] forKey:@"cost"];
         // TODO: use NSNumberFormatter to update text display
     } else if ([textField isEqual:self.notesTextField]) {
@@ -201,19 +195,15 @@
 
 - (void)datePickerDidEndEditing:(UIDatePicker *)sender {
     // update corresponding property and update text field
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     if ([sender isEqual:self.expirationDatePicker]) {
         [self.flightData setObject:self.expirationDatePicker.date forKey:@"expirationDate"];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-        self.expirationTextField.text = [dateFormatter stringFromDate:self.expirationDatePicker.date];        
+        self.expirationTextField.text = [self stringForDate:self.expirationDatePicker.date withFormat:DATE_FORMAT];
     } else if ([sender isEqual:self.outboundDatePicker]) {
         [self.flightData setObject:self.outboundDatePicker.date forKey:@"outboundDepartureDate"];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
-        self.outboundTextField.text = [dateFormatter stringFromDate:self.outboundDatePicker.date];
+        self.outboundTextField.text = [self stringForDate:self.outboundDatePicker.date withFormat:DATE_TIME_FORMAT];
     } else if ([sender isEqual:self.returnDatePicker]) {
         [self.flightData setObject:self.returnDatePicker.date forKey:@"returnDepartureDate"];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy hh:mm a"];
-        self.returnTextField.text = [dateFormatter stringFromDate:self.returnDatePicker.date];
+        self.returnTextField.text = [self stringForDate:self.returnDatePicker.date withFormat:DATE_TIME_FORMAT];
     }
 }
 
@@ -256,12 +246,21 @@
 }
 
 - (void)selectAnimated:(NSSet *)incompleteFields {
+    NSIndexPath *topIndex = [NSIndexPath indexPathForRow:0 inSection:3];
     for (NSString *field in incompleteFields) {
         NSIndexPath *indexPath = [self.requiredFields objectForKey:field];
+        if ([indexPath compare:topIndex] == NSOrderedAscending) topIndex = indexPath;
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
         [cell setSelected:TRUE];
         [cell setSelected:FALSE animated:TRUE];
     }
+    [self.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+}
+
+- (NSString *)stringForDate:(NSDate *)date withFormat:(NSString *)format {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:format];
+    return [dateFormatter stringFromDate:date];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

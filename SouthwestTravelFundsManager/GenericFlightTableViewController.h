@@ -31,5 +31,11 @@
 @property (strong, nonatomic) UIDatePicker *returnDatePicker;
 
 - (BOOL)flightTableViewControllerHasIncompleteRequiredFields;
+- (NSString *)stringForDate:(NSDate *)date withFormat:(NSString *)format;
+
+#define DATE_FORMAT @"MM/dd/yyyy"
+#define DATE_TIME_FORMAT @"MM/dd/yyyy hh:mm a"
 
 @end
+
+// change model from flightData to actual Flight object

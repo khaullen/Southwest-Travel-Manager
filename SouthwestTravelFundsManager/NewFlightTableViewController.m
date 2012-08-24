@@ -10,6 +10,8 @@
 
 @interface NewFlightTableViewController ()
 
+- (void)updatePlaceholderText;
+
 @end
 
 @implementation NewFlightTableViewController
@@ -18,8 +20,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self updatePlaceholderText];
     [self.flightTextField becomeFirstResponder];
 }
+
+- (void)updatePlaceholderText {
+    self.expirationTextField.placeholder = [self stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] withFormat:DATE_FORMAT];
+    self.outboundTextField.placeholder = [self stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*31)] withFormat:DATE_TIME_FORMAT];
+    self.returnTextField.placeholder = [self stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*36)] withFormat:DATE_TIME_FORMAT];
+    }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
     NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
