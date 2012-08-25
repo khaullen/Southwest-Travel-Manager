@@ -236,7 +236,7 @@
                     <navigationItem key="navigationItem" title="Upcoming Flights" id="Ul3-68-hoJ">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zhk-LW-GNx">
                             <connections>
-                                <segue destination="1QL-Zb-GpJ" kind="modal" identifier="newFlight" id="CpS-Ee-Kna"/>
+                                <segue destination="1QL-Zb-GpJ" kind="modal" identifier="segueToNewFlight" id="CpS-Ee-Kna"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -7,7 +7,7 @@
 //
 
 #import "Flight+Create.h"
-#import "Fund.h"
+#import "Fund+Create.h"
 
 @interface Flight (Private)
 
@@ -27,8 +27,8 @@
 
 + (Flight *)flight:(NSDictionary *)flightInfo inDatabase:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
-    request.predicate = [NSPredicate predicateWithFormat:@"ticketNumber = %@", [flightInfo objectForKey:@"ticketNumber"]];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"ticketNumber" ascending:TRUE]];
+    request.predicate = [NSPredicate predicateWithFormat:@"ticketNumber = %@", [flightInfo objectForKey:TICKET_NUMBER]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:TICKET_NUMBER ascending:TRUE]];
 
     NSError *error;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -45,16 +45,16 @@
 
     // populate flight attributes
     
-    newFlight.origin = [flightInfo objectForKey:@"origin"];
-    newFlight.destination = [flightInfo objectForKey:@"destination"];
-    newFlight.confirmationCode = [flightInfo objectForKey:@"confirmationCode"];
-    newFlight.cost = [flightInfo objectForKey:@"cost"];
-    newFlight.travelFund.expirationDate = [flightInfo objectForKey:@"expirationDate"];
-    newFlight.roundtrip = [flightInfo objectForKey:@"roundtrip"];
-    newFlight.outboundDepartureDate = [flightInfo objectForKey:@"outboundDepartureDate"];
-    newFlight.returnDepartureDate = [flightInfo objectForKey:@"returnDepartureDate"];
-    newFlight.checkInReminder = [flightInfo objectForKey:@"checkInReminder"];
-    newFlight.notes = [flightInfo objectForKey:@"notes"];
+    newFlight.origin = [flightInfo objectForKey:ORIGIN];
+    newFlight.destination = [flightInfo objectForKey:DESTINATION];
+    newFlight.confirmationCode = [flightInfo objectForKey:CONFIRMATION_CODE];
+    newFlight.cost = [flightInfo objectForKey:COST];
+    newFlight.travelFund = [Fund fundWithExpirationDate:[flightInfo objectForKey:EXPIRATION_DATE] inManagedObjectContext:context];
+    newFlight.roundtrip = [flightInfo objectForKey:ROUNDTRIP];
+    newFlight.outboundDepartureDate = [flightInfo objectForKey:OUTBOUND_DEPARTURE_DATE];
+    newFlight.returnDepartureDate = [flightInfo objectForKey:RETURN_DEPARTURE_DATE];
+    newFlight.checkInReminder = [flightInfo objectForKey:CHECK_IN_REMINDER];
+    newFlight.notes = [flightInfo objectForKey:FLIGHT_NOTES];
     
     return newFlight;
 }

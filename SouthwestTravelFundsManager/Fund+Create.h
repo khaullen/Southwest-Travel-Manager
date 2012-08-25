@@ -12,6 +12,8 @@
 
 + (Fund *)fundWithDictionary:(NSDictionary *)fundInfo inManagedObjectContext:(NSManagedObjectContext *)context;
 
++ (Fund *)fundWithExpirationDate:(NSDate *)expirationDate inManagedObjectContext:(NSManagedObjectContext *)context;
+
 #define BALANCE @"balance"
 #define EXPIRATION_DATE @"expirationDate"
 #define FUND_NOTES @"notes"

@@ -24,6 +24,12 @@
     return fund;
 }
 
++ (Fund *)fundWithExpirationDate:(NSDate *)expirationDate inManagedObjectContext:(NSManagedObjectContext *)context {
+    Fund *newFund = [NSEntityDescription insertNewObjectForEntityForName:@"Fund" inManagedObjectContext:context];
+    newFund.expirationDate = expirationDate;
+    return newFund;
+}
+
 + (Fund *)fund:(NSDictionary *)fundInfo inDatabase:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Fund"];
     request.predicate = [NSPredicate predicateWithFormat:@"originalFlight.ticketNumber = %@", [fundInfo valueForKeyPath:@"originalFlight.ticketNumber"]];
@@ -48,4 +54,5 @@
     
     return newFund;
 }
+
 @end

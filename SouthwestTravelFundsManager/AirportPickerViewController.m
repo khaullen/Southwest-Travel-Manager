@@ -51,6 +51,12 @@
     return [NSTimeZone defaultTimeZone];
 }
 
+- (void)setSelectedOrigin:(NSString *)origin andDestination:(NSString *)destination {
+    [self.airportPicker selectRow:[self.allAirports indexOfObject:origin] inComponent:0 animated:FALSE];
+    [self.airportPicker selectRow:[self.allAirports indexOfObject:destination] inComponent:1 animated:FALSE];
+    [self.delegate airportPickerViewController:self selectedOrigin:origin andDestination:destination];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

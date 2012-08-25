@@ -10,6 +10,7 @@
 #import "Flight+Create.h"
 #import "Fund.h"
 #import "NewFlightTableViewController.h"
+#import "FlightDetailsTableViewController.h"
 
 @interface UpcomingFlightsTableViewController () <NewFlightDelegate>
 
@@ -18,9 +19,13 @@
 @implementation UpcomingFlightsTableViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"newFlight"]) {
+    if ([segue.identifier isEqualToString:@"segueToNewFlight"]) {
         NewFlightTableViewController *newFlight = (NewFlightTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         newFlight.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"segueToDetail"]) {
+        FlightDetailsTableViewController *flightDetails = (FlightDetailsTableViewController *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        flightDetails.flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
     }
 }
 

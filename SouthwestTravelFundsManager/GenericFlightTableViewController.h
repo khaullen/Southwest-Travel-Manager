@@ -32,6 +32,7 @@
 
 - (BOOL)flightTableViewControllerHasIncompleteRequiredFields;
 - (NSString *)stringForDate:(NSDate *)date withFormat:(NSString *)format;
+- (NSString *)stringForCost:(NSNumber *)cost;
 
 #define DATE_FORMAT @"MM/dd/yyyy"
 #define DATE_TIME_FORMAT @"MM/dd/yyyy hh:mm a"

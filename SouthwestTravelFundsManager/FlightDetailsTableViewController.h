@@ -7,10 +7,15 @@
 //
 
 #import "GenericFlightTableViewController.h"
-#import "Flight.h"
+#import "Flight+Create.h"
+#import "Fund+Create.h"
 
 @interface FlightDetailsTableViewController : GenericFlightTableViewController
 
 @property (nonatomic, strong) Flight *flight;
 
 @end
+
+// Add editing capability
+
+// Add field validation on pressing back button

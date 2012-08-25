@@ -22,5 +22,6 @@
 @property (nonatomic, weak) id <AirportPickerViewControllerDelegate> delegate;
 
 - (NSTimeZone *)timeZoneForAirport:(NSString *)airport;
+- (void)setSelectedOrigin:(NSString *)origin andDestination:(NSString *)destination;
 
 @end
