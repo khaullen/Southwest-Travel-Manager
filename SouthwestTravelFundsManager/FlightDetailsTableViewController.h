@@ -9,6 +9,7 @@
 #import "GenericFlightTableViewController.h"
 #import "Flight+Create.h"
 #import "Fund+Create.h"
+#import "Airport+Create.h"
 
 @interface FlightDetailsTableViewController : GenericFlightTableViewController
 

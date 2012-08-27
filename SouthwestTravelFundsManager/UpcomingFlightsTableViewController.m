@@ -9,6 +9,7 @@
 #import "UpcomingFlightsTableViewController.h"
 #import "Flight+Create.h"
 #import "Fund.h"
+#import "Airport.h"
 #import "NewFlightTableViewController.h"
 #import "FlightDetailsTableViewController.h"
 
@@ -49,8 +50,8 @@
     
     // Configure the cell...
     Flight *flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@ (%@)", flight.origin, flight.destination, flight.outboundDepartureDate];
-    cell.detailTextLabel.text = flight.confirmationCode;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@ - %@, %@", flight.origin.city, flight.origin.state, flight.destination.city, flight.destination.state];
+    cell.detailTextLabel.text = [flight.outboundDepartureDate description];
     return cell;
 }
 

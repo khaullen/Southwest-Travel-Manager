@@ -67,8 +67,8 @@
 }
 
 - (void)setDataInFields {
-    NSString *aOrigin = [self.flightData objectForKey:ORIGIN];
-    NSString *aDestination = [self.flightData objectForKey:DESTINATION];
+    NSDictionary *aOrigin = [self.flightData objectForKey:ORIGIN];
+    NSDictionary *aDestination = [self.flightData objectForKey:DESTINATION];
     if (aOrigin && aDestination) [self.airportPickerVC setSelectedOrigin:aOrigin andDestination:aDestination];
     NSString *aConfirmationCode = [self.flightData objectForKey:CONFIRMATION_CODE];
     if (aConfirmationCode) self.confirmTextField.text = aConfirmationCode;
@@ -252,8 +252,8 @@
     }
 }
 
-- (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSString *)origin andDestination:(NSString *)destination {
-    self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", origin, destination];
+- (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination {
+    self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", [origin objectForKey:AIRPORT_CODE], [destination objectForKey:AIRPORT_CODE]];
     [self.flightData setObject:origin forKey:ORIGIN];
     [self.flightData setObject:destination forKey:DESTINATION];
 }
@@ -270,7 +270,7 @@
     NSMutableSet *invalid = [[NSMutableSet alloc] initWithCapacity:8];
     for (NSString *field in enteredData) {
         if ([field isEqualToString:DESTINATION]) {
-            if ([(NSString *)[self.flightData objectForKey:field] isEqualToString:[self.flightData objectForKey:ORIGIN]]) [invalid addObject:field];
+            if ([[self.flightData objectForKey:field] isEqualToDictionary:[self.flightData objectForKey:ORIGIN]]) [invalid addObject:field];
         } else if ([field isEqualToString:CONFIRMATION_CODE]) {
             if ([(NSString *)[self.flightData objectForKey:field] length] != 6) [invalid addObject:field];
         } else if ([field isEqualToString:COST]) {

@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#define AIRPORT_CODE @"airportCode"
+
 @class AirportPickerViewController;
 
 @protocol AirportPickerViewControllerDelegate <NSObject>
 
-- (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSString *)origin andDestination:(NSString *)destination;
+- (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination;
 
 @end
 
@@ -22,6 +24,6 @@
 @property (nonatomic, weak) id <AirportPickerViewControllerDelegate> delegate;
 
 - (NSTimeZone *)timeZoneForAirport:(NSString *)airport;
-- (void)setSelectedOrigin:(NSString *)origin andDestination:(NSString *)destination;
+- (void)setSelectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination;
 
 @end

@@ -15,8 +15,8 @@
 - (void)setFlight:(Flight *)flight {
     _flight = flight;
     NSMutableDictionary *flightDetails = [NSMutableDictionary dictionaryWithCapacity:10];
-    if (flight.origin) [flightDetails setObject:flight.origin forKey:ORIGIN];
-    if (flight.destination) [flightDetails setObject:flight.destination forKey:DESTINATION];
+    if (flight.origin) [flightDetails setObject:[NSDictionary dictionaryWithObjectsAndKeys:flight.origin.airportCode, AIRPORT_CODE, flight.origin.city, CITY, flight.origin.state, STATE, nil] forKey:ORIGIN];
+    if (flight.destination) [flightDetails setObject:[NSDictionary dictionaryWithObjectsAndKeys:flight.destination.airportCode, AIRPORT_CODE, flight.destination.city, CITY, flight.destination.state, STATE, nil] forKey:DESTINATION];
     if (flight.confirmationCode) [flightDetails setObject:flight.confirmationCode forKey:CONFIRMATION_CODE];
     if (flight.cost) [flightDetails setObject:flight.cost forKey:COST];
     if (flight.travelFund.expirationDate) [flightDetails setObject:flight.travelFund.expirationDate forKey:EXPIRATION_DATE];

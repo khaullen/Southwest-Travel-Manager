@@ -8,6 +8,7 @@
 
 #import "Flight+Create.h"
 #import "Fund+Create.h"
+#import "Airport+Create.h"
 
 @interface Flight (Private)
 
@@ -45,8 +46,8 @@
 
     // populate flight attributes
     
-    newFlight.origin = [flightInfo objectForKey:ORIGIN];
-    newFlight.destination = [flightInfo objectForKey:DESTINATION];
+    newFlight.origin = [Airport airportWithDictionary:[flightInfo objectForKey:ORIGIN] inManagedObjectContext:context];
+    newFlight.destination = [Airport airportWithDictionary:[flightInfo objectForKey:DESTINATION] inManagedObjectContext:context];
     newFlight.confirmationCode = [flightInfo objectForKey:CONFIRMATION_CODE];
     newFlight.cost = [flightInfo objectForKey:COST];
     newFlight.travelFund = [Fund fundWithExpirationDate:[flightInfo objectForKey:EXPIRATION_DATE] inManagedObjectContext:context];

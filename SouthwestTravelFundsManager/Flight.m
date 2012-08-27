@@ -2,11 +2,12 @@
 //  Flight.m
 //  SouthwestTravelFundsManager
 //
-//  Created by Colin Regan on 8/21/12.
+//  Created by Colin Regan on 8/27/12.
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
 #import "Flight.h"
+#import "Airport.h"
 #import "Fund.h"
 #import "Passenger.h"
 
@@ -18,10 +19,8 @@
 @dynamic checkInReminder;
 @dynamic confirmationCode;
 @dynamic cost;
-@dynamic destination;
 @dynamic fareType;
 @dynamic notes;
-@dynamic origin;
 @dynamic outboundArrivalDate;
 @dynamic outboundDepartureDate;
 @dynamic outboundFlightNumber;
@@ -35,5 +34,7 @@
 @dynamic passenger;
 @dynamic travelFund;
 @dynamic fundsUsed;
+@dynamic origin;
+@dynamic destination;
 
 @end
