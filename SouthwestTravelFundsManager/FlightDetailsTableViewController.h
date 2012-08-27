@@ -17,6 +17,10 @@
 
 @end
 
-// Add editing capability
+// TODO: Add editing capability
 
-// Add field validation on pressing back button
+// TODO: Add field validation on pressing back button
+
+// TODO: add cancel flight button
+
+// TODO: think about adding rebook flight button

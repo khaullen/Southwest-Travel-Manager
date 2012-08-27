@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
+#import "DateAndCurrencyFormatter.h"
 
 @interface UpcomingFlightsTableViewController : CoreDataTableViewController
+
+@property (nonatomic, strong) DateAndCurrencyFormatter *formatter;
 
 @end

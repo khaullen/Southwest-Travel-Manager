@@ -32,6 +32,7 @@
 		3B5E3BF715EBEAAF000D85E2 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BF615EBEAAF000D85E2 /* Flight.m */; };
 		3B5E3BFA15EBEAB0000D85E2 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BF915EBEAB0000D85E2 /* Passenger.m */; };
 		3B5E3BFD15EBEAB1000D85E2 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BFC15EBEAB0000D85E2 /* Airport.m */; };
+		3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,8 @@
 		3B5E3BF915EBEAB0000D85E2 /* Passenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Passenger.m; sourceTree = "<group>"; };
 		3B5E3BFB15EBEAB0000D85E2 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
 		3B5E3BFC15EBEAB0000D85E2 /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndCurrencyFormatter.h; sourceTree = "<group>"; };
+		3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndCurrencyFormatter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,8 @@
 				3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */,
 				3B5E3BBD15E3B81B000D85E2 /* AirportPickerViewController.h */,
 				3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */,
+				3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */,
+				3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				3B5E3BF715EBEAAF000D85E2 /* Flight.m in Sources */,
 				3B5E3BFA15EBEAB0000D85E2 /* Passenger.m in Sources */,
 				3B5E3BFD15EBEAB1000D85E2 /* Airport.m in Sources */,
+				3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

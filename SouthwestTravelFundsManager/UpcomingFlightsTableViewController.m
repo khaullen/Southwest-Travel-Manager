@@ -19,14 +19,23 @@
 
 @implementation UpcomingFlightsTableViewController
 
+@synthesize formatter = _formatter;
+
+- (DateAndCurrencyFormatter *)formatter {
+    if (!_formatter) _formatter = [[DateAndCurrencyFormatter alloc] init];
+    return _formatter;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToNewFlight"]) {
         NewFlightTableViewController *newFlight = (NewFlightTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         newFlight.delegate = self;
+        newFlight.formatter = self.formatter;
     } else if ([segue.identifier isEqualToString:@"segueToDetail"]) {
         FlightDetailsTableViewController *flightDetails = (FlightDetailsTableViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         flightDetails.flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        flightDetails.formatter = self.formatter;
     }
 }
 
@@ -51,7 +60,7 @@
     // Configure the cell...
     Flight *flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@ - %@, %@", flight.origin.city, flight.origin.state, flight.destination.city, flight.destination.state];
-    cell.detailTextLabel.text = [[FlightDetailsTableViewController class] stringForDate:flight.outboundDepartureDate withFormat:DAY_DATE_TIME_FORMAT inTimeZone:[NSTimeZone timeZoneWithName:flight.origin.timeZone]];
+    cell.detailTextLabel.text = [self.formatter stringForDate:flight.outboundDepartureDate withFormat:DAY_DATE_TIME_FORMAT inTimeZone:[NSTimeZone timeZoneWithName:flight.origin.timeZone]];
     return cell;
 }
 
