@@ -17,8 +17,8 @@
 @property (nonatomic, retain) NSDate * expirationDate;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSNumber * unusedTicket;
-@property (nonatomic, retain) Flight *originalFlight;
 @property (nonatomic, retain) NSSet *flightsAppliedTo;
+@property (nonatomic, retain) Flight *originalFlight;
 @end
 
 @interface Fund (CoreDataGeneratedAccessors)

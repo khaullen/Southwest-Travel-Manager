@@ -29,12 +29,11 @@
 @property (nonatomic, retain) NSNumber * returnFlightNumber;
 @property (nonatomic, retain) NSNumber * roundtrip;
 @property (nonatomic, retain) NSNumber * ticketNumber;
-@property (nonatomic, retain) NSNumber * used;
-@property (nonatomic, retain) Passenger *passenger;
-@property (nonatomic, retain) Fund *travelFund;
+@property (nonatomic, retain) Airport *destination;
 @property (nonatomic, retain) NSSet *fundsUsed;
 @property (nonatomic, retain) Airport *origin;
-@property (nonatomic, retain) Airport *destination;
+@property (nonatomic, retain) Passenger *passenger;
+@property (nonatomic, retain) Fund *travelFund;
 @end
 
 @interface Flight (CoreDataGeneratedAccessors)

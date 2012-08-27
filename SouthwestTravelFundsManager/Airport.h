@@ -17,20 +17,20 @@
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSString * timeZone;
-@property (nonatomic, retain) NSSet *originFlights;
 @property (nonatomic, retain) NSSet *destinationFlights;
+@property (nonatomic, retain) NSSet *originFlights;
 @end
 
 @interface Airport (CoreDataGeneratedAccessors)
-
-- (void)addOriginFlightsObject:(Flight *)value;
-- (void)removeOriginFlightsObject:(Flight *)value;
-- (void)addOriginFlights:(NSSet *)values;
-- (void)removeOriginFlights:(NSSet *)values;
 
 - (void)addDestinationFlightsObject:(Flight *)value;
 - (void)removeDestinationFlightsObject:(Flight *)value;
 - (void)addDestinationFlights:(NSSet *)values;
 - (void)removeDestinationFlights:(NSSet *)values;
+
+- (void)addOriginFlightsObject:(Flight *)value;
+- (void)removeOriginFlightsObject:(Flight *)value;
+- (void)addOriginFlights:(NSSet *)values;
+- (void)removeOriginFlights:(NSSet *)values;
 
 @end

@@ -30,11 +30,10 @@
 @dynamic returnFlightNumber;
 @dynamic roundtrip;
 @dynamic ticketNumber;
-@dynamic used;
-@dynamic passenger;
-@dynamic travelFund;
+@dynamic destination;
 @dynamic fundsUsed;
 @dynamic origin;
-@dynamic destination;
+@dynamic passenger;
+@dynamic travelFund;
 
 @end

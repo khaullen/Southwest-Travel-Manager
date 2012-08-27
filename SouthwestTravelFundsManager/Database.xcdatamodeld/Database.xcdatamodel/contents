@@ -25,7 +25,6 @@
         <attribute name="returnFlightNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="roundtrip" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="ticketNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="used" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="destination" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Airport" inverseName="destinationFlights" inverseEntity="Airport" syncable="YES"/>
         <relationship name="fundsUsed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Fund" inverseName="flightsAppliedTo" inverseEntity="Fund" syncable="YES"/>
         <relationship name="origin" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Airport" inverseName="originFlights" inverseEntity="Airport" syncable="YES"/>
@@ -48,9 +47,9 @@
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="passenger" inverseEntity="Flight" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Flight" positionX="-198" positionY="6" width="128" height="375"/>
-        <element name="Passenger" positionX="81" positionY="135" width="128" height="120"/>
-        <element name="Fund" positionX="124" positionY="-27" width="128" height="135"/>
         <element name="Airport" positionX="52" positionY="315" width="128" height="135"/>
+        <element name="Flight" positionX="-198" positionY="6" width="128" height="375"/>
+        <element name="Fund" positionX="124" positionY="-27" width="128" height="135"/>
+        <element name="Passenger" positionX="81" positionY="135" width="128" height="120"/>
     </elements>
 </model>
