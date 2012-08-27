@@ -15,6 +15,7 @@
 @dynamic airportCode;
 @dynamic city;
 @dynamic state;
+@dynamic timeZone;
 @dynamic originFlights;
 @dynamic destinationFlights;
 

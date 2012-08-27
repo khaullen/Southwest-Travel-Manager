@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString * airportCode;
 @property (nonatomic, retain) NSString * city;
 @property (nonatomic, retain) NSString * state;
+@property (nonatomic, retain) NSString * timeZone;
 @property (nonatomic, retain) NSSet *originFlights;
 @property (nonatomic, retain) NSSet *destinationFlights;
 @end

@@ -15,5 +15,6 @@
 #define AIRPORT_CODE @"airportCode"
 #define CITY @"city"
 #define STATE @"state"
+#define TIME_ZONE @"timeZone"
 
 @end

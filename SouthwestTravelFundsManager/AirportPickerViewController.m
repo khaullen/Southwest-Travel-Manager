@@ -46,11 +46,6 @@
     [self.delegate airportPickerViewController:self selectedOrigin:origin andDestination:destination];
 }
 
-- (NSTimeZone *)timeZoneForAirport:(NSString *)airport {
-    // TODO: implement this method
-    return [NSTimeZone defaultTimeZone];
-}
-
 - (void)setSelectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination {
     [self.airportPicker selectRow:[self.allAirports indexOfObject:origin] inComponent:0 animated:FALSE];
     [self.airportPicker selectRow:[self.allAirports indexOfObject:destination] inComponent:1 animated:FALSE];

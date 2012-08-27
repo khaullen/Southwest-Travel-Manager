@@ -4,6 +4,7 @@
         <attribute name="airportCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timeZone" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="destinationFlights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="destination" inverseEntity="Flight" syncable="YES"/>
         <relationship name="originFlights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="origin" inverseEntity="Flight" syncable="YES"/>
     </entity>
@@ -50,6 +51,6 @@
         <element name="Flight" positionX="-198" positionY="6" width="128" height="375"/>
         <element name="Passenger" positionX="81" positionY="135" width="128" height="120"/>
         <element name="Fund" positionX="124" positionY="-27" width="128" height="135"/>
-        <element name="Airport" positionX="52" positionY="315" width="128" height="120"/>
+        <element name="Airport" positionX="52" positionY="315" width="128" height="135"/>
     </elements>
 </model>

@@ -25,9 +25,9 @@
 }
 
 - (void)updatePlaceholderText {
-    self.expirationTextField.placeholder = [self stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] withFormat:DATE_FORMAT];
-    self.outboundTextField.placeholder = [self stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*31)] withFormat:DATE_TIME_FORMAT];
-    self.returnTextField.placeholder = [self stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*36)] withFormat:DATE_TIME_FORMAT];
+    self.expirationTextField.placeholder = [self.class stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
+    self.outboundTextField.placeholder = [self.class stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*31)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
+    self.returnTextField.placeholder = [self.class stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*36)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
     }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {

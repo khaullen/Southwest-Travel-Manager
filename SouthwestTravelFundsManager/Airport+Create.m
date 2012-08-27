@@ -46,6 +46,7 @@
     newAirport.airportCode = [airportInfo objectForKey:AIRPORT_CODE];
     newAirport.city = [airportInfo objectForKey:CITY];
     newAirport.state = [airportInfo objectForKey:STATE];
+    newAirport.timeZone = [airportInfo objectForKey:TIME_ZONE];
         
     return newAirport;
 }

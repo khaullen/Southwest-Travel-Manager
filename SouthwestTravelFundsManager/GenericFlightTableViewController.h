@@ -31,10 +31,11 @@
 @property (strong, nonatomic) UIDatePicker *returnDatePicker;
 
 - (BOOL)flightTableViewControllerHasIncompleteRequiredFields;
-- (NSString *)stringForDate:(NSDate *)date withFormat:(NSString *)format;
-- (NSString *)stringForCost:(NSNumber *)cost;
++ (NSString *)stringForDate:(NSDate *)date withFormat:(NSString *)format inTimeZone:(NSTimeZone *)timeZone;
++ (NSString *)stringForCost:(NSNumber *)cost;
 
 #define DATE_FORMAT @"MM/dd/yyyy"
-#define DATE_TIME_FORMAT @"MM/dd/yyyy hh:mm a"
+#define DATE_TIME_FORMAT @"MM/dd/yyyy h:mm a"
+#define DAY_DATE_TIME_FORMAT @"EEEE, MMMM d, yyyy, h:mm a"
 
 @end

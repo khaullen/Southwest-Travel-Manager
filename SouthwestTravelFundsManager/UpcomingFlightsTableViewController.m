@@ -51,7 +51,7 @@
     // Configure the cell...
     Flight *flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@ - %@, %@", flight.origin.city, flight.origin.state, flight.destination.city, flight.destination.state];
-    cell.detailTextLabel.text = [flight.outboundDepartureDate description];
+    cell.detailTextLabel.text = [[FlightDetailsTableViewController class] stringForDate:flight.outboundDepartureDate withFormat:DAY_DATE_TIME_FORMAT inTimeZone:[NSTimeZone timeZoneWithName:flight.origin.timeZone]];
     return cell;
 }
 

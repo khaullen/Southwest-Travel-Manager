@@ -73,7 +73,7 @@
     NSString *aConfirmationCode = [self.flightData objectForKey:CONFIRMATION_CODE];
     if (aConfirmationCode) self.confirmTextField.text = aConfirmationCode;
     NSNumber *aCost = [self.flightData objectForKey:COST];
-    if (aCost) self.costTextField.text = [self stringForCost:aCost];
+    if (aCost) self.costTextField.text = [self.class stringForCost:aCost];
     NSDate *aExpirationDate = [self.flightData objectForKey:EXPIRATION_DATE];
     if (aExpirationDate) {
         self.expirationDatePicker.date = aExpirationDate;
@@ -123,6 +123,7 @@
     if (!_expirationDatePicker) {
         _expirationDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _expirationDatePicker.datePickerMode = UIDatePickerModeDate;
+        _expirationDatePicker.timeZone = [NSTimeZone localTimeZone];
         [_expirationDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
     }
     return _expirationDatePicker;
@@ -132,7 +133,7 @@
     if (!_outboundDatePicker) {
         _outboundDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _outboundDatePicker.minuteInterval = 5;
-        _outboundDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:[self.flightData valueForKey:@"origin"]];
+        _outboundDatePicker.timeZone = [NSTimeZone timeZoneWithName:[[self.flightData objectForKey:ORIGIN] objectForKey:TIME_ZONE]];
         [_outboundDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
     }
     return _outboundDatePicker;
@@ -142,7 +143,7 @@
     if (!_returnDatePicker) {
         _returnDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _returnDatePicker.minuteInterval = 5;
-        _returnDatePicker.timeZone = [self.airportPickerVC timeZoneForAirport:[self.flightData valueForKey:DESTINATION]];
+        _returnDatePicker.timeZone = [NSTimeZone timeZoneWithName:[[self.flightData objectForKey:DESTINATION] objectForKey:TIME_ZONE]];
         [_returnDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
     }
     return _returnDatePicker;
@@ -221,7 +222,7 @@
         if (![numberValue doubleValue] && ![self.costTextField isFirstResponder]) {
             self.costTextField.text = @"";
         } else {
-            self.costTextField.text = [self stringForCost:[NSNumber numberWithDouble:[numberValue doubleValue]]];
+            self.costTextField.text = [self.class stringForCost:[NSNumber numberWithDouble:[numberValue doubleValue]]];
         }
         [self.flightData setObject:[NSNumber numberWithDouble:[numberValue doubleValue]] forKey:@"cost"];
     } else if ([textField isEqual:self.notesTextField]) {
@@ -233,14 +234,15 @@
     // update corresponding property and update text field
     if ([sender isEqual:self.expirationDatePicker]) {
         [self.flightData setObject:self.expirationDatePicker.date forKey:EXPIRATION_DATE];
-        self.expirationTextField.text = [self stringForDate:self.expirationDatePicker.date withFormat:DATE_FORMAT];
+        self.expirationTextField.text = [self.class stringForDate:self.expirationDatePicker.date withFormat:DATE_FORMAT inTimeZone:self.expirationDatePicker.timeZone];
     } else if ([sender isEqual:self.outboundDatePicker]) {
         [self.flightData setObject:self.outboundDatePicker.date forKey:OUTBOUND_DEPARTURE_DATE];
-        self.outboundTextField.text = [self stringForDate:self.outboundDatePicker.date withFormat:DATE_TIME_FORMAT];
+        self.outboundTextField.text = [self.class stringForDate:self.outboundDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.outboundDatePicker.timeZone];
     } else if ([sender isEqual:self.returnDatePicker]) {
         [self.flightData setObject:self.returnDatePicker.date forKey:RETURN_DEPARTURE_DATE];
-        self.returnTextField.text = [self stringForDate:self.returnDatePicker.date withFormat:DATE_TIME_FORMAT];
+        self.returnTextField.text = [self.class stringForDate:self.returnDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.returnDatePicker.timeZone];
     }
+    NSLog(@"timeZone: %@", sender.timeZone);
 }
 
 - (void)switchDidEndEditing:(UISwitch *)sender {
@@ -256,6 +258,10 @@
     self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", [origin objectForKey:AIRPORT_CODE], [destination objectForKey:AIRPORT_CODE]];
     [self.flightData setObject:origin forKey:ORIGIN];
     [self.flightData setObject:destination forKey:DESTINATION];
+    self.outboundDatePicker.timeZone = [NSTimeZone timeZoneWithName:[origin objectForKey:TIME_ZONE]];
+    if (self.outboundTextField.text.length) self.outboundTextField.text = [self.class stringForDate:self.outboundDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.outboundDatePicker.timeZone];
+    self.returnDatePicker.timeZone = [NSTimeZone timeZoneWithName:[destination objectForKey:TIME_ZONE]];
+    if (self.returnTextField.text.length) self.returnTextField.text = [self.class stringForDate:self.returnDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.returnDatePicker.timeZone];
 }
 
 - (BOOL)flightTableViewControllerHasIncompleteRequiredFields {
@@ -295,13 +301,14 @@
     [self.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
 }
 
-- (NSString *)stringForDate:(NSDate *)date withFormat:(NSString *)format {
++ (NSString *)stringForDate:(NSDate *)date withFormat:(NSString *)format inTimeZone:(NSTimeZone *)timeZone{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:format];
+    dateFormatter.dateFormat = format;
+    dateFormatter.timeZone = timeZone;
     return [dateFormatter stringFromDate:date];
 }
 
-- (NSString *)stringForCost:(NSNumber *)cost {
++ (NSString *)stringForCost:(NSNumber *)cost {
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     return [numberFormatter stringFromNumber:cost];
