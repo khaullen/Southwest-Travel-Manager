@@ -18,7 +18,7 @@
 		3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D315E1DECA00A9FC1B /* Fund+Create.m */; };
 		3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0077D715E20C4800A9FC1B /* CoreData.framework */; };
 		3B5E3B7F15E3848D000D85E2 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */; };
-		3B5E3B8215E384B4000D85E2 /* GenericFlightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B8115E384B4000D85E2 /* GenericFlightTableViewController.m */; };
+		3B5E3B8215E384B4000D85E2 /* GenericDataInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */; };
 		3B5E3B9015E38541000D85E2 /* NewFlightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */; };
 		3B5E3B9715E385AB000D85E2 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B9215E385AA000D85E2 /* CoreDataTableViewController.m */; };
 		3B5E3B9815E385AB000D85E2 /* TravelFundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B9415E385AA000D85E2 /* TravelFundsTableViewController.m */; };
@@ -33,9 +33,12 @@
 		3B8418ED15EC31770094AB81 /* Fund.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418EC15EC31770094AB81 /* Fund.m */; };
 		3B8418F015EC31770094AB81 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418EF15EC31770094AB81 /* Passenger.m */; };
 		3B8418F315EC31770094AB81 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418F215EC31770094AB81 /* Flight.m */; };
-		3B8418F615EC34210094AB81 /* GenericFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418F515EC34210094AB81 /* GenericFundTableViewController.m */; };
 		3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */; };
 		3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */; };
+		3B84190415ECA0950094AB81 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190015ECA0950094AB81 /* 33-cabinet.png */; };
+		3B84190515ECA0950094AB81 /* 33-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */; };
+		3B84190615ECA0950094AB81 /* 38-airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190215ECA0950094AB81 /* 38-airplane.png */; };
+		3B84190715ECA0950094AB81 /* 38-airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190315ECA0950094AB81 /* 38-airplane@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +59,8 @@
 		3B0077D315E1DECA00A9FC1B /* Fund+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fund+Create.m"; sourceTree = "<group>"; };
 		3B0077D715E20C4800A9FC1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
-		3B5E3B8015E384B4000D85E2 /* GenericFlightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericFlightTableViewController.h; sourceTree = "<group>"; };
-		3B5E3B8115E384B4000D85E2 /* GenericFlightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericFlightTableViewController.m; sourceTree = "<group>"; };
+		3B5E3B8015E384B4000D85E2 /* GenericDataInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericDataInputTableViewController.h; sourceTree = "<group>"; };
+		3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDataInputTableViewController.m; sourceTree = "<group>"; };
 		3B5E3B8E15E38541000D85E2 /* NewFlightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFlightTableViewController.h; sourceTree = "<group>"; };
 		3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFlightTableViewController.m; sourceTree = "<group>"; };
 		3B5E3B9115E385AA000D85E2 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
@@ -84,12 +87,14 @@
 		3B8418EF15EC31770094AB81 /* Passenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Passenger.m; sourceTree = "<group>"; };
 		3B8418F115EC31770094AB81 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
 		3B8418F215EC31770094AB81 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
-		3B8418F415EC34210094AB81 /* GenericFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericFundTableViewController.h; sourceTree = "<group>"; };
-		3B8418F515EC34210094AB81 /* GenericFundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericFundTableViewController.m; sourceTree = "<group>"; };
 		3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundDetailsTableViewController.h; sourceTree = "<group>"; };
 		3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundDetailsTableViewController.m; sourceTree = "<group>"; };
 		3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFundTableViewController.h; sourceTree = "<group>"; };
 		3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFundTableViewController.m; sourceTree = "<group>"; };
+		3B84190015ECA0950094AB81 /* 33-cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet.png"; sourceTree = "<group>"; };
+		3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet@2x.png"; sourceTree = "<group>"; };
+		3B84190215ECA0950094AB81 /* 38-airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane.png"; sourceTree = "<group>"; };
+		3B84190315ECA0950094AB81 /* 38-airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +157,10 @@
 			children = (
 				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
 				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
+				3B84190015ECA0950094AB81 /* 33-cabinet.png */,
+				3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */,
+				3B84190215ECA0950094AB81 /* 38-airplane.png */,
+				3B84190315ECA0950094AB81 /* 38-airplane@2x.png */,
 				3B00779915DA565000A9FC1B /* SouthwestTravelFundsManager-Info.plist */,
 				3B5E3BE115EB21B8000D85E2 /* airportInfo.plist */,
 				3B00779A15DA565000A9FC1B /* InfoPlist.strings */,
@@ -190,6 +199,8 @@
 				3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */,
 				3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */,
 				3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */,
+				3B5E3B8015E384B4000D85E2 /* GenericDataInputTableViewController.h */,
+				3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */,
 				3B8418F715EC344B0094AB81 /* Core Data */,
 				3B8418F815EC347B0094AB81 /* Upcoming Flights */,
 				3B8418F915EC348E0094AB81 /* Travel Funds */,
@@ -213,8 +224,6 @@
 		3B8418F815EC347B0094AB81 /* Upcoming Flights */ = {
 			isa = PBXGroup;
 			children = (
-				3B5E3B8015E384B4000D85E2 /* GenericFlightTableViewController.h */,
-				3B5E3B8115E384B4000D85E2 /* GenericFlightTableViewController.m */,
 				3B5E3BD615E78005000D85E2 /* FlightDetailsTableViewController.h */,
 				3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */,
 				3B5E3B8E15E38541000D85E2 /* NewFlightTableViewController.h */,
@@ -226,8 +235,6 @@
 		3B8418F915EC348E0094AB81 /* Travel Funds */ = {
 			isa = PBXGroup;
 			children = (
-				3B8418F415EC34210094AB81 /* GenericFundTableViewController.h */,
-				3B8418F515EC34210094AB81 /* GenericFundTableViewController.m */,
 				3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */,
 				3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */,
 				3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */,
@@ -291,6 +298,10 @@
 				3B0077A815DA565000A9FC1B /* iPad.storyboard in Resources */,
 				3B5E3B7F15E3848D000D85E2 /* iPhone.storyboard in Resources */,
 				3B5E3BE215EB21B9000D85E2 /* airportInfo.plist in Resources */,
+				3B84190415ECA0950094AB81 /* 33-cabinet.png in Resources */,
+				3B84190515ECA0950094AB81 /* 33-cabinet@2x.png in Resources */,
+				3B84190615ECA0950094AB81 /* 38-airplane.png in Resources */,
+				3B84190715ECA0950094AB81 /* 38-airplane@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +316,7 @@
 				3B0077A215DA565000A9FC1B /* AppDelegate.m in Sources */,
 				3B0077D115E1DEAB00A9FC1B /* Flight+Create.m in Sources */,
 				3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */,
-				3B5E3B8215E384B4000D85E2 /* GenericFlightTableViewController.m in Sources */,
+				3B5E3B8215E384B4000D85E2 /* GenericDataInputTableViewController.m in Sources */,
 				3B5E3B9015E38541000D85E2 /* NewFlightTableViewController.m in Sources */,
 				3B5E3B9715E385AB000D85E2 /* CoreDataTableViewController.m in Sources */,
 				3B5E3B9815E385AB000D85E2 /* TravelFundsTableViewController.m in Sources */,
@@ -319,7 +330,6 @@
 				3B8418ED15EC31770094AB81 /* Fund.m in Sources */,
 				3B8418F015EC31770094AB81 /* Passenger.m in Sources */,
 				3B8418F315EC31770094AB81 /* Flight.m in Sources */,
-				3B8418F615EC34210094AB81 /* GenericFundTableViewController.m in Sources */,
 				3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */,
 				3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */,
 			);

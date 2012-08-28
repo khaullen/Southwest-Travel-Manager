@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
-#import "GenericFundTableViewController.h"
+#import "GenericDataInputTableViewController.h"
 
-@interface FundDetailsTableViewController : GenericFundTableViewController
+@interface FundDetailsTableViewController : GenericDataInputTableViewController
 
 @end

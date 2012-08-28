@@ -25,6 +25,7 @@
         _airportPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _airportPicker.delegate = self;
         _airportPicker.dataSource = self;
+        _airportPicker.showsSelectionIndicator = TRUE;
     }
     return _airportPicker;
 }

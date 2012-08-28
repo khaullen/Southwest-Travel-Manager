@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
-#import "GenericFlightTableViewController.h"
+#import "GenericDataInputTableViewController.h"
 
 @class NewFlightTableViewController;
 
@@ -16,8 +16,9 @@
 
 @end
 
-@interface NewFlightTableViewController : GenericFlightTableViewController
+@interface NewFlightTableViewController : GenericDataInputTableViewController
 
+@property (nonatomic, strong) NSDictionary *requiredFields;
 @property (nonatomic, weak) id <NewFlightDelegate> delegate;
 
 @end
