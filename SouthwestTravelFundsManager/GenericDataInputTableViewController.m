@@ -88,7 +88,7 @@
     }
     NSNumber *aCheckInReminder = [self.fieldData objectForKey:CHECK_IN_REMINDER];
     if (aCheckInReminder) self.checkInReminderSwitch.on = [aCheckInReminder boolValue];
-    NSString *aNotes = [self.fieldData objectForKey:FLIGHT_NOTES];
+    NSString *aNotes = [self.fieldData objectForKey:NOTES];
     if (aNotes) self.notesTextField.text = aNotes;
 }
 
@@ -143,6 +143,12 @@
     self.outboundTextField.inputView = self.outboundDatePicker;
     self.returnTextField.inputView = self.returnDatePicker;
     [self.checkInReminderSwitch addTarget:self action:@selector(switchDidEndEditing:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)updatePlaceholderText {
+    self.expirationTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
+    self.outboundTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*31)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
+    self.returnTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*36)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -205,7 +211,7 @@
         }
         [self.fieldData setObject:[NSNumber numberWithDouble:[numberValue doubleValue]] forKey:@"cost"];
     } else if ([textField isEqual:self.notesTextField]) {
-        [self.fieldData setObject:self.notesTextField.text forKey:FLIGHT_NOTES];
+        [self.fieldData setObject:self.notesTextField.text forKey:NOTES];
     }
 }
 
@@ -276,7 +282,7 @@
         [cell setSelected:TRUE];
         [cell setSelected:FALSE animated:TRUE];
     }
-    [self.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+    if (incompleteFields.count) [self.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

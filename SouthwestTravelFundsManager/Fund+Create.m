@@ -50,7 +50,11 @@
     
     // populate fund attributes
     
-    newFund.originalFlight = [Flight flightWithDictionary:[fundInfo objectForKey:@"originalFlight"] inManagedObjectContext:context];
+    newFund.originalFlight = [Flight flightWithFundInfo:fundInfo inManagedObjectContext:context];
+    newFund.balance = [fundInfo objectForKey:COST];
+    newFund.expirationDate = [fundInfo objectForKey:EXPIRATION_DATE];
+    newFund.notes = [fundInfo objectForKey:NOTES];
+    newFund.unusedTicket = [fundInfo objectForKey:UNUSED_TICKET];
     
     return newFund;
 }

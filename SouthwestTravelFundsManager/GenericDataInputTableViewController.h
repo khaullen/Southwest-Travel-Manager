@@ -32,5 +32,6 @@
 @property (strong, nonatomic) DateAndCurrencyFormatter *formatter;
 
 - (BOOL)tableHasIncompleteRequiredFields:(NSDictionary *)requiredFields;
+- (void)updatePlaceholderText;
 
 @end

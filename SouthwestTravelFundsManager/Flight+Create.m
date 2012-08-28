@@ -26,6 +26,16 @@
     return flight;
 }
 
++ (Flight *)flightWithFundInfo:(NSDictionary *)fundInfo inManagedObjectContext:(NSManagedObjectContext *)context {
+    Flight *newFlight = [NSEntityDescription insertNewObjectForEntityForName:@"Flight" inManagedObjectContext:context];
+    newFlight.origin = [Airport airportWithDictionary:[fundInfo objectForKey:ORIGIN] inManagedObjectContext:context];
+    newFlight.destination = [Airport airportWithDictionary:[fundInfo objectForKey:DESTINATION] inManagedObjectContext:context];
+    newFlight.confirmationCode = [fundInfo objectForKey:CONFIRMATION_CODE];
+    if ([[fundInfo objectForKey:UNUSED_TICKET] boolValue]) newFlight.cost = [fundInfo objectForKey:COST];
+    newFlight.cancelled = [NSNumber numberWithBool:TRUE];
+    return newFlight;
+}
+
 + (Flight *)flight:(NSDictionary *)flightInfo inDatabase:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
     request.predicate = [NSPredicate predicateWithFormat:@"ticketNumber = %@", [flightInfo objectForKey:TICKET_NUMBER]];
@@ -55,7 +65,7 @@
     newFlight.outboundDepartureDate = [flightInfo objectForKey:OUTBOUND_DEPARTURE_DATE];
     newFlight.returnDepartureDate = [flightInfo objectForKey:RETURN_DEPARTURE_DATE];
     newFlight.checkInReminder = [flightInfo objectForKey:CHECK_IN_REMINDER];
-    newFlight.notes = [flightInfo objectForKey:FLIGHT_NOTES];
+    newFlight.notes = [flightInfo objectForKey:NOTES];
     
     return newFlight;
 }

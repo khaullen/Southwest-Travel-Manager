@@ -8,6 +8,20 @@
 
 #import "GenericDataInputTableViewController.h"
 
-@interface NewFundTableViewController : GenericDataInputTableViewController
+@class NewFundTableViewController;
+
+@protocol NewFundDelegate <NSObject>
+
+- (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo;
 
 @end
+
+@interface NewFundTableViewController : GenericDataInputTableViewController
+
+@property (nonatomic, readonly) NSDictionary *requiredFields;
+@property (nonatomic, weak) id <NewFundDelegate> delegate;
+
+@end
+
+
+// TODO: add unused_fund toggle

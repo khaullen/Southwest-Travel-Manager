@@ -24,7 +24,7 @@
     if (flight.outboundDepartureDate) [flightDetails setObject:flight.outboundDepartureDate forKey:OUTBOUND_DEPARTURE_DATE];
     if (flight.returnDepartureDate) [flightDetails setObject:flight.returnDepartureDate forKey:RETURN_DEPARTURE_DATE];
     if (flight.checkInReminder) [flightDetails setObject:flight.checkInReminder forKey:CHECK_IN_REMINDER];
-    if (flight.notes) [flightDetails setObject:flight.notes forKey:FLIGHT_NOTES];
+    if (flight.notes) [flightDetails setObject:flight.notes forKey:NOTES];
     self.fieldData = flightDetails;
 }
 

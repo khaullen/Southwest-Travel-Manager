@@ -10,8 +10,10 @@
 #import "Fund+Create.h"
 #import "Flight+Create.h"
 #import "Airport+Create.h"
+#import "NewFundTableViewController.h"
+#import "FundDetailsTableViewController.h"
 
-@interface TravelFundsTableViewController ()
+@interface TravelFundsTableViewController () <NewFundDelegate>
 
 @end
 
@@ -22,6 +24,24 @@
 - (DateAndCurrencyFormatter *)formatter {
     if (!_formatter) _formatter = [[DateAndCurrencyFormatter alloc] init];
     return _formatter;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"segueToNewFund"]) {
+        NewFundTableViewController *newFund = (NewFundTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
+        newFund.delegate = self;
+        newFund.formatter = self.formatter;
+    } /* else if ([segue.identifier isEqualToString:@"segueToDetail"]) {
+        FundDetailsTableViewController *fundDetails = (FundDetailsTableViewController *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        fundDetails.fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        fundDetails.formatter = self.formatter;
+    } */
+}
+
+- (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo {
+    [Fund fundWithDictionary:fundInfo inManagedObjectContext:self.database.managedObjectContext];
+    [self dismissModalViewControllerAnimated:TRUE];
 }
 
 - (void)setupFetchedResultsController {

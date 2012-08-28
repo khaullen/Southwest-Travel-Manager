@@ -12,8 +12,6 @@
 
 @interface NewFlightTableViewController ()
 
-- (void)updatePlaceholderText;
-
 @end
 
 @implementation NewFlightTableViewController
@@ -30,12 +28,6 @@
     [self updatePlaceholderText];
     [self.flightTextField becomeFirstResponder];
 }
-
-- (void)updatePlaceholderText {
-    self.expirationTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
-    self.outboundTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*31)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
-    self.returnTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*36)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
-    }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
     NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];

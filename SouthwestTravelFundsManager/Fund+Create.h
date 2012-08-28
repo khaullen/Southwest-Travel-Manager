@@ -16,7 +16,6 @@
 
 #define BALANCE @"balance"
 #define EXPIRATION_DATE @"expirationDate"
-#define FUND_NOTES @"notes"
 #define UNUSED_TICKET @"unusedTicket"
 
 @end
