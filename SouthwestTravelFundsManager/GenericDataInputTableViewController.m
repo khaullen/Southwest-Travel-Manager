@@ -64,11 +64,11 @@
 - (void)setDataInFields {
     NSDictionary *aOrigin = [self.fieldData objectForKey:ORIGIN];
     NSDictionary *aDestination = [self.fieldData objectForKey:DESTINATION];
-    if (aOrigin && aDestination) [self.airportPickerVC setSelectedOrigin:aOrigin andDestination:aDestination];
+    if (aOrigin.count && aDestination.count) [self.airportPickerVC setSelectedOrigin:aOrigin andDestination:aDestination];
     NSString *aConfirmationCode = [self.fieldData objectForKey:CONFIRMATION_CODE];
     if (aConfirmationCode) self.confirmTextField.text = aConfirmationCode;
     NSNumber *aCost = [self.fieldData objectForKey:COST];
-    if (aCost) self.costTextField.text = [self.formatter stringForCost:aCost];
+    if (aCost.boolValue) self.costTextField.text = [self.formatter stringForCost:aCost];
     NSDate *aExpirationDate = [self.fieldData objectForKey:EXPIRATION_DATE];
     if (aExpirationDate) {
         self.expirationDatePicker.date = aExpirationDate;

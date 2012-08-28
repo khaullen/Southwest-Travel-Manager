@@ -31,12 +31,12 @@
         NewFundTableViewController *newFund = (NewFundTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         newFund.delegate = self;
         newFund.formatter = self.formatter;
-    } /* else if ([segue.identifier isEqualToString:@"segueToDetail"]) {
+    } else if ([segue.identifier isEqualToString:@"segueToDetail"]) {
         FundDetailsTableViewController *fundDetails = (FundDetailsTableViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         fundDetails.fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
         fundDetails.formatter = self.formatter;
-    } */
+    }
 }
 
 - (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo {
