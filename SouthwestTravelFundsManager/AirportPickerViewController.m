@@ -20,6 +20,15 @@
 @synthesize delegate = _delegate;
 @synthesize allAirports = _allAirports;
 
+- (UIPickerView *)airportPicker {
+    if (!_airportPicker) {
+        _airportPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
+        _airportPicker.delegate = self;
+        _airportPicker.dataSource = self;
+    }
+    return _airportPicker;
+}
+
 - (NSArray *)allAirports {
     if (!_allAirports) {
         NSString *file = [[NSBundle mainBundle] pathForResource:@"airportInfo" ofType:@"plist"];

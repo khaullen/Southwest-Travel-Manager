@@ -34,7 +34,6 @@
 @synthesize notesTextField = _notesTextField;
 @synthesize flightData = _flightData;
 @synthesize requiredFields = _requiredFields;
-@synthesize airportPicker = _airportPicker;
 @synthesize airportPickerVC = _airportPickerVC;
 @synthesize expirationDatePicker = _expirationDatePicker;
 @synthesize outboundDatePicker = _outboundDatePicker;
@@ -102,19 +101,9 @@
     return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], ORIGIN, [NSIndexPath indexPathForRow:0 inSection:0], DESTINATION, [NSIndexPath indexPathForRow:1 inSection:0], CONFIRMATION_CODE, [NSIndexPath indexPathForRow:2 inSection:0], COST, [NSIndexPath indexPathForRow:3 inSection:0], EXPIRATION_DATE, [NSIndexPath indexPathForRow:0 inSection:2], CHECK_IN_REMINDER, [NSIndexPath indexPathForRow:0 inSection:1], ROUNDTRIP, [NSIndexPath indexPathForRow:1 inSection:1], OUTBOUND_DEPARTURE_DATE, self.roundtripSwitch.on ? [NSIndexPath indexPathForRow:2 inSection:1] : nil, RETURN_DEPARTURE_DATE, nil];
 }
 
-- (UIPickerView *)airportPicker {
-    if (!_airportPicker) {
-        _airportPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
-        _airportPicker.delegate = self.airportPickerVC;
-        _airportPicker.dataSource = self.airportPickerVC;
-    }
-    return _airportPicker;
-}
-
 - (AirportPickerViewController *)airportPickerVC {
     if (!_airportPickerVC) {
         _airportPickerVC = [[AirportPickerViewController alloc] init];
-        _airportPickerVC.airportPicker = self.airportPicker;
         _airportPickerVC.delegate = self;
     }
     return _airportPickerVC;
@@ -156,7 +145,7 @@
 }
 
 - (void)setCustomInputViews {
-    self.flightTextField.inputView = self.airportPicker;
+    self.flightTextField.inputView = self.airportPickerVC.airportPicker;
     self.costTextField.keyboardType = UIKeyboardTypeDecimalPad;
     self.expirationTextField.inputView = self.expirationDatePicker;
     [self.roundtripSwitch addTarget:self action:@selector(switchDidEndEditing:) forControlEvents:UIControlEventValueChanged];

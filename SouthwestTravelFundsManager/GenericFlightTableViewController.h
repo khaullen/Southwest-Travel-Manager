@@ -25,7 +25,6 @@
 @property (nonatomic, strong) NSMutableDictionary *flightData;
 @property (nonatomic, copy) NSDictionary *requiredFields;
 
-@property (strong, nonatomic) UIPickerView *airportPicker;
 @property (strong, nonatomic) AirportPickerViewController *airportPickerVC;
 @property (strong, nonatomic) UIDatePicker *expirationDatePicker;
 @property (strong, nonatomic) UIDatePicker *outboundDatePicker;

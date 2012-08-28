@@ -19,7 +19,7 @@
 
 @interface AirportPickerViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (nonatomic, weak) UIPickerView *airportPicker;
+@property (nonatomic, strong) UIPickerView *airportPicker;
 @property (nonatomic, weak) id <AirportPickerViewControllerDelegate> delegate;
 
 - (void)setSelectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination;
