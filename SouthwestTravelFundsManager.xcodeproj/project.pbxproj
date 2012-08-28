@@ -33,6 +33,9 @@
 		3B8418ED15EC31770094AB81 /* Fund.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418EC15EC31770094AB81 /* Fund.m */; };
 		3B8418F015EC31770094AB81 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418EF15EC31770094AB81 /* Passenger.m */; };
 		3B8418F315EC31770094AB81 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418F215EC31770094AB81 /* Flight.m */; };
+		3B8418F615EC34210094AB81 /* GenericFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418F515EC34210094AB81 /* GenericFundTableViewController.m */; };
+		3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */; };
+		3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,12 @@
 		3B8418EF15EC31770094AB81 /* Passenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Passenger.m; sourceTree = "<group>"; };
 		3B8418F115EC31770094AB81 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
 		3B8418F215EC31770094AB81 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		3B8418F415EC34210094AB81 /* GenericFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericFundTableViewController.h; sourceTree = "<group>"; };
+		3B8418F515EC34210094AB81 /* GenericFundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericFundTableViewController.m; sourceTree = "<group>"; };
+		3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundDetailsTableViewController.h; sourceTree = "<group>"; };
+		3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundDetailsTableViewController.m; sourceTree = "<group>"; };
+		3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFundTableViewController.h; sourceTree = "<group>"; };
+		3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFundTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +140,7 @@
 			children = (
 				3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */,
 				3B0077A615DA565000A9FC1B /* iPad.storyboard */,
-				3B0077D615E1DF4700A9FC1B /* ViewControllers */,
+				3B0077D615E1DF4700A9FC1B /* View Controllers */,
 				3B0077D515E1DF0A00A9FC1B /* Model */,
 				3B00779815DA565000A9FC1B /* Supporting Files */,
 			);
@@ -174,7 +183,21 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		3B0077D615E1DF4700A9FC1B /* ViewControllers */ = {
+		3B0077D615E1DF4700A9FC1B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B5E3BBD15E3B81B000D85E2 /* AirportPickerViewController.h */,
+				3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */,
+				3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */,
+				3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */,
+				3B8418F715EC344B0094AB81 /* Core Data */,
+				3B8418F815EC347B0094AB81 /* Upcoming Flights */,
+				3B8418F915EC348E0094AB81 /* Travel Funds */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3B8418F715EC344B0094AB81 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
 				3B5E3B9115E385AA000D85E2 /* CoreDataTableViewController.h */,
@@ -183,18 +206,34 @@
 				3B5E3B9415E385AA000D85E2 /* TravelFundsTableViewController.m */,
 				3B5E3B9515E385AA000D85E2 /* UpcomingFlightsTableViewController.h */,
 				3B5E3B9615E385AA000D85E2 /* UpcomingFlightsTableViewController.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		3B8418F815EC347B0094AB81 /* Upcoming Flights */ = {
+			isa = PBXGroup;
+			children = (
 				3B5E3B8015E384B4000D85E2 /* GenericFlightTableViewController.h */,
 				3B5E3B8115E384B4000D85E2 /* GenericFlightTableViewController.m */,
 				3B5E3BD615E78005000D85E2 /* FlightDetailsTableViewController.h */,
 				3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */,
 				3B5E3B8E15E38541000D85E2 /* NewFlightTableViewController.h */,
 				3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */,
-				3B5E3BBD15E3B81B000D85E2 /* AirportPickerViewController.h */,
-				3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */,
-				3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */,
-				3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */,
 			);
-			name = ViewControllers;
+			name = "Upcoming Flights";
+			sourceTree = "<group>";
+		};
+		3B8418F915EC348E0094AB81 /* Travel Funds */ = {
+			isa = PBXGroup;
+			children = (
+				3B8418F415EC34210094AB81 /* GenericFundTableViewController.h */,
+				3B8418F515EC34210094AB81 /* GenericFundTableViewController.m */,
+				3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */,
+				3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */,
+				3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */,
+				3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */,
+			);
+			name = "Travel Funds";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +319,9 @@
 				3B8418ED15EC31770094AB81 /* Fund.m in Sources */,
 				3B8418F015EC31770094AB81 /* Passenger.m in Sources */,
 				3B8418F315EC31770094AB81 /* Flight.m in Sources */,
+				3B8418F615EC34210094AB81 /* GenericFundTableViewController.m in Sources */,
+				3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */,
+				3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
