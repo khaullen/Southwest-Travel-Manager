@@ -8,13 +8,21 @@
 
 #import "TravelFundsTableViewController.h"
 #import "Fund+Create.h"
-#import "Flight.h"
+#import "Flight+Create.h"
+#import "Airport+Create.h"
 
 @interface TravelFundsTableViewController ()
 
 @end
 
 @implementation TravelFundsTableViewController
+
+@synthesize formatter = _formatter;
+
+- (DateAndCurrencyFormatter *)formatter {
+    if (!_formatter) _formatter = [[DateAndCurrencyFormatter alloc] init];
+    return _formatter;
+}
 
 - (void)setupFetchedResultsController {
     [super setupFetchedResultsController];
@@ -31,8 +39,8 @@
     
     // Configure the cell...
     Fund *fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", fund.balance];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@ (%@)", fund.originalFlight.origin, fund.originalFlight.destination, fund.originalFlight.outboundDepartureDate];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.formatter stringForCost:fund.balance]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ [%@]", fund.originalFlight.confirmationCode, [self.formatter stringForDate:fund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]]];
     return cell;
 }
 

@@ -195,15 +195,15 @@
 		3B0077D615E1DF4700A9FC1B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3B8418F715EC344B0094AB81 /* Core Data */,
+				3B8418F815EC347B0094AB81 /* Upcoming Flights */,
+				3B8418F915EC348E0094AB81 /* Travel Funds */,
+				3B5E3B8015E384B4000D85E2 /* GenericDataInputTableViewController.h */,
+				3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */,
 				3B5E3BBD15E3B81B000D85E2 /* AirportPickerViewController.h */,
 				3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */,
 				3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */,
 				3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */,
-				3B5E3B8015E384B4000D85E2 /* GenericDataInputTableViewController.h */,
-				3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */,
-				3B8418F715EC344B0094AB81 /* Core Data */,
-				3B8418F815EC347B0094AB81 /* Upcoming Flights */,
-				3B8418F915EC348E0094AB81 /* Travel Funds */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";

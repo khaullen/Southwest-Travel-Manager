@@ -152,7 +152,7 @@
                                         <rect key="frame" x="0.0" y="179" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Flight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vDN-7f-fjZ">
@@ -222,6 +222,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="confirmTextField" destination="pXj-xN-oeB" id="Gwo-zJ-ham"/>
+                        <outlet property="costTextField" destination="xkR-50-aLF" id="5ei-jk-2n2"/>
+                        <outlet property="expirationTextField" destination="qJ8-j4-ESa" id="POm-Lc-MpF"/>
+                        <outlet property="flightTextField" destination="7qK-d7-DmR" id="Hic-qQ-GwH"/>
+                        <outlet property="notesTextField" destination="LFW-nV-3NW" id="pQM-E0-8Wl"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="2315" y="-505"/>
@@ -1030,14 +1037,14 @@
         <class className="CoreDataTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
         </class>
-        <class className="FlightDetailsTableViewController" superclassName="GenericFlightTableViewController">
+        <class className="FlightDetailsTableViewController" superclassName="GenericDataInputTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightDetailsTableViewController.h"/>
         </class>
-        <class className="FundDetailsTableViewController" superclassName="GenericFundTableViewController">
+        <class className="FundDetailsTableViewController" superclassName="GenericDataInputTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FundDetailsTableViewController.h"/>
         </class>
-        <class className="GenericFlightTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericFlightTableViewController.h"/>
+        <class className="GenericDataInputTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericDataInputTableViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="checkInReminderSwitch" candidateClass="UISwitch"/>
                 <relationship kind="outlet" name="confirmTextField" candidateClass="UITextField"/>
@@ -1050,13 +1057,10 @@
                 <relationship kind="outlet" name="roundtripSwitch" candidateClass="UISwitch"/>
             </relationships>
         </class>
-        <class className="GenericFundTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericFundTableViewController.h"/>
-        </class>
-        <class className="NewFlightTableViewController" superclassName="GenericFlightTableViewController">
+        <class className="NewFlightTableViewController" superclassName="GenericDataInputTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
         </class>
-        <class className="NewFundTableViewController" superclassName="GenericFundTableViewController">
+        <class className="NewFundTableViewController" superclassName="GenericDataInputTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
         </class>
         <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
