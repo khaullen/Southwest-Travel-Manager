@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *returnTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *checkInReminderSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *notesTextField;
+@property (weak, nonatomic) IBOutlet UISwitch *unusedTicketSwitch;
 
 @property (nonatomic, strong) NSMutableDictionary *fieldData;
 

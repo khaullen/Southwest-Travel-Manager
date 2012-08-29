@@ -22,6 +22,3 @@
 @property (nonatomic, weak) id <NewFundDelegate> delegate;
 
 @end
-
-
-// TODO: add unused_fund toggle

@@ -32,6 +32,7 @@
 @synthesize returnTextField = _returnTextField;
 @synthesize checkInReminderSwitch = _checkInReminderSwitch;
 @synthesize notesTextField = _notesTextField;
+@synthesize unusedTicketSwitch = _unusedTicketSwitch;
 @synthesize fieldData = _fieldData;
 @synthesize airportPickerVC = _airportPickerVC;
 @synthesize expirationDatePicker = _expirationDatePicker;
@@ -88,6 +89,8 @@
     }
     NSNumber *aCheckInReminder = [self.fieldData objectForKey:CHECK_IN_REMINDER];
     if (aCheckInReminder) self.checkInReminderSwitch.on = [aCheckInReminder boolValue];
+    NSNumber *aUnusedTicket = [self.fieldData objectForKey:UNUSED_TICKET];
+    if (aUnusedTicket) self.unusedTicketSwitch.on = [aUnusedTicket boolValue];
     NSString *aNotes = [self.fieldData objectForKey:NOTES];
     if (aNotes) self.notesTextField.text = aNotes;
 }
@@ -143,6 +146,7 @@
     self.outboundTextField.inputView = self.outboundDatePicker;
     self.returnTextField.inputView = self.returnDatePicker;
     [self.checkInReminderSwitch addTarget:self action:@selector(switchDidEndEditing:) forControlEvents:UIControlEventValueChanged];
+    [self.unusedTicketSwitch addTarget:self action:@selector(switchDidEndEditing:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)updatePlaceholderText {
@@ -235,6 +239,8 @@
         [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
     } else if ([sender isEqual:self.checkInReminderSwitch]) {
         [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
+    } else if ([sender isEqual:self.unusedTicketSwitch]) {
+        [self.fieldData setObject:[NSNumber numberWithBool:self.unusedTicketSwitch.on] forKey:UNUSED_TICKET];
     }
 }
 
@@ -300,6 +306,7 @@
     [self setReturnTextField:nil];
     [self setCheckInReminderSwitch:nil];
     [self setNotesTextField:nil];
+    [self setUnusedTicketSwitch:nil];
     [super viewDidUnload];
 }
 @end

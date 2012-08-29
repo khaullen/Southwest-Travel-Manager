@@ -20,6 +20,7 @@
     if (fund.originalFlight.confirmationCode) [fundDetails setObject:fund.originalFlight.confirmationCode forKey:CONFIRMATION_CODE];
     if (fund.balance) [fundDetails setObject:fund.balance forKey:COST];
     if (fund.expirationDate) [fundDetails setObject:fund.expirationDate forKey:EXPIRATION_DATE];
+    if (fund.unusedTicket) [fundDetails setObject:fund.unusedTicket forKey:UNUSED_TICKET];
     if (fund.notes) [fundDetails setObject:fund.notes forKey:NOTES];
     self.fieldData = fundDetails;
 }

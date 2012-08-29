@@ -30,6 +30,7 @@
     for (UITextField *field in textFields) {
         if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
     }
+    [self.fieldData setObject:[NSNumber numberWithBool:self.unusedTicketSwitch.on] forKey:UNUSED_TICKET];
     if (![self tableHasIncompleteRequiredFields:self.requiredFields]) [self.delegate newFundTableViewController:self didEnterFundInformation:self.fieldData];
 }
 
