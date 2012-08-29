@@ -13,7 +13,7 @@
 #import "NewFlightTableViewController.h"
 #import "FlightDetailsTableViewController.h"
 
-@interface UpcomingFlightsTableViewController () <NewFlightDelegate>
+@interface UpcomingFlightsTableViewController () <NewFlightDelegate, FlightDetailsDelegate>
 
 - (void)addLocalNotificationForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo atDate:(NSDate *)departureDate returnFlight:(BOOL)returnFlight;
 
@@ -37,6 +37,7 @@
         FlightDetailsTableViewController *flightDetails = (FlightDetailsTableViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         flightDetails.flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        flightDetails.delegate = self;
         flightDetails.formatter = self.formatter;
     }
 }
@@ -50,6 +51,16 @@
     [self dismissModalViewControllerAnimated:TRUE];
 }
 
+- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didCancelFlight:(Flight *)flight {
+    flight.cancelled = [NSNumber numberWithBool:TRUE];
+    flight.travelFund.balance = flight.cost;
+    flight.travelFund.unusedTicket = [NSNumber numberWithBool:TRUE];
+    flight.travelFund.notes = flight.notes;
+    [self.navigationController popViewControllerAnimated:TRUE];
+}
+
+#define FLIGHT_CHECK_IN_ALERT_BODY @"Check in for your Southwest flight from %@ to %@, confirmation #%@"
+
 - (void)addLocalNotificationForFlight:(Flight *)flight 
                              withInfo:(NSDictionary *)flightInfo 
                                atDate:(NSDate *)departureDate 
@@ -58,7 +69,7 @@
     localNotification.fireDate = [NSDate dateWithTimeInterval:-(60*60*24 + 90) sinceDate:departureDate];
     NSString *origin = [NSString stringWithFormat:@"%@, %@", flight.origin.city, flight.origin.state];
     NSString *destination = [NSString stringWithFormat:@"%@, %@", flight.destination.city, flight.destination.state];
-    localNotification.alertBody = [NSString stringWithFormat:@"Check in for your Southwest flight from %@ to %@, confirmation #%@", returnFlight ? destination : origin, returnFlight ? origin : destination, flight.confirmationCode];
+    localNotification.alertBody = [NSString stringWithFormat:FLIGHT_CHECK_IN_ALERT_BODY, returnFlight ? destination : origin, returnFlight ? origin : destination, flight.confirmationCode];
     localNotification.soundName = UILocalNotificationDefaultSoundName;
     localNotification.userInfo = flightInfo;
     

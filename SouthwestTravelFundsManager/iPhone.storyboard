@@ -615,7 +615,13 @@
                             <outlet property="delegate" destination="Zjh-ig-s6g" id="j10-Hf-T0J"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Flight Details" id="bGi-LK-8vs"/>
+                    <navigationItem key="navigationItem" title="Flight Details" id="bGi-LK-8vs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="p5x-Xg-G5n">
+                            <connections>
+                                <action selector="actionPressed:" destination="Zjh-ig-s6g" id="0Sy-9k-qFT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="checkInReminderSwitch" destination="DtY-Tf-9wI" id="Fco-Ag-IRX"/>
                         <outlet property="confirmTextField" destination="iVq-MP-kY6" id="AKl-r8-Pn2"/>
@@ -837,7 +843,7 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Yxg-4T-mzt">
+                                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Yxg-4T-mzt">
                                                     <rect key="frame" x="215" y="8" width="79" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </switch>
@@ -1138,44 +1144,6 @@
         <image name="33-cabinet.png" width="20" height="26"/>
         <image name="38-airplane.png" width="22" height="24"/>
     </resources>
-    <classes>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="FlightDetailsTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightDetailsTableViewController.h"/>
-        </class>
-        <class className="FundDetailsTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundDetailsTableViewController.h"/>
-        </class>
-        <class className="GenericDataInputTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericDataInputTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkInReminderSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="confirmTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="costTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="expirationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="flightTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="notesTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outboundTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="returnTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="roundtripSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="unusedTicketSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="NewFlightTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
-        </class>
-        <class className="NewFundTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
-        </class>
-        <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
-        </class>
-        <class className="UpcomingFlightsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingFlightsTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

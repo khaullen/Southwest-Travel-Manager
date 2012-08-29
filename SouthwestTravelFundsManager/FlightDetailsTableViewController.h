@@ -11,9 +11,18 @@
 #import "Fund+Create.h"
 #import "Airport+Create.h"
 
+@class FlightDetailsTableViewController;
+
+@protocol FlightDetailsDelegate <NSObject>
+
+- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didCancelFlight:(Flight *)flight;
+
+@end
+
 @interface FlightDetailsTableViewController : GenericDataInputTableViewController
 
 @property (nonatomic, strong) Flight *flight;
+@property (nonatomic, weak) id <FlightDetailsDelegate> delegate;
 
 @end
 
@@ -22,5 +31,3 @@
 // TODO: Add field validation on pressing back button
 
 // TODO: add cancel flight button
-
-// TODO: think about adding rebook flight button

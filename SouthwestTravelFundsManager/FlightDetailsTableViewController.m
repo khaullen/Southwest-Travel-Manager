@@ -8,13 +8,14 @@
 
 #import "FlightDetailsTableViewController.h"
 
-@interface FlightDetailsTableViewController ()
+@interface FlightDetailsTableViewController () <UIActionSheetDelegate>
 
 @end
 
 @implementation FlightDetailsTableViewController
 
 @synthesize flight = _flight;
+@synthesize delegate = _delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +35,17 @@
     if (flight.checkInReminder) [flightDetails setObject:flight.checkInReminder forKey:CHECK_IN_REMINDER];
     if (flight.notes) [flightDetails setObject:flight.notes forKey:NOTES];
     self.fieldData = flightDetails;
+}
+
+- (IBAction)actionPressed:(UIBarButtonItem *)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Cancel Flight" otherButtonTitles:nil];
+    [actionSheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == actionSheet.destructiveButtonIndex) {
+        [self.delegate flightDetailsTableViewController:self didCancelFlight:self.flight];
+    }
 }
 
 @end
