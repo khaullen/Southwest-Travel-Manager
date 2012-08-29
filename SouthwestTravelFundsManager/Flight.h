@@ -2,7 +2,7 @@
 //  Flight.h
 //  SouthwestTravelFundsManager
 //
-//  Created by Colin Regan on 8/27/12.
+//  Created by Colin Regan on 8/29/12.
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
@@ -29,6 +29,8 @@
 @property (nonatomic, retain) NSNumber * returnFlightNumber;
 @property (nonatomic, retain) NSNumber * roundtrip;
 @property (nonatomic, retain) NSNumber * ticketNumber;
+@property (nonatomic, retain) NSNumber * outboundCheckedIn;
+@property (nonatomic, retain) NSNumber * returnCheckedIn;
 @property (nonatomic, retain) Airport *destination;
 @property (nonatomic, retain) NSSet *fundsUsed;
 @property (nonatomic, retain) Airport *origin;

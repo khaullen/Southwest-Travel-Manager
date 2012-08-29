@@ -29,10 +29,6 @@
 		3B5E3BE215EB21B9000D85E2 /* airportInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3BE115EB21B8000D85E2 /* airportInfo.plist */; };
 		3B5E3BF115EB58E9000D85E2 /* Airport+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */; };
 		3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */; };
-		3B8418E915EC31770094AB81 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418E815EC31770094AB81 /* Airport.m */; };
-		3B8418ED15EC31770094AB81 /* Fund.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418EC15EC31770094AB81 /* Fund.m */; };
-		3B8418F015EC31770094AB81 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418EF15EC31770094AB81 /* Passenger.m */; };
-		3B8418F315EC31770094AB81 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418F215EC31770094AB81 /* Flight.m */; };
 		3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */; };
 		3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */; };
 		3B84190415ECA0950094AB81 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190015ECA0950094AB81 /* 33-cabinet.png */; };
@@ -43,6 +39,10 @@
 		3B84191815EDC6D40094AB81 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191715EDC6D40094AB81 /* icon@2x.png */; };
 		3B84191F15EE02990094AB81 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191E15EE02990094AB81 /* Default.png */; };
 		3B84192115EE02A60094AB81 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84192015EE02A60094AB81 /* Default@2x.png */; };
+		3B84192415EE78740094AB81 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192315EE78740094AB81 /* Passenger.m */; };
+		3B84192715EE78740094AB81 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192615EE78740094AB81 /* Airport.m */; };
+		3B84192A15EE78740094AB81 /* Fund.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192915EE78740094AB81 /* Fund.m */; };
+		3B84192D15EE78750094AB81 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192C15EE78750094AB81 /* Flight.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,14 +83,6 @@
 		3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Airport+Create.m"; sourceTree = "<group>"; };
 		3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndCurrencyFormatter.h; sourceTree = "<group>"; };
 		3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndCurrencyFormatter.m; sourceTree = "<group>"; };
-		3B8418E715EC31770094AB81 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
-		3B8418E815EC31770094AB81 /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
-		3B8418EB15EC31770094AB81 /* Fund.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fund.h; sourceTree = "<group>"; };
-		3B8418EC15EC31770094AB81 /* Fund.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fund.m; sourceTree = "<group>"; };
-		3B8418EE15EC31770094AB81 /* Passenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Passenger.h; sourceTree = "<group>"; };
-		3B8418EF15EC31770094AB81 /* Passenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Passenger.m; sourceTree = "<group>"; };
-		3B8418F115EC31770094AB81 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
-		3B8418F215EC31770094AB81 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
 		3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundDetailsTableViewController.h; sourceTree = "<group>"; };
 		3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundDetailsTableViewController.m; sourceTree = "<group>"; };
 		3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFundTableViewController.h; sourceTree = "<group>"; };
@@ -103,6 +95,14 @@
 		3B84191715EDC6D40094AB81 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		3B84191E15EE02990094AB81 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		3B84192015EE02A60094AB81 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		3B84192215EE78740094AB81 /* Passenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Passenger.h; sourceTree = "<group>"; };
+		3B84192315EE78740094AB81 /* Passenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Passenger.m; sourceTree = "<group>"; };
+		3B84192515EE78740094AB81 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		3B84192615EE78740094AB81 /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		3B84192815EE78740094AB81 /* Fund.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fund.h; sourceTree = "<group>"; };
+		3B84192915EE78740094AB81 /* Fund.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fund.m; sourceTree = "<group>"; };
+		3B84192B15EE78740094AB81 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
+		3B84192C15EE78750094AB81 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,14 +179,14 @@
 			isa = PBXGroup;
 			children = (
 				3B5E3BA815E3B403000D85E2 /* Database.xcdatamodeld */,
-				3B8418F115EC31770094AB81 /* Flight.h */,
-				3B8418F215EC31770094AB81 /* Flight.m */,
-				3B8418EE15EC31770094AB81 /* Passenger.h */,
-				3B8418EF15EC31770094AB81 /* Passenger.m */,
-				3B8418EB15EC31770094AB81 /* Fund.h */,
-				3B8418EC15EC31770094AB81 /* Fund.m */,
-				3B8418E715EC31770094AB81 /* Airport.h */,
-				3B8418E815EC31770094AB81 /* Airport.m */,
+				3B84192B15EE78740094AB81 /* Flight.h */,
+				3B84192C15EE78750094AB81 /* Flight.m */,
+				3B84192815EE78740094AB81 /* Fund.h */,
+				3B84192915EE78740094AB81 /* Fund.m */,
+				3B84192515EE78740094AB81 /* Airport.h */,
+				3B84192615EE78740094AB81 /* Airport.m */,
+				3B84192215EE78740094AB81 /* Passenger.h */,
+				3B84192315EE78740094AB81 /* Passenger.m */,
 				3B0077CF15E1DEAB00A9FC1B /* Flight+Create.h */,
 				3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */,
 				3B5E3BEF15EB58E9000D85E2 /* Airport+Create.h */,
@@ -350,12 +350,12 @@
 				3B5E3BD815E78005000D85E2 /* FlightDetailsTableViewController.m in Sources */,
 				3B5E3BF115EB58E9000D85E2 /* Airport+Create.m in Sources */,
 				3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */,
-				3B8418E915EC31770094AB81 /* Airport.m in Sources */,
-				3B8418ED15EC31770094AB81 /* Fund.m in Sources */,
-				3B8418F015EC31770094AB81 /* Passenger.m in Sources */,
-				3B8418F315EC31770094AB81 /* Flight.m in Sources */,
 				3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */,
 				3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */,
+				3B84192415EE78740094AB81 /* Passenger.m in Sources */,
+				3B84192715EE78740094AB81 /* Airport.m in Sources */,
+				3B84192A15EE78740094AB81 /* Fund.m in Sources */,
+				3B84192D15EE78750094AB81 /* Flight.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
