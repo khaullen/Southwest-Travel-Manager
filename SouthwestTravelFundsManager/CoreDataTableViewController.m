@@ -220,5 +220,12 @@
 
 - (void)setupFetchedResultsController {}
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        id obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.database.managedObjectContext deleteObject:obj];
+    }
+}
+
 @end
 
