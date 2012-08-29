@@ -48,7 +48,7 @@
     [super setupFetchedResultsController];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"outboundDepartureDate" ascending:TRUE]];
-    request.predicate = [NSPredicate predicateWithFormat:@"(outboundDepartureDate > %@) AND (cancelled == NO)", [NSDate date]];
+    request.predicate = [NSPredicate predicateWithFormat:@"((outboundDepartureDate > %@) OR (returnDepartureDate > %@)) AND (cancelled == NO)", [NSDate date], [NSDate date]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 }

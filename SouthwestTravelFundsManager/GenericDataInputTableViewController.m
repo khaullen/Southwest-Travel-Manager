@@ -39,6 +39,7 @@
 @synthesize outboundDatePicker = _outboundDatePicker;
 @synthesize returnDatePicker = _returnDatePicker;
 @synthesize formatter = _formatter;
+@synthesize firstResponderTweaks = _firstResponderTweaks;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -55,6 +56,10 @@
     self.notesTextField.delegate = self;
     [self setCustomInputViews];
     [self setDataInFields];
+}
+
+- (BOOL)firstResponderTweaks {
+    return FALSE;
 }
 
 - (NSMutableDictionary *)fieldData {
@@ -163,8 +168,10 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     if ([textField isEqual:self.confirmTextField]) {
+        // disallow more than 6 characters
+        if (newString.length > 6) return FALSE;
         // move first responder after 6 characters in confirmation code
-        if (newString.length == 6) {
+        if (newString.length == 6 && self.firstResponderTweaks) {
             self.confirmTextField.text = newString;
             [self.costTextField becomeFirstResponder];
             return FALSE;
@@ -177,7 +184,7 @@
         // disallow more than two digits after decimal point
         if ([newString rangeOfString:@"."].length && [newString rangeOfString:@"."].location < newString.length - 3) return FALSE;
         // move first responder with two digits after decimal point
-        if (newString.length >= 3 && [newString characterAtIndex:newString.length - 3] == '.') {
+        if (newString.length >= 3 && [newString characterAtIndex:newString.length - 3] == '.' && self.firstResponderTweaks) {
             self.costTextField.text = newString;
             [self.expirationTextField becomeFirstResponder];
             return FALSE;
@@ -272,7 +279,8 @@
         } else if ([field isEqualToString:COST]) {
             if ([(NSNumber *)[self.fieldData objectForKey:field] doubleValue] == 0) [invalid addObject:field];
         } else if ([field isEqualToString:RETURN_DEPARTURE_DATE]) {
-            if ([(NSDate *)[self.fieldData objectForKey:field] compare:[self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE]] == NSOrderedAscending) [invalid addObject:field];
+            NSDate *returnDate = [self.fieldData objectForKey:field];
+            if ([returnDate compare:[self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE]] == NSOrderedAscending || [returnDate compare:[NSDate date]] == NSOrderedAscending) [invalid addObject:field];
         }
     }
     [enteredData minusSet:invalid];

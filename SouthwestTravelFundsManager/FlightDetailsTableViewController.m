@@ -8,9 +8,17 @@
 
 #import "FlightDetailsTableViewController.h"
 
+@interface FlightDetailsTableViewController ()
+
+@end
+
 @implementation FlightDetailsTableViewController
 
 @synthesize flight = _flight;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
 
 - (void)setFlight:(Flight *)flight {
     _flight = flight;

@@ -39,6 +39,8 @@
 		3B84190515ECA0950094AB81 /* 33-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */; };
 		3B84190615ECA0950094AB81 /* 38-airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190215ECA0950094AB81 /* 38-airplane.png */; };
 		3B84190715ECA0950094AB81 /* 38-airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190315ECA0950094AB81 /* 38-airplane@2x.png */; };
+		3B84191515EDC6D10094AB81 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191415EDC6D10094AB81 /* icon.png */; };
+		3B84191815EDC6D40094AB81 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191715EDC6D40094AB81 /* icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,6 +97,8 @@
 		3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet@2x.png"; sourceTree = "<group>"; };
 		3B84190215ECA0950094AB81 /* 38-airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane.png"; sourceTree = "<group>"; };
 		3B84190315ECA0950094AB81 /* 38-airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane@2x.png"; sourceTree = "<group>"; };
+		3B84191415EDC6D10094AB81 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		3B84191715EDC6D40094AB81 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 				3B0077D615E1DF4700A9FC1B /* View Controllers */,
 				3B0077D515E1DF0A00A9FC1B /* Model */,
 				3B00779815DA565000A9FC1B /* Supporting Files */,
+				3B84191915EDFC730094AB81 /* Images */,
 			);
 			path = SouthwestTravelFundsManager;
 			sourceTree = "<group>";
@@ -157,10 +162,6 @@
 			children = (
 				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
 				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
-				3B84190015ECA0950094AB81 /* 33-cabinet.png */,
-				3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */,
-				3B84190215ECA0950094AB81 /* 38-airplane.png */,
-				3B84190315ECA0950094AB81 /* 38-airplane@2x.png */,
 				3B00779915DA565000A9FC1B /* SouthwestTravelFundsManager-Info.plist */,
 				3B5E3BE115EB21B8000D85E2 /* airportInfo.plist */,
 				3B00779A15DA565000A9FC1B /* InfoPlist.strings */,
@@ -243,6 +244,19 @@
 			name = "Travel Funds";
 			sourceTree = "<group>";
 		};
+		3B84191915EDFC730094AB81 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3B84191715EDC6D40094AB81 /* icon@2x.png */,
+				3B84191415EDC6D10094AB81 /* icon.png */,
+				3B84190015ECA0950094AB81 /* 33-cabinet.png */,
+				3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */,
+				3B84190215ECA0950094AB81 /* 38-airplane.png */,
+				3B84190315ECA0950094AB81 /* 38-airplane@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +316,8 @@
 				3B84190515ECA0950094AB81 /* 33-cabinet@2x.png in Resources */,
 				3B84190615ECA0950094AB81 /* 38-airplane.png in Resources */,
 				3B84190715ECA0950094AB81 /* 38-airplane@2x.png in Resources */,
+				3B84191515EDC6D10094AB81 /* icon.png in Resources */,
+				3B84191815EDC6D40094AB81 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

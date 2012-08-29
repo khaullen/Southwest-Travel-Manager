@@ -32,6 +32,8 @@
 
 @property (strong, nonatomic) DateAndCurrencyFormatter *formatter;
 
+@property (nonatomic) BOOL firstResponderTweaks;
+
 - (BOOL)tableHasIncompleteRequiredFields:(NSDictionary *)requiredFields;
 - (void)updatePlaceholderText;
 
