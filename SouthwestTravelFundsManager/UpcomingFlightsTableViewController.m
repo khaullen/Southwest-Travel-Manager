@@ -15,6 +15,8 @@
 
 @interface UpcomingFlightsTableViewController () <NewFlightDelegate>
 
+- (void)addLocalNotificationForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo atDate:(NSDate *)departureDate returnFlight:(BOOL)returnFlight;
+
 @end
 
 @implementation UpcomingFlightsTableViewController
@@ -40,8 +42,27 @@
 }
 
 - (void)newFlightTableViewController:(NewFlightTableViewController *)sender didEnterFlightInformation:(NSDictionary *)flightInfo {
-    [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
+    Flight *flight = [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
+    if (flight.checkInReminder) {
+        [self addLocalNotificationForFlight:flight withInfo:flightInfo atDate:flight.outboundDepartureDate returnFlight:FALSE];
+        if (flight.roundtrip) [self addLocalNotificationForFlight:flight withInfo:flightInfo atDate:flight.returnDepartureDate returnFlight:TRUE];
+    }
     [self dismissModalViewControllerAnimated:TRUE];
+}
+
+- (void)addLocalNotificationForFlight:(Flight *)flight 
+                             withInfo:(NSDictionary *)flightInfo 
+                               atDate:(NSDate *)departureDate 
+                         returnFlight:(BOOL)returnFlight{
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeInterval:-(60*60*24 + 90) sinceDate:departureDate];
+    NSString *origin = [NSString stringWithFormat:@"%@, %@", flight.origin.city, flight.origin.state];
+    NSString *destination = [NSString stringWithFormat:@"%@, %@", flight.destination.city, flight.destination.state];
+    localNotification.alertBody = [NSString stringWithFormat:@"Check in for your Southwest flight from %@ to %@, confirmation #%@", returnFlight ? destination : origin, returnFlight ? origin : destination, flight.confirmationCode];
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.userInfo = flightInfo;
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 - (void)setupFetchedResultsController {

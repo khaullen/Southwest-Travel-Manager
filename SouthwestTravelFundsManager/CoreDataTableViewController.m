@@ -13,7 +13,6 @@
 
 // ADDITIONAL CODE
 - (void)useDocument;
-- (void)addTestDataIntoDocument:(UIManagedDocument *)document;
 
 @end
 
@@ -212,7 +211,6 @@
         // Create database
         [self.database saveToURL:self.database.fileURL forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
             [self setupFetchedResultsController];
-            [self addTestDataIntoDocument:self.database];
         }];
     } else if (self.database.documentState == UIDocumentStateClosed) {
         [self.database openWithCompletionHandler:^(BOOL success) {
@@ -221,10 +219,6 @@
     } else if (self.database.documentState == UIDocumentStateNormal) {
         [self setupFetchedResultsController];
     }
-}
-
-- (void)addTestDataIntoDocument:(UIManagedDocument *)document {
-    
 }
 
 - (void)setupFetchedResultsController {}
