@@ -66,6 +66,7 @@
     newFlight.returnDepartureDate = [flightInfo objectForKey:RETURN_DEPARTURE_DATE];
     newFlight.checkInReminder = [flightInfo objectForKey:CHECK_IN_REMINDER];
     newFlight.notes = [flightInfo objectForKey:NOTES];
+    newFlight.cancelled = [NSNumber numberWithBool:FALSE];
     
     return newFlight;
 }
