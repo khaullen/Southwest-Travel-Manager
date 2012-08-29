@@ -6,6 +6,7 @@
 //
 
 #import "CoreDataTableViewController.h"
+#import "DatabaseHelper.h"
 
 @interface CoreDataTableViewController()
 @property (nonatomic) BOOL beganUpdates;
@@ -192,11 +193,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (!self.database) {
-        NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        url = [url URLByAppendingPathComponent:@"default_database"];
-        self.database = [[UIManagedDocument alloc] initWithFileURL:url];
-    }
+    if (!self.database) self.database = [DatabaseHelper sharedDatabase];
 }
 
 - (void)setDatabase:(UIManagedDocument *)database {
