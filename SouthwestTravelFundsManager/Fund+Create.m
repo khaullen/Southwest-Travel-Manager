@@ -32,7 +32,7 @@
 
 + (Fund *)fund:(NSDictionary *)fundInfo inDatabase:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Fund"];
-    request.predicate = [NSPredicate predicateWithFormat:@"originalFlight.ticketNumber = %@", [fundInfo valueForKeyPath:@"originalFlight.ticketNumber"]];
+    request.predicate = [NSPredicate predicateWithFormat:@"originalFlight.confirmationCode = %@", [fundInfo valueForKeyPath:CONFIRMATION_CODE]];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"balance" ascending:TRUE]];
     
     NSError *error;
@@ -42,6 +42,7 @@
         // handle error
         return nil;
     }
+    NSLog(@"[matches lastObject]: %@", [matches lastObject]);
     return [matches lastObject];
 }
 

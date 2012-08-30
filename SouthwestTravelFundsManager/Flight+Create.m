@@ -38,7 +38,7 @@
 
 + (Flight *)flight:(NSDictionary *)flightInfo inDatabase:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
-    request.predicate = [NSPredicate predicateWithFormat:@"ticketNumber = %@", [flightInfo objectForKey:TICKET_NUMBER]];
+    request.predicate = [NSPredicate predicateWithFormat:@"confirmationCode = %@", [flightInfo objectForKey:CONFIRMATION_CODE]];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:TICKET_NUMBER ascending:TRUE]];
 
     NSError *error;

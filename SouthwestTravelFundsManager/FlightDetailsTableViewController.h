@@ -29,5 +29,3 @@
 // TODO: Add editing capability
 
 // TODO: Add field validation on pressing back button
-
-// TODO: add cancel flight button
