@@ -274,13 +274,16 @@
     for (NSString *field in enteredData) {
         if ([field isEqualToString:DESTINATION]) {
             if ([[self.fieldData objectForKey:field] isEqualToDictionary:[self.fieldData objectForKey:ORIGIN]]) [invalid addObject:field];
+        } else if ([field isEqualToString:EXPIRATION_DATE]) {
+            NSDate *expirationDate = [self.fieldData objectForKey:field];
+            if ([expirationDate timeIntervalSinceDate:[NSDate date]] < 0) [invalid addObject:field];
         } else if ([field isEqualToString:CONFIRMATION_CODE]) {
             if ([(NSString *)[self.fieldData objectForKey:field] length] != 6) [invalid addObject:field];
         } else if ([field isEqualToString:COST]) {
             if ([(NSNumber *)[self.fieldData objectForKey:field] doubleValue] == 0) [invalid addObject:field];
         } else if ([field isEqualToString:RETURN_DEPARTURE_DATE]) {
             NSDate *returnDate = [self.fieldData objectForKey:field];
-            if ([returnDate compare:[self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE]] == NSOrderedAscending || [returnDate compare:[NSDate date]] == NSOrderedAscending) [invalid addObject:field];
+            if ([returnDate timeIntervalSinceDate:[self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE]] < 0 || [returnDate timeIntervalSinceDate:[NSDate date]] < 0) [invalid addObject:field];
         }
     }
     [enteredData minusSet:invalid];
