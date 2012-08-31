@@ -61,8 +61,8 @@
     
     // Configure the cell...
     Fund *fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [self.formatter stringForCost:fund.balance]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ [%@]", fund.originalFlight.confirmationCode, [self.formatter stringForDate:fund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]]];
+    cell.textLabel.text = [self.formatter stringForCost:fund.balance];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", fund.originalFlight.confirmationCode, [self.formatter stringForDate:fund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]]];
     return cell;
 }
 

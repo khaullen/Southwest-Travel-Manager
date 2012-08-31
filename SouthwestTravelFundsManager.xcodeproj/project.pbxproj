@@ -29,6 +29,7 @@
 		3B5E3BE215EB21B9000D85E2 /* airportInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3BE115EB21B8000D85E2 /* airportInfo.plist */; };
 		3B5E3BF115EB58E9000D85E2 /* Airport+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */; };
 		3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */; };
+		3B7B340015F0AF3000B6AC61 /* FundSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */; };
 		3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */; };
 		3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */; };
 		3B84190415ECA0950094AB81 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190015ECA0950094AB81 /* 33-cabinet.png */; };
@@ -84,6 +85,8 @@
 		3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Airport+Create.m"; sourceTree = "<group>"; };
 		3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndCurrencyFormatter.h; sourceTree = "<group>"; };
 		3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndCurrencyFormatter.m; sourceTree = "<group>"; };
+		3B7B33FE15F0AF3000B6AC61 /* FundSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundSelectionTableViewController.h; sourceTree = "<group>"; };
+		3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundSelectionTableViewController.m; sourceTree = "<group>"; };
 		3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundDetailsTableViewController.h; sourceTree = "<group>"; };
 		3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundDetailsTableViewController.m; sourceTree = "<group>"; };
 		3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFundTableViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */,
 				3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */,
 				3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */,
+				3B7B33FE15F0AF3000B6AC61 /* FundSelectionTableViewController.h */,
+				3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */,
 			);
 			name = "Travel Funds";
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				3B84192A15EE78740094AB81 /* Fund.m in Sources */,
 				3B84192D15EE78750094AB81 /* Flight.m in Sources */,
 				3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */,
+				3B7B340015F0AF3000B6AC61 /* FundSelectionTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

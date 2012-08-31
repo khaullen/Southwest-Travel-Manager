@@ -33,6 +33,7 @@
         NewFlightTableViewController *newFlight = (NewFlightTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         newFlight.delegate = self;
         newFlight.formatter = self.formatter;
+        newFlight.context = self.database.managedObjectContext;
     } else if ([segue.identifier isEqualToString:@"segueToDetail"]) {
         FlightDetailsTableViewController *flightDetails = (FlightDetailsTableViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];

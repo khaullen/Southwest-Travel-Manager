@@ -12,11 +12,15 @@
 
 @interface NewFlightTableViewController ()
 
+- (NSArray *)allFundsWithContext:(NSManagedObjectContext *)context;
+- (void)resignTextFieldFirstResponders;
+
 @end
 
 @implementation NewFlightTableViewController
 
 @synthesize delegate = _delegate;
+@synthesize context = _context;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -24,11 +28,19 @@
     [self.flightTextField becomeFirstResponder];
 }
 
-- (IBAction)donePressed:(UIBarButtonItem *)sender {
-    NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
-    for (UITextField *field in textFields) {
-        if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [self resignTextFieldFirstResponders];
+    if ([segue.identifier isEqualToString:@"segueToFundSelection"]) {
+        FundSelectionTableViewController *fundSelectionTVC = segue.destinationViewController;
+        fundSelectionTVC.formatter = self.formatter;
+        fundSelectionTVC.travelFunds = [self allFundsWithContext:self.context];
+        fundSelectionTVC.flightDetails = [NSString stringWithFormat:@"%@ to %@", [[self.fieldData objectForKey:ORIGIN] objectForKey:CITY], [[self.fieldData objectForKey:DESTINATION] objectForKey:CITY]];
+        fundSelectionTVC.flightCost = [self.fieldData objectForKey:COST];
     }
+}
+
+- (IBAction)donePressed:(UIBarButtonItem *)sender {
+    [self resignTextFieldFirstResponders];
     [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
     [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
     if (![self tableHasIncompleteRequiredFields:self.flightRequiredFields]) [self.delegate newFlightTableViewController:self didEnterFlightInformation:self.fieldData];
@@ -44,6 +56,20 @@
     } else {
         return [super tableView:tableView numberOfRowsInSection:section];
     }
+}
+
+- (void)resignTextFieldFirstResponders {
+    NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
+    for (UITextField *field in textFields) {
+        if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
+    }
+}
+
+- (NSArray *)allFundsWithContext:(NSManagedObjectContext *)context {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Fund"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"expirationDate" ascending:TRUE]];
+    request.predicate = [NSPredicate predicateWithFormat:@"(balance > 0) AND (expirationDate > %@)", [NSDate date]];
+    return [context executeFetchRequest:request error:nil];
 }
 
 - (void)switchDidEndEditing:(UISwitch *)sender {

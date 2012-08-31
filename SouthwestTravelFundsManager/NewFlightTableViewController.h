@@ -7,6 +7,7 @@
 //
 
 #import "GenericDataInputTableViewController.h"
+#import "FundSelectionTableViewController.h"
 
 @class NewFlightTableViewController;
 
@@ -19,5 +20,6 @@
 @interface NewFlightTableViewController : GenericDataInputTableViewController
 
 @property (nonatomic, weak) id <NewFlightDelegate> delegate;
+@property (nonatomic, weak) NSManagedObjectContext *context;
 
 @end

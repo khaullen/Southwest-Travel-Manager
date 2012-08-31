@@ -233,7 +233,7 @@
         [self.fieldData setObject:self.confirmTextField.text forKey:CONFIRMATION_CODE];
     } else if ([textField isEqual:self.costTextField]) {
         NSString *amount = [self parseCostTextField:self.costTextField];
-        [self.fieldData setObject:[NSNumber numberWithDouble:[amount doubleValue]] forKey:@"cost"];
+        [self.fieldData setObject:[NSNumber numberWithDouble:[amount doubleValue]] forKey:COST];
     } else if ([textField isEqual:self.notesTextField]) {
         [self.fieldData setObject:self.notesTextField.text forKey:NOTES];
     }
@@ -325,6 +325,12 @@
     }
     if (incompleteFields.count) [self.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
 }
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [indexPath isEqual:[NSIndexPath indexPathForRow:0 inSection:3]] ? indexPath : nil;
+}
+
+// TODO: validate origin, destination, and cost before allowing selection
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
