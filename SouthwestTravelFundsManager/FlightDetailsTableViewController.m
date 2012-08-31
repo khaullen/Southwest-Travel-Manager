@@ -100,10 +100,19 @@
     if ([sender isEqual:self.roundtripSwitch]) {
         self.flight.roundtrip = [self.fieldData objectForKey:ROUNDTRIP];
         if (!sender.on) self.flight.returnDepartureDate = nil;
+        [self.tableView reloadData];
     } else if ([sender isEqual:self.checkInReminderSwitch]) {
         self.flight.checkInReminder = [self.fieldData objectForKey:CHECK_IN_REMINDER];
     }
     [DatabaseHelper saveDatabase];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 1) {
+        return [super tableView:tableView numberOfRowsInSection:section] - 1 + self.roundtripSwitch.on;
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
 }
 
 @end

@@ -38,4 +38,17 @@
     [self.presentingViewController dismissModalViewControllerAnimated:TRUE];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 1) {
+        return [super tableView:tableView numberOfRowsInSection:section] - 1 + self.roundtripSwitch.on;
+    } else {
+        return [super tableView:tableView numberOfRowsInSection:section];
+    }
+}
+
+- (void)switchDidEndEditing:(UISwitch *)sender {
+    [super switchDidEndEditing:sender];
+    if ([sender isEqual:self.roundtripSwitch]) [self.tableView reloadData];
+}
+
 @end

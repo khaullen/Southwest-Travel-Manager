@@ -257,10 +257,6 @@
     // update corresponding property
     if ([sender isEqual:self.roundtripSwitch]) {
         [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
-        if (!sender.on) {
-            [self.fieldData removeObjectForKey:RETURN_DEPARTURE_DATE];
-            self.returnTextField.text = @"";
-        }
     } else if ([sender isEqual:self.checkInReminderSwitch]) {
         [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
     } else if ([sender isEqual:self.unusedTicketSwitch]) {
