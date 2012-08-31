@@ -11,5 +11,6 @@
 @interface DatabaseHelper
 
 + (UIManagedDocument *)sharedDatabase;
++ (void)saveDatabase;
 
 @end

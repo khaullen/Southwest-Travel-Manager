@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AirportPickerViewController.h"
 #import "DateAndCurrencyFormatter.h"
+#import "DatabaseHelper.h"
 
 @interface GenericDataInputTableViewController : UITableViewController <UITextFieldDelegate, AirportPickerViewControllerDelegate>
 
@@ -24,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *unusedTicketSwitch;
 
 @property (nonatomic, strong) NSMutableDictionary *fieldData;
+@property (nonatomic, readonly) NSDictionary *flightRequiredFields;
+@property (nonatomic, readonly) NSDictionary *fundRequiredFields;
 
 @property (strong, nonatomic) AirportPickerViewController *airportPickerVC;
 @property (strong, nonatomic) UIDatePicker *expirationDatePicker;
@@ -34,7 +37,12 @@
 
 @property (nonatomic) BOOL firstResponderTweaks;
 
+- (void)setDataInFields;
+- (void)datePickerDidEndEditing:(UIDatePicker *)sender;
+- (void)switchDidEndEditing:(UISwitch *)sender;
 - (BOOL)tableHasIncompleteRequiredFields:(NSDictionary *)requiredFields;
+- (BOOL)isInvalid:(NSString *)field;
+- (void)selectAnimated:(NSSet *)incompleteFields fromRequiredFields:(NSDictionary *)requiredFields;
 - (void)updatePlaceholderText;
 
 @end

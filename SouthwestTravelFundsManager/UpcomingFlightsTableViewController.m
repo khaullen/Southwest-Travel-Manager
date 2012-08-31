@@ -44,9 +44,7 @@
 
 - (void)newFlightTableViewController:(NewFlightTableViewController *)sender didEnterFlightInformation:(NSDictionary *)flightInfo {
     Flight *flight = [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
-    [self.database saveToURL:self.database.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
-        if (!success) NSLog(@"failed to save document %@", self.database.localizedName);
-    }];
+    [DatabaseHelper saveDatabase];
     if (flight.checkInReminder) {
         [self addLocalNotificationForFlight:flight withInfo:flightInfo atDate:flight.outboundDepartureDate returnFlight:FALSE];
         if (flight.roundtrip) [self addLocalNotificationForFlight:flight withInfo:flightInfo atDate:flight.returnDepartureDate returnFlight:TRUE];
@@ -59,9 +57,7 @@
     flight.travelFund.balance = flight.cost;
     flight.travelFund.unusedTicket = [NSNumber numberWithBool:TRUE];
     flight.travelFund.notes = flight.notes;
-    [self.database saveToURL:self.database.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
-        if (!success) NSLog(@"failed to save document %@", self.database.localizedName);
-    }];
+    [DatabaseHelper saveDatabase];
     [self.navigationController popViewControllerAnimated:TRUE];
 }
 

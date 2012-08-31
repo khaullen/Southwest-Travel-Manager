@@ -25,4 +25,55 @@
     self.fieldData = fundDetails;
 }
 
+- (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination {
+    if ([(NSString *)[origin objectForKey:AIRPORT_CODE] isEqualToString:[destination objectForKey:AIRPORT_CODE]]) {
+        [self selectAnimated:[NSSet setWithObject:DESTINATION] fromRequiredFields:self.fundRequiredFields];
+        [self setDataInFields];
+    } else {
+        [super airportPickerViewController:airportPickerVC selectedOrigin:origin andDestination:destination];
+        self.fund.originalFlight.origin = [Airport airportWithDictionary:[self.fieldData objectForKey:ORIGIN] inManagedObjectContext:self.fund.managedObjectContext];
+        self.fund.originalFlight.destination = [Airport airportWithDictionary:[self.fieldData objectForKey:DESTINATION] inManagedObjectContext:self.fund.managedObjectContext];
+        [DatabaseHelper saveDatabase];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSString *field;
+    if ([textField isEqual:self.confirmTextField]) field = CONFIRMATION_CODE;
+    if ([textField isEqual:self.costTextField]) field = COST;
+    if ([textField isEqual:self.notesTextField]) field = NOTES;
+    if ([self isInvalid:field]) {
+        [self selectAnimated:[NSSet setWithObject:field] fromRequiredFields:self.fundRequiredFields];
+        [self setDataInFields];
+    } else {
+        [super textFieldDidEndEditing:textField];
+        if ([field isEqualToString:CONFIRMATION_CODE]) self.fund.originalFlight.confirmationCode = [self.fieldData objectForKey:CONFIRMATION_CODE];
+        if ([field isEqualToString:COST]) self.fund.balance = [self.fieldData objectForKey:COST];
+        if ([field isEqualToString:NOTES]) self.fund.notes = [self.fieldData objectForKey:NOTES];
+        [DatabaseHelper saveDatabase];
+    }
+    
+}
+
+- (void)datePickerDidEndEditing:(UIDatePicker *)sender {
+    NSString *field;
+    if ([sender isEqual:self.expirationDatePicker]) field = EXPIRATION_DATE;
+    if ([self isInvalid:field]) {
+        [self selectAnimated:[NSSet setWithObject:field] fromRequiredFields:self.fundRequiredFields];
+        [self setDataInFields];
+    } else {
+        [super datePickerDidEndEditing:sender];
+        if ([field isEqualToString:EXPIRATION_DATE]) self.fund.expirationDate = [self.fieldData objectForKey:EXPIRATION_DATE];
+        [DatabaseHelper saveDatabase];
+    }
+}
+
+- (void)switchDidEndEditing:(UISwitch *)sender {
+    [super switchDidEndEditing:sender];
+    if ([sender isEqual:self.unusedTicketSwitch]) {
+        self.fund.unusedTicket = [self.fieldData objectForKey:UNUSED_TICKET];
+    }
+    [DatabaseHelper saveDatabase];
+}
+
 @end

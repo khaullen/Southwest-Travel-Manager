@@ -18,7 +18,6 @@
 
 @interface NewFlightTableViewController : GenericDataInputTableViewController
 
-@property (nonatomic, readonly) NSDictionary *requiredFields;
 @property (nonatomic, weak) id <NewFlightDelegate> delegate;
 
 @end

@@ -14,9 +14,7 @@
 
 - (void)setCustomInputViews;
 - (void)setDataInFields;
-- (void)datePickerDidEndEditing:(UIDatePicker *)sender;
-- (void)switchDidEndEditing:(UISwitch *)sender;
-- (void)selectAnimated:(NSSet *)incompleteFields fromRequiredFields:(NSDictionary *)requiredFields;
+- (NSString *)parseCostTextField:(UITextField *)costTextField;
 - (NSSet *)validateFields:(NSMutableSet *)enteredData;
 
 @end
@@ -40,6 +38,16 @@
 @synthesize returnDatePicker = _returnDatePicker;
 @synthesize formatter = _formatter;
 @synthesize firstResponderTweaks = _firstResponderTweaks;
+@dynamic flightRequiredFields;
+@dynamic fundRequiredFields;
+
+- (NSDictionary *)flightRequiredFields {
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], ORIGIN, [NSIndexPath indexPathForRow:0 inSection:0], DESTINATION, [NSIndexPath indexPathForRow:1 inSection:0], CONFIRMATION_CODE, [NSIndexPath indexPathForRow:2 inSection:0], COST, [NSIndexPath indexPathForRow:3 inSection:0], EXPIRATION_DATE, [NSIndexPath indexPathForRow:0 inSection:2], CHECK_IN_REMINDER, [NSIndexPath indexPathForRow:0 inSection:1], ROUNDTRIP, [NSIndexPath indexPathForRow:1 inSection:1], OUTBOUND_DEPARTURE_DATE, [NSIndexPath indexPathForRow:2 inSection:1], RETURN_DEPARTURE_DATE, nil];
+}
+
+- (NSDictionary *)fundRequiredFields {
+    return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], CONFIRMATION_CODE, [NSIndexPath indexPathForRow:1 inSection:0], COST, [NSIndexPath indexPathForRow:2 inSection:0], EXPIRATION_DATE, nil];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -208,19 +216,24 @@
     }
 }
 
+- (NSString *)parseCostTextField:(UITextField *)costTextField {
+    NSString *amount;
+    if ([costTextField.text hasPrefix:@"$"]) amount = [costTextField.text substringFromIndex:1];
+    if (![amount doubleValue] && ![costTextField isFirstResponder]) {
+        costTextField.text = @"";
+    } else {
+        costTextField.text = [self.formatter stringForCost:[NSNumber numberWithDouble:[amount doubleValue]]];
+    }
+    return amount;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     // update corresponding property
     if ([textField isEqual:self.confirmTextField]) {
         [self.fieldData setObject:self.confirmTextField.text forKey:CONFIRMATION_CODE];
     } else if ([textField isEqual:self.costTextField]) {
-        NSString *numberValue;
-        if ([self.costTextField.text hasPrefix:@"$"]) numberValue = [self.costTextField.text substringFromIndex:1];
-        if (![numberValue doubleValue] && ![self.costTextField isFirstResponder]) {
-            self.costTextField.text = @"";
-        } else {
-            self.costTextField.text = [self.formatter stringForCost:[NSNumber numberWithDouble:[numberValue doubleValue]]];
-        }
-        [self.fieldData setObject:[NSNumber numberWithDouble:[numberValue doubleValue]] forKey:@"cost"];
+        NSString *amount = [self parseCostTextField:self.costTextField];
+        [self.fieldData setObject:[NSNumber numberWithDouble:[amount doubleValue]] forKey:@"cost"];
     } else if ([textField isEqual:self.notesTextField]) {
         [self.fieldData setObject:self.notesTextField.text forKey:NOTES];
     }
@@ -244,6 +257,10 @@
     // update corresponding property
     if ([sender isEqual:self.roundtripSwitch]) {
         [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
+        if (!sender.on) {
+            [self.fieldData removeObjectForKey:RETURN_DEPARTURE_DATE];
+            self.returnTextField.text = @"";
+        }
     } else if ([sender isEqual:self.checkInReminderSwitch]) {
         [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
     } else if ([sender isEqual:self.unusedTicketSwitch]) {
@@ -272,23 +289,34 @@
 - (NSSet *)validateFields:(NSMutableSet *)enteredData {
     NSMutableSet *invalid = [[NSMutableSet alloc] initWithCapacity:8];
     for (NSString *field in enteredData) {
-        if ([field isEqualToString:DESTINATION]) {
-            if ([[self.fieldData objectForKey:field] isEqualToDictionary:[self.fieldData objectForKey:ORIGIN]]) [invalid addObject:field];
-        } else if ([field isEqualToString:EXPIRATION_DATE]) {
-            NSDate *expirationDate = [self.fieldData objectForKey:field];
-            if ([expirationDate timeIntervalSinceDate:[NSDate date]] < 0) [invalid addObject:field];
-        } else if ([field isEqualToString:CONFIRMATION_CODE]) {
-            if ([(NSString *)[self.fieldData objectForKey:field] length] != 6) [invalid addObject:field];
-        } else if ([field isEqualToString:COST]) {
-            if ([(NSNumber *)[self.fieldData objectForKey:field] doubleValue] == 0) [invalid addObject:field];
-        } else if ([field isEqualToString:RETURN_DEPARTURE_DATE]) {
-            NSDate *returnDate = [self.fieldData objectForKey:field];
-            if ([returnDate timeIntervalSinceDate:[self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE]] < 0 || [returnDate timeIntervalSinceDate:[NSDate date]] < 0) [invalid addObject:field];
-        }
+        if ([self isInvalid:field]) [invalid addObject:field];
     }
     [enteredData minusSet:invalid];
     return enteredData;
 }
+
+- (BOOL)isInvalid:(NSString *)field {
+    if ([field isEqualToString:DESTINATION]) {
+        return [[self.fieldData objectForKey:field] isEqualToDictionary:[self.fieldData objectForKey:ORIGIN]];
+    } else if ([field isEqualToString:EXPIRATION_DATE]) {
+        NSDate *expirationDate = self.expirationDatePicker.date;
+        return [expirationDate timeIntervalSinceDate:[NSDate date]] < 0;
+    } else if ([field isEqualToString:CONFIRMATION_CODE]) {
+        return [self.confirmTextField.text length] != 6;
+    } else if ([field isEqualToString:COST]) {
+        return [[self parseCostTextField:self.costTextField] doubleValue] == 0;
+    } else if ([field isEqualToString:OUTBOUND_DEPARTURE_DATE]) {
+        NSDate *outboundDate = self.outboundDatePicker.date;
+        return [outboundDate timeIntervalSinceDate:[self.fieldData objectForKey:RETURN_DEPARTURE_DATE]] > 0;
+    } else if ([field isEqualToString:RETURN_DEPARTURE_DATE]) {
+        NSDate *returnDate = self.returnDatePicker.date;
+        return ([returnDate timeIntervalSinceDate:[self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE]] < 0 || [returnDate timeIntervalSinceDate:[NSDate date]] < 0 || ![[self.fieldData objectForKey:ROUNDTRIP] boolValue]);
+    } else {
+        return FALSE;
+    }
+}
+
+// TODO: fix bug - return date must not be empty even for non-roundtrip flights
 
 - (void)selectAnimated:(NSSet *)incompleteFields fromRequiredFields:(NSDictionary *)requiredFields {
     NSIndexPath *topIndex = [NSIndexPath indexPathForRow:0 inSection:3];

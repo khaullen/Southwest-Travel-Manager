@@ -49,9 +49,9 @@
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="passenger" inverseEntity="Flight" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Airport" positionX="45" positionY="324" width="128" height="135"/>
-        <element name="Flight" positionX="-144" positionY="-9" width="128" height="360"/>
-        <element name="Fund" positionX="70" positionY="-36" width="128" height="135"/>
-        <element name="Passenger" positionX="70" positionY="141" width="128" height="120"/>
+        <element name="Airport" positionX="97" positionY="324" width="128" height="135"/>
+        <element name="Flight" positionX="-144" positionY="-9" width="128" height="390"/>
+        <element name="Fund" positionX="81" positionY="-45" width="128" height="135"/>
+        <element name="Passenger" positionX="133" positionY="141" width="128" height="120"/>
     </elements>
 </model>

@@ -12,12 +12,7 @@
 
 @implementation NewFundTableViewController
 
-@synthesize requiredFields = _requiredFields;
 @synthesize delegate = _delegate;
-
-- (NSDictionary *)requiredFields {
-    return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], CONFIRMATION_CODE, [NSIndexPath indexPathForRow:1 inSection:0], COST, [NSIndexPath indexPathForRow:2 inSection:0], EXPIRATION_DATE, nil];
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -31,7 +26,7 @@
         if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
     }
     [self.fieldData setObject:[NSNumber numberWithBool:self.unusedTicketSwitch.on] forKey:UNUSED_TICKET];
-    if (![self tableHasIncompleteRequiredFields:self.requiredFields]) [self.delegate newFundTableViewController:self didEnterFundInformation:self.fieldData];
+    if (![self tableHasIncompleteRequiredFields:self.fundRequiredFields]) [self.delegate newFundTableViewController:self didEnterFundInformation:self.fieldData];
 }
 
 - (IBAction)cancelPressed:(UIBarButtonItem *)sender {

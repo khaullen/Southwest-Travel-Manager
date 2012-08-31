@@ -41,9 +41,7 @@
 
 - (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo {
     [Fund fundWithDictionary:fundInfo inManagedObjectContext:self.database.managedObjectContext];
-    [self.database saveToURL:self.database.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
-        if (!success) NSLog(@"failed to save document %@", self.database.localizedName);
-    }];
+    [DatabaseHelper saveDatabase];
     [self dismissModalViewControllerAnimated:TRUE];
 }
 

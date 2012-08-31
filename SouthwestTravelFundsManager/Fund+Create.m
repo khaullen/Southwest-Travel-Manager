@@ -42,7 +42,6 @@
         // handle error
         return nil;
     }
-    NSLog(@"[matches lastObject]: %@", [matches lastObject]);
     return [matches lastObject];
 }
 

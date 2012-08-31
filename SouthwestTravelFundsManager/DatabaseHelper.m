@@ -21,4 +21,10 @@ static UIManagedDocument *sharedDatabase = nil;
     return sharedDatabase;
 }
 
++ (void)saveDatabase {
+    [[DatabaseHelper sharedDatabase] saveToURL:sharedDatabase.fileURL forSaveOperation:UIDocumentSaveForOverwriting completionHandler:^(BOOL success) {
+        if (!success) NSLog(@"failed to save document %@", sharedDatabase.localizedName);
+    }];
+}
+
 @end

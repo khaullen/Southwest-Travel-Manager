@@ -18,7 +18,6 @@
 
 @interface NewFundTableViewController : GenericDataInputTableViewController
 
-@property (nonatomic, readonly) NSDictionary *requiredFields;
 @property (nonatomic, weak) id <NewFundDelegate> delegate;
 
 @end

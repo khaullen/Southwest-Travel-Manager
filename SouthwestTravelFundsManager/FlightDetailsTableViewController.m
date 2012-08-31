@@ -48,4 +48,62 @@
     }
 }
 
+- (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination {
+    if ([(NSString *)[origin objectForKey:AIRPORT_CODE] isEqualToString:[destination objectForKey:AIRPORT_CODE]]) {
+        [self selectAnimated:[NSSet setWithObject:DESTINATION] fromRequiredFields:self.flightRequiredFields];
+        [self setDataInFields];
+    } else {
+        [super airportPickerViewController:airportPickerVC selectedOrigin:origin andDestination:destination];
+        self.flight.origin = [Airport airportWithDictionary:[self.fieldData objectForKey:ORIGIN] inManagedObjectContext:self.flight.managedObjectContext];
+        self.flight.destination = [Airport airportWithDictionary:[self.fieldData objectForKey:DESTINATION] inManagedObjectContext:self.flight.managedObjectContext];
+        [DatabaseHelper saveDatabase];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSString *field;
+    if ([textField isEqual:self.confirmTextField]) field = CONFIRMATION_CODE;
+    if ([textField isEqual:self.costTextField]) field = COST;
+    if ([textField isEqual:self.notesTextField]) field = NOTES;
+    if ([self isInvalid:field]) {
+        [self selectAnimated:[NSSet setWithObject:field] fromRequiredFields:self.flightRequiredFields];
+        [self setDataInFields];
+    } else {
+        [super textFieldDidEndEditing:textField];
+        if ([field isEqualToString:CONFIRMATION_CODE]) self.flight.confirmationCode = [self.fieldData objectForKey:CONFIRMATION_CODE];
+        if ([field isEqualToString:COST]) self.flight.cost = [self.fieldData objectForKey:COST];
+        if ([field isEqualToString:NOTES]) self.flight.notes = [self.fieldData objectForKey:NOTES];
+        [DatabaseHelper saveDatabase];
+    }
+    
+}
+
+- (void)datePickerDidEndEditing:(UIDatePicker *)sender {
+    NSString *field;
+    if ([sender isEqual:self.expirationDatePicker]) field = EXPIRATION_DATE;
+    if ([sender isEqual:self.outboundDatePicker]) field = OUTBOUND_DEPARTURE_DATE;
+    if ([sender isEqual:self.returnDatePicker]) field = RETURN_DEPARTURE_DATE;
+    if ([self isInvalid:field]) {
+        [self selectAnimated:[NSSet setWithObject:field] fromRequiredFields:self.flightRequiredFields];
+        [self setDataInFields];
+    } else {
+        [super datePickerDidEndEditing:sender];
+        if ([field isEqualToString:EXPIRATION_DATE]) self.flight.travelFund.expirationDate = [self.fieldData objectForKey:EXPIRATION_DATE];
+        if ([field isEqualToString:OUTBOUND_DEPARTURE_DATE]) self.flight.outboundDepartureDate = [self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE];
+        if ([field isEqualToString:RETURN_DEPARTURE_DATE]) self.flight.returnDepartureDate = [self.fieldData objectForKey:RETURN_DEPARTURE_DATE];
+        [DatabaseHelper saveDatabase];
+    }
+}
+
+- (void)switchDidEndEditing:(UISwitch *)sender {
+    [super switchDidEndEditing:sender];
+    if ([sender isEqual:self.roundtripSwitch]) {
+        self.flight.roundtrip = [self.fieldData objectForKey:ROUNDTRIP];
+        if (!sender.on) self.flight.returnDepartureDate = nil;
+    } else if ([sender isEqual:self.checkInReminderSwitch]) {
+        self.flight.checkInReminder = [self.fieldData objectForKey:CHECK_IN_REMINDER];
+    }
+    [DatabaseHelper saveDatabase];
+}
+
 @end

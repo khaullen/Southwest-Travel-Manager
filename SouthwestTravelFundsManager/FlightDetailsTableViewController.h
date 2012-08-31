@@ -26,6 +26,12 @@
 
 @end
 
-// TODO: Add editing capability
+// TODO: Handle check in toggle switching in delegate
 
-// TODO: Add field validation on pressing back button
+// Consider storing NSLocalNotifications in database for easier access for cancelling, rescheduling, etc.
+
+/*
+
+- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didUpdateFlightCheckInParameters:(Flight *)flight;
+
+*/
