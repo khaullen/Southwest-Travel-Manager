@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Fund.h"
-#import "Flight.h"
+#import "Fund+Create.h"
+#import "Flight+Create.h"
 #import "DateAndCurrencyFormatter.h"
+
+@class FundSelectionTableViewController;
+
+@protocol FundSelectionDelegate <NSObject>
+
+- (void)fundSelectionTableViewController:(FundSelectionTableViewController *)sender didSelectFunds:(NSDictionary *)appliedFunds withExpirationDate:(NSDate *)expirationDate;
+
+@end
 
 @interface FundSelectionTableViewController : UITableViewController
 
@@ -20,5 +28,6 @@
 @property (nonatomic) double remainingBalance;
 
 @property (nonatomic, strong) DateAndCurrencyFormatter *formatter;
+@property (nonatomic, weak) id <FundSelectionDelegate> delegate;
 
 @end

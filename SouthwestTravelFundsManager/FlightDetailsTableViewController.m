@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self updateFundsUsedLabel:self.flight.fundsUsed];
 }
 
 - (void)setFlight:(Flight *)flight {

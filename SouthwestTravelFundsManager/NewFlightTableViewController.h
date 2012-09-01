@@ -17,7 +17,7 @@
 
 @end
 
-@interface NewFlightTableViewController : GenericDataInputTableViewController
+@interface NewFlightTableViewController : GenericDataInputTableViewController <FundSelectionDelegate>
 
 @property (nonatomic, weak) id <NewFlightDelegate> delegate;
 @property (nonatomic, weak) NSManagedObjectContext *context;

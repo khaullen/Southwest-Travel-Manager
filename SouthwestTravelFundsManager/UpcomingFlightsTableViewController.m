@@ -74,7 +74,9 @@
     NSString *destination = [NSString stringWithFormat:@"%@, %@", flight.destination.city, flight.destination.state];
     localNotification.alertBody = [NSString stringWithFormat:FLIGHT_CHECK_IN_ALERT_BODY, returnFlight ? destination : origin, returnFlight ? origin : destination, flight.confirmationCode];
     localNotification.soundName = UILocalNotificationDefaultSoundName;
-    localNotification.userInfo = flightInfo;
+    NSMutableDictionary *mutableFlightInfo = [flightInfo mutableCopy];
+    [mutableFlightInfo removeObjectForKey:FUNDS_USED];
+    localNotification.userInfo = [mutableFlightInfo copy];
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }

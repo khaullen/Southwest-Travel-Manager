@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *outboundTextField;
 @property (weak, nonatomic) IBOutlet UITextField *returnTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *checkInReminderSwitch;
+@property (weak, nonatomic) IBOutlet UILabel *fundsUsedLabel;
 @property (weak, nonatomic) IBOutlet UITextField *notesTextField;
 @property (weak, nonatomic) IBOutlet UISwitch *unusedTicketSwitch;
 
@@ -44,5 +45,6 @@
 - (BOOL)isInvalid:(NSString *)field;
 - (void)selectAnimated:(NSSet *)incompleteFields fromRequiredFields:(NSDictionary *)requiredFields;
 - (void)updatePlaceholderText;
+- (void)updateFundsUsedLabel:(NSSet *)fundsUsed;
 
 @end

@@ -34,8 +34,10 @@
         FundSelectionTableViewController *fundSelectionTVC = segue.destinationViewController;
         fundSelectionTVC.formatter = self.formatter;
         fundSelectionTVC.travelFunds = [self allFundsWithContext:self.context];
-        fundSelectionTVC.flightDetails = [NSString stringWithFormat:@"%@ to %@", [[self.fieldData objectForKey:ORIGIN] objectForKey:CITY], [[self.fieldData objectForKey:DESTINATION] objectForKey:CITY]];
+        fundSelectionTVC.flightDetails = [NSString stringWithFormat:@"%@ to %@ %@", [[self.fieldData objectForKey:ORIGIN] objectForKey:CITY], [[self.fieldData objectForKey:DESTINATION] objectForKey:CITY], [[self.fieldData objectForKey:ROUNDTRIP] boolValue] ? @"roundtrip" : @"one way"];
         fundSelectionTVC.flightCost = [self.fieldData objectForKey:COST];
+        fundSelectionTVC.appliedFunds = [[self.fieldData objectForKey:FUNDS_USED] mutableCopy];
+        fundSelectionTVC.delegate = self;
     }
 }
 
@@ -72,9 +74,32 @@
     return [context executeFetchRequest:request error:nil];
 }
 
+- (void)fundSelectionTableViewController:(FundSelectionTableViewController *)sender didSelectFunds:(NSDictionary *)appliedFunds withExpirationDate:(NSDate *)expirationDate {
+    [self.fieldData setObject:appliedFunds forKey:FUNDS_USED];
+    
+    // Update label text
+    
+    NSMutableSet *fundSet = [NSMutableSet set];
+    for (NSArray *array in [appliedFunds allValues]) {
+        [fundSet addObject:array.lastObject];
+    }
+    [self updateFundsUsedLabel:fundSet];
+    
+    // Update expiration date
+    
+    if (expirationDate) {
+        self.expirationDatePicker.date = [expirationDate earlierDate:self.expirationDatePicker.date];
+        [self datePickerDidEndEditing:self.expirationDatePicker];
+    }
+}
+
 - (void)switchDidEndEditing:(UISwitch *)sender {
     [super switchDidEndEditing:sender];
     if ([sender isEqual:self.roundtripSwitch]) [self.tableView reloadData];
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [indexPath isEqual:[NSIndexPath indexPathForRow:0 inSection:3]] ? indexPath : nil;
 }
 
 @end

@@ -32,7 +32,7 @@
 
 + (Fund *)fund:(NSDictionary *)fundInfo inDatabase:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Fund"];
-    request.predicate = [NSPredicate predicateWithFormat:@"originalFlight.confirmationCode = %@", [fundInfo valueForKeyPath:CONFIRMATION_CODE]];
+    request.predicate = [NSPredicate predicateWithFormat:@"originalFlight.confirmationCode = %@ AND expirationDate = %@", [fundInfo objectForKey:CONFIRMATION_CODE], [fundInfo objectForKey:EXPIRATION_DATE]];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"balance" ascending:TRUE]];
     
     NSError *error;

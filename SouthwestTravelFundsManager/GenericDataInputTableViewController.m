@@ -29,6 +29,7 @@
 @synthesize outboundTextField = _outboundTextField;
 @synthesize returnTextField = _returnTextField;
 @synthesize checkInReminderSwitch = _checkInReminderSwitch;
+@synthesize fundsUsedLabel = _fundsUsedLabel;
 @synthesize notesTextField = _notesTextField;
 @synthesize unusedTicketSwitch = _unusedTicketSwitch;
 @synthesize fieldData = _fieldData;
@@ -106,6 +107,15 @@
     if (aUnusedTicket) self.unusedTicketSwitch.on = [aUnusedTicket boolValue];
     NSString *aNotes = [self.fieldData objectForKey:NOTES];
     if (aNotes) self.notesTextField.text = aNotes;
+}
+
+- (void)updateFundsUsedLabel:(NSSet *)fundsUsed {
+    if (fundsUsed.count == 1) {
+        Fund *fund = [fundsUsed anyObject];
+        self.fundsUsedLabel.text = fund.originalFlight.confirmationCode;
+    } else if (fundsUsed.count > 1) {
+        self.fundsUsedLabel.text = [NSString stringWithFormat:@"%d funds", fundsUsed.count];
+    }
 }
 
 - (AirportPickerViewController *)airportPickerVC {
@@ -327,7 +337,7 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [indexPath isEqual:[NSIndexPath indexPathForRow:0 inSection:3]] ? indexPath : nil;
+    return nil;
 }
 
 // TODO: validate origin, destination, and cost before allowing selection
@@ -348,6 +358,7 @@
     [self setCheckInReminderSwitch:nil];
     [self setNotesTextField:nil];
     [self setUnusedTicketSwitch:nil];
+    [self setFundsUsedLabel:nil];
     [super viewDidUnload];
 }
 @end

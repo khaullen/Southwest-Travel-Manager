@@ -33,4 +33,8 @@
 #define ROUNDTRIP @"roundtrip"
 #define TICKET_NUMBER @"ticketNumber"
 
+#define FUNDS_USED @"fundsUsed"
+#define PASSENGER @"passenger"
+#define TRAVEL_FUND @"travelFund"
+
 @end

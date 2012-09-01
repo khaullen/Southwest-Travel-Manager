@@ -48,7 +48,7 @@
 - (void)setupFetchedResultsController {
     [super setupFetchedResultsController];
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Fund"];
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"expirationDate" ascending:TRUE]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:EXPIRATION_DATE ascending:TRUE]];
     request.predicate = [NSPredicate predicateWithFormat:@"(balance > 0) AND (expirationDate > %@)", [NSDate date]];
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedObjectContext sectionNameKeyPath:nil cacheName:nil];

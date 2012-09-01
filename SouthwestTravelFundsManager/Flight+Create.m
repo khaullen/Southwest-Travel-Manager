@@ -38,7 +38,7 @@
 
 + (Flight *)flight:(NSDictionary *)flightInfo inDatabase:(NSManagedObjectContext *)context {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Flight"];
-    request.predicate = [NSPredicate predicateWithFormat:@"confirmationCode = %@", [flightInfo objectForKey:CONFIRMATION_CODE]];
+    request.predicate = [NSPredicate predicateWithFormat:@"confirmationCode = %@ AND outboundDepartureDate = %@", [flightInfo objectForKey:CONFIRMATION_CODE], [flightInfo objectForKey:OUTBOUND_DEPARTURE_DATE]];
     request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:TICKET_NUMBER ascending:TRUE]];
 
     NSError *error;
@@ -67,6 +67,18 @@
     newFlight.checkInReminder = [flightInfo objectForKey:CHECK_IN_REMINDER];
     newFlight.notes = [flightInfo objectForKey:NOTES];
     newFlight.cancelled = [NSNumber numberWithBool:FALSE];
+    
+    // modify funds used balances
+    
+    NSMutableSet *fundsUsed = [NSMutableSet set];
+    for (NSArray *array in [[flightInfo objectForKey:FUNDS_USED] allValues]) {
+        Fund *fund = array.lastObject;
+        double amountApplied = [[array objectAtIndex:0] doubleValue];
+        fund.balance = [NSNumber numberWithDouble:[fund.balance doubleValue] - amountApplied];
+        if (amountApplied) fund.unusedTicket = [NSNumber numberWithBool:FALSE];
+        [fundsUsed addObject:fund];
+    }
+    newFlight.fundsUsed = [fundsUsed copy];
     
     return newFlight;
 }
