@@ -340,9 +340,8 @@
 
 // TODO: validate origin, destination, and cost before allowing selection
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
 - (void)viewDidUnload {

@@ -30,9 +30,8 @@
 @synthesize database = _database;
 
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return YES;
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
 #pragma mark - Fetching

@@ -132,9 +132,8 @@
     [self.delegate fundSelectionTableViewController:self didSelectFunds:[self.appliedFunds copy] withExpirationDate:earliestExpiration];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
 @end
