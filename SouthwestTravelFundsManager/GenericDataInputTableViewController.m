@@ -331,11 +331,21 @@
     for (NSString *field in incompleteFields) {
         NSIndexPath *indexPath = [requiredFields objectForKey:field];
         if ([indexPath compare:topIndex] == NSOrderedAscending) topIndex = indexPath;
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [cell setSelected:TRUE];
-        [cell setSelected:FALSE animated:TRUE];
     }
-    if (incompleteFields.count) [self.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:TRUE];
+    [UIView animateWithDuration:0.3 
+                     animations:
+    ^{ 
+        if (incompleteFields.count) [self.tableView scrollToRowAtIndexPath:topIndex atScrollPosition:UITableViewScrollPositionTop animated:FALSE]; 
+    }
+                     completion:
+    ^(BOOL end) { 
+        for (NSString *field in incompleteFields) {
+            NSIndexPath *indexPath = [requiredFields objectForKey:field];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            [cell setSelected:TRUE];
+            [cell setSelected:FALSE animated:TRUE];
+        }
+    }];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
