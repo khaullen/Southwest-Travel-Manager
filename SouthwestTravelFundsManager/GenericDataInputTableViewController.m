@@ -87,19 +87,19 @@
     NSDate *aExpirationDate = [self.fieldData objectForKey:EXPIRATION_DATE];
     if (aExpirationDate) {
         self.expirationDatePicker.date = aExpirationDate;
-        [self datePickerDidEndEditing:self.expirationDatePicker];
+        self.expirationTextField.text = [self.formatter stringForDate:self.expirationDatePicker.date withFormat:DATE_FORMAT inTimeZone:self.expirationDatePicker.timeZone];
     }
     NSNumber *aRoundtrip = [self.fieldData objectForKey:ROUNDTRIP];
     if (aRoundtrip) self.roundtripSwitch.on = [aRoundtrip boolValue];
     NSDate *aOutboundDepartureDate = [self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE];
     if (aOutboundDepartureDate) {
         self.outboundDatePicker.date = aOutboundDepartureDate;
-        [self datePickerDidEndEditing:self.outboundDatePicker];
+        self.outboundTextField.text = [self.formatter stringForDate:self.outboundDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.outboundDatePicker.timeZone];
     }
     NSDate *aReturnDepartureDate = [self.fieldData objectForKey:RETURN_DEPARTURE_DATE];
     if (aReturnDepartureDate) {
         self.returnDatePicker.date = aReturnDepartureDate;
-        [self datePickerDidEndEditing:self.returnDatePicker];
+        self.returnTextField.text = [self.formatter stringForDate:self.returnDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.returnDatePicker.timeZone];
     }
     NSNumber *aCheckInReminder = [self.fieldData objectForKey:CHECK_IN_REMINDER];
     if (aCheckInReminder) self.checkInReminderSwitch.on = [aCheckInReminder boolValue];
@@ -351,8 +351,6 @@
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
-
-// TODO: validate origin, destination, and cost before allowing selection
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;

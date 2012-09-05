@@ -92,6 +92,7 @@
         if ([field isEqualToString:EXPIRATION_DATE]) self.flight.travelFund.expirationDate = [self.fieldData objectForKey:EXPIRATION_DATE];
         if ([field isEqualToString:OUTBOUND_DEPARTURE_DATE]) self.flight.outboundDepartureDate = [self.fieldData objectForKey:OUTBOUND_DEPARTURE_DATE];
         if ([field isEqualToString:RETURN_DEPARTURE_DATE]) self.flight.returnDepartureDate = [self.fieldData objectForKey:RETURN_DEPARTURE_DATE];
+        [self.delegate flightDetailsTableViewController:self didModifyNotificationParametersForFlight:self.flight withInfo:self.fieldData];
         [DatabaseHelper saveDatabase];
     }
 }
@@ -100,11 +101,16 @@
     [super switchDidEndEditing:sender];
     if ([sender isEqual:self.roundtripSwitch]) {
         self.flight.roundtrip = [self.fieldData objectForKey:ROUNDTRIP];
-        if (!sender.on) self.flight.returnDepartureDate = nil;
+        if (sender.on) {
+            self.flight.returnDepartureDate = [self.fieldData objectForKey:RETURN_DEPARTURE_DATE];
+        } else {
+            self.flight.returnDepartureDate = nil;
+        }
         [self.tableView reloadData];
     } else if ([sender isEqual:self.checkInReminderSwitch]) {
         self.flight.checkInReminder = [self.fieldData objectForKey:CHECK_IN_REMINDER];
     }
+    [self.delegate flightDetailsTableViewController:self didModifyNotificationParametersForFlight:self.flight withInfo:self.fieldData];
     [DatabaseHelper saveDatabase];
 }
 

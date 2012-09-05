@@ -63,7 +63,7 @@
     newFlight.travelFund = [Fund fundWithExpirationDate:[flightInfo objectForKey:EXPIRATION_DATE] inManagedObjectContext:context];
     newFlight.roundtrip = [flightInfo objectForKey:ROUNDTRIP];
     newFlight.outboundDepartureDate = [flightInfo objectForKey:OUTBOUND_DEPARTURE_DATE];
-    newFlight.returnDepartureDate = [flightInfo objectForKey:RETURN_DEPARTURE_DATE];
+    if (newFlight.roundtrip.boolValue) newFlight.returnDepartureDate = [flightInfo objectForKey:RETURN_DEPARTURE_DATE];
     newFlight.checkInReminder = [flightInfo objectForKey:CHECK_IN_REMINDER];
     newFlight.notes = [flightInfo objectForKey:NOTES];
     newFlight.cancelled = [NSNumber numberWithBool:FALSE];

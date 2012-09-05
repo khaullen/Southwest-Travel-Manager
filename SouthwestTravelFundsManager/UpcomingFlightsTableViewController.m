@@ -15,7 +15,8 @@
 
 @interface UpcomingFlightsTableViewController () <NewFlightDelegate, FlightDetailsDelegate>
 
-- (void)addLocalNotificationForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo atDate:(NSDate *)departureDate returnFlight:(BOOL)returnFlight;
+- (void)addLocalNotificationsForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo;
+- (void)removeLocalNotificationsForFlight:(Flight *)flight;
 
 @end
 
@@ -23,10 +24,14 @@
 
 @synthesize formatter = _formatter;
 
+#pragma mark - Initialization
+
 - (DateAndCurrencyFormatter *)formatter {
     if (!_formatter) _formatter = [[DateAndCurrencyFormatter alloc] init];
     return _formatter;
 }
+
+#pragma mark - Table view setup
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToNewFlight"]) {
@@ -41,44 +46,6 @@
         flightDetails.delegate = self;
         flightDetails.formatter = self.formatter;
     }
-}
-
-- (void)newFlightTableViewController:(NewFlightTableViewController *)sender didEnterFlightInformation:(NSDictionary *)flightInfo {
-    Flight *flight = [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
-    [DatabaseHelper saveDatabase];
-    if (flight.checkInReminder) {
-        [self addLocalNotificationForFlight:flight withInfo:flightInfo atDate:flight.outboundDepartureDate returnFlight:FALSE];
-        if (flight.roundtrip) [self addLocalNotificationForFlight:flight withInfo:flightInfo atDate:flight.returnDepartureDate returnFlight:TRUE];
-    }
-    [self dismissModalViewControllerAnimated:TRUE];
-}
-
-- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didCancelFlight:(Flight *)flight {
-    flight.cancelled = [NSNumber numberWithBool:TRUE];
-    flight.travelFund.balance = flight.cost;
-    flight.travelFund.unusedTicket = [NSNumber numberWithBool:TRUE];
-    flight.travelFund.notes = flight.notes;
-    [DatabaseHelper saveDatabase];
-    [self.navigationController popViewControllerAnimated:TRUE];
-}
-
-#define FLIGHT_CHECK_IN_ALERT_BODY @"Check in for your Southwest flight from %@ to %@, confirmation #%@"
-
-- (void)addLocalNotificationForFlight:(Flight *)flight 
-                             withInfo:(NSDictionary *)flightInfo 
-                               atDate:(NSDate *)departureDate 
-                         returnFlight:(BOOL)returnFlight{
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate dateWithTimeInterval:-(60*60*24 + 90) sinceDate:departureDate];
-    NSString *origin = [NSString stringWithFormat:@"%@, %@", flight.origin.city, flight.origin.state];
-    NSString *destination = [NSString stringWithFormat:@"%@, %@", flight.destination.city, flight.destination.state];
-    localNotification.alertBody = [NSString stringWithFormat:FLIGHT_CHECK_IN_ALERT_BODY, returnFlight ? destination : origin, returnFlight ? origin : destination, flight.confirmationCode];
-    localNotification.soundName = UILocalNotificationDefaultSoundName;
-    NSMutableDictionary *mutableFlightInfo = [flightInfo mutableCopy];
-    [mutableFlightInfo removeObjectForKey:FUNDS_USED];
-    localNotification.userInfo = [mutableFlightInfo copy];
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 - (void)setupFetchedResultsController {
@@ -100,6 +67,70 @@
     cell.textLabel.text = [NSString stringWithFormat:@"%@, %@ - %@, %@", flight.origin.city, flight.origin.state, flight.destination.city, flight.destination.state];
     cell.detailTextLabel.text = [self.formatter stringForDate:flight.outboundDepartureDate withFormat:DAY_DATE_TIME_FORMAT inTimeZone:[NSTimeZone timeZoneWithName:flight.origin.timeZone]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Flight *flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self removeLocalNotificationsForFlight:flight];
+    }
+    [super tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
+}
+
+#pragma mark - Delegate methods
+
+- (void)newFlightTableViewController:(NewFlightTableViewController *)sender didEnterFlightInformation:(NSDictionary *)flightInfo {
+    Flight *flight = [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
+    [DatabaseHelper saveDatabase];
+    if (flight.checkInReminder.boolValue) [self addLocalNotificationsForFlight:flight withInfo:flightInfo];
+    [self dismissModalViewControllerAnimated:TRUE];
+}
+
+- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didCancelFlight:(Flight *)flight {
+    flight.cancelled = [NSNumber numberWithBool:TRUE];
+    flight.travelFund.balance = flight.cost;
+    flight.travelFund.unusedTicket = [NSNumber numberWithBool:TRUE];
+    flight.travelFund.notes = flight.notes;    
+    [self.navigationController popViewControllerAnimated:TRUE];
+    [DatabaseHelper saveDatabase];
+    [self removeLocalNotificationsForFlight:flight];
+}
+
+- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didModifyNotificationParametersForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo {
+    [self removeLocalNotificationsForFlight:flight];
+    if (flight.checkInReminder.boolValue) [self addLocalNotificationsForFlight:flight withInfo:flightInfo];
+}
+
+#pragma mark - Local Notification Scheduling
+
+#define FLIGHT_CHECK_IN_ALERT_BODY @"Check in for your Southwest flight from %@ to %@, confirmation #%@"
+
+- (void)addLocalNotificationsForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo {
+    for (int outbound = 1; outbound >= 1 - flight.roundtrip.intValue; outbound--) {
+        NSDate *departureDate = outbound ? flight.outboundDepartureDate : flight.returnDepartureDate;
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate dateWithTimeInterval:-(60*60*24 + 90) sinceDate:departureDate];
+        NSString *origin = [NSString stringWithFormat:@"%@, %@", flight.origin.city, flight.origin.state];
+        NSString *destination = [NSString stringWithFormat:@"%@, %@", flight.destination.city, flight.destination.state];
+        localNotification.alertBody = [NSString stringWithFormat:FLIGHT_CHECK_IN_ALERT_BODY, outbound ? origin : destination, outbound ? destination : origin, flight.confirmationCode];
+        localNotification.soundName = UILocalNotificationDefaultSoundName;
+        NSMutableDictionary *mutableFlightInfo = [flightInfo mutableCopy];
+        [mutableFlightInfo removeObjectForKey:FUNDS_USED];
+        localNotification.userInfo = [mutableFlightInfo copy];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    }
+}
+
+- (void)removeLocalNotificationsForFlight:(Flight *)flight {
+    UIApplication *application = [UIApplication sharedApplication];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:2];
+    for (UILocalNotification *notification in application.scheduledLocalNotifications) {
+        if ([[notification.userInfo objectForKey:CONFIRMATION_CODE] isEqualToString:flight.confirmationCode]) [array addObject:notification];
+    }
+    for (UILocalNotification *notification in array) {
+        [application cancelLocalNotification:notification];
+    }
 }
 
 @end

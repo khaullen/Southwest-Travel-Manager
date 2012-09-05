@@ -16,6 +16,7 @@
 @protocol FlightDetailsDelegate <NSObject>
 
 - (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didCancelFlight:(Flight *)flight;
+- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didModifyNotificationParametersForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo;
 
 @end
 
@@ -25,13 +26,3 @@
 @property (nonatomic, weak) id <FlightDetailsDelegate> delegate;
 
 @end
-
-// TODO: Handle check in toggle switching in delegate
-
-// Consider storing NSLocalNotifications in database for easier access for cancelling, rescheduling, etc.
-
-/*
-
-- (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didUpdateFlightCheckInParameters:(Flight *)flight;
-
-*/
