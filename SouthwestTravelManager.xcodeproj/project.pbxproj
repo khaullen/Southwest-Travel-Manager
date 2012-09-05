@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B00779215DA565000A9FC1B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00779115DA565000A9FC1B /* UIKit.framework */; };
+		3B00779415DA565000A9FC1B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00779315DA565000A9FC1B /* Foundation.framework */; };
+		3B00779615DA565000A9FC1B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B00779515DA565000A9FC1B /* CoreGraphics.framework */; };
+		3B00779C15DA565000A9FC1B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B00779A15DA565000A9FC1B /* InfoPlist.strings */; };
+		3B00779E15DA565000A9FC1B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B00779D15DA565000A9FC1B /* main.m */; };
+		3B0077A215DA565000A9FC1B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077A115DA565000A9FC1B /* AppDelegate.m */; };
+		3B0077A815DA565000A9FC1B /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B0077A615DA565000A9FC1B /* iPad.storyboard */; };
+		3B0077D115E1DEAB00A9FC1B /* Flight+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */; };
+		3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D315E1DECA00A9FC1B /* Fund+Create.m */; };
+		3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0077D715E20C4800A9FC1B /* CoreData.framework */; };
+		3B5E3B7F15E3848D000D85E2 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */; };
+		3B5E3B8215E384B4000D85E2 /* GenericDataInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */; };
+		3B5E3B9015E38541000D85E2 /* NewFlightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */; };
+		3B5E3B9715E385AB000D85E2 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B9215E385AA000D85E2 /* CoreDataTableViewController.m */; };
+		3B5E3B9815E385AB000D85E2 /* TravelFundsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B9415E385AA000D85E2 /* TravelFundsTableViewController.m */; };
+		3B5E3B9915E385AB000D85E2 /* UpcomingFlightsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B9615E385AA000D85E2 /* UpcomingFlightsTableViewController.m */; };
+		3B5E3BAA15E3B403000D85E2 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BA815E3B403000D85E2 /* Database.xcdatamodeld */; };
+		3B5E3BBF15E3B81B000D85E2 /* AirportPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */; };
+		3B5E3BD815E78005000D85E2 /* FlightDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */; };
+		3B5E3BE215EB21B9000D85E2 /* airportInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3BE115EB21B8000D85E2 /* airportInfo.plist */; };
+		3B5E3BF115EB58E9000D85E2 /* Airport+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */; };
+		3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */; };
+		3B7B340015F0AF3000B6AC61 /* FundSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */; };
+		3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */; };
+		3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */; };
+		3B84190415ECA0950094AB81 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190015ECA0950094AB81 /* 33-cabinet.png */; };
+		3B84190515ECA0950094AB81 /* 33-cabinet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */; };
+		3B84190615ECA0950094AB81 /* 38-airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190215ECA0950094AB81 /* 38-airplane.png */; };
+		3B84190715ECA0950094AB81 /* 38-airplane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190315ECA0950094AB81 /* 38-airplane@2x.png */; };
+		3B84191515EDC6D10094AB81 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191415EDC6D10094AB81 /* icon.png */; };
+		3B84191815EDC6D40094AB81 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191715EDC6D40094AB81 /* icon@2x.png */; };
+		3B84191F15EE02990094AB81 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191E15EE02990094AB81 /* Default.png */; };
+		3B84192115EE02A60094AB81 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84192015EE02A60094AB81 /* Default@2x.png */; };
+		3B84192415EE78740094AB81 /* Passenger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192315EE78740094AB81 /* Passenger.m */; };
+		3B84192715EE78740094AB81 /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192615EE78740094AB81 /* Airport.m */; };
+		3B84192A15EE78740094AB81 /* Fund.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192915EE78740094AB81 /* Fund.m */; };
+		3B84192D15EE78750094AB81 /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84192C15EE78750094AB81 /* Flight.m */; };
+		3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84193215EEAFB10094AB81 /* DatabaseHelper.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3B00778D15DA565000A9FC1B /* SouthwestTravelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthwestTravelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B00779115DA565000A9FC1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3B00779315DA565000A9FC1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3B00779515DA565000A9FC1B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3B00779915DA565000A9FC1B /* SouthwestTravelManager-Info.plist */ = {isa = PBXFileReference; path = "SouthwestTravelManager-Info.plist"; sourceTree = "<group>"; };
+		3B00779B15DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3B00779D15DA565000A9FC1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3B00779F15DA565000A9FC1B /* SouthwestTravelManager-Prefix.pch */ = {isa = PBXFileReference; path = "SouthwestTravelManager-Prefix.pch"; sourceTree = "<group>"; };
+		3B0077A015DA565000A9FC1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3B0077A115DA565000A9FC1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3B0077A715DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
+		3B0077CF15E1DEAB00A9FC1B /* Flight+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flight+Create.h"; sourceTree = "<group>"; };
+		3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Flight+Create.m"; sourceTree = "<group>"; };
+		3B0077D215E1DECA00A9FC1B /* Fund+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fund+Create.h"; sourceTree = "<group>"; };
+		3B0077D315E1DECA00A9FC1B /* Fund+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fund+Create.m"; sourceTree = "<group>"; };
+		3B0077D715E20C4800A9FC1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		3B5E3B8015E384B4000D85E2 /* GenericDataInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericDataInputTableViewController.h; sourceTree = "<group>"; };
+		3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDataInputTableViewController.m; sourceTree = "<group>"; };
+		3B5E3B8E15E38541000D85E2 /* NewFlightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFlightTableViewController.h; sourceTree = "<group>"; };
+		3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFlightTableViewController.m; sourceTree = "<group>"; };
+		3B5E3B9115E385AA000D85E2 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		3B5E3B9215E385AA000D85E2 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		3B5E3B9315E385AA000D85E2 /* TravelFundsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelFundsTableViewController.h; sourceTree = "<group>"; };
+		3B5E3B9415E385AA000D85E2 /* TravelFundsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelFundsTableViewController.m; sourceTree = "<group>"; };
+		3B5E3B9515E385AA000D85E2 /* UpcomingFlightsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFlightsTableViewController.h; sourceTree = "<group>"; };
+		3B5E3B9615E385AA000D85E2 /* UpcomingFlightsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFlightsTableViewController.m; sourceTree = "<group>"; };
+		3B5E3BA915E3B403000D85E2 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
+		3B5E3BBD15E3B81B000D85E2 /* AirportPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AirportPickerViewController.h; sourceTree = "<group>"; };
+		3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AirportPickerViewController.m; sourceTree = "<group>"; };
+		3B5E3BD615E78005000D85E2 /* FlightDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlightDetailsTableViewController.h; sourceTree = "<group>"; };
+		3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlightDetailsTableViewController.m; sourceTree = "<group>"; };
+		3B5E3BE115EB21B8000D85E2 /* airportInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = airportInfo.plist; sourceTree = "<group>"; };
+		3B5E3BEF15EB58E9000D85E2 /* Airport+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Airport+Create.h"; sourceTree = "<group>"; };
+		3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Airport+Create.m"; sourceTree = "<group>"; };
+		3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAndCurrencyFormatter.h; sourceTree = "<group>"; };
+		3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndCurrencyFormatter.m; sourceTree = "<group>"; };
+		3B7B33FE15F0AF3000B6AC61 /* FundSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundSelectionTableViewController.h; sourceTree = "<group>"; };
+		3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundSelectionTableViewController.m; sourceTree = "<group>"; };
+		3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundDetailsTableViewController.h; sourceTree = "<group>"; };
+		3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundDetailsTableViewController.m; sourceTree = "<group>"; };
+		3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFundTableViewController.h; sourceTree = "<group>"; };
+		3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFundTableViewController.m; sourceTree = "<group>"; };
+		3B84190015ECA0950094AB81 /* 33-cabinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet.png"; sourceTree = "<group>"; };
+		3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-cabinet@2x.png"; sourceTree = "<group>"; };
+		3B84190215ECA0950094AB81 /* 38-airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane.png"; sourceTree = "<group>"; };
+		3B84190315ECA0950094AB81 /* 38-airplane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "38-airplane@2x.png"; sourceTree = "<group>"; };
+		3B84191415EDC6D10094AB81 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		3B84191715EDC6D40094AB81 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		3B84191E15EE02990094AB81 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		3B84192015EE02A60094AB81 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		3B84192215EE78740094AB81 /* Passenger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Passenger.h; sourceTree = "<group>"; };
+		3B84192315EE78740094AB81 /* Passenger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Passenger.m; sourceTree = "<group>"; };
+		3B84192515EE78740094AB81 /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		3B84192615EE78740094AB81 /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		3B84192815EE78740094AB81 /* Fund.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fund.h; sourceTree = "<group>"; };
+		3B84192915EE78740094AB81 /* Fund.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fund.m; sourceTree = "<group>"; };
+		3B84192B15EE78740094AB81 /* Flight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flight.h; sourceTree = "<group>"; };
+		3B84192C15EE78750094AB81 /* Flight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flight.m; sourceTree = "<group>"; };
+		3B84193115EEAFB10094AB81 /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
+		3B84193215EEAFB10094AB81 /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B00778A15DA565000A9FC1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */,
+				3B00779215DA565000A9FC1B /* UIKit.framework in Frameworks */,
+				3B00779415DA565000A9FC1B /* Foundation.framework in Frameworks */,
+				3B00779615DA565000A9FC1B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B00778215DA565000A9FC1B = {
+			isa = PBXGroup;
+			children = (
+				3B00779715DA565000A9FC1B /* SouthwestTravelManager */,
+				3B00779015DA565000A9FC1B /* Frameworks */,
+				3B00778E15DA565000A9FC1B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B00778E15DA565000A9FC1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B00778D15DA565000A9FC1B /* SouthwestTravelManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B00779015DA565000A9FC1B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B0077D715E20C4800A9FC1B /* CoreData.framework */,
+				3B00779115DA565000A9FC1B /* UIKit.framework */,
+				3B00779315DA565000A9FC1B /* Foundation.framework */,
+				3B00779515DA565000A9FC1B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B00779715DA565000A9FC1B /* SouthwestTravelManager */ = {
+			isa = PBXGroup;
+			children = (
+				3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */,
+				3B0077A615DA565000A9FC1B /* iPad.storyboard */,
+				3B0077D615E1DF4700A9FC1B /* View Controllers */,
+				3B0077D515E1DF0A00A9FC1B /* Model */,
+				3B00779815DA565000A9FC1B /* Supporting Files */,
+				3B84191915EDFC730094AB81 /* Images */,
+			);
+			name = SouthwestTravelManager;
+			path = SouthwestTravelFundsManager;
+			sourceTree = "<group>";
+		};
+		3B00779815DA565000A9FC1B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
+				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
+				3B00779915DA565000A9FC1B /* SouthwestTravelManager-Info.plist */,
+				3B5E3BE115EB21B8000D85E2 /* airportInfo.plist */,
+				3B00779A15DA565000A9FC1B /* InfoPlist.strings */,
+				3B00779D15DA565000A9FC1B /* main.m */,
+				3B00779F15DA565000A9FC1B /* SouthwestTravelManager-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3B0077D515E1DF0A00A9FC1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B84193115EEAFB10094AB81 /* DatabaseHelper.h */,
+				3B84193215EEAFB10094AB81 /* DatabaseHelper.m */,
+				3B5E3BA815E3B403000D85E2 /* Database.xcdatamodeld */,
+				3B84192B15EE78740094AB81 /* Flight.h */,
+				3B84192C15EE78750094AB81 /* Flight.m */,
+				3B84192815EE78740094AB81 /* Fund.h */,
+				3B84192915EE78740094AB81 /* Fund.m */,
+				3B84192515EE78740094AB81 /* Airport.h */,
+				3B84192615EE78740094AB81 /* Airport.m */,
+				3B84192215EE78740094AB81 /* Passenger.h */,
+				3B84192315EE78740094AB81 /* Passenger.m */,
+				3B0077CF15E1DEAB00A9FC1B /* Flight+Create.h */,
+				3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */,
+				3B5E3BEF15EB58E9000D85E2 /* Airport+Create.h */,
+				3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */,
+				3B0077D215E1DECA00A9FC1B /* Fund+Create.h */,
+				3B0077D315E1DECA00A9FC1B /* Fund+Create.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3B0077D615E1DF4700A9FC1B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B8418F715EC344B0094AB81 /* Core Data */,
+				3B8418F815EC347B0094AB81 /* Upcoming Flights */,
+				3B8418F915EC348E0094AB81 /* Travel Funds */,
+				3B5E3B8015E384B4000D85E2 /* GenericDataInputTableViewController.h */,
+				3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */,
+				3B5E3BBD15E3B81B000D85E2 /* AirportPickerViewController.h */,
+				3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */,
+				3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */,
+				3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		3B8418F715EC344B0094AB81 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				3B5E3B9115E385AA000D85E2 /* CoreDataTableViewController.h */,
+				3B5E3B9215E385AA000D85E2 /* CoreDataTableViewController.m */,
+				3B5E3B9315E385AA000D85E2 /* TravelFundsTableViewController.h */,
+				3B5E3B9415E385AA000D85E2 /* TravelFundsTableViewController.m */,
+				3B5E3B9515E385AA000D85E2 /* UpcomingFlightsTableViewController.h */,
+				3B5E3B9615E385AA000D85E2 /* UpcomingFlightsTableViewController.m */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		3B8418F815EC347B0094AB81 /* Upcoming Flights */ = {
+			isa = PBXGroup;
+			children = (
+				3B5E3BD615E78005000D85E2 /* FlightDetailsTableViewController.h */,
+				3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */,
+				3B5E3B8E15E38541000D85E2 /* NewFlightTableViewController.h */,
+				3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */,
+			);
+			name = "Upcoming Flights";
+			sourceTree = "<group>";
+		};
+		3B8418F915EC348E0094AB81 /* Travel Funds */ = {
+			isa = PBXGroup;
+			children = (
+				3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */,
+				3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */,
+				3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */,
+				3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */,
+				3B7B33FE15F0AF3000B6AC61 /* FundSelectionTableViewController.h */,
+				3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */,
+			);
+			name = "Travel Funds";
+			sourceTree = "<group>";
+		};
+		3B84191915EDFC730094AB81 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3B84191715EDC6D40094AB81 /* icon@2x.png */,
+				3B84191415EDC6D10094AB81 /* icon.png */,
+				3B84192015EE02A60094AB81 /* Default@2x.png */,
+				3B84191E15EE02990094AB81 /* Default.png */,
+				3B84190015ECA0950094AB81 /* 33-cabinet.png */,
+				3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */,
+				3B84190215ECA0950094AB81 /* 38-airplane.png */,
+				3B84190315ECA0950094AB81 /* 38-airplane@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B00778C15DA565000A9FC1B /* SouthwestTravelManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B0077AE15DA565000A9FC1B /* Build configuration list for PBXNativeTarget "SouthwestTravelManager" */;
+			buildPhases = (
+				3B00778915DA565000A9FC1B /* Sources */,
+				3B00778A15DA565000A9FC1B /* Frameworks */,
+				3B00778B15DA565000A9FC1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SouthwestTravelManager;
+			productName = SouthwestTravelFundsManager;
+			productReference = 3B00778D15DA565000A9FC1B /* SouthwestTravelManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B00778415DA565000A9FC1B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Red Cup";
+			};
+			buildConfigurationList = 3B00778715DA565000A9FC1B /* Build configuration list for PBXProject "SouthwestTravelManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3B00778215DA565000A9FC1B;
+			productRefGroup = 3B00778E15DA565000A9FC1B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B00778C15DA565000A9FC1B /* SouthwestTravelManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B00778B15DA565000A9FC1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B00779C15DA565000A9FC1B /* InfoPlist.strings in Resources */,
+				3B0077A815DA565000A9FC1B /* iPad.storyboard in Resources */,
+				3B5E3B7F15E3848D000D85E2 /* iPhone.storyboard in Resources */,
+				3B5E3BE215EB21B9000D85E2 /* airportInfo.plist in Resources */,
+				3B84190415ECA0950094AB81 /* 33-cabinet.png in Resources */,
+				3B84190515ECA0950094AB81 /* 33-cabinet@2x.png in Resources */,
+				3B84190615ECA0950094AB81 /* 38-airplane.png in Resources */,
+				3B84190715ECA0950094AB81 /* 38-airplane@2x.png in Resources */,
+				3B84191515EDC6D10094AB81 /* icon.png in Resources */,
+				3B84191815EDC6D40094AB81 /* icon@2x.png in Resources */,
+				3B84191F15EE02990094AB81 /* Default.png in Resources */,
+				3B84192115EE02A60094AB81 /* Default@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B00778915DA565000A9FC1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B00779E15DA565000A9FC1B /* main.m in Sources */,
+				3B0077A215DA565000A9FC1B /* AppDelegate.m in Sources */,
+				3B0077D115E1DEAB00A9FC1B /* Flight+Create.m in Sources */,
+				3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */,
+				3B5E3B8215E384B4000D85E2 /* GenericDataInputTableViewController.m in Sources */,
+				3B5E3B9015E38541000D85E2 /* NewFlightTableViewController.m in Sources */,
+				3B5E3B9715E385AB000D85E2 /* CoreDataTableViewController.m in Sources */,
+				3B5E3B9815E385AB000D85E2 /* TravelFundsTableViewController.m in Sources */,
+				3B5E3B9915E385AB000D85E2 /* UpcomingFlightsTableViewController.m in Sources */,
+				3B5E3BAA15E3B403000D85E2 /* Database.xcdatamodeld in Sources */,
+				3B5E3BBF15E3B81B000D85E2 /* AirportPickerViewController.m in Sources */,
+				3B5E3BD815E78005000D85E2 /* FlightDetailsTableViewController.m in Sources */,
+				3B5E3BF115EB58E9000D85E2 /* Airport+Create.m in Sources */,
+				3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */,
+				3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */,
+				3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */,
+				3B84192415EE78740094AB81 /* Passenger.m in Sources */,
+				3B84192715EE78740094AB81 /* Airport.m in Sources */,
+				3B84192A15EE78740094AB81 /* Fund.m in Sources */,
+				3B84192D15EE78750094AB81 /* Flight.m in Sources */,
+				3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */,
+				3B7B340015F0AF3000B6AC61 /* FundSelectionTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3B00779A15DA565000A9FC1B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B00779B15DA565000A9FC1B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3B0077A615DA565000A9FC1B /* iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3B0077A715DA565000A9FC1B /* en */,
+			);
+			name = iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3B0077AC15DA565000A9FC1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3B0077AD15DA565000A9FC1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B0077AF15DA565000A9FC1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SouthwestTravelFundsManager/SouthwestTravelManager-Prefix.pch";
+				INFOPLIST_FILE = "SouthwestTravelFundsManager/SouthwestTravelManager-Info.plist";
+				PRODUCT_NAME = SouthwestTravelManager;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3B0077B015DA565000A9FC1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SouthwestTravelFundsManager/SouthwestTravelManager-Prefix.pch";
+				INFOPLIST_FILE = "SouthwestTravelFundsManager/SouthwestTravelManager-Info.plist";
+				PRODUCT_NAME = SouthwestTravelManager;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B00778715DA565000A9FC1B /* Build configuration list for PBXProject "SouthwestTravelManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B0077AC15DA565000A9FC1B /* Debug */,
+				3B0077AD15DA565000A9FC1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B0077AE15DA565000A9FC1B /* Build configuration list for PBXNativeTarget "SouthwestTravelManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B0077AF15DA565000A9FC1B /* Debug */,
+				3B0077B015DA565000A9FC1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3B5E3BA815E3B403000D85E2 /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B5E3BA915E3B403000D85E2 /* Database.xcdatamodel */,
+			);
+			currentVersion = 3B5E3BA915E3B403000D85E2 /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3B00778415DA565000A9FC1B /* Project object */;
+}
