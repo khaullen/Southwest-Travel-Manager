@@ -596,8 +596,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g9d-b8-rtt">
-                                                    <rect key="frame" x="229" y="11" width="41" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="None" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g9d-b8-rtt">
+                                                    <rect key="frame" x="249" y="11" width="41" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1251,6 +1251,48 @@
         <image name="33-cabinet.png" width="20" height="26"/>
         <image name="38-airplane.png" width="22" height="24"/>
     </resources>
+    <classes>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="FlightDetailsTableViewController" superclassName="GenericDataInputTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightDetailsTableViewController.h"/>
+        </class>
+        <class className="FundDetailsTableViewController" superclassName="GenericDataInputTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundDetailsTableViewController.h"/>
+        </class>
+        <class className="FundSelectionTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundSelectionTableViewController.h"/>
+        </class>
+        <class className="GenericDataInputTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericDataInputTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkInReminderSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="confirmTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="costTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expirationTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="flightTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fundsUsedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="notesTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="outboundTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="returnTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="roundtripSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="unusedTicketSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="NewFlightTableViewController" superclassName="GenericDataInputTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
+        </class>
+        <class className="NewFundTableViewController" superclassName="GenericDataInputTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
+        </class>
+        <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
+        </class>
+        <class className="UpcomingFlightsTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingFlightsTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

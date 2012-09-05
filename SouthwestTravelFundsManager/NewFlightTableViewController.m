@@ -13,7 +13,7 @@
 @interface NewFlightTableViewController ()
 
 - (NSArray *)allFundsWithContext:(NSManagedObjectContext *)context;
-- (void)resignTextFieldFirstResponders;
+- (void)finalizeEnteredData;
 
 @end
 
@@ -29,7 +29,6 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    [self resignTextFieldFirstResponders];
     if ([segue.identifier isEqualToString:@"segueToFundSelection"]) {
         FundSelectionTableViewController *fundSelectionTVC = segue.destinationViewController;
         fundSelectionTVC.formatter = self.formatter;
@@ -42,9 +41,7 @@
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
-    [self resignTextFieldFirstResponders];
-    [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
-    [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
+    [self finalizeEnteredData];
     if (![self tableHasIncompleteRequiredFields:self.flightRequiredFields]) [self.delegate newFlightTableViewController:self didEnterFlightInformation:self.fieldData];
 }
 
@@ -60,11 +57,13 @@
     }
 }
 
-- (void)resignTextFieldFirstResponders {
+- (void)finalizeEnteredData {
     NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
     for (UITextField *field in textFields) {
         if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
     }
+    [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
+    [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
 }
 
 - (NSArray *)allFundsWithContext:(NSManagedObjectContext *)context {
@@ -99,7 +98,8 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [indexPath isEqual:[NSIndexPath indexPathForRow:0 inSection:3]] ? indexPath : nil;
+    [self finalizeEnteredData];
+    return ([indexPath isEqual:[NSIndexPath indexPathForRow:0 inSection:3]] && ![self tableHasIncompleteRequiredFields:self.flightRequiredFields]) ? indexPath : nil;
 }
 
 @end

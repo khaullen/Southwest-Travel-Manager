@@ -67,7 +67,7 @@
         case 0:
             fund = [self.travelFunds objectAtIndex:indexPath.row];
             amountApplied = [[[self.appliedFunds objectForKey:fund.originalFlight.confirmationCode] objectAtIndex:0] doubleValue];
-            if (amountApplied) cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            if ([self.appliedFunds.allKeys containsObject:fund.originalFlight.confirmationCode]) cell.accessoryType = UITableViewCellAccessoryCheckmark;
             cell.textLabel.text = [self.formatter stringForCost:[NSNumber numberWithDouble:[fund.balance doubleValue] - amountApplied]];
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", fund.originalFlight.confirmationCode, [self.formatter stringForDate:fund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]]];
             break;

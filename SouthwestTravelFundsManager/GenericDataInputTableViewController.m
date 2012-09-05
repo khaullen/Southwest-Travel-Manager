@@ -110,11 +110,15 @@
 }
 
 - (void)updateFundsUsedLabel:(NSSet *)fundsUsed {
-    if (fundsUsed.count == 1) {
-        Fund *fund = [fundsUsed anyObject];
-        self.fundsUsedLabel.text = fund.originalFlight.confirmationCode;
-    } else if (fundsUsed.count > 1) {
-        self.fundsUsedLabel.text = [NSString stringWithFormat:@"%d funds", fundsUsed.count];
+    Fund *fund;
+    switch (fundsUsed.count) {
+        case 0:
+            self.fundsUsedLabel.text = @"None"; break;
+        case 1:
+            fund = [fundsUsed anyObject];
+            self.fundsUsedLabel.text = fund.originalFlight.confirmationCode; break;
+        default:
+            self.fundsUsedLabel.text = [NSString stringWithFormat:@"%d funds", fundsUsed.count]; break;
     }
 }
 
