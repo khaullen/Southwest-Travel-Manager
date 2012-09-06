@@ -30,6 +30,12 @@
 		3B5E3BF115EB58E9000D85E2 /* Airport+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BF015EB58E9000D85E2 /* Airport+Create.m */; };
 		3B5E3C0015EC2974000D85E2 /* DateAndCurrencyFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */; };
 		3B7B340015F0AF3000B6AC61 /* FundSelectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */; };
+		3B7B340815F8246C00B6AC61 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B7B340715F8246C00B6AC61 /* Icon-72@2x.png */; };
+		3B7B340A15F8248D00B6AC61 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B7B340915F8248D00B6AC61 /* Icon-72.png */; };
+		3B7B340C15F824BC00B6AC61 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B7B340B15F824BC00B6AC61 /* Default-Portrait~ipad.png */; };
+		3B7B340E15F824C000B6AC61 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B7B340D15F824C000B6AC61 /* Default-Portrait@2x~ipad.png */; };
+		3B7B341015F824C700B6AC61 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B7B340F15F824C700B6AC61 /* Default-Landscape~ipad.png */; };
+		3B7B341215F824CA00B6AC61 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B7B341115F824CA00B6AC61 /* Default-Landscape@2x~ipad.png */; };
 		3B8418FC15EC359B0094AB81 /* FundDetailsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */; };
 		3B8418FF15EC35BB0094AB81 /* NewFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8418FE15EC35BB0094AB81 /* NewFundTableViewController.m */; };
 		3B84190415ECA0950094AB81 /* 33-cabinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84190015ECA0950094AB81 /* 33-cabinet.png */; };
@@ -52,10 +58,10 @@
 		3B00779115DA565000A9FC1B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3B00779315DA565000A9FC1B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3B00779515DA565000A9FC1B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3B00779915DA565000A9FC1B /* SouthwestTravelManager-Info.plist */ = {isa = PBXFileReference; path = "SouthwestTravelManager-Info.plist"; sourceTree = "<group>"; };
+		3B00779915DA565000A9FC1B /* SouthwestTravelManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SouthwestTravelManager-Info.plist"; sourceTree = "<group>"; };
 		3B00779B15DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B00779D15DA565000A9FC1B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3B00779F15DA565000A9FC1B /* SouthwestTravelManager-Prefix.pch */ = {isa = PBXFileReference; path = "SouthwestTravelManager-Prefix.pch"; sourceTree = "<group>"; };
+		3B00779F15DA565000A9FC1B /* SouthwestTravelManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SouthwestTravelManager-Prefix.pch"; sourceTree = "<group>"; };
 		3B0077A015DA565000A9FC1B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B0077A115DA565000A9FC1B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3B0077A715DA565000A9FC1B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
@@ -87,6 +93,12 @@
 		3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAndCurrencyFormatter.m; sourceTree = "<group>"; };
 		3B7B33FE15F0AF3000B6AC61 /* FundSelectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundSelectionTableViewController.h; sourceTree = "<group>"; };
 		3B7B33FF15F0AF3000B6AC61 /* FundSelectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundSelectionTableViewController.m; sourceTree = "<group>"; };
+		3B7B340715F8246C00B6AC61 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		3B7B340915F8248D00B6AC61 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
+		3B7B340B15F824BC00B6AC61 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		3B7B340D15F824C000B6AC61 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		3B7B340F15F824C700B6AC61 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		3B7B341115F824CA00B6AC61 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FundDetailsTableViewController.h; sourceTree = "<group>"; };
 		3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FundDetailsTableViewController.m; sourceTree = "<group>"; };
 		3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFundTableViewController.h; sourceTree = "<group>"; };
@@ -262,8 +274,14 @@
 		3B84191915EDFC730094AB81 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3B84191715EDC6D40094AB81 /* icon@2x.png */,
 				3B84191415EDC6D10094AB81 /* icon.png */,
+				3B84191715EDC6D40094AB81 /* icon@2x.png */,
+				3B7B340915F8248D00B6AC61 /* Icon-72.png */,
+				3B7B340715F8246C00B6AC61 /* Icon-72@2x.png */,
+				3B7B341115F824CA00B6AC61 /* Default-Landscape@2x~ipad.png */,
+				3B7B340F15F824C700B6AC61 /* Default-Landscape~ipad.png */,
+				3B7B340D15F824C000B6AC61 /* Default-Portrait@2x~ipad.png */,
+				3B7B340B15F824BC00B6AC61 /* Default-Portrait~ipad.png */,
 				3B84192015EE02A60094AB81 /* Default@2x.png */,
 				3B84191E15EE02990094AB81 /* Default.png */,
 				3B84190015ECA0950094AB81 /* 33-cabinet.png */,
@@ -337,6 +355,12 @@
 				3B84191815EDC6D40094AB81 /* icon@2x.png in Resources */,
 				3B84191F15EE02990094AB81 /* Default.png in Resources */,
 				3B84192115EE02A60094AB81 /* Default@2x.png in Resources */,
+				3B7B340815F8246C00B6AC61 /* Icon-72@2x.png in Resources */,
+				3B7B340A15F8248D00B6AC61 /* Icon-72.png in Resources */,
+				3B7B340C15F824BC00B6AC61 /* Default-Portrait~ipad.png in Resources */,
+				3B7B340E15F824C000B6AC61 /* Default-Portrait@2x~ipad.png in Resources */,
+				3B7B341015F824C700B6AC61 /* Default-Landscape~ipad.png in Resources */,
+				3B7B341215F824CA00B6AC61 /* Default-Landscape@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,10 +468,12 @@
 		3B0077AF15DA565000A9FC1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Red Cup Corporation";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SouthwestTravelFundsManager/SouthwestTravelManager-Prefix.pch";
 				INFOPLIST_FILE = "SouthwestTravelFundsManager/SouthwestTravelManager-Info.plist";
 				PRODUCT_NAME = SouthwestTravelManager;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7EFC707B-DCE2-41D4-9560-A069968BACA8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -455,10 +481,12 @@
 		3B0077B015DA565000A9FC1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Red Cup Corporation";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SouthwestTravelFundsManager/SouthwestTravelManager-Prefix.pch";
 				INFOPLIST_FILE = "SouthwestTravelFundsManager/SouthwestTravelManager-Info.plist";
 				PRODUCT_NAME = SouthwestTravelManager;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7EFC707B-DCE2-41D4-9560-A069968BACA8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
