@@ -13,7 +13,6 @@
 @interface NewFlightTableViewController ()
 
 - (NSArray *)allFundsWithContext:(NSManagedObjectContext *)context;
-- (void)finalizeEnteredData;
 
 @end
 
@@ -25,7 +24,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self updatePlaceholderText];
-    [self.flightTextField becomeFirstResponder];
+    //[self.flightTextField becomeFirstResponder];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -55,15 +54,6 @@
     } else {
         return [super tableView:tableView numberOfRowsInSection:section];
     }
-}
-
-- (void)finalizeEnteredData {
-    NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
-    for (UITextField *field in textFields) {
-        if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
-    }
-    [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
-    [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
 }
 
 - (NSArray *)allFundsWithContext:(NSManagedObjectContext *)context {

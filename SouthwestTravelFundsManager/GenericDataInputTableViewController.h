@@ -46,5 +46,7 @@
 - (void)selectAnimated:(NSSet *)incompleteFields fromRequiredFields:(NSDictionary *)requiredFields;
 - (void)updatePlaceholderText;
 - (void)updateFundsUsedLabel:(NSSet *)fundsUsed;
+- (void)finalizeEnteredData;
+
 
 @end

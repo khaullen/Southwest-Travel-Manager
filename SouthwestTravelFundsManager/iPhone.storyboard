@@ -222,7 +222,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -630,7 +630,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -658,6 +658,7 @@
                         <outlet property="expirationTextField" destination="f0E-d8-7yf" id="zcv-gW-Wvf"/>
                         <outlet property="flightTextField" destination="x9F-WE-jtb" id="lVY-KB-2yi"/>
                         <outlet property="fundsUsedLabel" destination="g9d-b8-rtt" id="PBt-Zf-ZNF"/>
+                        <outlet property="notesTextField" destination="Gk9-uW-Oky" id="wSL-ug-EIL"/>
                         <outlet property="outboundTextField" destination="8sI-F1-kP3" id="e0l-35-qwP"/>
                         <outlet property="returnTextField" destination="a1q-YM-73n" id="C4k-zs-PD2"/>
                         <outlet property="roundtripSwitch" destination="Csb-7z-jbE" id="uAX-pt-EkM"/>
@@ -981,7 +982,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1014,6 +1015,7 @@
                         <outlet property="expirationTextField" destination="GCW-ug-hsh" id="otX-Rw-Kjw"/>
                         <outlet property="flightTextField" destination="KeK-bj-luu" id="phO-3G-yzb"/>
                         <outlet property="fundsUsedLabel" destination="nuC-xj-kUu" id="ytp-r5-DHQ"/>
+                        <outlet property="notesTextField" destination="1ST-x5-Hjn" id="lgL-x6-WI8"/>
                         <outlet property="outboundTextField" destination="rVO-jB-Oei" id="EQ8-sW-rRp"/>
                         <outlet property="returnTextField" destination="gnL-o1-wKV" id="UIR-yM-afV"/>
                         <outlet property="roundtripSwitch" destination="8Ql-Z4-n9x" id="STU-Qu-eBa"/>
@@ -1219,7 +1221,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1251,48 +1253,6 @@
         <image name="33-cabinet.png" width="20" height="26"/>
         <image name="38-airplane.png" width="22" height="24"/>
     </resources>
-    <classes>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="FlightDetailsTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightDetailsTableViewController.h"/>
-        </class>
-        <class className="FundDetailsTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundDetailsTableViewController.h"/>
-        </class>
-        <class className="FundSelectionTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundSelectionTableViewController.h"/>
-        </class>
-        <class className="GenericDataInputTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericDataInputTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkInReminderSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="confirmTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="costTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="expirationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="flightTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="fundsUsedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="notesTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outboundTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="returnTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="roundtripSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="unusedTicketSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="NewFlightTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
-        </class>
-        <class className="NewFundTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
-        </class>
-        <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
-        </class>
-        <class className="UpcomingFlightsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingFlightsTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

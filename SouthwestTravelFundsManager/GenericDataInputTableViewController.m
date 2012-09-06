@@ -278,6 +278,16 @@
     }
 }
 
+- (void)finalizeEnteredData {
+    NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
+    for (UITextField *field in textFields) {
+        if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
+    }
+    [self.fieldData setObject:[NSNumber numberWithBool:self.roundtripSwitch.on] forKey:ROUNDTRIP];
+    [self.fieldData setObject:[NSNumber numberWithBool:self.checkInReminderSwitch.on] forKey:CHECK_IN_REMINDER];
+    [self.fieldData setObject:[NSNumber numberWithBool:self.unusedTicketSwitch.on] forKey:UNUSED_TICKET];
+}
+
 - (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination {
     self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", [origin objectForKey:AIRPORT_CODE], [destination objectForKey:AIRPORT_CODE]];
     [self.fieldData setObject:origin forKey:ORIGIN];

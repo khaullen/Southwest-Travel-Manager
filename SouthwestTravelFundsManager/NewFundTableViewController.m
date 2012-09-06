@@ -17,15 +17,11 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self updatePlaceholderText];
-    [self.confirmTextField becomeFirstResponder];
+    //[self.confirmTextField becomeFirstResponder];
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
-    NSArray *textFields = [NSArray arrayWithObjects:self.confirmTextField, self.costTextField, self.notesTextField, nil];
-    for (UITextField *field in textFields) {
-        if ([field isFirstResponder]) [self textFieldDidEndEditing:field];
-    }
-    [self.fieldData setObject:[NSNumber numberWithBool:self.unusedTicketSwitch.on] forKey:UNUSED_TICKET];
+    [self finalizeEnteredData];
     if (![self tableHasIncompleteRequiredFields:self.fundRequiredFields]) [self.delegate newFundTableViewController:self didEnterFundInformation:self.fieldData];
 }
 
