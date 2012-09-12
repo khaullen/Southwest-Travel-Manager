@@ -195,6 +195,10 @@
     if (!self.database) self.database = [DatabaseHelper sharedDatabase];
 }
 
+- (void)applicationWillEnterForeground:(UIApplication *)application  {
+    if (!self.database) self.database = [DatabaseHelper sharedDatabase];
+}
+
 - (void)setDatabase:(UIManagedDocument *)database {
     if (database != _database) {
         _database = database;
