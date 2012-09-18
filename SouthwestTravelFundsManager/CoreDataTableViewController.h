@@ -19,7 +19,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface CoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIApplicationDelegate>
+@interface CoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 // The controller (this class fetches nothing if this is not set).
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
