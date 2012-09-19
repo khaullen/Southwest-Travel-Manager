@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
-#import "GenericDataInputTableViewController.h"
+#import "GenericFlightTableViewController.h"
 #import "Flight+Create.h"
 #import "Fund+Create.h"
 #import "Airport+Create.h"
@@ -20,7 +20,7 @@
 
 @end
 
-@interface FlightDetailsTableViewController : GenericDataInputTableViewController
+@interface FlightDetailsTableViewController : GenericFlightTableViewController
 
 @property (nonatomic, strong) Flight *flight;
 @property (nonatomic, weak) id <FlightDetailsDelegate> delegate;

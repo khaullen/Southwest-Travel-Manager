@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
-#import "GenericDataInputTableViewController.h"
+#import "GenericFundTableViewController.h"
 
 @class NewFundTableViewController;
 
@@ -16,7 +16,7 @@
 
 @end
 
-@interface NewFundTableViewController : GenericDataInputTableViewController
+@interface NewFundTableViewController : GenericFundTableViewController
 
 @property (nonatomic, weak) id <NewFundDelegate> delegate;
 

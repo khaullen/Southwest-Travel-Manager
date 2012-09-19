@@ -17,6 +17,8 @@
 		3B0077D115E1DEAB00A9FC1B /* Flight+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D015E1DEAB00A9FC1B /* Flight+Create.m */; };
 		3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D315E1DECA00A9FC1B /* Fund+Create.m */; };
 		3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0077D715E20C4800A9FC1B /* CoreData.framework */; };
+		3B503A131609638C003183BC /* GenericFlightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B503A121609638C003183BC /* GenericFlightTableViewController.m */; };
+		3B503A17160963A3003183BC /* GenericFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B503A16160963A3003183BC /* GenericFundTableViewController.m */; };
 		3B5E3B7F15E3848D000D85E2 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */; };
 		3B5E3B8215E384B4000D85E2 /* GenericDataInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */; };
 		3B5E3B9015E38541000D85E2 /* NewFlightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5E3B8F15E38541000D85E2 /* NewFlightTableViewController.m */; };
@@ -70,6 +72,10 @@
 		3B0077D215E1DECA00A9FC1B /* Fund+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fund+Create.h"; sourceTree = "<group>"; };
 		3B0077D315E1DECA00A9FC1B /* Fund+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Fund+Create.m"; sourceTree = "<group>"; };
 		3B0077D715E20C4800A9FC1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3B503A111609638C003183BC /* GenericFlightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericFlightTableViewController.h; sourceTree = "<group>"; };
+		3B503A121609638C003183BC /* GenericFlightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericFlightTableViewController.m; sourceTree = "<group>"; };
+		3B503A15160963A3003183BC /* GenericFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericFundTableViewController.h; sourceTree = "<group>"; };
+		3B503A16160963A3003183BC /* GenericFundTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericFundTableViewController.m; sourceTree = "<group>"; };
 		3B5E3B7E15E3848D000D85E2 /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		3B5E3B8015E384B4000D85E2 /* GenericDataInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericDataInputTableViewController.h; sourceTree = "<group>"; };
 		3B5E3B8115E384B4000D85E2 /* GenericDataInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericDataInputTableViewController.m; sourceTree = "<group>"; };
@@ -250,6 +256,8 @@
 		3B8418F815EC347B0094AB81 /* Upcoming Flights */ = {
 			isa = PBXGroup;
 			children = (
+				3B503A111609638C003183BC /* GenericFlightTableViewController.h */,
+				3B503A121609638C003183BC /* GenericFlightTableViewController.m */,
 				3B5E3BD615E78005000D85E2 /* FlightDetailsTableViewController.h */,
 				3B5E3BD715E78005000D85E2 /* FlightDetailsTableViewController.m */,
 				3B5E3B8E15E38541000D85E2 /* NewFlightTableViewController.h */,
@@ -261,6 +269,8 @@
 		3B8418F915EC348E0094AB81 /* Travel Funds */ = {
 			isa = PBXGroup;
 			children = (
+				3B503A15160963A3003183BC /* GenericFundTableViewController.h */,
+				3B503A16160963A3003183BC /* GenericFundTableViewController.m */,
 				3B8418FA15EC359B0094AB81 /* FundDetailsTableViewController.h */,
 				3B8418FB15EC359B0094AB81 /* FundDetailsTableViewController.m */,
 				3B8418FD15EC35BB0094AB81 /* NewFundTableViewController.h */,
@@ -393,6 +403,8 @@
 				3B84192D15EE78750094AB81 /* Flight.m in Sources */,
 				3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */,
 				3B7B340015F0AF3000B6AC61 /* FundSelectionTableViewController.m in Sources */,
+				3B503A131609638C003183BC /* GenericFlightTableViewController.m in Sources */,
+				3B503A17160963A3003183BC /* GenericFundTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

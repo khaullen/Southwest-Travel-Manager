@@ -1,5 +1,5 @@
 //
-//  GenericFlightTableViewController.h
+//  GenericDataInputTableViewController.h
 //  SouthwestTravelManager
 //
 //  Created by Colin Regan on 8/20/12.
@@ -26,8 +26,6 @@
 @property (weak, nonatomic) IBOutlet UISwitch *unusedTicketSwitch;
 
 @property (nonatomic, strong) NSMutableDictionary *fieldData;
-@property (nonatomic, readonly) NSDictionary *flightRequiredFields;
-@property (nonatomic, readonly) NSDictionary *fundRequiredFields;
 
 @property (strong, nonatomic) AirportPickerViewController *airportPickerVC;
 @property (strong, nonatomic) UIDatePicker *expirationDatePicker;
@@ -44,6 +42,8 @@
 - (BOOL)tableHasIncompleteRequiredFields:(NSDictionary *)requiredFields;
 - (BOOL)isInvalid:(NSString *)field;
 - (void)selectAnimated:(NSSet *)incompleteFields fromRequiredFields:(NSDictionary *)requiredFields;
+- (NSString *)nameForPicker:(UITextField *)field;
+- (void)selectPickerFieldCell:(UITableViewCell *)cell withTextField:(UITextField *)textField selected:(BOOL)selected;
 - (void)updatePlaceholderText;
 - (void)updateFundsUsedLabel:(NSSet *)fundsUsed;
 - (void)finalizeEnteredData;

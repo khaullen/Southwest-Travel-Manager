@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
-#import "GenericDataInputTableViewController.h"
+#import "GenericFlightTableViewController.h"
 #import "FundSelectionTableViewController.h"
 
 @class NewFlightTableViewController;
@@ -17,7 +17,7 @@
 
 @end
 
-@interface NewFlightTableViewController : GenericDataInputTableViewController <FundSelectionDelegate>
+@interface NewFlightTableViewController : GenericFlightTableViewController <FundSelectionDelegate>
 
 @property (nonatomic, weak) id <NewFlightDelegate> delegate;
 @property (nonatomic, weak) NSManagedObjectContext *context;

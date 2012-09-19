@@ -1,5 +1,5 @@
 //
-//  GenericFlightTableViewController.m
+//  GenericDataInputTableViewController.m
 //  SouthwestTravelManager
 //
 //  Created by Colin Regan on 8/20/12.
@@ -39,16 +39,10 @@
 @synthesize returnDatePicker = _returnDatePicker;
 @synthesize formatter = _formatter;
 @synthesize firstResponderTweaks = _firstResponderTweaks;
-@dynamic flightRequiredFields;
-@dynamic fundRequiredFields;
 
-- (NSDictionary *)flightRequiredFields {
-    return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], ORIGIN, [NSIndexPath indexPathForRow:0 inSection:0], DESTINATION, [NSIndexPath indexPathForRow:1 inSection:0], CONFIRMATION_CODE, [NSIndexPath indexPathForRow:2 inSection:0], COST, [NSIndexPath indexPathForRow:3 inSection:0], EXPIRATION_DATE, [NSIndexPath indexPathForRow:0 inSection:2], CHECK_IN_REMINDER, [NSIndexPath indexPathForRow:0 inSection:1], ROUNDTRIP, [NSIndexPath indexPathForRow:1 inSection:1], OUTBOUND_DEPARTURE_DATE, [[self.fieldData objectForKey:ROUNDTRIP] boolValue] ? [NSIndexPath indexPathForRow:2 inSection:1] : nil, RETURN_DEPARTURE_DATE, nil];
-}
 
-- (NSDictionary *)fundRequiredFields {
-    return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], CONFIRMATION_CODE, [NSIndexPath indexPathForRow:1 inSection:0], COST, [NSIndexPath indexPathForRow:2 inSection:0], EXPIRATION_DATE, nil];
-}
+
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -222,7 +216,7 @@
     } else if ([textField isEqual:self.expirationTextField]) {
         if (!self.expirationTextField.text.length) {
             [self.expirationDatePicker setDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] animated:TRUE];
-            [self datePickerDidEndEditing:self.expirationDatePicker];
+            [self datePickerDidEndEditing:self.expirationDatePicker];            
         }
     } else if ([textField isEqual:self.returnTextField]) {
         // update date to departure date
@@ -356,6 +350,19 @@
             [cell setSelected:FALSE animated:TRUE];
         }
     }];
+}
+
+- (NSString *)nameForPicker:(UITextField *)field {
+    if ([field isEqual:self.flightTextField]) return ORIGIN;
+    if ([field isEqual:self.expirationTextField]) return EXPIRATION_DATE;
+    if ([field isEqual:self.outboundTextField]) return OUTBOUND_DEPARTURE_DATE;
+    if ([field isEqual:self.returnTextField]) return RETURN_DEPARTURE_DATE;
+    return nil;
+}
+
+- (void)selectPickerFieldCell:(UITableViewCell *)cell withTextField:(UITextField *)textField selected:(BOOL)selected {
+    [cell setSelected:selected];
+    [textField setTextColor:selected ? [UIColor whiteColor] : [UIColor colorWithRed:0.219608 green:0.329412 blue:0.529412 alpha:1]];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
