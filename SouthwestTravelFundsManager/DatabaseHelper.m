@@ -14,6 +14,7 @@ static UIManagedDocument *sharedDatabase = nil;
 
 + (UIManagedDocument *)sharedDatabase {
     if (!sharedDatabase) {
+        NSLog(@"sharedDatabase: %@", sharedDatabase);
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"default_database"];
         sharedDatabase = [[UIManagedDocument alloc] initWithFileURL:url];

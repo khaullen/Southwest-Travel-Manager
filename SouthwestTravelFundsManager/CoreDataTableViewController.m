@@ -200,11 +200,16 @@
 }
 
 - (void)enterForeground:(NSNotification *)notification {
+    NSLog(@"entering foreground");
+    NSLog(@"self.database: %@", self.database);
     self.database = [DatabaseHelper sharedDatabase];
+    NSLog(@"self.database: %@", self.database);
 }
 
 - (void)enterBackground:(NSNotification *)notification {
     self.database = nil;
+    NSLog(@"entering background");
+    NSLog(@"self.database: %@", self.database);
 }
 
 - (void)setDatabase:(UIManagedDocument *)database {
