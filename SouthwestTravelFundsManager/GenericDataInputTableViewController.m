@@ -172,8 +172,8 @@
 
 - (void)updatePlaceholderText {
     self.expirationTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
-    self.outboundTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*31)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
-    self.returnTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*36)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
+    self.outboundTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
+    self.returnTextField.placeholder = [self.formatter stringForDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*2)] withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone localTimeZone]];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -210,7 +210,9 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if ([textField isEqual:self.costTextField]) {
+    if ([textField isEqual:self.flightTextField]) {
+        if (!self.flightTextField.text.length) [self.airportPickerVC setSelectedDefaultAirports];
+    } else if ([textField isEqual:self.costTextField]) {
         // add currency symbol when empty
         if (!self.costTextField.text.length) self.costTextField.text = @"$";
     } else if ([textField isEqual:self.expirationTextField]) {
@@ -218,9 +220,17 @@
             [self.expirationDatePicker setDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24*365)] animated:TRUE];
             [self datePickerDidEndEditing:self.expirationDatePicker];            
         }
+    } else if ([textField isEqual:self.outboundTextField]) {
+        if (!self.outboundTextField.text.length) {
+            [self.outboundDatePicker setDate:[NSDate dateWithTimeIntervalSinceNow:(60*60*24)] animated:FALSE];
+            [self datePickerDidEndEditing:self.outboundDatePicker];
+        }
     } else if ([textField isEqual:self.returnTextField]) {
         // update date to departure date
-        if (!self.returnTextField.text.length) [self.returnDatePicker setDate:self.outboundDatePicker.date animated:TRUE];
+        if (!self.returnTextField.text.length) {
+            [self.returnDatePicker setDate:self.outboundDatePicker.date animated:TRUE];
+            [self datePickerDidEndEditing:self.returnDatePicker];
+        }
     }
 }
 

@@ -62,6 +62,10 @@
     [self.delegate airportPickerViewController:self selectedOrigin:origin andDestination:destination];
 }
 
+- (void)setSelectedDefaultAirports {
+    [self pickerView:self.airportPicker didSelectRow:0 inComponent:0];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

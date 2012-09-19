@@ -23,5 +23,6 @@
 @property (nonatomic, weak) id <AirportPickerViewControllerDelegate> delegate;
 
 - (void)setSelectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination;
+- (void)setSelectedDefaultAirports;
 
 @end
