@@ -54,16 +54,39 @@
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.database.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [super tableView:tableView numberOfRowsInSection:section] + 1;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"fund";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *fundCellIdentifier = @"fund";
+    static NSString *totalCellIdentifier = @"total";
     
-    // Configure the cell...
-    Fund *fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [self.formatter stringForCost:fund.balance];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", fund.originalFlight.confirmationCode, [self.formatter stringForDate:fund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]]];
+    BOOL lastRow = indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
+    
+    UITableViewCell *cell;
+    
+    if (lastRow) {
+        cell = [tableView dequeueReusableCellWithIdentifier:totalCellIdentifier];
+        double fundsTotal;
+        for (Fund *fund in self.fetchedResultsController.fetchedObjects) {
+            fundsTotal += fund.balance.doubleValue;
+        }
+        cell.textLabel.text = [NSString stringWithFormat:@"%1$d Funds, $%2$.*3$f", self.fetchedResultsController.fetchedObjects.count, fundsTotal, 2];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:fundCellIdentifier];
+        Fund *fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        cell.textLabel.text = [self.formatter stringForCost:fund.balance];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ (%@)", fund.originalFlight.confirmationCode, [self.formatter stringForDate:fund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]]];
+    }
+    
     return cell;
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BOOL lastRow = indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
+    return lastRow ? nil : indexPath;
 }
 
 
