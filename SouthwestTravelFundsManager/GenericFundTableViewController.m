@@ -21,6 +21,7 @@
     NSString *fieldName = [self nameForPicker:textField];
     if (fieldName) {
         NSIndexPath *cellPath = [self.fundRequiredFields objectForKey:fieldName];
+        if (!cellPath && [fieldName isEqualToString:ORIGIN]) cellPath = [NSIndexPath indexPathForRow:3 inSection:0];
         UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:cellPath];
         [self selectPickerFieldCell:cell withTextField:textField selected:TRUE];
     }

@@ -241,6 +241,7 @@
         id obj = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [self.database.managedObjectContext deleteObject:obj];
     }
+    [DatabaseHelper saveDatabase];
 }
 
 - (void)dealloc {

@@ -21,6 +21,10 @@
 
 @synthesize formatter = _formatter;
 
++ (BOOL)lastRow:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView {
+    return indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
+}
+
 - (DateAndCurrencyFormatter *)formatter {
     if (!_formatter) _formatter = [[DateAndCurrencyFormatter alloc] init];
     return _formatter;
@@ -42,6 +46,7 @@
 - (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo {
     [Fund fundWithDictionary:fundInfo inManagedObjectContext:self.database.managedObjectContext];
     [DatabaseHelper saveDatabase];
+    [self updateFundTotals:self.tableView];
     [self dismissModalViewControllerAnimated:TRUE];
 }
 
@@ -62,18 +67,17 @@
 {
     static NSString *fundCellIdentifier = @"fund";
     static NSString *totalCellIdentifier = @"total";
-    
-    BOOL lastRow = indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
-    
+        
     UITableViewCell *cell;
     
-    if (lastRow) {
+    if ([[self class] lastRow:indexPath inTableView:tableView]) {
         cell = [tableView dequeueReusableCellWithIdentifier:totalCellIdentifier];
         double fundsTotal;
         for (Fund *fund in self.fetchedResultsController.fetchedObjects) {
             fundsTotal += fund.balance.doubleValue;
         }
-        cell.textLabel.text = [NSString stringWithFormat:@"%1$d Funds, $%2$.*3$f", self.fetchedResultsController.fetchedObjects.count, fundsTotal, 2];
+        int fundCount = self.fetchedResultsController.fetchedObjects.count;
+        cell.textLabel.text = [NSString stringWithFormat:@"%d Fund%@, %@", fundCount, fundCount == 1 ? @"" : @"s", [self.formatter stringForCost:[NSNumber numberWithDouble:fundsTotal]]];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:fundCellIdentifier];
         Fund *fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
@@ -85,10 +89,24 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL lastRow = indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
-    return lastRow ? nil : indexPath;
+    return [[self class] lastRow:indexPath inTableView:tableView] ? nil : indexPath;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return ![[self class] lastRow:indexPath inTableView:tableView];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [super tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
+    [self updateFundTotals:tableView];
+}
+
+- (void)updateFundTotals:(UITableView *)tableView {
+    int lastSection = [tableView numberOfSections] - 1;
+    int lastRow = [tableView numberOfRowsInSection:lastSection] - 1;
+    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastRow inSection:lastSection];
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:lastIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
 
 
 @end
