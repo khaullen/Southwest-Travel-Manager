@@ -14,8 +14,4 @@
 
 @property (nonatomic, strong) DateAndCurrencyFormatter *formatter;
 
-+ (BOOL)lastRow:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView;
-
-- (void)updateFundTotals:(UITableView *)tableView;
-
 @end

@@ -15,6 +15,10 @@
 
 @interface TravelFundsTableViewController () <NewFundDelegate>
 
++ (BOOL)lastRow:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView;
+
+- (void)updateFundTotals:(UITableView *)tableView;
+
 @end
 
 @implementation TravelFundsTableViewController
@@ -46,7 +50,6 @@
 - (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo {
     [Fund fundWithDictionary:fundInfo inManagedObjectContext:self.database.managedObjectContext];
     [DatabaseHelper saveDatabase];
-    [self updateFundTotals:self.tableView];
     [self dismissModalViewControllerAnimated:TRUE];
 }
 
@@ -96,9 +99,13 @@
     return ![[self class] lastRow:indexPath inTableView:tableView];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [super tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
-    [self updateFundTotals:tableView];
+- (void)controller:(NSFetchedResultsController *)controller 
+   didChangeObject:(id)anObject 
+       atIndexPath:(NSIndexPath *)indexPath 
+     forChangeType:(NSFetchedResultsChangeType)type 
+      newIndexPath:(NSIndexPath *)newIndexPath {
+    [super controller:controller didChangeObject:anObject atIndexPath:indexPath forChangeType:type newIndexPath:newIndexPath];
+    [self updateFundTotals:self.tableView];
 }
 
 - (void)updateFundTotals:(UITableView *)tableView {
