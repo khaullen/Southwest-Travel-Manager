@@ -9,7 +9,6 @@
         <relationship name="originFlights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="origin" inverseEntity="Flight" syncable="YES"/>
     </entity>
     <entity name="Flight" representedClassName="Flight" syncable="YES">
-        <attribute name="bookedWithPoints" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="bookingDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="cancelled" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="checkInReminder" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -22,7 +21,6 @@
         <attribute name="outboundDepartureDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="outboundFlightNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="pointsEarned" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="pointsUsed" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="returnArrivalDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="returnCheckedIn" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="returnDepartureDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -52,7 +50,7 @@
     </entity>
     <elements>
         <element name="Airport" positionX="97" positionY="324" width="128" height="135"/>
-        <element name="Flight" positionX="-144" positionY="-9" width="128" height="420"/>
+        <element name="Flight" positionX="-144" positionY="-9" width="128" height="390"/>
         <element name="Fund" positionX="81" positionY="-45" width="128" height="135"/>
         <element name="Passenger" positionX="133" positionY="141" width="128" height="120"/>
     </elements>

@@ -1,8 +1,8 @@
 //
 //  Passenger.m
-//  SouthwestTravelFundsManager
+//  SouthwestTravelManager
 //
-//  Created by Colin Regan on 8/29/12.
+//  Created by Colin Regan on 9/24/12.
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 

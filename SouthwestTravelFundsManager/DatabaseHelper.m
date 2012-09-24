@@ -18,6 +18,10 @@ static UIManagedDocument *sharedDatabase = nil;
         NSURL *url = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         url = [url URLByAppendingPathComponent:@"default_database"];
         sharedDatabase = [[UIManagedDocument alloc] initWithFileURL:url];
+        NSMutableDictionary *options = [NSMutableDictionary dictionary];
+        [options setObject:[NSNumber numberWithBool:TRUE] forKey:NSMigratePersistentStoresAutomaticallyOption];
+        [options setObject:[NSNumber numberWithBool:TRUE] forKey:NSInferMappingModelAutomaticallyOption];
+        sharedDatabase.persistentStoreOptions = options;
     }
     return sharedDatabase;
 }

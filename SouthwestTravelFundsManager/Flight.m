@@ -1,8 +1,8 @@
 //
 //  Flight.m
-//  SouthwestTravelFundsManager
+//  SouthwestTravelManager
 //
-//  Created by Colin Regan on 8/29/12.
+//  Created by Colin Regan on 9/24/12.
 //  Copyright (c) 2012 Red Cup. All rights reserved.
 //
 
@@ -22,16 +22,16 @@
 @dynamic fareType;
 @dynamic notes;
 @dynamic outboundArrivalDate;
+@dynamic outboundCheckedIn;
 @dynamic outboundDepartureDate;
 @dynamic outboundFlightNumber;
 @dynamic pointsEarned;
 @dynamic returnArrivalDate;
+@dynamic returnCheckedIn;
 @dynamic returnDepartureDate;
 @dynamic returnFlightNumber;
 @dynamic roundtrip;
 @dynamic ticketNumber;
-@dynamic outboundCheckedIn;
-@dynamic returnCheckedIn;
 @dynamic destination;
 @dynamic fundsUsed;
 @dynamic origin;
