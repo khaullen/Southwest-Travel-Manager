@@ -13,8 +13,6 @@
 
 
 // ADDITIONAL CODE
-- (void)enterForeground:(NSNotification *)notification;
-- (void)enterBackground:(NSNotification *)notification;
 - (void)useDocument;
 
 @end
@@ -195,21 +193,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.database) self.database = [DatabaseHelper sharedDatabase];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground:) name:UIApplicationWillEnterForegroundNotification object:[UIApplication sharedApplication]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground:) name:UIApplicationDidEnterBackgroundNotification object:[UIApplication sharedApplication]];
-}
-
-- (void)enterForeground:(NSNotification *)notification {
-    NSLog(@"entering foreground");
-    NSLog(@"self.database: %@", self.database);
-    self.database = [DatabaseHelper sharedDatabase];
-    NSLog(@"self.database: %@", self.database);
-}
-
-- (void)enterBackground:(NSNotification *)notification {
-    self.database = nil;
-    NSLog(@"entering background");
-    NSLog(@"self.database: %@", self.database);
 }
 
 - (void)setDatabase:(UIManagedDocument *)database {
@@ -242,10 +225,6 @@
         [self.database.managedObjectContext deleteObject:obj];
     }
     [DatabaseHelper saveDatabase];
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
