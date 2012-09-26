@@ -26,15 +26,10 @@
 }
 
 - (void)airportPickerViewController:(AirportPickerViewController *)airportPickerVC selectedOrigin:(NSDictionary *)origin andDestination:(NSDictionary *)destination {
-    if ([(NSString *)[origin objectForKey:AIRPORT_CODE] isEqualToString:[destination objectForKey:AIRPORT_CODE]]) {
-        [self selectAnimated:[NSSet setWithObject:DESTINATION] fromRequiredFields:self.fundRequiredFields];
-        [self setDataInFields];
-    } else {
-        [super airportPickerViewController:airportPickerVC selectedOrigin:origin andDestination:destination];
-        self.fund.originalFlight.origin = [Airport airportWithDictionary:[self.fieldData objectForKey:ORIGIN] inManagedObjectContext:self.fund.managedObjectContext];
-        self.fund.originalFlight.destination = [Airport airportWithDictionary:[self.fieldData objectForKey:DESTINATION] inManagedObjectContext:self.fund.managedObjectContext];
-        [DatabaseHelper saveDatabase];
-    }
+    [super airportPickerViewController:airportPickerVC selectedOrigin:origin andDestination:destination];
+    self.fund.originalFlight.origin = [Airport airportWithDictionary:[self.fieldData objectForKey:ORIGIN] inManagedObjectContext:self.fund.managedObjectContext];
+    self.fund.originalFlight.destination = [Airport airportWithDictionary:[self.fieldData objectForKey:DESTINATION] inManagedObjectContext:self.fund.managedObjectContext];
+    [DatabaseHelper saveDatabase];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
