@@ -53,6 +53,7 @@
 		3B84191F15EE02990094AB81 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191E15EE02990094AB81 /* Default.png */; };
 		3B84192115EE02A60094AB81 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84192015EE02A60094AB81 /* Default@2x.png */; };
 		3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84193215EEAFB10094AB81 /* DatabaseHelper.m */; };
+		3BBB651F1613E62600D90D37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB651E1613E62600D90D37 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		3B84192015EE02A60094AB81 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3B84193115EEAFB10094AB81 /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
 		3B84193215EEAFB10094AB81 /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
+		3BBB651E1613E62600D90D37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +297,7 @@
 				3B7B340B15F824BC00B6AC61 /* Default-Portrait~ipad.png */,
 				3B84192015EE02A60094AB81 /* Default@2x.png */,
 				3B84191E15EE02990094AB81 /* Default.png */,
+				3BBB651E1613E62600D90D37 /* Default-568h@2x.png */,
 				3B84190015ECA0950094AB81 /* 33-cabinet.png */,
 				3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */,
 				3B84190215ECA0950094AB81 /* 38-airplane.png */,
@@ -372,6 +375,7 @@
 				3B7B340E15F824C000B6AC61 /* Default-Portrait@2x~ipad.png in Resources */,
 				3B7B341015F824C700B6AC61 /* Default-Landscape~ipad.png in Resources */,
 				3B7B341215F824CA00B6AC61 /* Default-Landscape@2x~ipad.png in Resources */,
+				3BBB651F1613E62600D90D37 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

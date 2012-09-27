@@ -16,6 +16,21 @@
     return [NSDictionary dictionaryWithObjectsAndKeys:[NSIndexPath indexPathForRow:0 inSection:0], CONFIRMATION_CODE, [NSIndexPath indexPathForRow:1 inSection:0], COST, [NSIndexPath indexPathForRow:2 inSection:0], EXPIRATION_DATE, nil];
 }
 
+- (UITextField *)textFieldForIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0: return self.confirmTextField;
+            case 1: return self.costTextField;
+            case 2: return self.expirationTextField;
+            case 3: return self.flightTextField;
+            default: return nil;
+        }
+    }
+    if (indexPath.section == 1) return nil;
+    if (indexPath.section == 2) return self.notesTextField;
+    return [super textFieldForIndexPath:indexPath];
+}
+
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     [super textFieldDidBeginEditing:textField];
     NSString *fieldName = [self nameForPicker:textField];

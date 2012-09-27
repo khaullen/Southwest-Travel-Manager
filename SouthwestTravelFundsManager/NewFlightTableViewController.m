@@ -89,7 +89,10 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self finalizeEnteredData];
-    return ([indexPath isEqual:[NSIndexPath indexPathForRow:0 inSection:3]] && ![self tableHasIncompleteRequiredFields:self.flightRequiredFields]) ? indexPath : nil;
+    if ([indexPath isEqual:[NSIndexPath indexPathForRow:0 inSection:3]]) {
+        return [self tableHasIncompleteRequiredFields:self.flightRequiredFields] ? nil : indexPath;
+    }
+    return [super tableView:tableView willSelectRowAtIndexPath:indexPath];
 }
 
 @end

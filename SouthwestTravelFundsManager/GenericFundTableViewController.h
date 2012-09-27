@@ -14,4 +14,6 @@
 
 @property (nonatomic, readonly) NSDictionary *fundRequiredFields;
 
+- (UITextField *)textFieldForIndexPath:(NSIndexPath *)indexPath;
+
 @end

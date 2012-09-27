@@ -70,6 +70,10 @@
     return _fieldData;
 }
 
+- (UITextField *)textFieldForIndexPath:(NSIndexPath *)indexPath {
+    return nil;
+}
+
 - (void)setDataInFields {
     NSDictionary *aOrigin = [self.fieldData objectForKey:ORIGIN];
     NSDictionary *aDestination = [self.fieldData objectForKey:DESTINATION];
@@ -356,6 +360,7 @@
         for (NSString *field in incompleteFields) {
             NSIndexPath *indexPath = [requiredFields objectForKey:field];
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             [cell setSelected:TRUE];
             [cell setSelected:FALSE animated:TRUE];
         }
@@ -376,6 +381,8 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITextField *textField = [self textFieldForIndexPath:indexPath];
+    [textField becomeFirstResponder];
     return nil;
 }
 

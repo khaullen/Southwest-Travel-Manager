@@ -14,4 +14,6 @@
 
 @property (nonatomic, readonly) NSDictionary *flightRequiredFields;
 
+- (UITextField *)textFieldForIndexPath:(NSIndexPath *)indexPath;
+
 @end

@@ -47,6 +47,7 @@
 - (void)updatePlaceholderText;
 - (void)updateFundsUsedLabel:(NSSet *)fundsUsed;
 - (void)finalizeEnteredData;
+- (UITextField *)textFieldForIndexPath:(NSIndexPath *)indexPath;
 
 
 @end
