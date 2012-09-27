@@ -380,6 +380,17 @@
     [textField setTextColor:selected ? [UIColor whiteColor] : [UIColor colorWithRed:0.219608 green:0.329412 blue:0.529412 alpha:1]];
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // if cell at index path is not a picker cell, set selection style to None
+    UITextField *textField = [self textFieldForIndexPath:indexPath];
+    NSString *name = [self nameForPicker:textField];
+    if (!name) {
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    return TRUE;
+}
+
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITextField *textField = [self textFieldForIndexPath:indexPath];
     [textField becomeFirstResponder];
