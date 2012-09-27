@@ -7,14 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "FlurryAnalytics.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 
+void uncaughtExceptionHandler(NSException *exception) {
+    [FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    [FlurryAnalytics startSession:@"425HC4YP6VRQDBH95H66"];
     return YES;
 }
 							

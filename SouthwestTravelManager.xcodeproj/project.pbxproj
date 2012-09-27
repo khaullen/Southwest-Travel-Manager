@@ -54,6 +54,7 @@
 		3B84192115EE02A60094AB81 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84192015EE02A60094AB81 /* Default@2x.png */; };
 		3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84193215EEAFB10094AB81 /* DatabaseHelper.m */; };
 		3BBB651F1613E62600D90D37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB651E1613E62600D90D37 /* Default-568h@2x.png */; };
+		3BBB65231614C5C800D90D37 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,8 @@
 		3B84193115EEAFB10094AB81 /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
 		3B84193215EEAFB10094AB81 /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
 		3BBB651E1613E62600D90D37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		3BBB65211614C5C800D90D37 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
+		3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,7 @@
 				3B00779215DA565000A9FC1B /* UIKit.framework in Frameworks */,
 				3B00779415DA565000A9FC1B /* Foundation.framework in Frameworks */,
 				3B00779615DA565000A9FC1B /* CoreGraphics.framework in Frameworks */,
+				3BBB65231614C5C800D90D37 /* libFlurryAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +196,8 @@
 		3B00779815DA565000A9FC1B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3BBB65211614C5C800D90D37 /* FlurryAnalytics.h */,
+				3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */,
 				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
 				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
 				3B00779915DA565000A9FC1B /* SouthwestTravelManager-Info.plist */,
@@ -489,6 +495,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SouthwestTravelFundsManager/SouthwestTravelManager-Prefix.pch";
 				INFOPLIST_FILE = "SouthwestTravelFundsManager/SouthwestTravelManager-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SouthwestTravelFundsManager\"",
+				);
 				PRODUCT_NAME = SouthwestTravelManager;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7EFC707B-DCE2-41D4-9560-A069968BACA8";
 				WRAPPER_EXTENSION = app;
@@ -502,6 +512,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SouthwestTravelFundsManager/SouthwestTravelManager-Prefix.pch";
 				INFOPLIST_FILE = "SouthwestTravelFundsManager/SouthwestTravelManager-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/SouthwestTravelFundsManager\"",
+				);
 				PRODUCT_NAME = SouthwestTravelManager;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7EFC707B-DCE2-41D4-9560-A069968BACA8";
 				WRAPPER_EXTENSION = app;

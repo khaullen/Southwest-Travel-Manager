@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 #import "DateAndCurrencyFormatter.h"
+#import "Fund+Create.h"
 
 @interface TravelFundsTableViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) DateAndCurrencyFormatter *formatter;
+
+- (NSDictionary *)flurryParametersForFund:(Fund *)fund;
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "UpcomingFlightsTableViewController.h"
-#import "Flight+Create.h"
 #import "Fund.h"
 #import "Airport.h"
 #import "NewFlightTableViewController.h"
@@ -73,6 +72,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Flight *flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [self removeLocalNotificationsForFlight:flight];
+        [FlurryAnalytics logEvent:@"FLIGHT_DELETED" withParameters:[self flurryParametersForFlight:flight]];
     }
     [super tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
 }
@@ -83,6 +83,7 @@
     Flight *flight = [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
     [DatabaseHelper saveDatabase];
     if (flight.checkInReminder.boolValue) [self addLocalNotificationsForFlight:flight withInfo:flightInfo];
+    [FlurryAnalytics logEvent:@"NEW_FLIGHT_CREATED" withParameters:[self flurryParametersForFlight:flight]];
     [self dismissModalViewControllerAnimated:TRUE];
 }
 
@@ -94,6 +95,7 @@
     [self.navigationController popViewControllerAnimated:TRUE];
     [DatabaseHelper saveDatabase];
     [self removeLocalNotificationsForFlight:flight];
+    [FlurryAnalytics logEvent:@"FLIGHT_CANCELED" withParameters:[self flurryParametersForFlight:flight]];
 }
 
 - (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didModifyNotificationParametersForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo {
@@ -131,6 +133,14 @@
     for (UILocalNotification *notification in array) {
         [application cancelLocalNotification:notification];
     }
+}
+
+#pragma mark - Flurry helper code
+
+- (NSDictionary *)flurryParametersForFlight:(Flight *)flight {
+    NSArray *keys = [NSArray arrayWithObjects:ORIGIN, DESTINATION, OUTBOUND_DEPARTURE_DATE, RETURN_DEPARTURE_DATE, CONFIRMATION_CODE, COST, EXPIRATION_DATE, CHECK_IN_REMINDER, NOTES, nil];
+    NSArray *objects = [NSArray arrayWithObjects:flight.origin.airportCode, flight.destination.airportCode, [self.formatter stringForDate:flight.outboundDepartureDate withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone timeZoneWithName:flight.origin.timeZone]], flight.roundtrip.boolValue ? [self.formatter stringForDate:flight.returnDepartureDate withFormat:DATE_TIME_FORMAT inTimeZone:[NSTimeZone timeZoneWithName:flight.destination.timeZone]] : @"", flight.confirmationCode, flight.cost.description, [self.formatter stringForDate:flight.travelFund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]], flight.checkInReminder.description, flight.notes ? flight.notes : @"", nil];
+    return [NSDictionary dictionaryWithObjects:objects forKeys:keys];
 }
 
 @end

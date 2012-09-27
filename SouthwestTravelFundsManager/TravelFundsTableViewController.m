@@ -7,7 +7,6 @@
 //
 
 #import "TravelFundsTableViewController.h"
-#import "Fund+Create.h"
 #import "Flight+Create.h"
 #import "Airport+Create.h"
 #import "NewFundTableViewController.h"
@@ -48,9 +47,18 @@
 }
 
 - (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo {
-    [Fund fundWithDictionary:fundInfo inManagedObjectContext:self.database.managedObjectContext];
+    Fund *fund = [Fund fundWithDictionary:fundInfo inManagedObjectContext:self.database.managedObjectContext];
     [DatabaseHelper saveDatabase];
+    [FlurryAnalytics logEvent:@"NEW_FUND_CREATED" withParameters:[self flurryParametersForFund:fund]];
     [self dismissModalViewControllerAnimated:TRUE];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Fund *fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [FlurryAnalytics logEvent:@"FUND_DELETED" withParameters:[self flurryParametersForFund:fund]];
+    }
+    [super tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
 }
 
 - (void)setupFetchedResultsController {
@@ -113,6 +121,12 @@
     int lastRow = [tableView numberOfRowsInSection:lastSection] - 1;
     NSIndexPath *lastIndexPath = [NSIndexPath indexPathForRow:lastRow inSection:lastSection];
     [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:lastIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (NSDictionary *)flurryParametersForFund:(Fund *)fund {
+    NSArray *keys = [NSArray arrayWithObjects:CONFIRMATION_CODE, BALANCE, EXPIRATION_DATE, ORIGIN, DESTINATION, UNUSED_TICKET, NOTES, nil];
+    NSArray *objects = [NSArray arrayWithObjects:fund.originalFlight.confirmationCode, fund.balance.description, [self.formatter stringForDate:fund.expirationDate withFormat:DATE_FORMAT inTimeZone:[NSTimeZone localTimeZone]], fund.originalFlight.origin ? fund.originalFlight.origin : @"", fund.originalFlight.destination ? fund.originalFlight.destination : @"", fund.unusedTicket.description, fund.notes ? fund.notes : @"", nil];
+    return [NSDictionary dictionaryWithObjects:objects forKeys:keys];
 }
 
 

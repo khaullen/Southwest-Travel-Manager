@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "CoreDataTableViewController.h"
 #import "DateAndCurrencyFormatter.h"
+#import "Flight+Create.h"
 
 @interface UpcomingFlightsTableViewController : CoreDataTableViewController
 
 @property (nonatomic, strong) DateAndCurrencyFormatter *formatter;
+
+- (NSDictionary *)flurryParametersForFlight:(Flight *)flight;
 
 @end

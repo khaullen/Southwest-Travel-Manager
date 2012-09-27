@@ -18,6 +18,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "FlurryAnalytics.h"
 
 @interface CoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 

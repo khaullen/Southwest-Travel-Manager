@@ -190,6 +190,11 @@
 
 // ADDITIONAL CODE
 
+- (void)viewDidLoad {
+    [FlurryAnalytics logAllPageViews:self.navigationController];
+    [FlurryAnalytics logAllPageViews:self.tabBarController];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.database) self.database = [DatabaseHelper sharedDatabase];
