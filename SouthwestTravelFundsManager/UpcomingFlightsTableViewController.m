@@ -33,6 +33,7 @@
 #pragma mark - Table view setup
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
     if ([segue.identifier isEqualToString:@"segueToNewFlight"]) {
         NewFlightTableViewController *newFlight = (NewFlightTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         newFlight.delegate = self;

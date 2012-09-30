@@ -55,6 +55,8 @@
 		3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84193215EEAFB10094AB81 /* DatabaseHelper.m */; };
 		3BBB651F1613E62600D90D37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB651E1613E62600D90D37 /* Default-568h@2x.png */; };
 		3BBB65231614C5C800D90D37 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */; };
+		3BBB653016168D1000D90D37 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB652F16168D1000D90D37 /* AboutViewController.m */; };
+		3BBB65331616999900D90D37 /* DataEntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB65321616999900D90D37 /* DataEntryTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +135,10 @@
 		3BBB651E1613E62600D90D37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3BBB65211614C5C800D90D37 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
+		3BBB652E16168D1000D90D37 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = ../AboutViewController.h; sourceTree = "<group>"; };
+		3BBB652F16168D1000D90D37 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ../AboutViewController.m; sourceTree = "<group>"; };
+		3BBB65311616999800D90D37 /* DataEntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEntryTableViewController.h; sourceTree = "<group>"; };
+		3BBB65321616999900D90D37 /* DataEntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEntryTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +251,10 @@
 				3B5E3BBE15E3B81B000D85E2 /* AirportPickerViewController.m */,
 				3B5E3BFE15EC2973000D85E2 /* DateAndCurrencyFormatter.h */,
 				3B5E3BFF15EC2974000D85E2 /* DateAndCurrencyFormatter.m */,
+				3BBB652E16168D1000D90D37 /* AboutViewController.h */,
+				3BBB652F16168D1000D90D37 /* AboutViewController.m */,
+				3BBB65311616999800D90D37 /* DataEntryTableViewController.h */,
+				3BBB65321616999900D90D37 /* DataEntryTableViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -416,6 +426,8 @@
 				3B503A3816111638003183BC /* Fund.m in Sources */,
 				3B503A3B16111638003183BC /* Passenger.m in Sources */,
 				3B503A3E16111638003183BC /* Airport.m in Sources */,
+				3BBB653016168D1000D90D37 /* AboutViewController.m in Sources */,
+				3BBB65331616999900D90D37 /* DataEntryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

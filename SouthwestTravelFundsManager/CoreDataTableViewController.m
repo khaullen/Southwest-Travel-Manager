@@ -207,6 +207,12 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"segueToAbout"]) {
+        
+    }
+}
+
 - (void)useDocument {
     if (![[NSFileManager defaultManager] fileExistsAtPath:[self.database.fileURL path]]) {
         // Create database

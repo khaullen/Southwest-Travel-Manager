@@ -34,6 +34,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    [super prepareForSegue:segue sender:sender];
     if ([segue.identifier isEqualToString:@"segueToNewFund"]) {
         NewFundTableViewController *newFund = (NewFundTableViewController *)[(UINavigationController *)segue.destinationViewController topViewController];
         newFund.delegate = self;
