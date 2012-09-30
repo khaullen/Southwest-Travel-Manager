@@ -721,12 +721,18 @@
                         <sections>
                             <tableViewSection id="he0-5J-bdP">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="145" id="muK-fF-TMb">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="145" id="muK-fF-TMb">
                                         <rect key="frame" x="0.0" y="10" width="320" height="147"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="144"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Icon-72@2x.png" id="WEQ-X0-WQc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="144"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
@@ -816,6 +822,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cellBackground" destination="WEQ-X0-WQc" id="Sxl-Ao-1Tq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZc-v9-L9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1406,6 +1415,7 @@
     <resources>
         <image name="33-cabinet.png" width="20" height="26"/>
         <image name="38-airplane.png" width="22" height="24"/>
+        <image name="Icon-72@2x.png" width="144" height="144"/>
     </resources>
     <classes>
         <class className="AboutViewController" superclassName="UITableViewController">

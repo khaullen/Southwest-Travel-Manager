@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     self.cellBackground.image = [self.cellBackground.image resizableImageWithCapInsets:UIEdgeInsetsMake(0, self.cellBackground.image.size.width - 1, 0, 0)];
+    
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
