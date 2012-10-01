@@ -10,6 +10,6 @@
 
 @interface DataEntryTableViewController : UITableViewController
 
-@property (weak, nonatomic) NSArray *fields;
+@property (strong, nonatomic) NSDictionary *fields;
 
 @end

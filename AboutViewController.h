@@ -11,5 +11,8 @@
 @interface AboutViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *cellBackground;
+@property (weak, nonatomic) IBOutlet UITableViewCell *version;
+@property (weak, nonatomic) IBOutlet UITableViewCell *name;
+@property (weak, nonatomic) IBOutlet UITableViewCell *accountNumber;
 
 @end
