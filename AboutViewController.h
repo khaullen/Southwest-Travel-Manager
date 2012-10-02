@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataEntryTableViewController.h"
 
-@interface AboutViewController : UITableViewController
+@interface AboutViewController : UITableViewController <DataEntryDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *cellBackground;
-@property (weak, nonatomic) IBOutlet UITableViewCell *version;
-@property (weak, nonatomic) IBOutlet UITableViewCell *name;
-@property (weak, nonatomic) IBOutlet UITableViewCell *accountNumber;
+@property (weak, nonatomic) IBOutlet UITableViewCell *versionCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *nameCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *accountNumberCell;
+
+@property (nonatomic) NSDictionary *passengerName;
+@property (nonatomic) NSDictionary *passengerAccountNumber;
 
 @end

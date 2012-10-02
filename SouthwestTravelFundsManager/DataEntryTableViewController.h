@@ -7,9 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataEntryCell.h"
 
-@interface DataEntryTableViewController : UITableViewController
+@class DataEntryTableViewController;
 
-@property (strong, nonatomic) NSDictionary *fields;
+@protocol DataEntryDelegate <NSObject>
+
+- (void)dataEntryTableViewController:(DataEntryTableViewController *)sender didEnterData:(NSDictionary *)data;
+
+@end
+
+@interface DataEntryTableViewController : UITableViewController <UINavigationBarDelegate>
+
+@property (strong, nonatomic) NSArray *labels;
+@property (strong, nonatomic) NSDictionary *placeholders;
+@property (strong, nonatomic) NSDictionary *details;
+@property (strong, nonatomic) NSDictionary *keyboardTypes;
+
+@property (weak, nonatomic) id <DataEntryDelegate> delegate;
 
 @end

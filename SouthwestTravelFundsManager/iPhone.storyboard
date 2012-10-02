@@ -697,6 +697,7 @@
         <!--Navigation Controller-->
         <scene sceneID="JYR-8I-1em">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVG-8G-rz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="jj9-R4-zFL" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="C2z-lf-Kzw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pBe-hw-cxl">
@@ -706,7 +707,6 @@
                         <segue destination="muv-5K-cdr" kind="relationship" relationship="rootViewController" id="ELG-SU-Woc"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vVG-8G-rz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2315" y="424"/>
         </scene>
@@ -732,12 +732,10 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="144"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pqp-fm-tFq">
-                                                    <rect key="frame" x="20" y="20" width="260" height="104"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <string key="text">SW Travel
-Manager</string>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="SW Travel Manager" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pqp-fm-tFq">
+                                                    <rect key="frame" x="79" y="20" width="201" height="104"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -922,10 +920,10 @@ Manager</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="accountNumber" destination="rM4-77-Yos" id="um6-MP-YIN"/>
+                        <outlet property="accountNumberCell" destination="rM4-77-Yos" id="EJN-5S-W5L"/>
                         <outlet property="cellBackground" destination="WEQ-X0-WQc" id="Sxl-Ao-1Tq"/>
-                        <outlet property="name" destination="Hhd-lj-ydF" id="r6C-Ii-IPa"/>
-                        <outlet property="version" destination="MSV-H8-cn4" id="lN9-ed-0Zd"/>
+                        <outlet property="nameCell" destination="Hhd-lj-ydF" id="I2Q-OM-jPU"/>
+                        <outlet property="versionCell" destination="MSV-H8-cn4" id="vvT-1n-6Mf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZc-v9-L9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -941,23 +939,34 @@ Manager</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" textLabel="zk9-6v-5lr" style="IBUITableViewCellStyleDefault" id="jh0-6S-EM0">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dataCell" id="ZRK-6G-Sbd" customClass="DataEntryCell">
                                 <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zk9-6v-5lr">
-                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yRu-8p-pr8">
+                                            <rect key="frame" x="10" y="0.0" width="97" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Detail" minimumFontSize="17" id="hba-Jz-Xqx">
+                                            <rect key="frame" x="115" y="6" width="185" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="label" destination="yRu-8p-pr8" id="JT5-D1-N2s"/>
+                                    <outlet property="textField" destination="hba-Jz-Xqx" id="UBz-BZ-cql"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -965,7 +974,18 @@ Manager</string>
                             <outlet property="delegate" destination="pf7-nz-c9E" id="cjb-lT-AEi"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="vqe-14-HVH"/>
+                    <navigationItem key="navigationItem" id="vqe-14-HVH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="rvU-pA-Nat">
+                            <connections>
+                                <action selector="cancelPressed:" destination="pf7-nz-c9E" id="j8T-XY-jgm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="KV6-79-epo">
+                            <connections>
+                                <action selector="donePressed:" destination="pf7-nz-c9E" id="S17-98-C9E"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9R-Ey-QVo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1563,20 +1583,24 @@ Manager</string>
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
             <relationships>
                 <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="accountNumber" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="accountNumberCell" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="cellBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="name" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="version" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="nameCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="versionCell" candidateClass="UITableViewCell"/>
             </relationships>
         </class>
         <class className="CoreDataTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
         </class>
+        <class className="DataEntryCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataEntryCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="DataEntryTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DataEntryTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataEntryCell" candidateClass="UITableViewCell"/>
-            </relationships>
         </class>
         <class className="FlightDetailsTableViewController" superclassName="GenericFlightTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightDetailsTableViewController.h"/>
@@ -1635,7 +1659,7 @@ Manager</string>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Dku-sT-6PO"/>
-        <segue reference="DY8-Nj-mPv"/>
+        <segue reference="G42-sh-lt4"/>
+        <segue reference="es3-zn-N8Q"/>
     </inferredMetricsTieBreakers>
 </document>
