@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G56" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Oej-KQ-Veg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Oej-KQ-Veg">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Travel Funds Table View Controller - Travel Funds-->
@@ -697,7 +697,6 @@
         <!--Navigation Controller-->
         <scene sceneID="JYR-8I-1em">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vVG-8G-rz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="jj9-R4-zFL" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="C2z-lf-Kzw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pBe-hw-cxl">
@@ -707,6 +706,7 @@
                         <segue destination="muv-5K-cdr" kind="relationship" relationship="rootViewController" id="ELG-SU-Woc"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vVG-8G-rz5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2315" y="424"/>
         </scene>
@@ -1578,81 +1578,6 @@
         <image name="38-airplane.png" width="22" height="24"/>
         <image name="Icon-72@2x.png" width="144" height="144"/>
     </resources>
-    <classes>
-        <class className="AboutViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="accountNumberCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="cellBackground" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameCell" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="versionCell" candidateClass="UITableViewCell"/>
-            </relationships>
-        </class>
-        <class className="CoreDataTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
-        </class>
-        <class className="DataEntryCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataEntryCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="DataEntryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataEntryTableViewController.h"/>
-        </class>
-        <class className="FlightDetailsTableViewController" superclassName="GenericFlightTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightDetailsTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="actionPressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="FundDetailsTableViewController" superclassName="GenericFundTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundDetailsTableViewController.h"/>
-        </class>
-        <class className="FundSelectionTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundSelectionTableViewController.h"/>
-        </class>
-        <class className="GenericDataInputTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericDataInputTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkInReminderSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="confirmTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="costTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="expirationTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="flightTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="fundsUsedLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="notesTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="outboundTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="returnTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="roundtripSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="unusedTicketSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="GenericFlightTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericFlightTableViewController.h"/>
-        </class>
-        <class className="GenericFundTableViewController" superclassName="GenericDataInputTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericFundTableViewController.h"/>
-        </class>
-        <class className="NewFlightTableViewController" superclassName="GenericFlightTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="NewFundTableViewController" superclassName="GenericFundTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
-        </class>
-        <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
-        </class>
-        <class className="UpcomingFlightsTableViewController" superclassName="CoreDataTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingFlightsTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
