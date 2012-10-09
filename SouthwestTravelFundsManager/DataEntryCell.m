@@ -12,21 +12,24 @@
 
 @synthesize label = _label;
 @synthesize textField = _textField;
+@synthesize delegate = _delegate;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        self.textField.delegate = self;
     }
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
+- (void)awakeFromNib {
+    self.textField.delegate = self;
+}
 
-    // Configure the view for the selected state
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.delegate dataEntryCell:self textFieldDidReturn:textField];
+    return TRUE;
 }
 
 @end

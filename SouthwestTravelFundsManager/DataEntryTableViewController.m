@@ -43,6 +43,7 @@
     cell.textField.placeholder = [self.placeholders objectForKey:cellLabel];
     cell.textField.text = [self.details objectForKey:cellLabel];
     cell.textField.keyboardType = [[self.keyboardTypes objectForKey:cellLabel] intValue];
+    cell.delegate = self;
     
     return cell;
 }
@@ -72,6 +73,22 @@
     [self.navigationController popViewControllerAnimated:TRUE];
 }
 
+#pragma mark - Data entry cell delegate
+
+- (void)dataEntryCell:(DataEntryCell *)sender textFieldDidReturn:(UITextField *)textField {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForRow:(indexPath.row + 1) inSection:indexPath.section];
+    DataEntryCell *nextCell = (DataEntryCell *)[self.tableView cellForRowAtIndexPath:nextIndexPath];
+    if (nextCell) {
+        [nextCell.textField becomeFirstResponder];
+    } else {
+        [self donePressed:self.navigationItem.rightBarButtonItem];
+    }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
+}
 
 
 @end

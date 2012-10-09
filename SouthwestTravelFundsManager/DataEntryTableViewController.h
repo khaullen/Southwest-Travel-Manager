@@ -17,7 +17,7 @@
 
 @end
 
-@interface DataEntryTableViewController : UITableViewController <UINavigationBarDelegate>
+@interface DataEntryTableViewController : UITableViewController <DataEntryCellDelegate>
 
 @property (strong, nonatomic) NSArray *labels;
 @property (strong, nonatomic) NSDictionary *placeholders;

@@ -119,6 +119,10 @@
     // Buttons at bottom of view
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
+}
+
 - (void)viewDidUnload {
     [self setCellBackground:nil];
     [self setVersionCell:nil];

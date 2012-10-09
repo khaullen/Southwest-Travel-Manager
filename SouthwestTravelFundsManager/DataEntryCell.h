@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DataEntryCell : UITableViewCell
+@class DataEntryCell;
+
+@protocol DataEntryCellDelegate <NSObject>
+
+- (void)dataEntryCell:(DataEntryCell *)sender textFieldDidReturn:(UITextField *)textField;
+
+@end
+
+@interface DataEntryCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) id <DataEntryCellDelegate> delegate;
 
 @end

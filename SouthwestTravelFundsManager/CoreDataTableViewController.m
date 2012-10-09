@@ -191,13 +191,10 @@
 // ADDITIONAL CODE
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     [FlurryAnalytics logAllPageViews:self.navigationController];
     [FlurryAnalytics logAllPageViews:self.tabBarController];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (!self.database) self.database = [DatabaseHelper sharedDatabase];
+    self.database = [DatabaseHelper sharedDatabase];
 }
 
 - (void)setDatabase:(UIManagedDocument *)database {
@@ -236,6 +233,11 @@
         [self.database.managedObjectContext deleteObject:obj];
     }
     [DatabaseHelper saveDatabase];
+}
+
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    self.database = nil;
 }
 
 @end
