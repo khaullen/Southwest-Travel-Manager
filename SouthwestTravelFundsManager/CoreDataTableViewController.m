@@ -236,8 +236,8 @@
 }
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
     self.database = nil;
+    [super viewDidUnload];
 }
 
 @end

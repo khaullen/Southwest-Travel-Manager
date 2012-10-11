@@ -84,7 +84,7 @@
     
     if ([[self class] lastRow:indexPath inTableView:tableView]) {
         cell = [tableView dequeueReusableCellWithIdentifier:totalCellIdentifier];
-        double fundsTotal;
+        double fundsTotal = 0;
         for (Fund *fund in self.fetchedResultsController.fetchedObjects) {
             fundsTotal += fund.balance.doubleValue;
         }

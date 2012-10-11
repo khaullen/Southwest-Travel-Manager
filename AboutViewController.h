@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "DataEntryTableViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface AboutViewController : UITableViewController <DataEntryDelegate>
+@interface AboutViewController : UITableViewController <DataEntryDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *cellBackground;
 @property (weak, nonatomic) IBOutlet UITableViewCell *versionCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *nameCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *accountNumberCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *tellAFriendCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *emailSupportCell;
 
 @property (nonatomic) NSDictionary *passengerName;
 @property (nonatomic) NSDictionary *passengerAccountNumber;

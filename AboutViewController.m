@@ -13,8 +13,11 @@
 
 - (void)initializeCellBackground:(UIImageView *)cellBackground;
 - (void)initializeDetailText;
+- (void)initializeMailCells:(NSArray *)mailCells;
 - (NSArray *)detailData;
 - (void)prepareDataEntryTVC:(DataEntryTableViewController *)viewController title:(NSString *)title cellLabels:(NSArray *)cellLabels placeholders:(NSDictionary *)placeholders details:(NSDictionary *)details keyboardTypes:(NSDictionary *)keyboardTypes;
+- (void)openLink:(NSString *)link withBackup:(NSString *)backupLink;
+- (void)presentMailComposeViewControllerTo:(NSString *)recipient subject:(NSString *)subject messageBody:(NSString *)body;
 
 @end
 
@@ -24,6 +27,8 @@
 @synthesize versionCell = _versionCell;
 @synthesize nameCell = _nameCell;
 @synthesize accountNumberCell = _accountNumberCell;
+@synthesize tellAFriendCell = _tellAFriendCell;
+@synthesize emailSupportCell = _emailSupportCell;
 @dynamic passengerName;
 @dynamic passengerAccountNumber;
 
@@ -53,6 +58,7 @@
 - (void)viewDidLoad {
     [self initializeCellBackground:self.cellBackground];
     [self initializeDetailText];
+    [self initializeMailCells:[NSArray arrayWithObjects:self.tellAFriendCell, self.emailSupportCell, nil]];
 }
 
 - (void)initializeCellBackground:(UIImageView *)cellBackground {
@@ -76,6 +82,15 @@
     NSString *fullName = self.passengerName ? [NSString stringWithFormat:@"%@ %@", [self.passengerName objectForKey:@"First"], [self.passengerName objectForKey:@"Last"]] : @"";
     NSString *acctNumber = self.passengerAccountNumber ? [self.passengerAccountNumber.allValues lastObject] : @"";
     return [NSArray arrayWithObjects:appVersion, fullName, acctNumber, nil];
+}
+
+- (void)initializeMailCells:(NSArray *)mailCells {
+    if (![MFMailComposeViewController canSendMail]) {
+        for (UITableViewCell *cell in mailCells) {
+            cell.textLabel.textColor = [UIColor grayColor];
+            cell.userInteractionEnabled = FALSE;
+        }
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -115,8 +130,50 @@
     [[self presentingViewController] dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+#define FACEBOOK_LINK @"fb://profile/117102751770408"
+#define FACEBOOK_SAFARI_LINK @"http://www.facebook.com/SouthwestTravelManager"
+#define ITUNES_LINK @"itms-apps://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8"
+#define MESSAGE_BODY @"Hey check out this app:\n\nhttp://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8\n\nIt's a utility app for Southwest Airlines travelers that offers check-in reminders for upcoming flights and a management tool for unused travel funds.\n\n\nRegards,\n%@"
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Buttons at bottom of view
+    if (indexPath.section == 2) {
+        [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+        switch (indexPath.row) {
+            case 0: // Facebook
+                [self openLink:FACEBOOK_LINK withBackup:FACEBOOK_SAFARI_LINK];
+                break;
+            case 1: // App store
+                [self openLink:ITUNES_LINK withBackup:FACEBOOK_SAFARI_LINK];
+                break;
+            case 2: // Tell a friend
+                [self presentMailComposeViewControllerTo:nil subject:@"SW Travel Manager app" messageBody:[NSString stringWithFormat:MESSAGE_BODY, [self.passengerName objectForKey:@"First"]]];
+                break;
+            case 3: // Email support
+                [self presentMailComposeViewControllerTo:@"support@redcup.la" subject:nil messageBody:nil];
+                break;
+        }
+    }
+}
+
+- (void)openLink:(NSString *)link withBackup:(NSString *)backupLink {
+    BOOL success = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:link]];
+    if (!success) [[UIApplication sharedApplication] openURL:[NSURL URLWithString:backupLink]];
+}
+
+- (void)presentMailComposeViewControllerTo:(NSString *)recipient
+                                   subject:(NSString *)subject
+                               messageBody:(NSString *)body {
+    MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
+    [mailVC setToRecipients:[NSArray arrayWithObjects:recipient, nil]];
+    [mailVC setSubject:subject];
+    [mailVC setMessageBody:body isHTML:FALSE];
+    mailVC.mailComposeDelegate = self;
+    [self presentViewController:mailVC animated:TRUE completion:nil];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self dismissModalViewControllerAnimated:TRUE];
+    // TODO: add Flurry event with result
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -128,6 +185,8 @@
     [self setVersionCell:nil];
     [self setNameCell:nil];
     [self setAccountNumberCell:nil];
+    [self setTellAFriendCell:nil];
+    [self setEmailSupportCell:nil];
     [super viewDidUnload];
 }
 

@@ -58,6 +58,7 @@
 		3BBB65231614C5C800D90D37 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */; };
 		3BBB653016168D1000D90D37 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB652F16168D1000D90D37 /* AboutViewController.m */; };
 		3BBB65331616999900D90D37 /* DataEntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB65321616999900D90D37 /* DataEntryTableViewController.m */; };
+		3BE2D7A316262BB600C94813 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2D7A216262BB600C94813 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +143,7 @@
 		3BBB652F16168D1000D90D37 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ../AboutViewController.m; sourceTree = "<group>"; };
 		3BBB65311616999800D90D37 /* DataEntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEntryTableViewController.h; sourceTree = "<group>"; };
 		3BBB65321616999900D90D37 /* DataEntryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEntryTableViewController.m; sourceTree = "<group>"; };
+		3BE2D7A216262BB600C94813 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE2D7A316262BB600C94813 /* MessageUI.framework in Frameworks */,
 				3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */,
 				3B00779215DA565000A9FC1B /* UIKit.framework in Frameworks */,
 				3B00779415DA565000A9FC1B /* Foundation.framework in Frameworks */,
@@ -180,6 +183,7 @@
 		3B00779015DA565000A9FC1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3BE2D7A216262BB600C94813 /* MessageUI.framework */,
 				3B0077D715E20C4800A9FC1B /* CoreData.framework */,
 				3B00779115DA565000A9FC1B /* UIKit.framework */,
 				3B00779315DA565000A9FC1B /* Foundation.framework */,

@@ -42,7 +42,7 @@
                                     <segue destination="tIp-l9-ks0" kind="push" identifier="segueToDetail" id="c2r-Rb-6cv"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="total" textLabel="Jr8-d1-nVR" style="IBUITableViewCellStyleDefault" id="NMu-pK-HsO">
+                            <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="total" textLabel="Jr8-d1-nVR" style="IBUITableViewCellStyleDefault" id="NMu-pK-HsO">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -922,13 +922,15 @@
                     <connections>
                         <outlet property="accountNumberCell" destination="rM4-77-Yos" id="EJN-5S-W5L"/>
                         <outlet property="cellBackground" destination="WEQ-X0-WQc" id="Sxl-Ao-1Tq"/>
+                        <outlet property="emailSupportCell" destination="gwl-qw-jeq" id="hZN-Hg-Kfw"/>
                         <outlet property="nameCell" destination="Hhd-lj-ydF" id="I2Q-OM-jPU"/>
+                        <outlet property="tellAFriendCell" destination="a7A-Mh-ewy" id="rEu-DW-RCu"/>
                         <outlet property="versionCell" destination="MSV-H8-cn4" id="vvT-1n-6Mf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZc-v9-L9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="424"/>
+            <point key="canvasLocation" x="2763" y="424"/>
         </scene>
         <!--Data Entry Table View Controller-->
         <scene sceneID="Zx1-qd-dD8">
@@ -989,7 +991,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9R-Ey-QVo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3058" y="424"/>
+            <point key="canvasLocation" x="3206" y="430"/>
         </scene>
         <!--Fund Selection Table View Controller - Travel Funds-->
         <scene sceneID="R1H-JD-Vrj">
