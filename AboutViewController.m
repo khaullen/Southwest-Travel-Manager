@@ -133,7 +133,9 @@
 #define FACEBOOK_LINK @"fb://profile/117102751770408"
 #define FACEBOOK_SAFARI_LINK @"http://www.facebook.com/SouthwestTravelManager"
 #define ITUNES_LINK @"itms-apps://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8"
-#define MESSAGE_BODY @"Hey check out this app:\n\nhttp://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8\n\nIt's a utility app for Southwest Airlines travelers that offers check-in reminders for upcoming flights and a management tool for unused travel funds.\n\n\nRegards,\n%@"
+#define MESSAGE_BODY @"Hey check out this app:\n\nhttp://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8\n\nIt's a utility app for Southwest Airlines travelers that reminds you to check in for upcoming flights and manages your unused travel funds.\n\n\nRegards,\n%@"
+
+#define REVIEW_LINK @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=559944769&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8"
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
@@ -143,13 +145,14 @@
                 [self openLink:FACEBOOK_LINK withBackup:FACEBOOK_SAFARI_LINK];
                 break;
             case 1: // App store
-                [self openLink:ITUNES_LINK withBackup:FACEBOOK_SAFARI_LINK];
+                [self openLink:REVIEW_LINK withBackup:FACEBOOK_SAFARI_LINK];
                 break;
             case 2: // Tell a friend
                 [self presentMailComposeViewControllerTo:nil subject:@"SW Travel Manager app" messageBody:[NSString stringWithFormat:MESSAGE_BODY, [self.passengerName objectForKey:@"First"]]];
                 break;
             case 3: // Email support
                 [self presentMailComposeViewControllerTo:@"support@redcup.la" subject:nil messageBody:nil];
+                // TODO: figure out how to add iOS version and device model to message body
                 break;
         }
     }
