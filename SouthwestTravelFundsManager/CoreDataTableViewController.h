@@ -19,8 +19,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "FlurryAnalytics.h"
+#import "AboutViewController.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface CoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface CoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate, AboutViewControllerDelegate, EGORefreshTableHeaderDelegate>
 
 // The controller (this class fetches nothing if this is not set).
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -58,6 +60,9 @@
 
 // ADDITIONAL CODE
 @property (nonatomic, strong) UIManagedDocument *database;
+@property (nonatomic, strong) EGORefreshTableHeaderView *refreshHeaderView;
+
+- (void)loadAboutPage;
 - (void)setupFetchedResultsController;
 
 @end

@@ -10,6 +10,14 @@
 #import "DataEntryTableViewController.h"
 #import <MessageUI/MessageUI.h>
 
+@class AboutViewController;
+
+@protocol AboutViewControllerDelegate <NSObject>
+
+- (void)aboutViewControllerDidReturn:(AboutViewController *)sender;
+
+@end
+
 @interface AboutViewController : UITableViewController <DataEntryDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *cellBackground;
@@ -21,5 +29,7 @@
 
 @property (nonatomic) NSDictionary *passengerName;
 @property (nonatomic) NSDictionary *passengerAccountNumber;
+
+@property (nonatomic, weak) id <AboutViewControllerDelegate> delegate;
 
 @end

@@ -31,6 +31,7 @@
 @synthesize emailSupportCell = _emailSupportCell;
 @dynamic passengerName;
 @dynamic passengerAccountNumber;
+@synthesize delegate = _delegate;
 
 #define PASSENGER_NAME @"Passenger Name"
 #define PASSENGER_ACCOUNT_NUMBER @"Account Number"
@@ -127,7 +128,7 @@
 }
 
 - (IBAction)donePressed:(UIBarButtonItem *)sender {
-    [[self presentingViewController] dismissViewControllerAnimated:TRUE completion:nil];
+    [self.delegate aboutViewControllerDidReturn:self];
 }
 
 #define FACEBOOK_LINK @"fb://profile/117102751770408"

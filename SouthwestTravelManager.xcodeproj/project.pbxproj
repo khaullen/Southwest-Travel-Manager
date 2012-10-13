@@ -54,6 +54,10 @@
 		3B84191F15EE02990094AB81 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84191E15EE02990094AB81 /* Default.png */; };
 		3B84192115EE02A60094AB81 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B84192015EE02A60094AB81 /* Default@2x.png */; };
 		3B84193315EEAFB10094AB81 /* DatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B84193215EEAFB10094AB81 /* DatabaseHelper.m */; };
+		3B8FC438162920490077AE13 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8FC437162920490077AE13 /* EGORefreshTableHeaderView.m */; };
+		3B8FC43C1629207C0077AE13 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8FC43A1629207C0077AE13 /* blueArrow.png */; };
+		3B8FC43D1629207C0077AE13 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8FC43B1629207C0077AE13 /* blueArrow@2x.png */; };
+		3B8FC43F162922A70077AE13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8FC43E162922A70077AE13 /* QuartzCore.framework */; };
 		3BBB651F1613E62600D90D37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB651E1613E62600D90D37 /* Default-568h@2x.png */; };
 		3BBB65231614C5C800D90D37 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */; };
 		3BBB653016168D1000D90D37 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB652F16168D1000D90D37 /* AboutViewController.m */; };
@@ -136,6 +140,11 @@
 		3B84192015EE02A60094AB81 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		3B84193115EEAFB10094AB81 /* DatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseHelper.h; sourceTree = "<group>"; };
 		3B84193215EEAFB10094AB81 /* DatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseHelper.m; sourceTree = "<group>"; };
+		3B8FC436162920490077AE13 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		3B8FC437162920490077AE13 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		3B8FC43A1629207C0077AE13 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		3B8FC43B1629207C0077AE13 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
+		3B8FC43E162922A70077AE13 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3BBB651E1613E62600D90D37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3BBB65211614C5C800D90D37 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
 		3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
@@ -151,6 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B8FC43F162922A70077AE13 /* QuartzCore.framework in Frameworks */,
 				3BE2D7A316262BB600C94813 /* MessageUI.framework in Frameworks */,
 				3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */,
 				3B00779215DA565000A9FC1B /* UIKit.framework in Frameworks */,
@@ -183,6 +193,7 @@
 		3B00779015DA565000A9FC1B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B8FC43E162922A70077AE13 /* QuartzCore.framework */,
 				3BE2D7A216262BB600C94813 /* MessageUI.framework */,
 				3B0077D715E20C4800A9FC1B /* CoreData.framework */,
 				3B00779115DA565000A9FC1B /* UIKit.framework */,
@@ -272,6 +283,8 @@
 				3B0077A615DA565000A9FC1B /* iPad.storyboard */,
 				3B072A48161A10C800528F36 /* DataEntryCell.h */,
 				3B072A49161A10C900528F36 /* DataEntryCell.m */,
+				3B8FC436162920490077AE13 /* EGORefreshTableHeaderView.h */,
+				3B8FC437162920490077AE13 /* EGORefreshTableHeaderView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -335,6 +348,8 @@
 				3B84190115ECA0950094AB81 /* 33-cabinet@2x.png */,
 				3B84190215ECA0950094AB81 /* 38-airplane.png */,
 				3B84190315ECA0950094AB81 /* 38-airplane@2x.png */,
+				3B8FC43A1629207C0077AE13 /* blueArrow.png */,
+				3B8FC43B1629207C0077AE13 /* blueArrow@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -409,6 +424,8 @@
 				3B7B341015F824C700B6AC61 /* Default-Landscape~ipad.png in Resources */,
 				3B7B341215F824CA00B6AC61 /* Default-Landscape@2x~ipad.png in Resources */,
 				3BBB651F1613E62600D90D37 /* Default-568h@2x.png in Resources */,
+				3B8FC43C1629207C0077AE13 /* blueArrow.png in Resources */,
+				3B8FC43D1629207C0077AE13 /* blueArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +463,7 @@
 				3BBB653016168D1000D90D37 /* AboutViewController.m in Sources */,
 				3BBB65331616999900D90D37 /* DataEntryTableViewController.m in Sources */,
 				3B072A4A161A10C900528F36 /* DataEntryCell.m in Sources */,
+				3B8FC438162920490077AE13 /* EGORefreshTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

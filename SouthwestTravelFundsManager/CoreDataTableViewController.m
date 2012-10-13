@@ -28,6 +28,7 @@
 
 // ADDITIONAL CODE
 @synthesize database = _database;
+@synthesize refreshHeaderView = _refreshHeaderView;
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -195,6 +196,14 @@
     [FlurryAnalytics logAllPageViews:self.navigationController];
     [FlurryAnalytics logAllPageViews:self.tabBarController];
     self.database = [DatabaseHelper sharedDatabase];
+    
+    
+    if (self.refreshHeaderView == nil) {
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+		view.delegate = self;
+		[self.tableView addSubview:view];
+		self.refreshHeaderView = view;
+	}
 }
 
 - (void)setDatabase:(UIManagedDocument *)database {
@@ -206,7 +215,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToAbout"]) {
-        
+        UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
+        AboutViewController *aboutVC = (AboutViewController *)navigationController.topViewController;
+        aboutVC.delegate = self;
     }
 }
 
@@ -235,8 +246,35 @@
     [DatabaseHelper saveDatabase];
 }
 
+- (void)loadAboutPage{
+    [self performSegueWithIdentifier:@"segueToAbout" sender:self];
+}
+
+- (void)aboutViewControllerDidReturn:(AboutViewController *)sender {
+    [self dismissViewControllerAnimated:TRUE completion:nil];
+    [self.refreshHeaderView resetState];
+}
+
+#pragma mark - UIScrollViewDelegate Methods
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+	[self.refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+	[self.refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];	
+}
+
+
+#pragma mark - EGORefreshTableHeaderDelegate Methods
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view {
+	[self loadAboutPage];
+}
+
 - (void)viewDidUnload {
     self.database = nil;
+    self.refreshHeaderView = nil;
     [super viewDidUnload];
 }
 

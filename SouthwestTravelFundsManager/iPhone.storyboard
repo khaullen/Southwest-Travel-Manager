@@ -66,17 +66,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Travel Funds" id="Htt-dM-LNd">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="IVR-F7-bgi">
-                            <connections>
-                                <segue destination="jj9-R4-zFL" kind="modal" identifier="segueToAbout" id="G42-sh-lt4"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6kJ-80-W59">
                             <connections>
                                 <segue destination="KEW-LW-D7B" kind="modal" identifier="segueToNewFund" id="ZlG-ei-yrc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="jj9-R4-zFL" kind="modal" identifier="segueToAbout" id="Cve-PV-dYB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cB-as-Sbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,17 +338,15 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Upcoming Flights" id="Ul3-68-hoJ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="bookmarks" id="4P8-2O-p1H">
-                            <connections>
-                                <segue destination="jj9-R4-zFL" kind="modal" identifier="segueToAbout" id="Dku-sT-6PO"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zhk-LW-GNx">
                             <connections>
                                 <segue destination="1QL-Zb-GpJ" kind="modal" identifier="segueToNewFlight" id="CpS-Ee-Kna"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="jj9-R4-zFL" kind="modal" identifier="segueToAbout" id="KXo-MK-a1n"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2n2-0s-y7z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1579,13 +1575,94 @@
         <image name="38-airplane.png" width="22" height="24"/>
         <image name="Icon-72@2x.png" width="144" height="144"/>
     </resources>
+    <classes>
+        <class className="AboutViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AboutViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="accountNumberCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="cellBackground" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emailSupportCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="nameCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="tellAFriendCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="versionCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="CoreDataTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoreDataTableViewController.h"/>
+        </class>
+        <class className="DataEntryCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataEntryCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="DataEntryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataEntryTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="FlightDetailsTableViewController" superclassName="GenericFlightTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlightDetailsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="actionPressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="FundDetailsTableViewController" superclassName="GenericFundTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundDetailsTableViewController.h"/>
+        </class>
+        <class className="FundSelectionTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FundSelectionTableViewController.h"/>
+        </class>
+        <class className="GenericDataInputTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericDataInputTableViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkInReminderSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="confirmTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="costTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expirationTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="flightTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fundsUsedLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="notesTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="outboundTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="returnTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="roundtripSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="unusedTicketSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="GenericFlightTableViewController" superclassName="GenericDataInputTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericFlightTableViewController.h"/>
+        </class>
+        <class className="GenericFundTableViewController" superclassName="GenericDataInputTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GenericFundTableViewController.h"/>
+        </class>
+        <class className="NewFlightTableViewController" superclassName="GenericFlightTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
+        </class>
+        <class className="NewFundTableViewController" superclassName="GenericFundTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
+        </class>
+        <class className="UpcomingFlightsTableViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UpcomingFlightsTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="G42-sh-lt4"/>
+        <segue reference="Cve-PV-dYB"/>
         <segue reference="es3-zn-N8Q"/>
     </inferredMetricsTieBreakers>
 </document>
