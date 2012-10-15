@@ -8,6 +8,7 @@
 
 #import "AboutViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <sys/utsname.h>
 
 @interface AboutViewController ()
 
@@ -29,12 +30,17 @@
 @synthesize accountNumberCell = _accountNumberCell;
 @synthesize tellAFriendCell = _tellAFriendCell;
 @synthesize emailSupportCell = _emailSupportCell;
+@dynamic appVersion;
 @dynamic passengerName;
 @dynamic passengerAccountNumber;
 @synthesize delegate = _delegate;
 
 #define PASSENGER_NAME @"Passenger Name"
 #define PASSENGER_ACCOUNT_NUMBER @"Account Number"
+
+- (NSString *)appVersion {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+}
 
 - (NSDictionary *)passengerName {
     return [[NSUserDefaults standardUserDefaults] dictionaryForKey:PASSENGER_NAME];
@@ -79,10 +85,9 @@
 }
 
 - (NSArray *)detailData {
-    NSString *appVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSString *fullName = self.passengerName ? [NSString stringWithFormat:@"%@ %@", [self.passengerName objectForKey:@"First"], [self.passengerName objectForKey:@"Last"]] : @"";
     NSString *acctNumber = self.passengerAccountNumber ? [self.passengerAccountNumber.allValues lastObject] : @"";
-    return [NSArray arrayWithObjects:appVersion, fullName, acctNumber, nil];
+    return [NSArray arrayWithObjects:self.appVersion, fullName, acctNumber, nil];
 }
 
 - (void)initializeMailCells:(NSArray *)mailCells {
@@ -134,7 +139,8 @@
 #define FACEBOOK_LINK @"fb://profile/117102751770408"
 #define FACEBOOK_SAFARI_LINK @"http://www.facebook.com/SouthwestTravelManager"
 #define ITUNES_LINK @"itms-apps://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8"
-#define MESSAGE_BODY @"Hey check out this app:\n\nhttp://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8\n\nIt's a utility app for Southwest Airlines travelers that reminds you to check in for upcoming flights and manages your unused travel funds.\n\n\nRegards,\n%@"
+#define TELL_FRIEND_BODY @"Hey check out this app:\n\nhttp://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8\n\nIt's a utility app for Southwest Airlines travelers that reminds you to check in for upcoming flights and manages your unused travel funds.\n\n\nRegards,\n%@"
+#define EMAIL_SUPPORT_BODY @"\n\n\n\nVersion %@\n%@ %@\n%@"
 
 #define REVIEW_LINK @"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=559944769&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8"
 
@@ -149,14 +155,19 @@
                 [self openLink:REVIEW_LINK withBackup:FACEBOOK_SAFARI_LINK];
                 break;
             case 2: // Tell a friend
-                [self presentMailComposeViewControllerTo:nil subject:@"SW Travel Manager app" messageBody:[NSString stringWithFormat:MESSAGE_BODY, [self.passengerName objectForKey:@"First"]]];
+                [self presentMailComposeViewControllerTo:nil subject:@"SW Travel Manager app" messageBody:[NSString stringWithFormat:TELL_FRIEND_BODY, [self.passengerName objectForKey:@"First"]]];
                 break;
             case 3: // Email support
-                [self presentMailComposeViewControllerTo:@"support@redcup.la" subject:nil messageBody:nil];
-                // TODO: figure out how to add iOS version and device model to message body
+                [self presentMailComposeViewControllerTo:@"support@redcup.la" subject:nil messageBody:[NSString stringWithFormat:EMAIL_SUPPORT_BODY, self.appVersion, [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion], machineName()]];
                 break;
         }
     }
+}
+
+NSString *machineName() {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    return [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
 }
 
 - (void)openLink:(NSString *)link withBackup:(NSString *)backupLink {

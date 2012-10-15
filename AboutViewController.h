@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *tellAFriendCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *emailSupportCell;
 
+@property (nonatomic) NSString *appVersion;
 @property (nonatomic) NSDictionary *passengerName;
 @property (nonatomic) NSDictionary *passengerAccountNumber;
 
