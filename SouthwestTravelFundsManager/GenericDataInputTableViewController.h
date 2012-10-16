@@ -10,6 +10,7 @@
 #import "AirportPickerViewController.h"
 #import "DateAndCurrencyFormatter.h"
 #import "DatabaseHelper.h"
+#import "RCDatePicker.h"
 
 @interface GenericDataInputTableViewController : UITableViewController <UITextFieldDelegate, AirportPickerViewControllerDelegate>
 
@@ -28,9 +29,9 @@
 @property (nonatomic, strong) NSMutableDictionary *fieldData;
 
 @property (strong, nonatomic) AirportPickerViewController *airportPickerVC;
-@property (strong, nonatomic) UIDatePicker *expirationDatePicker;
-@property (strong, nonatomic) UIDatePicker *outboundDatePicker;
-@property (strong, nonatomic) UIDatePicker *returnDatePicker;
+@property (strong, nonatomic) RCDatePicker *expirationDatePicker;
+@property (strong, nonatomic) RCDatePicker *outboundDatePicker;
+@property (strong, nonatomic) RCDatePicker *returnDatePicker;
 
 @property (strong, nonatomic) DateAndCurrencyFormatter *formatter;
 

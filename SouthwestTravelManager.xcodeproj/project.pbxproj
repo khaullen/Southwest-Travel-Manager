@@ -18,6 +18,7 @@
 		3B0077D415E1DECA00A9FC1B /* Fund+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0077D315E1DECA00A9FC1B /* Fund+Create.m */; };
 		3B0077D815E20C4800A9FC1B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0077D715E20C4800A9FC1B /* CoreData.framework */; };
 		3B072A4A161A10C900528F36 /* DataEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B072A49161A10C900528F36 /* DataEntryCell.m */; };
+		3B233003162DED6500C99856 /* RCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B233002162DED6500C99856 /* RCDatePicker.m */; };
 		3B503A131609638C003183BC /* GenericFlightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B503A121609638C003183BC /* GenericFlightTableViewController.m */; };
 		3B503A17160963A3003183BC /* GenericFundTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B503A16160963A3003183BC /* GenericFundTableViewController.m */; };
 		3B503A3516111637003183BC /* Flight.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B503A3416111637003183BC /* Flight.m */; };
@@ -84,6 +85,8 @@
 		3B0077D715E20C4800A9FC1B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3B072A48161A10C800528F36 /* DataEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEntryCell.h; sourceTree = "<group>"; };
 		3B072A49161A10C900528F36 /* DataEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataEntryCell.m; sourceTree = "<group>"; };
+		3B233001162DED6500C99856 /* RCDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDatePicker.h; sourceTree = "<group>"; };
+		3B233002162DED6500C99856 /* RCDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDatePicker.m; sourceTree = "<group>"; };
 		3B503A111609638C003183BC /* GenericFlightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericFlightTableViewController.h; sourceTree = "<group>"; };
 		3B503A121609638C003183BC /* GenericFlightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericFlightTableViewController.m; sourceTree = "<group>"; };
 		3B503A15160963A3003183BC /* GenericFundTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericFundTableViewController.h; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				3B072A49161A10C900528F36 /* DataEntryCell.m */,
 				3B8FC436162920490077AE13 /* EGORefreshTableHeaderView.h */,
 				3B8FC437162920490077AE13 /* EGORefreshTableHeaderView.m */,
+				3B233001162DED6500C99856 /* RCDatePicker.h */,
+				3B233002162DED6500C99856 /* RCDatePicker.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				3BBB65331616999900D90D37 /* DataEntryTableViewController.m in Sources */,
 				3B072A4A161A10C900528F36 /* DataEntryCell.m in Sources */,
 				3B8FC438162920490077AE13 /* EGORefreshTableHeaderView.m in Sources */,
+				3B233003162DED6500C99856 /* RCDatePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

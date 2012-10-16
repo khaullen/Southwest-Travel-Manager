@@ -128,9 +128,9 @@
     return _airportPickerVC;
 }
 
-- (UIDatePicker *)expirationDatePicker {
+- (RCDatePicker *)expirationDatePicker {
     if (!_expirationDatePicker) {
-        _expirationDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
+        _expirationDatePicker = [[RCDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _expirationDatePicker.datePickerMode = UIDatePickerModeDate;
         _expirationDatePicker.timeZone = [NSTimeZone localTimeZone];
         [_expirationDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
@@ -138,9 +138,9 @@
     return _expirationDatePicker;
 }
 
-- (UIDatePicker *)outboundDatePicker {
+- (RCDatePicker *)outboundDatePicker {
     if (!_outboundDatePicker) {
-        _outboundDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
+        _outboundDatePicker = [[RCDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _outboundDatePicker.minuteInterval = 5;
         _outboundDatePicker.timeZone = [NSTimeZone timeZoneWithName:[[self.fieldData objectForKey:ORIGIN] objectForKey:TIME_ZONE]];
         [_outboundDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
@@ -148,9 +148,9 @@
     return _outboundDatePicker;
 }
 
-- (UIDatePicker *)returnDatePicker {
+- (RCDatePicker *)returnDatePicker {
     if (!_returnDatePicker) {
-        _returnDatePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
+        _returnDatePicker = [[RCDatePicker alloc] initWithFrame:CGRectMake(0, 244, 320, 270)];
         _returnDatePicker.minuteInterval = 5;
         _returnDatePicker.timeZone = [NSTimeZone timeZoneWithName:[[self.fieldData objectForKey:DESTINATION] objectForKey:TIME_ZONE]];
         [_returnDatePicker addTarget:self action:@selector(datePickerDidEndEditing:) forControlEvents:UIControlEventValueChanged];
@@ -300,17 +300,9 @@
     self.flightTextField.text = [NSString stringWithFormat:@"%@ - %@", [origin objectForKey:AIRPORT_CODE], [destination objectForKey:AIRPORT_CODE]];
     [self.fieldData setObject:origin forKey:ORIGIN];
     [self.fieldData setObject:destination forKey:DESTINATION];
-    
-    /***************************************************************************
-     
-                Can't adjust date picker timezones because of iOS6 bug
-     
-     **************************************************************************/
-    
-    
-    //self.outboundDatePicker.timeZone = [NSTimeZone timeZoneWithName:[origin objectForKey:TIME_ZONE]];
+    self.outboundDatePicker.timeZone = [NSTimeZone timeZoneWithName:[origin objectForKey:TIME_ZONE]];
     if (self.outboundTextField.text.length) self.outboundTextField.text = [self.formatter stringForDate:self.outboundDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.outboundDatePicker.timeZone];
-    //self.returnDatePicker.timeZone = [NSTimeZone timeZoneWithName:[destination objectForKey:TIME_ZONE]];
+    self.returnDatePicker.timeZone = [NSTimeZone timeZoneWithName:[destination objectForKey:TIME_ZONE]];
     if (self.returnTextField.text.length) self.returnTextField.text = [self.formatter stringForDate:self.returnDatePicker.date withFormat:DATE_TIME_FORMAT inTimeZone:self.returnDatePicker.timeZone];
 }
 
