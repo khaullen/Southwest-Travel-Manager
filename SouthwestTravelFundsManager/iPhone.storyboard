@@ -1641,13 +1641,13 @@
         </class>
         <class className="NewFlightTableViewController" superclassName="GenericFlightTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFlightTableViewController.h"/>
-        </class>
-        <class className="NewFundTableViewController" superclassName="GenericFundTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancelPressed:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="donePressed:" candidateClass="UIBarButtonItem"/>
             </relationships>
+        </class>
+        <class className="NewFundTableViewController" superclassName="GenericFundTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewFundTableViewController.h"/>
         </class>
         <class className="TravelFundsTableViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelFundsTableViewController.h"/>
