@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface DatabaseHelper
+@interface DatabaseHelper : NSObject
 
 + (UIManagedDocument *)sharedDatabase;
 + (void)saveDatabase;
