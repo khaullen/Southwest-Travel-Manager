@@ -9,7 +9,7 @@
 		<string>Albuquerque</string>
 		<key>state</key>
 		<string>NM</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Denver</string>
 	</dict>
 	<dict>
@@ -19,7 +19,7 @@
 		<string>Albany</string>
 		<key>state</key>
 		<string>NY</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -29,7 +29,7 @@
 		<string>Amarillo</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -39,7 +39,7 @@
 		<string>Atlanta</string>
 		<key>state</key>
 		<string>GA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -49,17 +49,7 @@
 		<string>Austin</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
-		<string>America/Chicago</string>
-	</dict>
-    <dict>
-		<key>airportCode</key>
-		<string>BBG</string>
-		<key>city</key>
-		<string>Branson</string>
-		<key>state</key>
-		<string>MO</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -69,7 +59,7 @@
 		<string>Hartford</string>
 		<key>state</key>
 		<string>CT</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -79,7 +69,17 @@
 		<string>Birmingham</string>
 		<key>state</key>
 		<string>AL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
+		<string>America/Chicago</string>
+	</dict>
+	<dict>
+		<key>airportCode</key>
+		<string>BKG</string>
+		<key>city</key>
+		<string>Branson</string>
+		<key>state</key>
+		<string>MO</string>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -89,7 +89,7 @@
 		<string>Nashville</string>
 		<key>state</key>
 		<string>TN</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -99,7 +99,7 @@
 		<string>Boise</string>
 		<key>state</key>
 		<string>ID</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Boise</string>
 	</dict>
 	<dict>
@@ -109,7 +109,7 @@
 		<string>Boston Logan</string>
 		<key>state</key>
 		<string>MA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -119,7 +119,7 @@
 		<string>Buffalo/Niagara</string>
 		<key>state</key>
 		<string>NY</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -129,7 +129,7 @@
 		<string>Burbank</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -139,7 +139,7 @@
 		<string>Baltimore/Washington</string>
 		<key>state</key>
 		<string>MD</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -149,7 +149,7 @@
 		<string>Akron/Canton</string>
 		<key>state</key>
 		<string>OH</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -159,7 +159,7 @@
 		<string>Charleston</string>
 		<key>state</key>
 		<string>SC</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -169,7 +169,17 @@
 		<string>Cleveland</string>
 		<key>state</key>
 		<string>OH</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
+		<string>America/New_York</string>
+	</dict>
+	<dict>
+		<key>airportCode</key>
+		<string>CLT</string>
+		<key>city</key>
+		<string>Charlotte</string>
+		<key>state</key>
+		<string>NC</string>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -179,7 +189,7 @@
 		<string>Columbus</string>
 		<key>state</key>
 		<string>OH</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -189,7 +199,7 @@
 		<string>Corpus Christi</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -199,7 +209,7 @@
 		<string>Dallas (Love Field)</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -209,7 +219,7 @@
 		<string>Dayton</string>
 		<key>state</key>
 		<string>OH</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -219,7 +229,7 @@
 		<string>Washington (Reagan)</string>
 		<key>state</key>
 		<string>DC</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -229,17 +239,17 @@
 		<string>Denver</string>
 		<key>state</key>
 		<string>CO</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Denver</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>airportCode</key>
 		<string>DSM</string>
 		<key>city</key>
 		<string>Des Moines</string>
 		<key>state</key>
 		<string>IA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -249,7 +259,7 @@
 		<string>Detroit</string>
 		<key>state</key>
 		<string>MI</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Detroit</string>
 	</dict>
 	<dict>
@@ -259,7 +269,7 @@
 		<string>Panama City Beach</string>
 		<key>state</key>
 		<string>FL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -269,7 +279,7 @@
 		<string>El Paso</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Denver</string>
 	</dict>
 	<dict>
@@ -279,7 +289,7 @@
 		<string>Newark</string>
 		<key>state</key>
 		<string>NJ</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -289,8 +299,18 @@
 		<string>Ft. Lauderdale</string>
 		<key>state</key>
 		<string>FL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
+	</dict>
+	<dict>
+		<key>airportCode</key>
+		<string>FNT</string>
+		<key>city</key>
+		<string>Flint</string>
+		<key>state</key>
+		<string>MI</string>
+		<key>timeZone</key>
+		<string>America/Detroit</string>
 	</dict>
 	<dict>
 		<key>airportCode</key>
@@ -299,8 +319,18 @@
 		<string>Spokane</string>
 		<key>state</key>
 		<string>WA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
+	</dict>
+    <dict>
+		<key>airportCode</key>
+		<string>GRR</string>
+		<key>city</key>
+		<string>Grand Rapids</string>
+		<key>state</key>
+		<string>MI</string>
+		<key>timeZone</key>
+		<string>America/Detroit</string>
 	</dict>
 	<dict>
 		<key>airportCode</key>
@@ -309,7 +339,7 @@
 		<string>Greenville/Spartanburg</string>
 		<key>state</key>
 		<string>SC</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -319,7 +349,7 @@
 		<string>Houston (Hobby)</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -329,7 +359,7 @@
 		<string>Harlingen</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -339,8 +369,18 @@
 		<string>Washington (Dulles)</string>
 		<key>state</key>
 		<string>DC</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
+	</dict>
+    <dict>
+		<key>airportCode</key>
+		<string>ICT</string>
+		<key>city</key>
+		<string>Wichita</string>
+		<key>state</key>
+		<string>KS</string>
+		<key>timeZone</key>
+		<string>America/Chicago</string>
 	</dict>
 	<dict>
 		<key>airportCode</key>
@@ -349,7 +389,7 @@
 		<string>Indianapolis</string>
 		<key>state</key>
 		<string>IN</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Indiana/Indianapolis</string>
 	</dict>
 	<dict>
@@ -359,7 +399,7 @@
 		<string>Long Island</string>
 		<key>state</key>
 		<string>NY</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -369,7 +409,7 @@
 		<string>Jackson</string>
 		<key>state</key>
 		<string>MS</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -379,7 +419,7 @@
 		<string>Jacksonville</string>
 		<key>state</key>
 		<string>FL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -389,7 +429,7 @@
 		<string>Las Vegas</string>
 		<key>state</key>
 		<string>NV</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -399,7 +439,7 @@
 		<string>Los Angeles</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -409,7 +449,7 @@
 		<string>Lubbock</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -419,7 +459,7 @@
 		<string>New York (LaGuardia)</string>
 		<key>state</key>
 		<string>NY</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -429,7 +469,7 @@
 		<string>Little Rock</string>
 		<key>state</key>
 		<string>AR</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -439,7 +479,7 @@
 		<string>Midland/Odessa</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -449,7 +489,7 @@
 		<string>Kansas City</string>
 		<key>state</key>
 		<string>MO</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -459,7 +499,7 @@
 		<string>Orlando</string>
 		<key>state</key>
 		<string>FL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -469,7 +509,7 @@
 		<string>Chicago (Midway)</string>
 		<key>state</key>
 		<string>IL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -479,7 +519,7 @@
 		<string>Manchester</string>
 		<key>state</key>
 		<string>NH</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -489,7 +529,7 @@
 		<string>Milwaukee</string>
 		<key>state</key>
 		<string>WI</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -499,7 +539,7 @@
 		<string>Minneapolis/St. Paul</string>
 		<key>state</key>
 		<string>MN</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -509,7 +549,7 @@
 		<string>New Orleans</string>
 		<key>state</key>
 		<string>LA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -519,7 +559,7 @@
 		<string>Oakland</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -529,7 +569,7 @@
 		<string>Oklahoma City</string>
 		<key>state</key>
 		<string>OK</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -539,7 +579,7 @@
 		<string>Omaha</string>
 		<key>state</key>
 		<string>NE</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -549,7 +589,7 @@
 		<string>Ontario/LA</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -559,7 +599,7 @@
 		<string>Norfolk</string>
 		<key>state</key>
 		<string>VA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -569,7 +609,7 @@
 		<string>West Palm Beach</string>
 		<key>state</key>
 		<string>FL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -579,7 +619,7 @@
 		<string>Portland</string>
 		<key>state</key>
 		<string>OR</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -589,7 +629,7 @@
 		<string>Philadelphia</string>
 		<key>state</key>
 		<string>PA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -599,7 +639,7 @@
 		<string>Phoenix</string>
 		<key>state</key>
 		<string>AZ</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Phoenix</string>
 	</dict>
 	<dict>
@@ -609,7 +649,7 @@
 		<string>Pittsburgh</string>
 		<key>state</key>
 		<string>PA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -619,7 +659,17 @@
 		<string>Providence</string>
 		<key>state</key>
 		<string>RI</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
+		<string>America/New_York</string>
+	</dict>
+    <dict>
+		<key>airportCode</key>
+		<string>PWM</string>
+		<key>city</key>
+		<string>Portland</string>
+		<key>state</key>
+		<string>ME</string>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -629,7 +679,7 @@
 		<string>Raleigh/Durham</string>
 		<key>state</key>
 		<string>NC</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -639,8 +689,18 @@
 		<string>Reno/Tahoe</string>
 		<key>state</key>
 		<string>NV</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
+	</dict>
+    <dict>
+		<key>airportCode</key>
+		<string>ROC</string>
+		<key>city</key>
+		<string>Rochester</string>
+		<key>state</key>
+		<string>NY</string>
+		<key>timeZone</key>
+		<string>America/New_York</string>
 	</dict>
 	<dict>
 		<key>airportCode</key>
@@ -649,7 +709,7 @@
 		<string>Ft. Myers</string>
 		<key>state</key>
 		<string>FL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -659,7 +719,7 @@
 		<string>San Diego</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -669,7 +729,7 @@
 		<string>San Antonio</string>
 		<key>state</key>
 		<string>TX</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -679,7 +739,7 @@
 		<string>Louisville</string>
 		<key>state</key>
 		<string>KY</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Kentucky/Louisville</string>
 	</dict>
 	<dict>
@@ -689,7 +749,7 @@
 		<string>Seattle/Tacoma</string>
 		<key>state</key>
 		<string>WA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -699,7 +759,7 @@
 		<string>San Francisco</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -709,8 +769,18 @@
 		<string>San Jose</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
+	</dict>
+    <dict>
+		<key>airportCode</key>
+		<string>SJU</string>
+		<key>city</key>
+		<string>San Juan</string>
+		<key>state</key>
+		<string>PR</string>
+		<key>timeZone</key>
+		<string>America/Puerto_Rico</string>
 	</dict>
 	<dict>
 		<key>airportCode</key>
@@ -719,7 +789,7 @@
 		<string>Salt Lake City</string>
 		<key>state</key>
 		<string>UT</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Denver</string>
 	</dict>
 	<dict>
@@ -729,7 +799,7 @@
 		<string>Sacramento</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -739,7 +809,7 @@
 		<string>Orange County</string>
 		<key>state</key>
 		<string>CA</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
 	<dict>
@@ -749,7 +819,7 @@
 		<string>St. Louis</string>
 		<key>state</key>
 		<string>MO</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -759,7 +829,7 @@
 		<string>Tampa Bay</string>
 		<key>state</key>
 		<string>FL</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
 	<dict>
@@ -769,7 +839,7 @@
 		<string>Tulsa</string>
 		<key>state</key>
 		<string>OK</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
 	<dict>
@@ -779,7 +849,7 @@
 		<string>Tucson</string>
 		<key>state</key>
 		<string>AZ</string>
-        <key>timeZone</key>
+		<key>timeZone</key>
 		<string>America/Phoenix</string>
 	</dict>
 </array>
