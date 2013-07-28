@@ -1,0 +1,1 @@
+pod 'CircularTimer', :git => "https://github.com/tkach/circulartimer.git"
