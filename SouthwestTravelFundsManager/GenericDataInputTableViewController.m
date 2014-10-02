@@ -116,7 +116,7 @@
             fund = [fundsUsed anyObject];
             self.fundsUsedLabel.text = fund.originalFlight.confirmationCode; break;
         default:
-            self.fundsUsedLabel.text = [NSString stringWithFormat:@"%d funds", fundsUsed.count]; break;
+            self.fundsUsedLabel.text = [NSString stringWithFormat:@"%lu funds", (unsigned long)fundsUsed.count]; break;
     }
 }
 
