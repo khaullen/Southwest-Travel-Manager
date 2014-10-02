@@ -18,5 +18,4 @@ build/*
 *.xcworkspace
 xcuserdata
 
-*screenshots/*
-icons/*
+Assets/*
