@@ -18,7 +18,6 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "FlurryAnalytics.h"
 #import "AboutViewController.h"
 #import "EGORefreshTableHeaderView.h"
 

@@ -73,7 +73,6 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Flight *flight = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [self removeLocalNotificationsForFlight:flight];
-        [FlurryAnalytics logEvent:@"FLIGHT_DELETED" withParameters:[self flurryParametersForFlight:flight]];
     }
     [super tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
 }
@@ -84,7 +83,6 @@
     Flight *flight = [Flight flightWithDictionary:flightInfo inManagedObjectContext:self.database.managedObjectContext];
     [DatabaseHelper saveDatabase];
     if (flight.checkInReminder.boolValue) [self addLocalNotificationsForFlight:flight withInfo:flightInfo];
-    [FlurryAnalytics logEvent:@"NEW_FLIGHT_CREATED" withParameters:[self flurryParametersForFlight:flight]];
     [self dismissModalViewControllerAnimated:TRUE];
 }
 
@@ -96,7 +94,6 @@
     [self.navigationController popViewControllerAnimated:TRUE];
     [DatabaseHelper saveDatabase];
     [self removeLocalNotificationsForFlight:flight];
-    [FlurryAnalytics logEvent:@"FLIGHT_CANCELED" withParameters:[self flurryParametersForFlight:flight]];
 }
 
 - (void)flightDetailsTableViewController:(FlightDetailsTableViewController *)sender didModifyNotificationParametersForFlight:(Flight *)flight withInfo:(NSDictionary *)flightInfo {

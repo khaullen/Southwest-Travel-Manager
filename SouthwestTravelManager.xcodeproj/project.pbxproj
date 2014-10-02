@@ -60,7 +60,6 @@
 		3B8FC43D1629207C0077AE13 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8FC43B1629207C0077AE13 /* blueArrow@2x.png */; };
 		3B8FC43F162922A70077AE13 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8FC43E162922A70077AE13 /* QuartzCore.framework */; };
 		3BBB651F1613E62600D90D37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BBB651E1613E62600D90D37 /* Default-568h@2x.png */; };
-		3BBB65231614C5C800D90D37 /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */; };
 		3BBB653016168D1000D90D37 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB652F16168D1000D90D37 /* AboutViewController.m */; };
 		3BBB65331616999900D90D37 /* DataEntryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB65321616999900D90D37 /* DataEntryTableViewController.m */; };
 		3BE2D7A316262BB600C94813 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE2D7A216262BB600C94813 /* MessageUI.framework */; };
@@ -151,8 +150,6 @@
 		3B8FC43B1629207C0077AE13 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blueArrow@2x.png"; sourceTree = "<group>"; };
 		3B8FC43E162922A70077AE13 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3BBB651E1613E62600D90D37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
-		3BBB65211614C5C800D90D37 /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAnalytics.h; sourceTree = "<group>"; };
-		3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAnalytics.a; sourceTree = "<group>"; };
 		3BBB652E16168D1000D90D37 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutViewController.h; path = ../AboutViewController.h; sourceTree = "<group>"; };
 		3BBB652F16168D1000D90D37 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutViewController.m; path = ../AboutViewController.m; sourceTree = "<group>"; };
 		3BBB65311616999800D90D37 /* DataEntryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataEntryTableViewController.h; sourceTree = "<group>"; };
@@ -172,7 +169,6 @@
 				3B00779215DA565000A9FC1B /* UIKit.framework in Frameworks */,
 				3B00779415DA565000A9FC1B /* Foundation.framework in Frameworks */,
 				3B00779615DA565000A9FC1B /* CoreGraphics.framework in Frameworks */,
-				3BBB65231614C5C800D90D37 /* libFlurryAnalytics.a in Frameworks */,
 				C76FF448F3A74572BBB1368E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,8 +224,6 @@
 		3B00779815DA565000A9FC1B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3BBB65211614C5C800D90D37 /* FlurryAnalytics.h */,
-				3BBB65221614C5C800D90D37 /* libFlurryAnalytics.a */,
 				3B0077A015DA565000A9FC1B /* AppDelegate.h */,
 				3B0077A115DA565000A9FC1B /* AppDelegate.m */,
 				3B00779915DA565000A9FC1B /* SouthwestTravelManager-Info.plist */,

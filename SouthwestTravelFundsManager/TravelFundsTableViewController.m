@@ -50,14 +50,12 @@
 - (void)newFundTableViewController:(NewFundTableViewController *)sender didEnterFundInformation:(NSDictionary *)fundInfo {
     Fund *fund = [Fund fundWithDictionary:fundInfo inManagedObjectContext:self.database.managedObjectContext];
     [DatabaseHelper saveDatabase];
-    [FlurryAnalytics logEvent:@"NEW_FUND_CREATED" withParameters:[self flurryParametersForFund:fund]];
     [self dismissModalViewControllerAnimated:TRUE];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Fund *fund = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [FlurryAnalytics logEvent:@"FUND_DELETED" withParameters:[self flurryParametersForFund:fund]];
     }
     [super tableView:tableView commitEditingStyle:editingStyle forRowAtIndexPath:indexPath];
 }

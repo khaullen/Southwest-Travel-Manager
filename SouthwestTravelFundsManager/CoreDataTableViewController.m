@@ -193,8 +193,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [FlurryAnalytics logAllPageViews:self.navigationController];
-    [FlurryAnalytics logAllPageViews:self.tabBarController];
     self.database = [DatabaseHelper sharedDatabase];
     
     
