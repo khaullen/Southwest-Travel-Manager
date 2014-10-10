@@ -21,7 +21,7 @@ class FirstViewController: UITableViewController {
     }
 
     @IBAction func addObject(sender: UIBarButtonItem) {
-
+        println(sender);
     }
 
 }
