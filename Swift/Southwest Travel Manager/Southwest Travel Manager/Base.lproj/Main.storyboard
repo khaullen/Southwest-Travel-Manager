@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Upcoming Flights-->
         <scene sceneID="TXS-70-BRf">
             <objects>
                 <tableViewController id="uEE-sQ-NSq" customClass="FirstViewController" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,11 +25,17 @@
                             <outlet property="delegate" destination="uEE-sQ-NSq" id="k6d-YB-N9P"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="HJh-uB-lXf"/>
+                    <navigationItem key="navigationItem" title="Upcoming Flights" id="IAU-xQ-6Yj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qN3-ya-ZP3">
+                            <connections>
+                                <action selector="addObject:" destination="uEE-sQ-NSq" id="JOc-9y-1uV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnE-Vx-jxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-324"/>
+            <point key="canvasLocation" x="1562" y="-324"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -82,13 +88,32 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="uEE-sQ-NSq" kind="relationship" relationship="viewControllers" id="BV8-Ry-sAE"/>
+                        <segue destination="Bms-e1-1Xd" kind="relationship" relationship="viewControllers" id="BV8-Ry-sAE"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Flights-->
+        <scene sceneID="4xl-lv-fwt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Bms-e1-1Xd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Flights" id="HJh-uB-lXf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UiD-Ge-bHB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uEE-sQ-NSq" kind="relationship" relationship="rootViewController" id="AJZ-mv-oH6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Wa-iQ-zNk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="750" y="-324"/>
         </scene>
     </scenes>
     <resources>

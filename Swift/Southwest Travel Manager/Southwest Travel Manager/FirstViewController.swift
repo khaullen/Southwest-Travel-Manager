@@ -20,6 +20,9 @@ class FirstViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func addObject(sender: UIBarButtonItem) {
+
+    }
 
 }
 
