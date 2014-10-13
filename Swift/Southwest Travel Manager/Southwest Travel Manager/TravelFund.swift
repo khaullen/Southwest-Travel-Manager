@@ -13,5 +13,6 @@ class TravelFund: RLMObject {
     dynamic var balance = 0.0
     dynamic var expirationDate = NSDate(timeIntervalSinceNow: 60 * 60 * 24 * 365)
     dynamic var notes = ""
+    dynamic var originalFlight: Flight?
     dynamic var unusedTicket = true
 }

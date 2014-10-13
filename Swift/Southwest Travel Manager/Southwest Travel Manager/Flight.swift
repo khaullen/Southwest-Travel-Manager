@@ -15,8 +15,11 @@ class Flight: RLMObject {
     dynamic var checkInReminder = false
     dynamic var confirmationCode = ""
     dynamic var cost = 0.0
+    dynamic var destination = Airport()
     dynamic var fareType = ""
+    dynamic var fundsUsed = RLMArray(objectClassName: TravelFund.className())
     dynamic var notes = ""
+    dynamic var origin = Airport()
     dynamic var outboundArrivalDate = NSDate()
     dynamic var outboundCheckedIn = false
     dynamic var outboundDepartureDate = NSDate()
