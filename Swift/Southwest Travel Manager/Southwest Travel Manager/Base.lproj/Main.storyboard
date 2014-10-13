@@ -29,6 +29,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qN3-ya-ZP3">
                             <connections>
                                 <action selector="addObject:" destination="uEE-sQ-NSq" id="JOc-9y-1uV"/>
+                                <segue destination="Hg6-hG-ttw" kind="presentation" id="XMM-q4-wxd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -36,6 +37,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnE-Vx-jxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1562" y="-324"/>
+        </scene>
+        <!--New Flight-->
+        <scene sceneID="jsG-Wk-pLE">
+            <objects>
+                <tableViewController id="q1o-yX-93c" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dNN-ks-awE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="e79-w4-WxM">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e79-w4-WxM" id="Vza-E5-5vC">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="q1o-yX-93c" id="sGc-5S-Ynp"/>
+                            <outlet property="delegate" destination="q1o-yX-93c" id="Flh-Tr-jfd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Flight" id="ioj-Da-7Zs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XuX-Du-PRW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Pfy-pW-sIp"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="heH-HV-qP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2995" y="-324"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="DRz-ZA-dcy">
+            <objects>
+                <navigationController id="Hg6-hG-ttw" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1mX-nd-Mh9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="q1o-yX-93c" kind="relationship" relationship="rootViewController" id="i22-DI-NbE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kZ6-Zp-MiZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2274" y="-324"/>
         </scene>
         <!--Travel Funds-->
         <scene sceneID="7dR-vY-d94">
