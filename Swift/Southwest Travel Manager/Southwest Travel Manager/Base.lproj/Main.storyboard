@@ -41,7 +41,7 @@
         <!--New Flight-->
         <scene sceneID="jsG-Wk-pLE">
             <objects>
-                <tableViewController id="q1o-yX-93c" sceneMemberID="viewController">
+                <tableViewController id="q1o-yX-93c" customClass="NewFlightVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dNN-ks-awE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Flight" id="ioj-Da-7Zs">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XuX-Du-PRW"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="XuX-Du-PRW">
+                            <connections>
+                                <action selector="cancelTapped:" destination="q1o-yX-93c" id="gHj-Bk-GSg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Pfy-pW-sIp"/>
                     </navigationItem>
                 </tableViewController>
