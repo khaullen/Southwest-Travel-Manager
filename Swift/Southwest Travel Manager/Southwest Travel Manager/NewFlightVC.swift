@@ -44,13 +44,13 @@ class NewFlightVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let hideReturn = section == 1 ? Int(!roundtripSwitch.on) : 0
-        return super.tableView(tableView, numberOfRowsInSection: section) - hideReturn
+        let hideRow = section == 1 && !roundtripSwitch.on
+        return super.tableView(tableView, numberOfRowsInSection: section) - Int(hideRow)
     }
 
-    /*
     // MARK: - Navigation
 
+    /*
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         // Get the new view controller using [segue destinationViewController].
