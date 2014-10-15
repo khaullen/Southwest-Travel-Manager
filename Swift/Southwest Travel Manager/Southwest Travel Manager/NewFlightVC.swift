@@ -21,9 +21,15 @@ class NewFlightVC: UITableViewController {
     @IBOutlet weak var fundsUsedLabel: UILabel!
     @IBOutlet weak var notesTextField: UITextField!
     
+    let flightDelegate = FlightDelegate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let flightPicker = UIPickerView()
+        flightPicker.delegate = flightDelegate
+        flightPicker.dataSource = flightDelegate
+        flightTextField.inputView = flightPicker
     }
 
     override func didReceiveMemoryWarning() {

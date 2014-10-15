@@ -20,6 +20,7 @@
 		3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */; };
 		3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
 		3BF7917119EC702C0081CEE6 /* NewFlightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7917019EC702C0081CEE6 /* NewFlightVC.swift */; };
+		3BF7917319EE550D0081CEE6 /* FlightDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7917219EE550D0081CEE6 /* FlightDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFund.swift; sourceTree = "<group>"; };
 		3BF7916C19EC54A20081CEE6 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		3BF7917019EC702C0081CEE6 /* NewFlightVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFlightVC.swift; sourceTree = "<group>"; };
+		3BF7917219EE550D0081CEE6 /* FlightDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				3BF7916C19EC54A20081CEE6 /* Airport.swift */,
 				3B1A4C7819DE0C08000F265C /* Main.storyboard */,
 				3BF7917019EC702C0081CEE6 /* NewFlightVC.swift */,
+				3BF7917219EE550D0081CEE6 /* FlightDelegate.swift */,
 				3B1A4C7B19DE0C09000F265C /* Images.xcassets */,
 				3B1A4C7D19DE0C09000F265C /* LaunchScreen.xib */,
 				3B1A4C7019DE0C08000F265C /* Supporting Files */,
@@ -244,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF7917319EE550D0081CEE6 /* FlightDelegate.swift in Sources */,
 				3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */,
 				3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */,
 				3BA67F6819E88364007CE97D /* Flight.swift in Sources */,
