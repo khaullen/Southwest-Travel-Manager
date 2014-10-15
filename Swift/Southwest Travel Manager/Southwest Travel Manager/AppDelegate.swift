@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            let airportsPath = NSBundle.mainBundle().pathForResource("airports", ofType: "plist")
+            let allAirports = NSArray(contentsOfFile: airportsPath!)
+            
+            let realm = RLMRealm.defaultRealm()
+            allAirports.enumerateObjectsUsingBlock { (airportDict, index, stop) -> Void in
+                realm.transactionWithBlock({ () -> Void in
+                    Airport.createOrUpdateInRealm(realm, withObject: airportDict)
+                    return
+                })
+            }
+        })
+
         return true
     }
 
