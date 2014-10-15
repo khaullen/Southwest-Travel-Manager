@@ -186,6 +186,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKB-ur-dSM">
                                                     <rect key="frame" x="535" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="roundtripToggled:" destination="q1o-yX-93c" eventType="valueChanged" id="6fC-jY-LDg"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -357,6 +360,18 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Pfy-pW-sIp"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="checkInReminderSwitch" destination="McB-fn-ytf" id="5lt-Bf-cXP"/>
+                        <outlet property="confirmationTextField" destination="v6c-cf-fmG" id="Y1c-pV-Yj7"/>
+                        <outlet property="costTextField" destination="VJx-qd-WdM" id="nYW-L3-eDk"/>
+                        <outlet property="expirationTextField" destination="8Lb-v3-P3Y" id="WYp-LF-Rqr"/>
+                        <outlet property="flightTextField" destination="LqB-48-UpZ" id="1Ki-qB-WUt"/>
+                        <outlet property="fundsUsedLabel" destination="bVx-pD-K72" id="7ve-21-sBY"/>
+                        <outlet property="notesTextField" destination="lFm-Kd-Jaz" id="fEw-JU-hTh"/>
+                        <outlet property="outboundTextField" destination="2yK-oN-R8r" id="IAs-YS-P4j"/>
+                        <outlet property="returnTextField" destination="MbZ-MM-bli" id="KbW-AU-MCc"/>
+                        <outlet property="roundtripSwitch" destination="DKB-ur-dSM" id="2HQ-j7-2QU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heH-HV-qP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

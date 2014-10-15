@@ -10,6 +10,17 @@ import UIKit
 
 class NewFlightVC: UITableViewController {
 
+    @IBOutlet weak var flightTextField: UITextField!
+    @IBOutlet weak var confirmationTextField: UITextField!
+    @IBOutlet weak var costTextField: UITextField!
+    @IBOutlet weak var expirationTextField: UITextField!
+    @IBOutlet weak var roundtripSwitch: UISwitch!
+    @IBOutlet weak var outboundTextField: UITextField!
+    @IBOutlet weak var returnTextField: UITextField!
+    @IBOutlet weak var checkInReminderSwitch: UISwitch!
+    @IBOutlet weak var fundsUsedLabel: UILabel!
+    @IBOutlet weak var notesTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,19 +32,15 @@ class NewFlightVC: UITableViewController {
     }
 
     // MARK: - Table view data source
-    /*
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+    
+    @IBAction func roundtripToggled(sender: UISwitch) {
+        tableView.reloadData()
     }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let hideReturn = section == 1 ? Int(!roundtripSwitch.on) : 0
+        return super.tableView(tableView, numberOfRowsInSection: section) - hideReturn
     }
-    */
 
     /*
     // MARK: - Navigation
