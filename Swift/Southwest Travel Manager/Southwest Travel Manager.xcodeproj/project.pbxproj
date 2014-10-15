@@ -97,13 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				3B1A4C7219DE0C08000F265C /* AppDelegate.swift */,
-				3B1A4C7419DE0C08000F265C /* FirstViewController.swift */,
-				3BA67F6719E88364007CE97D /* Flight.swift */,
-				3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */,
-				3BF7916C19EC54A20081CEE6 /* Airport.swift */,
+				3BCB423719EEF2B500B03AC4 /* Controllers */,
+				3BCB423819EEF2C700B03AC4 /* Models */,
 				3B1A4C7819DE0C08000F265C /* Main.storyboard */,
-				3BF7917019EC702C0081CEE6 /* NewFlightVC.swift */,
-				3BF7917219EE550D0081CEE6 /* FlightDelegate.swift */,
 				3B1A4C7B19DE0C09000F265C /* Images.xcassets */,
 				3B1A4C7D19DE0C09000F265C /* LaunchScreen.xib */,
 				3B1A4C7019DE0C08000F265C /* Supporting Files */,
@@ -145,6 +141,34 @@
 				3BA67F6019E867E0007CE97D /* Realm.framework */,
 			);
 			name = Realm;
+			sourceTree = "<group>";
+		};
+		3BCB423719EEF2B500B03AC4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B1A4C7419DE0C08000F265C /* FirstViewController.swift */,
+				3BF7917019EC702C0081CEE6 /* NewFlightVC.swift */,
+				3BCB423919EEF2ED00B03AC4 /* Delegates */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		3BCB423819EEF2C700B03AC4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3BA67F6719E88364007CE97D /* Flight.swift */,
+				3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */,
+				3BF7916C19EC54A20081CEE6 /* Airport.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3BCB423919EEF2ED00B03AC4 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3BF7917219EE550D0081CEE6 /* FlightDelegate.swift */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
