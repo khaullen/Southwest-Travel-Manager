@@ -14,4 +14,8 @@ class Airport: RLMObject {
     dynamic var city = ""
     dynamic var state = ""
     dynamic var timeZone = ""
+    
+    override class func primaryKey() -> String {
+        return "airportCode"
+    }
 }
