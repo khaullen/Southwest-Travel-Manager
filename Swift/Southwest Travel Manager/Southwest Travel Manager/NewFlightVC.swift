@@ -21,21 +21,18 @@ class NewFlightVC: UITableViewController {
     @IBOutlet weak var fundsUsedLabel: UILabel!
     @IBOutlet weak var notesTextField: UITextField!
     
-    let flightDelegate = FlightDelegate()
-        
+    @IBOutlet var flightDelegate: FlightDelegate!
+    @IBOutlet var flightPicker: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        flightTextField.inputView = flightPicker
         flightDelegate.updateBlock = {
             [unowned self] delegate in
             let (origin, destination) = delegate.selectedAirports
             self.flightTextField.text = origin.airportCode + " - " + destination.airportCode
         }
-        
-        let flightPicker = UIPickerView()
-        flightPicker.delegate = flightDelegate
-        flightPicker.dataSource = flightDelegate
-        flightTextField.inputView = flightPicker
     }
 
     // MARK: - Table view data source

@@ -368,6 +368,8 @@
                         <outlet property="confirmationTextField" destination="v6c-cf-fmG" id="Y1c-pV-Yj7"/>
                         <outlet property="costTextField" destination="VJx-qd-WdM" id="nYW-L3-eDk"/>
                         <outlet property="expirationTextField" destination="8Lb-v3-P3Y" id="WYp-LF-Rqr"/>
+                        <outlet property="flightDelegate" destination="9vV-YB-Gy3" id="2i9-lC-ZDd"/>
+                        <outlet property="flightPicker" destination="aK1-cU-kfz" id="nQf-qz-15y"/>
                         <outlet property="flightTextField" destination="LqB-48-UpZ" id="1Ki-qB-WUt"/>
                         <outlet property="fundsUsedLabel" destination="bVx-pD-K72" id="7ve-21-sBY"/>
                         <outlet property="notesTextField" destination="lFm-Kd-Jaz" id="fEw-JU-hTh"/>
@@ -377,6 +379,13 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heH-HV-qP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="9vV-YB-Gy3" customClass="FlightDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="aK1-cU-kfz" userLabel="Flight Picker" customClass="UIPickerView">
+                    <connections>
+                        <outlet property="dataSource" destination="9vV-YB-Gy3" id="fbQ-9g-Qdx"/>
+                        <outlet property="delegate" destination="9vV-YB-Gy3" id="Ht7-YS-jI2"/>
+                    </connections>
+                </customObject>
                 <customObject id="GKt-re-YQL" customClass="ConfirmationDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2995" y="-328"/>
