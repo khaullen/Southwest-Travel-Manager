@@ -26,15 +26,16 @@ class NewFlightVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        flightDelegate.updateBlock = {
+            [unowned self] delegate in
+            let (origin, destination) = delegate.selectedAirports
+            self.flightTextField.text = origin.airportCode + " - " + destination.airportCode
+        }
+        
         let flightPicker = UIPickerView()
         flightPicker.delegate = flightDelegate
         flightPicker.dataSource = flightDelegate
         flightTextField.inputView = flightPicker
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
