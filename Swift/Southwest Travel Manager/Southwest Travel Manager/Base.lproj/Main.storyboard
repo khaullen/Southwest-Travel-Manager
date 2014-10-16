@@ -120,6 +120,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="w4W-mw-3Pr" id="xb2-vb-zjf"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psF-I0-45c">
                                                     <rect key="frame" x="16" y="12" width="90" height="20"/>
@@ -387,6 +390,7 @@
                     </connections>
                 </customObject>
                 <customObject id="GKt-re-YQL" customClass="ConfirmationDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="w4W-mw-3Pr" customClass="CostDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2995" y="-328"/>
         </scene>
