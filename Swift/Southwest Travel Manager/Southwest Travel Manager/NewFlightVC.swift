@@ -22,6 +22,7 @@ class NewFlightVC: UITableViewController {
     @IBOutlet weak var notesTextField: UITextField!
     
     let flightDelegate = FlightDelegate()
+    let confirmationDelegate = ConfirmationDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,8 @@ class NewFlightVC: UITableViewController {
         flightPicker.delegate = flightDelegate
         flightPicker.dataSource = flightDelegate
         flightTextField.inputView = flightPicker
+        
+        confirmationTextField.delegate = confirmationDelegate
     }
 
     // MARK: - Table view data source
