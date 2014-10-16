@@ -23,6 +23,7 @@ class NewFlightVC: UITableViewController {
     
     @IBOutlet var flightDelegate: FlightDelegate!
     @IBOutlet var flightPicker: UIPickerView!
+    @IBOutlet var expirationPicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +34,11 @@ class NewFlightVC: UITableViewController {
             let (origin, destination) = delegate.selectedAirports
             self.flightTextField.text = origin.airportCode + " - " + destination.airportCode
         }
+        
+        expirationTextField.inputView = expirationPicker
     }
 
     // MARK: - Table view data source
-    
-    @IBAction func roundtripToggled(sender: UISwitch) {
-        tableView.reloadData()
-    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let hideRow = section == 1 && !roundtripSwitch.on
@@ -60,4 +59,14 @@ class NewFlightVC: UITableViewController {
         parentViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: IBActions
+    
+    @IBAction func expirationChanged(sender: UIDatePicker) {
+        expirationTextField.text = sender.date.description
+    }
+    
+    @IBAction func roundtripToggled(sender: UISwitch) {
+        tableView.reloadData()
+    }
+
 }
