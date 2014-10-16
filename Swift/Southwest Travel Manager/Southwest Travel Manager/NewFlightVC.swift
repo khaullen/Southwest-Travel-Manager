@@ -24,6 +24,8 @@ class NewFlightVC: UITableViewController {
     @IBOutlet var flightDelegate: FlightDelegate!
     @IBOutlet var flightPicker: UIPickerView!
     @IBOutlet var expirationPicker: UIDatePicker!
+    @IBOutlet var outboundPicker: UIDatePicker!
+    @IBOutlet var returnPicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,8 @@ class NewFlightVC: UITableViewController {
         }
         
         expirationTextField.inputView = expirationPicker
+        outboundTextField.inputView = outboundPicker
+        returnTextField.inputView = returnPicker
     }
 
     // MARK: - Table view data source
@@ -69,4 +73,11 @@ class NewFlightVC: UITableViewController {
         tableView.reloadData()
     }
 
+    @IBAction func outboundChanged(sender: UIDatePicker) {
+        outboundTextField.text = sender.date.description
+    }
+    
+    @IBAction func returnChanged(sender: UIDatePicker) {
+        returnTextField.text = sender.date.description
+    }
 }
