@@ -88,6 +88,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="GKt-re-YQL" id="jKL-Nj-WBd"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5S-a0-ODO">
                                                     <rect key="frame" x="16" y="12" width="90" height="20"/>
@@ -374,6 +377,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heH-HV-qP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="GKt-re-YQL" customClass="ConfirmationDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="2995" y="-328"/>
         </scene>
