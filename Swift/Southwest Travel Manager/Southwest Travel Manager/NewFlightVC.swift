@@ -75,9 +75,11 @@ class NewFlightVC: UITableViewController {
 
     @IBAction func outboundChanged(sender: UIDatePicker) {
         outboundTextField.text = sender.date.description
+        returnPicker.minimumDate = sender.date
     }
     
     @IBAction func returnChanged(sender: UIDatePicker) {
         returnTextField.text = sender.date.description
+        outboundPicker.maximumDate = sender.date
     }
 }
