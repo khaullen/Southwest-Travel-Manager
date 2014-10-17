@@ -11,7 +11,8 @@ import UIKit
 class ConfirmationDelegate: NSObject, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        return true
+        let proposedChange = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        return countElements(proposedChange) <= 6
     }
     
 }
