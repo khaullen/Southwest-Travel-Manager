@@ -29,7 +29,6 @@
                     <navigationItem key="navigationItem" title="Upcoming Flights" id="IAU-xQ-6Yj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qN3-ya-ZP3">
                             <connections>
-                                <action selector="addObject:" destination="uEE-sQ-NSq" id="JOc-9y-1uV"/>
                                 <segue destination="Hg6-hG-ttw" kind="presentation" id="XMM-q4-wxd"/>
                             </connections>
                         </barButtonItem>
@@ -364,7 +363,11 @@
                                 <action selector="cancelTapped:" destination="q1o-yX-93c" id="gHj-Bk-GSg"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Pfy-pW-sIp"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Pfy-pW-sIp">
+                            <connections>
+                                <action selector="saveTapped:" destination="q1o-yX-93c" id="hyA-4x-L1J"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="checkInReminderSwitch" destination="McB-fn-ytf" id="5lt-Bf-cXP"/>
@@ -476,11 +479,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Travel Funds" id="Fco-tH-W1p">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9WO-zl-IYe">
-                            <connections>
-                                <action selector="addObject:" destination="pab-CQ-hHw" id="QQl-Rr-PdG"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9WO-zl-IYe"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbc-Oj-JEf" userLabel="First Responder" sceneMemberID="firstResponder"/>

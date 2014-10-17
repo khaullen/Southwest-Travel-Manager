@@ -8,7 +8,13 @@
 
 import UIKit
 
-class FirstViewController: UITableViewController {
+protocol CreationProtocol {
+    
+    func creator(creator: UIViewController, didCreateNewFlight flight: Flight) -> ()
+    
+}
+
+class FirstViewController: UITableViewController, CreationProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +25,16 @@ class FirstViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func addObject(sender: UIBarButtonItem) {
-        println(sender);
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        
+        let destination = (segue.destinationViewController as UINavigationController).topViewController as NewFlightVC
+        destination.delegate = self
+    }
+    
+    func creator(creator: UIViewController, didCreateNewFlight flight: Flight) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 }

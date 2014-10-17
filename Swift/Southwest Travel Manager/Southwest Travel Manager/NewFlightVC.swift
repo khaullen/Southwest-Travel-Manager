@@ -27,6 +27,8 @@ class NewFlightVC: UITableViewController {
     @IBOutlet var outboundPicker: UIDatePicker!
     @IBOutlet var returnPicker: UIDatePicker!
     
+    var delegate: CreationProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +63,10 @@ class NewFlightVC: UITableViewController {
 
     @IBAction func cancelTapped(sender: UIBarButtonItem) {
         parentViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func saveTapped(sender: UIBarButtonItem) {
+        delegate?.creator(self, didCreateNewFlight: Flight())
     }
     
     // MARK: IBActions
