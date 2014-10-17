@@ -57,6 +57,7 @@ class FirstViewController: UITableViewController, CreationProtocol {
     
     func reloadData() {
         array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
+        tableView.reloadData()
     }
 
 }
