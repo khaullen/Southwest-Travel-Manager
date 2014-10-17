@@ -25,9 +25,9 @@ class Flight: RLMObject {
     dynamic var outboundDepartureDate = NSDate()
     dynamic var outboundFlightNumber = ""
     dynamic var pointsEarned = 0
-    dynamic var returnArrivalDate: NSDate?
+    dynamic var returnArrivalDate = NSDate()
     dynamic var returnCheckedIn = false
-    dynamic var returnDepartureDate: NSDate?
+    dynamic var returnDepartureDate = NSDate()
     dynamic var returnFlightNumber = ""
     dynamic var roundtrip = false
     dynamic var ticketNumber = ""
