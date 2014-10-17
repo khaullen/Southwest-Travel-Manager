@@ -25,11 +25,7 @@ class FirstViewController: UITableViewController, CreationProtocol {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let allObjects = array {
-            return Int(allObjects.count)
-        } else {
-            return 0
-        }
+        return Int(array?.count ?? 0)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
