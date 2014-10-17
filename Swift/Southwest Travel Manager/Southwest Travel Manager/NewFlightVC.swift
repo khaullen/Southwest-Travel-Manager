@@ -66,7 +66,21 @@ class NewFlightVC: UITableViewController {
     }
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
-        delegate?.creator(self, didCreateNewFlight: Flight())
+        let flight = Flight()
+        let (origin, destination) = flightDelegate.selectedAirports
+        flight.origin = origin
+        flight.destination = destination
+        flight.confirmationCode = confirmationTextField.text
+        // TODO: flight.cost = 0
+        // TODO: create fund for expiration
+        flight.roundtrip = roundtripSwitch.on
+        flight.outboundDepartureDate = outboundPicker.date
+        flight.returnDepartureDate = returnPicker.date
+        flight.checkInReminder = checkInReminderSwitch.on
+        // TODO: handle funds used
+        flight.notes = notesTextField.text
+        
+        delegate?.creator(self, didCreateNewFlight: flight)
     }
     
     // MARK: IBActions
