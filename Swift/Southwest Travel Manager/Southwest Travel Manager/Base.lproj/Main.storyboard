@@ -278,7 +278,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection footerTitle="Turn on to receive a check in reminder notification 24 hours before your flight" id="86j-tv-yWp">
+                            <tableViewSection footerTitle="Turn on to receive a check in reminder notification 24 hours before your flight" id="86j-tv-yWp" userLabel="Check In Reminder">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="NT9-bK-aF2">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -332,7 +332,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="teA-Lb-dhU">
+                            <tableViewSection id="teA-Lb-dhU" userLabel="Notes">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="fJx-xv-wvu">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -365,7 +365,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="xLs-t5-R8r">
+                            <tableViewSection id="xLs-t5-R8r" userLabel="Cancel Flight">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="GHr-IS-al6" style="IBUITableViewCellStyleDefault" id="qKn-oh-VZr">
                                         <autoresizingMask key="autoresizingMask"/>
