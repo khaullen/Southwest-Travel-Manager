@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ListVC.swift
 //  Southwest Travel Manager
 //
 //  Created by Colin Regan on 10/2/14.
@@ -15,7 +15,7 @@ protocol CreationProtocol {
     
 }
 
-class FirstViewController: UITableViewController, CreationProtocol {
+class ListVC: UITableViewController, CreationProtocol {
     
     var array: RLMArray?
 

@@ -8,7 +8,7 @@
         <!--Upcoming Flights-->
         <scene sceneID="TXS-70-BRf">
             <objects>
-                <tableViewController id="uEE-sQ-NSq" customClass="FirstViewController" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="uEE-sQ-NSq" customClass="ListVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bek-b3-HZ9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -477,7 +477,7 @@
         <!--Travel Funds-->
         <scene sceneID="7dR-vY-d94">
             <objects>
-                <tableViewController id="pab-CQ-hHw" customClass="FirstViewController" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="pab-CQ-hHw" customClass="ListVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aKk-7c-rCZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

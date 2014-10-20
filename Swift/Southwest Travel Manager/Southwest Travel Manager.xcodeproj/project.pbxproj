@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7219DE0C08000F265C /* AppDelegate.swift */; };
-		3B1A4C7519DE0C08000F265C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7419DE0C08000F265C /* FirstViewController.swift */; };
+		3B1A4C7519DE0C08000F265C /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7419DE0C08000F265C /* ListVC.swift */; };
 		3B1A4C7A19DE0C08000F265C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7819DE0C08000F265C /* Main.storyboard */; };
 		3B1A4C7C19DE0C09000F265C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7B19DE0C09000F265C /* Images.xcassets */; };
 		3B1A4C7F19DE0C09000F265C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7D19DE0C09000F265C /* LaunchScreen.xib */; };
@@ -41,7 +41,7 @@
 		3B1A4C6D19DE0C08000F265C /* Southwest Travel Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Southwest Travel Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A4C7119DE0C08000F265C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1A4C7219DE0C08000F265C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B1A4C7419DE0C08000F265C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		3B1A4C7419DE0C08000F265C /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 		3B1A4C7919DE0C08000F265C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B1A4C7B19DE0C09000F265C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3B1A4C7E19DE0C09000F265C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		3BCB423719EEF2B500B03AC4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B1A4C7419DE0C08000F265C /* FirstViewController.swift */,
+				3B1A4C7419DE0C08000F265C /* ListVC.swift */,
 				3BF7917019EC702C0081CEE6 /* FlightVC.swift */,
 				3BCB423919EEF2ED00B03AC4 /* Delegates */,
 			);
@@ -305,7 +305,7 @@
 				3BA67F6819E88364007CE97D /* Flight.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
 				3B6FFF6919F5605E00CD1540 /* RLMSupport.swift in Sources */,
-				3B1A4C7519DE0C08000F265C /* FirstViewController.swift in Sources */,
+				3B1A4C7519DE0C08000F265C /* ListVC.swift in Sources */,
 				3BF7917119EC702C0081CEE6 /* FlightVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
