@@ -52,8 +52,6 @@
     
     _currencyTextFieldDelegate = [TSCurrencyTextFieldDelegate new];
     [super setDelegate: _currencyTextFieldDelegate];
-    
-    [self setText: @"0"];
 }
 
 - (void) setCaratPosition: (NSInteger) pos
@@ -166,6 +164,11 @@
     [textField sendActionsForControlEvents: UIControlEventEditingChanged];
     
     return NO;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if ([textField.text isEqualToString:@""]) [textField setText: @"0"];
 }
 
 @end
