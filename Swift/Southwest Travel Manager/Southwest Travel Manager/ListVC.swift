@@ -12,6 +12,7 @@ import Realm
 protocol CreationProtocol {
     
     func creator(creator: UIViewController, didCreateNewFlight flight: Flight) -> ()
+    func creator(creator: UIViewController, didUpdateFlight flight: Flight) -> ()
     
 }
 
@@ -65,6 +66,10 @@ class ListVC: UITableViewController, CreationProtocol {
         reloadData()
     }
     
+    func creator(creator: UIViewController, didUpdateFlight flight: Flight) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+
     func reloadData() {
         array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
         tableView.reloadData()

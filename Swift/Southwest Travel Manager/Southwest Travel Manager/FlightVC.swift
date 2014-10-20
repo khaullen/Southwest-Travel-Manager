@@ -46,6 +46,21 @@ class FlightVC: UITableViewController {
 
         if (flight.realm != nil) {
             flightDelegate.selectedAirports = (flight.origin, flight.destination)
+            // TODO: set flights in flightPicker as well
+            confirmationTextField.text = flight.confirmationCode
+            costTextField.amount = flight.cost
+            expirationPicker.setDate(flight.travelFund.expirationDate, animated: false)
+            roundtripSwitch.setOn(flight.roundtrip, animated: false)
+            outboundPicker.setDate(flight.outboundDepartureDate, animated: false)
+            returnPicker.setDate(flight.returnDepartureDate, animated: false)
+            checkInReminderSwitch.setOn(flight.checkInReminder, animated: false)
+            // TODO: set funds used label
+            notesTextField.text = flight.notes
+            
+            expirationChanged(expirationPicker)
+            roundtripToggled(roundtripSwitch)
+            outboundChanged(outboundPicker)
+            returnChanged(returnPicker)
         }
     }
 
@@ -72,6 +87,11 @@ class FlightVC: UITableViewController {
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
         let (origin, destination) = flightDelegate.selectedAirports
+        
+        if (flight.realm != nil) {
+            flight.realm.beginWriteTransaction()
+        }
+        
         flight.origin = origin
         flight.destination = destination
         flight.confirmationCode = confirmationTextField.text
@@ -84,7 +104,12 @@ class FlightVC: UITableViewController {
         // TODO: handle funds used
         flight.notes = notesTextField.text
         
-        delegate?.creator(self, didCreateNewFlight: flight)
+        if (flight.realm != nil) {
+            flight.realm.commitWriteTransaction()
+            delegate?.creator(self, didUpdateFlight: flight)
+        } else {
+            delegate?.creator(self, didCreateNewFlight: flight)
+        }
     }
     
     // MARK: IBActions
