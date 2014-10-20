@@ -12,7 +12,7 @@ class NewFlightVC: UITableViewController {
 
     @IBOutlet weak var flightTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
-    @IBOutlet weak var costTextField: UITextField!
+    @IBOutlet weak var costTextField: TSCurrencyTextField!
     @IBOutlet weak var expirationTextField: UITextField!
     @IBOutlet weak var roundtripSwitch: UISwitch!
     @IBOutlet weak var outboundTextField: UITextField!
@@ -71,7 +71,7 @@ class NewFlightVC: UITableViewController {
         flight.origin = origin
         flight.destination = destination
         flight.confirmationCode = confirmationTextField.text
-        // TODO: flight.cost = 0
+        flight.cost = costTextField.amount
         // TODO: create fund for expiration
         flight.roundtrip = roundtripSwitch.on
         flight.outboundDepartureDate = outboundPicker.date
