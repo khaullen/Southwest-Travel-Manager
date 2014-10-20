@@ -16,7 +16,6 @@
 		3B6FFF6719F5603C00CD1540 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6FFF6619F5603C00CD1540 /* Realm.framework */; };
 		3B6FFF6919F5605E00CD1540 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FFF6819F5605E00CD1540 /* RLMSupport.swift */; };
 		3B78F93C19F06ADB0066074D /* ConfirmationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */; };
-		3B78F93E19F0823A0066074D /* CostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78F93D19F0823A0066074D /* CostDelegate.swift */; };
 		3BA67F6319E8682A007CE97D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA67F6219E8682A007CE97D /* libc++.dylib */; };
 		3BA67F6819E88364007CE97D /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA67F6719E88364007CE97D /* Flight.swift */; };
 		3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */; };
@@ -51,7 +50,6 @@
 		3B6FFF6619F5603C00CD1540 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		3B6FFF6819F5605E00CD1540 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationDelegate.swift; sourceTree = "<group>"; };
-		3B78F93D19F0823A0066074D /* CostDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostDelegate.swift; sourceTree = "<group>"; };
 		3BA67F6219E8682A007CE97D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		3BA67F6719E88364007CE97D /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		3BC77E7719F5737D00FC27C7 /* Southwest Travel Manager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Southwest Travel Manager-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -190,7 +188,6 @@
 			children = (
 				3BF7917219EE550D0081CEE6 /* FlightDelegate.swift */,
 				3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */,
-				3B78F93D19F0823A0066074D /* CostDelegate.swift */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -299,7 +296,6 @@
 				3BF7917319EE550D0081CEE6 /* FlightDelegate.swift in Sources */,
 				3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */,
 				3B78F93C19F06ADB0066074D /* ConfirmationDelegate.swift in Sources */,
-				3B78F93E19F0823A0066074D /* CostDelegate.swift in Sources */,
 				3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */,
 				3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */,
 				3BA67F6819E88364007CE97D /* Flight.swift in Sources */,
