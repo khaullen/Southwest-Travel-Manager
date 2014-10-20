@@ -40,8 +40,18 @@ class FirstViewController: UITableViewController, CreationProtocol {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         
-        let destination = (segue.destinationViewController as UINavigationController).topViewController as NewFlightVC
-        destination.delegate = self
+        let flightVC = (segue.destinationViewController as? NewFlightVC) ?? (segue.destinationViewController as? UINavigationController)?.topViewController as? NewFlightVC
+        flightVC?.delegate = self
+
+        if let cell = sender as? UITableViewCell {
+            let indexPath = tableView.indexPathForCell(cell)
+            if let row = indexPath?.row {
+                let flight = array?.objectAtIndex(UInt(row)) as Flight
+                flightVC?.flight = flight
+                flightVC?.navigationItem.leftBarButtonItem = nil
+                flightVC?.navigationItem.title = flight.origin.airportCode
+            }
+        }
     }
     
     func creator(creator: UIViewController, didCreateNewFlight flight: Flight) {

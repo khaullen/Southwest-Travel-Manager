@@ -11,8 +11,15 @@ import UIKit
 class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let allAirports = Airport.allObjects()
-    var selectedAirports: (Airport, Airport)
     var updateBlock: ((delegate: FlightDelegate) -> ())?
+    
+    var selectedAirports: (Airport, Airport) {
+        didSet {
+            if let block = updateBlock {
+                block(delegate: self)
+            }
+        }
+    }
     
     override init() {
         selectedAirports = (allAirports.firstObject() as Airport, allAirports.firstObject() as Airport)
@@ -36,8 +43,5 @@ class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedAirports = (allAirports[UInt(pickerView.selectedRowInComponent(0))] as Airport, allAirports[UInt(pickerView.selectedRowInComponent(1))] as Airport)
-        if let block = updateBlock {
-            block(delegate: self)
-        }
     }
 }

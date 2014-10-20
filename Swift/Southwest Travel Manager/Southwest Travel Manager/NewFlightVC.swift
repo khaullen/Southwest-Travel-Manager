@@ -43,6 +43,10 @@ class NewFlightVC: UITableViewController {
         expirationTextField.inputView = expirationPicker
         outboundTextField.inputView = outboundPicker
         returnTextField.inputView = returnPicker
+
+        if (flight.realm != nil) {
+            flightDelegate.selectedAirports = (flight.origin, flight.destination)
+        }
     }
 
     // MARK: - Table view data source
