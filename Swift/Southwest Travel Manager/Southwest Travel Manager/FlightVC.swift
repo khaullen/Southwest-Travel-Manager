@@ -65,6 +65,11 @@ class FlightVC: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let hideSection = (flight.realm == nil)
+        return super.numberOfSectionsInTableView(tableView) - Int(hideSection)
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let hideRow = section == 1 && !roundtripSwitch.on
