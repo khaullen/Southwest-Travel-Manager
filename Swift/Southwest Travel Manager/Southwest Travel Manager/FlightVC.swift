@@ -120,6 +120,9 @@ class FlightVC: UITableViewController {
     
     @IBAction func roundtripToggled(sender: UISwitch) {
         tableView.reloadData()
+        if (!sender.on) {
+            outboundPicker.maximumDate = nil
+        }
     }
 
     @IBAction func outboundChanged(sender: UIDatePicker) {
