@@ -68,6 +68,7 @@ class ListVC: UITableViewController, EditProtocol {
     
     func editor(editor: UIViewController, didUpdateFlight flight: Flight) {
         navigationController?.popViewControllerAnimated(true)
+        reloadData()
     }
 
     func reloadData() {
