@@ -1,5 +1,5 @@
 //
-//  NewFlightVC.swift
+//  FlightVC.swift
 //  Southwest Travel Manager
 //
 //  Created by Colin Regan on 10/13/14.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewFlightVC: UITableViewController {
+class FlightVC: UITableViewController {
 
     @IBOutlet weak var flightTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!

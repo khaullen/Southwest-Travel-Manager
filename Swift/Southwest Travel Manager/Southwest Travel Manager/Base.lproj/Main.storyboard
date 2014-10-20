@@ -55,10 +55,10 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-324"/>
         </scene>
-        <!--New Flight-->
+        <!--Flight-->
         <scene sceneID="jsG-Wk-pLE">
             <objects>
-                <tableViewController id="q1o-yX-93c" customClass="NewFlightVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="q1o-yX-93c" userLabel="Flight" customClass="FlightVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="dNN-ks-awE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -40,7 +40,7 @@ class FirstViewController: UITableViewController, CreationProtocol {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
         
-        let flightVC = (segue.destinationViewController as? NewFlightVC) ?? (segue.destinationViewController as? UINavigationController)?.topViewController as? NewFlightVC
+        let flightVC = (segue.destinationViewController as? FlightVC) ?? (segue.destinationViewController as? UINavigationController)?.topViewController as? FlightVC
         flightVC?.delegate = self
 
         if let cell = sender as? UITableViewCell {
