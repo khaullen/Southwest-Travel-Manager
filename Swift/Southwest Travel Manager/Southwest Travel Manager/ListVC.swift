@@ -9,14 +9,14 @@
 import UIKit
 import Realm
 
-protocol CreationProtocol {
+protocol EditProtocol {
     
-    func creator(creator: UIViewController, didCreateNewFlight flight: Flight) -> ()
-    func creator(creator: UIViewController, didUpdateFlight flight: Flight) -> ()
+    func editor(editor: UIViewController, didCreateNewFlight flight: Flight) -> ()
+    func editor(editor: UIViewController, didUpdateFlight flight: Flight) -> ()
     
 }
 
-class ListVC: UITableViewController, CreationProtocol {
+class ListVC: UITableViewController, EditProtocol {
     
     var array: RLMArray?
 
@@ -55,7 +55,7 @@ class ListVC: UITableViewController, CreationProtocol {
         }
     }
     
-    func creator(creator: UIViewController, didCreateNewFlight flight: Flight) {
+    func editor(editor: UIViewController, didCreateNewFlight flight: Flight) {
         dismissViewControllerAnimated(true, completion: nil)
         
         let realm = RLMRealm.defaultRealm()
@@ -66,7 +66,7 @@ class ListVC: UITableViewController, CreationProtocol {
         reloadData()
     }
     
-    func creator(creator: UIViewController, didUpdateFlight flight: Flight) {
+    func editor(editor: UIViewController, didUpdateFlight flight: Flight) {
         navigationController?.popViewControllerAnimated(true)
     }
 

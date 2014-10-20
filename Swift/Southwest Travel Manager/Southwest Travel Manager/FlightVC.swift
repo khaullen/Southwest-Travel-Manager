@@ -27,7 +27,7 @@ class FlightVC: UITableViewController {
     @IBOutlet var outboundPicker: UIDatePicker!
     @IBOutlet var returnPicker: UIDatePicker!
     
-    var delegate: CreationProtocol?
+    var delegate: EditProtocol?
     var flight = Flight()
     
     override func viewDidLoad() {
@@ -106,9 +106,9 @@ class FlightVC: UITableViewController {
         
         if (flight.realm != nil) {
             flight.realm.commitWriteTransaction()
-            delegate?.creator(self, didUpdateFlight: flight)
+            delegate?.editor(self, didUpdateFlight: flight)
         } else {
-            delegate?.creator(self, didCreateNewFlight: flight)
+            delegate?.editor(self, didCreateNewFlight: flight)
         }
     }
     
