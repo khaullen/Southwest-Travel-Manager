@@ -28,6 +28,7 @@ class NewFlightVC: UITableViewController {
     @IBOutlet var returnPicker: UIDatePicker!
     
     var delegate: CreationProtocol?
+    var flight = Flight()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,6 @@ class NewFlightVC: UITableViewController {
     }
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
-        let flight = Flight()
         let (origin, destination) = flightDelegate.selectedAirports
         flight.origin = origin
         flight.destination = destination
