@@ -72,7 +72,7 @@ class NewFlightVC: UITableViewController {
         flight.destination = destination
         flight.confirmationCode = confirmationTextField.text
         flight.cost = costTextField.amount
-        // TODO: create fund for expiration
+        flight.travelFund.expirationDate = expirationPicker.date
         flight.roundtrip = roundtripSwitch.on
         flight.outboundDepartureDate = outboundPicker.date
         flight.returnDepartureDate = returnPicker.date

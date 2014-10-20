@@ -31,4 +31,5 @@ class Flight: RLMObject {
     dynamic var returnFlightNumber = ""
     dynamic var roundtrip = false
     dynamic var ticketNumber = ""
+    dynamic var travelFund = TravelFund()
 }
