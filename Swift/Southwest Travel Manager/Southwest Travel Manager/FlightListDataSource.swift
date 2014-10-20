@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class FlightListDataSource: NSObject, UITableViewDataSource {
+class FlightListDataSource: NSObject, DataSourceProtocol {
     
     var array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
     

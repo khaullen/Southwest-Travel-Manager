@@ -16,6 +16,10 @@ protocol EditProtocol {
     
 }
 
+protocol DataSourceProtocol: UITableViewDataSource {
+    
+}
+
 class ListVC: UITableViewController, EditProtocol {
 
     override func viewDidLoad() {
