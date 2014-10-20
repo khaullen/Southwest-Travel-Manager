@@ -19,6 +19,7 @@
 		3B78F93E19F0823A0066074D /* CostDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78F93D19F0823A0066074D /* CostDelegate.swift */; };
 		3BA67F6319E8682A007CE97D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA67F6219E8682A007CE97D /* libc++.dylib */; };
 		3BA67F6819E88364007CE97D /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA67F6719E88364007CE97D /* Flight.swift */; };
+		3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */; };
 		3BCB423B19EEFDC300B03AC4 /* airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB423A19EEFDC300B03AC4 /* airports.plist */; };
 		3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */; };
 		3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
@@ -53,6 +54,9 @@
 		3B78F93D19F0823A0066074D /* CostDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostDelegate.swift; sourceTree = "<group>"; };
 		3BA67F6219E8682A007CE97D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		3BA67F6719E88364007CE97D /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		3BC77E7719F5737D00FC27C7 /* Southwest Travel Manager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Southwest Travel Manager-Bridging-Header.h"; sourceTree = "<group>"; };
+		3BC77E7819F5737E00FC27C7 /* TSCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCurrencyTextField.h; sourceTree = "<group>"; };
+		3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCurrencyTextField.m; sourceTree = "<group>"; };
 		3BCB423A19EEFDC300B03AC4 /* airports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = airports.plist; sourceTree = "<group>"; };
 		3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFund.swift; sourceTree = "<group>"; };
 		3BF7916C19EC54A20081CEE6 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
@@ -86,7 +90,9 @@
 				3B1A4C6F19DE0C08000F265C /* Southwest Travel Manager */,
 				3B1A4C8719DE0C09000F265C /* Tests */,
 				3BA67F6619E8687B007CE97D /* Realm */,
+				3BC77E7B19F5739200FC27C7 /* TSCurrencyTextField */,
 				3B1A4C6E19DE0C08000F265C /* Products */,
+				3BC77E7719F5737D00FC27C7 /* Southwest Travel Manager-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +154,15 @@
 				3B6FFF6619F5603C00CD1540 /* Realm.framework */,
 			);
 			name = Realm;
+			sourceTree = "<group>";
+		};
+		3BC77E7B19F5739200FC27C7 /* TSCurrencyTextField */ = {
+			isa = PBXGroup;
+			children = (
+				3BC77E7819F5737E00FC27C7 /* TSCurrencyTextField.h */,
+				3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */,
+			);
+			name = TSCurrencyTextField;
 			sourceTree = "<group>";
 		};
 		3BCB423719EEF2B500B03AC4 /* Controllers */ = {
@@ -286,6 +301,7 @@
 				3B78F93C19F06ADB0066074D /* ConfirmationDelegate.swift in Sources */,
 				3B78F93E19F0823A0066074D /* CostDelegate.swift in Sources */,
 				3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */,
+				3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */,
 				3BA67F6819E88364007CE97D /* Flight.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
 				3B6FFF6919F5605E00CD1540 /* RLMSupport.swift in Sources */,
@@ -415,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -422,6 +439,8 @@
 				INFOPLIST_FILE = "Southwest Travel Manager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Southwest Travel Manager-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -429,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -436,6 +456,7 @@
 				INFOPLIST_FILE = "Southwest Travel Manager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Southwest Travel Manager-Bridging-Header.h";
 			};
 			name = Release;
 		};
