@@ -39,7 +39,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="uEE-sQ-NSq" id="fZW-yq-iAM"/>
+                            <outlet property="dataSource" destination="gLE-Wh-tOD" id="6NP-Hp-Dkm"/>
                             <outlet property="delegate" destination="uEE-sQ-NSq" id="k6d-YB-N9P"/>
                         </connections>
                     </tableView>
@@ -52,6 +52,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnE-Vx-jxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="gLE-Wh-tOD" customClass="FlightListDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1562" y="-324"/>
         </scene>

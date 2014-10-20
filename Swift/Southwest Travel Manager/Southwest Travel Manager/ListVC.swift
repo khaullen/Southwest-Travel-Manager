@@ -17,25 +17,10 @@ protocol EditProtocol {
 }
 
 class ListVC: UITableViewController, EditProtocol {
-    
-    var array: RLMArray?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         reloadData()
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(array?.count ?? 0)
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as UITableViewCell
-        let flight = array?.objectAtIndex(UInt(indexPath.row)) as Flight
-        cell.textLabel?.text = flight.origin.airportCode
-        cell.detailTextLabel?.text = flight.outboundDepartureDate.description
-        
-        return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -46,11 +31,13 @@ class ListVC: UITableViewController, EditProtocol {
 
         if let cell = sender as? UITableViewCell {
             let indexPath = tableView.indexPathForCell(cell)
-            if let row = indexPath?.row {
-                let flight = array?.objectAtIndex(UInt(row)) as Flight
-                flightVC?.flight = flight
-                flightVC?.navigationItem.leftBarButtonItem = nil
-                flightVC?.navigationItem.title = flight.origin.airportCode
+            if let indexPath = indexPath {
+                let flight = (tableView.dataSource as FlightListDataSource).flightAtIndexPath(indexPath)
+                if let flight = flight {
+                    flightVC?.flight = flight
+                    flightVC?.navigationItem.leftBarButtonItem = nil
+                    flightVC?.navigationItem.title = flight.origin.airportCode
+                }
             }
         }
     }
@@ -72,7 +59,7 @@ class ListVC: UITableViewController, EditProtocol {
     }
 
     func reloadData() {
-        array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
+        (tableView.dataSource as FlightListDataSource).reloadData()
         tableView.reloadData()
     }
 
