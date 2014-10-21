@@ -23,13 +23,11 @@ protocol EditDelegate {
 }
 
 class ListVC: UITableViewController, EditDelegate {
-
-    var dataSource: DataSourceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dataSource = tableView.dataSource as DataSourceProtocol
-        dataSource.setUpdateBlock {
+        let dataSource = tableView.dataSource as? DataSourceProtocol
+        dataSource?.setUpdateBlock {
             [unowned self] (_, _) in
             self.tableView.reloadData()
         }

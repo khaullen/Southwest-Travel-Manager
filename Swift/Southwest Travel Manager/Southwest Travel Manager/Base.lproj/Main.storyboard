@@ -50,9 +50,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="dataSource" destination="gLE-Wh-tOD" id="dci-CJ-YAZ"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnE-Vx-jxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="gLE-Wh-tOD" customClass="FlightListDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
