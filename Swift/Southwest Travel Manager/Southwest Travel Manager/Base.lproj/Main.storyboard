@@ -520,7 +520,7 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="pab-CQ-hHw" id="Mwu-gC-0bl"/>
+                            <outlet property="dataSource" destination="Arx-vO-wfH" id="L19-Jb-71X"/>
                             <outlet property="delegate" destination="pab-CQ-hHw" id="ait-46-g8a"/>
                         </connections>
                     </tableView>
@@ -533,6 +533,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbc-Oj-JEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Arx-vO-wfH" customClass="TravelFundListDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1562" y="360"/>
         </scene>
