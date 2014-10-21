@@ -120,7 +120,7 @@ class FlightVC: UITableViewController {
     // MARK: IBActions
     
     @IBAction func expirationChanged(sender: UIDatePicker) {
-        expirationTextField.text = sender.date.description
+        expirationTextField.text = TravelFund.expirationStringForDate(sender.date)
     }
     
     @IBAction func roundtripToggled(sender: UISwitch) {
@@ -131,12 +131,12 @@ class FlightVC: UITableViewController {
     }
 
     @IBAction func outboundChanged(sender: UIDatePicker) {
-        outboundTextField.text = sender.date.description
+        outboundTextField.text = Flight.departureStringForDate(sender.date)
         returnPicker.minimumDate = sender.date
     }
     
     @IBAction func returnChanged(sender: UIDatePicker) {
-        returnTextField.text = sender.date.description
+        returnTextField.text = Flight.departureStringForDate(sender.date)
         outboundPicker.maximumDate = sender.date
     }
 }

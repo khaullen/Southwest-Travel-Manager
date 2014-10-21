@@ -15,4 +15,11 @@ class TravelFund: RLMObject {
     dynamic var notes = ""
     dynamic var originalFlight: Flight?
     dynamic var unusedTicket = true
+    
+    // MARK: View Model
+    
+    class func expirationStringForDate(date: NSDate) -> String {
+        return date.description
+    }
+
 }

@@ -32,4 +32,11 @@ class Flight: RLMObject {
     dynamic var roundtrip = false
     dynamic var ticketNumber = ""
     dynamic var travelFund = TravelFund()
+    
+    // MARK: View Model
+
+    class func departureStringForDate(date: NSDate) -> String {
+        return date.description
+    }
+    
 }
