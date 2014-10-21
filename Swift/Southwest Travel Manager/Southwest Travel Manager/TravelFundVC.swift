@@ -11,7 +11,9 @@ import UIKit
 class TravelFundVC: InputVC {
 
     @IBOutlet weak var unusedTicketSwitch: UISwitch!
-    
+
+    var travelFund = TravelFund()
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,7 +21,23 @@ class TravelFundVC: InputVC {
     // MARK: IBActions
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
-    
+        if (travelFund.realm != nil) {
+            travelFund.realm.beginWriteTransaction()
+        }
+        
+        travelFund.originalFlight?.airports = flightDelegate.selectedAirports
+        travelFund.originalFlight?.confirmationCode = confirmationTextField.text
+        travelFund.balance = costTextField.amount
+        travelFund.expirationDate = expirationPicker.date
+        travelFund.unusedTicket = unusedTicketSwitch.on
+        travelFund.notes = notesTextField.text
+        
+        if (travelFund.realm != nil) {
+            travelFund.realm.commitWriteTransaction()
+            delegate?.editor(self, didUpdateObject: travelFund)
+        } else {
+            delegate?.editor(self, didCreateNewObject: travelFund)
+        }
     }
     
 }

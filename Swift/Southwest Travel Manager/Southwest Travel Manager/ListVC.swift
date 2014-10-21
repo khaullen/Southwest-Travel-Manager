@@ -11,8 +11,8 @@ import Realm
 
 protocol EditDelegate {
     
-    func editor(editor: UIViewController, didCreateNewFlight flight: Flight) -> ()
-    func editor(editor: UIViewController, didUpdateFlight flight: Flight) -> ()
+    func editor(editor: UIViewController, didCreateNewObject object: RLMObject) -> ()
+    func editor(editor: UIViewController, didUpdateObject object: RLMObject) -> ()
     
 }
 
@@ -52,16 +52,16 @@ class ListVC: UITableViewController, EditDelegate {
         }
     }
     
-    func editor(editor: UIViewController, didCreateNewFlight flight: Flight) {
+    func editor(editor: UIViewController, didCreateNewObject object: RLMObject) {
         dismissViewControllerAnimated(true, completion: nil)
         
         let realm = RLMRealm.defaultRealm()
         realm.transactionWithBlock { () -> Void in
-            realm.addObject(flight)
+            realm.addObject(object)
         }
     }
     
-    func editor(editor: UIViewController, didUpdateFlight flight: Flight) {
+    func editor(editor: UIViewController, didUpdateObject object: RLMObject) {
         navigationController?.popViewControllerAnimated(true)
     }
 

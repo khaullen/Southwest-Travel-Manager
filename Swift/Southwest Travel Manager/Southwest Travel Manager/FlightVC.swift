@@ -19,7 +19,6 @@ class FlightVC: InputVC {
     @IBOutlet var outboundPicker: UIDatePicker!
     @IBOutlet var returnPicker: UIDatePicker!
     
-    var delegate: EditDelegate?
     var flight = Flight()
     
     override func viewDidLoad() {
@@ -89,9 +88,9 @@ class FlightVC: InputVC {
         
         if (flight.realm != nil) {
             flight.realm.commitWriteTransaction()
-            delegate?.editor(self, didUpdateFlight: flight)
+            delegate?.editor(self, didUpdateObject: flight)
         } else {
-            delegate?.editor(self, didCreateNewFlight: flight)
+            delegate?.editor(self, didCreateNewObject: flight)
         }
     }
     

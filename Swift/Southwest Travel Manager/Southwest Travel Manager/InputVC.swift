@@ -20,6 +20,8 @@ class InputVC: UITableViewController {
     @IBOutlet var flightPicker: UIPickerView!
     @IBOutlet var expirationPicker: UIDatePicker!
 
+    var delegate: EditDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
