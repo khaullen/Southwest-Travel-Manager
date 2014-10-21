@@ -12,7 +12,11 @@ class TravelFundVC: InputVC {
 
     @IBOutlet weak var unusedTicketSwitch: UISwitch!
 
-    var travelFund = TravelFund()
+    var travelFund: TravelFund = {
+        var fund = TravelFund()
+        fund.originalFlight = Flight(travelFund: fund)
+        return fund
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
