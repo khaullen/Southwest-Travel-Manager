@@ -10,20 +10,12 @@ import UIKit
 
 class FlightVC: InputVC {
 
-    @IBOutlet weak var flightTextField: UITextField!
-    @IBOutlet weak var confirmationTextField: UITextField!
-    @IBOutlet weak var costTextField: TSCurrencyTextField!
-    @IBOutlet weak var expirationTextField: UITextField!
     @IBOutlet weak var roundtripSwitch: UISwitch!
     @IBOutlet weak var outboundTextField: UITextField!
     @IBOutlet weak var returnTextField: UITextField!
     @IBOutlet weak var checkInReminderSwitch: UISwitch!
     @IBOutlet weak var fundsUsedLabel: UILabel!
-    @IBOutlet weak var notesTextField: UITextField!
     
-    @IBOutlet var flightDelegate: FlightDelegate!
-    @IBOutlet var flightPicker: UIPickerView!
-    @IBOutlet var expirationPicker: UIDatePicker!
     @IBOutlet var outboundPicker: UIDatePicker!
     @IBOutlet var returnPicker: UIDatePicker!
     
@@ -85,10 +77,6 @@ class FlightVC: InputVC {
     */
     
     // MARK: IBActions
-
-    @IBAction func cancelTapped(sender: UIBarButtonItem) {
-        parentViewController?.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
         if (flight.realm != nil) {
@@ -112,10 +100,6 @@ class FlightVC: InputVC {
         } else {
             delegate?.editor(self, didCreateNewFlight: flight)
         }
-    }
-    
-    @IBAction func expirationChanged(sender: UIDatePicker) {
-        expirationTextField.text = TravelFund.expirationStringForDate(sender.date)
     }
     
     @IBAction func roundtripToggled(sender: UISwitch) {

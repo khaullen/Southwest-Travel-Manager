@@ -825,8 +825,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="balanceTextField" destination="k9i-xq-s0c" id="jnr-Nf-2Pb"/>
                         <outlet property="confirmationTextField" destination="4Ua-wX-Qlw" id="TLi-qB-bI0"/>
+                        <outlet property="costTextField" destination="k9i-xq-s0c" id="JGJ-EW-3lN"/>
                         <outlet property="expirationPicker" destination="1aX-07-dfv" id="A1Q-Te-z10"/>
                         <outlet property="expirationTextField" destination="Ksw-iY-v7A" id="X6g-pP-bxF"/>
                         <outlet property="flightDelegate" destination="WGx-2L-Njd" id="8pc-On-67m"/>
