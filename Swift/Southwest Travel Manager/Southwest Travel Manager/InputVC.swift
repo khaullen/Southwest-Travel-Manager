@@ -22,6 +22,14 @@ class InputVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        flightTextField.inputView = flightPicker
+        flightDelegate.updateBlock = {
+            [unowned self] delegate in
+            self.flightTextField.text = Flight.flightStringForAirports(delegate.selectedAirports)
+        }
+        
+        expirationTextField.inputView = expirationPicker
     }
     
     @IBAction func cancelTapped(sender: UIBarButtonItem) {

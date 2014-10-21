@@ -25,13 +25,6 @@ class FlightVC: InputVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        flightTextField.inputView = flightPicker
-        flightDelegate.updateBlock = {
-            [unowned self] delegate in
-            self.flightTextField.text = Flight.flightStringForAirports(delegate.selectedAirports)
-        }
-        
-        expirationTextField.inputView = expirationPicker
         outboundTextField.inputView = outboundPicker
         returnTextField.inputView = returnPicker
 
