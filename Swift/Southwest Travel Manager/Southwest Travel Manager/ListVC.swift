@@ -16,15 +16,23 @@ protocol EditProtocol {
     
 }
 
-protocol DataSourceProtocol: UITableViewDataSource {
+@objc protocol DataSourceProtocol: UITableViewDataSource {
     
+    var updateBlock: (() -> ())? { get set }
+
 }
 
 class ListVC: UITableViewController, EditProtocol {
 
+    var dataSource: DataSourceProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        reloadData()
+        dataSource = tableView.dataSource as DataSourceProtocol
+        dataSource.updateBlock = {
+            [unowned self] in
+            self.tableView.reloadData()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -53,18 +61,10 @@ class ListVC: UITableViewController, EditProtocol {
         realm.transactionWithBlock { () -> Void in
             realm.addObject(flight)
         }
-        
-        reloadData()
     }
     
     func editor(editor: UIViewController, didUpdateFlight flight: Flight) {
         navigationController?.popViewControllerAnimated(true)
-        reloadData()
-    }
-
-    func reloadData() {
-        (tableView.dataSource as FlightListDataSource).reloadData()
-        tableView.reloadData()
     }
 
 }
