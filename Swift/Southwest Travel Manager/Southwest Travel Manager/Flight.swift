@@ -31,7 +31,16 @@ class Flight: RLMObject {
     dynamic var returnFlightNumber = ""
     dynamic var roundtrip = false
     dynamic var ticketNumber = ""
-    dynamic var travelFund = TravelFund()
+    dynamic var travelFund: TravelFund
+    
+    override convenience init() {
+        self.init(travelFund: TravelFund())
+    }
+    
+    init(travelFund: TravelFund) {
+        self.travelFund = travelFund
+        super.init()
+    }
     
     // MARK: View Model
     
