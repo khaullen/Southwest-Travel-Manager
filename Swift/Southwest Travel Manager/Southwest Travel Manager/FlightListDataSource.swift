@@ -19,10 +19,6 @@ class FlightListDataSource: NSObject, DataSourceProtocol {
         return array.objectAtIndex(UInt(indexPath.row)) as? Flight
     }
     
-    func reloadData() {
-        array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
-    }
-    
     // MARK: DataSourceProtocol
     
     func setUpdateBlock(block: RLMNotificationBlock) -> () {
