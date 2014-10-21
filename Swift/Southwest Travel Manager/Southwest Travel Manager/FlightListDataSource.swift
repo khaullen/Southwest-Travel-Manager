@@ -12,14 +12,7 @@ import Realm
 class FlightListDataSource: NSObject, DataSourceProtocol {
     
     var array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
-    let token: RLMNotificationToken = RLMNotificationToken()
-    
-    override init() {
-        super.init()
-        token = RLMRealm.defaultRealm().addNotificationBlock { [unowned self] (note, realm) -> Void in
-            self.updateBlock!()
-        }
-    }
+    var token: RLMNotificationToken?
     
     func flightAtIndexPath(indexPath: NSIndexPath) -> Flight? {
         // TODO: validate indexPath, return nil if not valid
@@ -32,7 +25,11 @@ class FlightListDataSource: NSObject, DataSourceProtocol {
     
     // MARK: DataSourceProtocol
     
-    var updateBlock: (() -> ())?
+    func setUpdateBlock(block: () -> ()) -> () {
+        token = RLMRealm.defaultRealm().addNotificationBlock { (_, _) in
+            block()
+        }
+    }
     
     // MARK: UITableViewDataSource
     

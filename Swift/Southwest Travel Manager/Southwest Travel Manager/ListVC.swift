@@ -18,7 +18,7 @@ protocol EditProtocol {
 
 @objc protocol DataSourceProtocol: UITableViewDataSource {
     
-    var updateBlock: (() -> ())? { get set }
+    func setUpdateBlock(block: () -> ()) -> ()
 
 }
 
@@ -29,7 +29,7 @@ class ListVC: UITableViewController, EditProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = tableView.dataSource as DataSourceProtocol
-        dataSource.updateBlock = {
+        dataSource.setUpdateBlock {
             [unowned self] in
             self.tableView.reloadData()
         }
