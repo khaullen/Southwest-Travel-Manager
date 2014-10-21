@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-protocol EditProtocol {
+protocol EditDelegate {
     
     func editor(editor: UIViewController, didCreateNewFlight flight: Flight) -> ()
     func editor(editor: UIViewController, didUpdateFlight flight: Flight) -> ()
@@ -22,7 +22,7 @@ protocol EditProtocol {
 
 }
 
-class ListVC: UITableViewController, EditProtocol {
+class ListVC: UITableViewController, EditDelegate {
 
     var dataSource: DataSourceProtocol!
     

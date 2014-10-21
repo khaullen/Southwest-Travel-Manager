@@ -27,7 +27,7 @@ class FlightVC: UITableViewController {
     @IBOutlet var outboundPicker: UIDatePicker!
     @IBOutlet var returnPicker: UIDatePicker!
     
-    var delegate: EditProtocol?
+    var delegate: EditDelegate?
     var flight = Flight()
     
     override func viewDidLoad() {
