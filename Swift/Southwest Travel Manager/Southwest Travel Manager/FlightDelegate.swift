@@ -25,6 +25,13 @@ class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
         selectedAirports = (allAirports.firstObject() as Airport, allAirports.firstObject() as Airport)
     }
     
+    func selectAirports(airports: (Airport, Airport), inPicker picker: UIPickerView) -> () {
+        selectedAirports = airports
+        let (origin, destination) = airports
+        picker.selectRow(Int(allAirports.indexOfObject(origin)), inComponent: 0, animated: false)
+        picker.selectRow(Int(allAirports.indexOfObject(destination)), inComponent: 1, animated: false)
+    }
+    
     // MARK: UIPickerViewDataSource
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

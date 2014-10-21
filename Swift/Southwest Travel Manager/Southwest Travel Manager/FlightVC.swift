@@ -44,8 +44,7 @@ class FlightVC: UITableViewController {
         returnTextField.inputView = returnPicker
 
         if (flight.realm != nil) {
-            flightDelegate.selectedAirports = flight.airports
-            // TODO: set flights in flightPicker as well
+            flightDelegate.selectAirports(flight.airports, inPicker: flightPicker)
             confirmationTextField.text = flight.confirmationCode
             costTextField.amount = flight.cost
             expirationPicker.setDate(flight.travelFund.expirationDate, animated: false)
