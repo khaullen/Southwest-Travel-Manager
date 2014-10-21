@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class TravelFundListDataSource: NSObject, DataSourceProtocol {
+class TravelFundListDataSource: ListDataSource, DataSourceProtocol {
     var array = TravelFund.allObjects().arraySortedByProperty("expirationDate", ascending: true)
     var token: RLMNotificationToken?
     

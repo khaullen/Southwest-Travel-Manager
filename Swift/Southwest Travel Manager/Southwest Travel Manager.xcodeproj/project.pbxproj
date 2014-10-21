@@ -24,6 +24,7 @@
 		3BCB423B19EEFDC300B03AC4 /* airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB423A19EEFDC300B03AC4 /* airports.plist */; };
 		3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9044B19F6F87F00B0977F /* InputVC.swift */; };
 		3BE9045019F71B2200B0977F /* TravelFundListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9044F19F71B2200B0977F /* TravelFundListDataSource.swift */; };
+		3BE9045319F72A8D00B0977F /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9045219F72A8D00B0977F /* ListDataSource.swift */; };
 		3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */; };
 		3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
 		3BF7917119EC702C0081CEE6 /* FlightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7917019EC702C0081CEE6 /* FlightVC.swift */; };
@@ -64,6 +65,7 @@
 		3BCB423A19EEFDC300B03AC4 /* airports.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = airports.plist; sourceTree = "<group>"; };
 		3BE9044B19F6F87F00B0977F /* InputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputVC.swift; sourceTree = "<group>"; };
 		3BE9044F19F71B2200B0977F /* TravelFundListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFundListDataSource.swift; sourceTree = "<group>"; };
+		3BE9045219F72A8D00B0977F /* ListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
 		3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFund.swift; sourceTree = "<group>"; };
 		3BF7916C19EC54A20081CEE6 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		3BF7917019EC702C0081CEE6 /* FlightVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightVC.swift; sourceTree = "<group>"; };
@@ -175,8 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				3B1A4C7419DE0C08000F265C /* ListVC.swift */,
-				3B89746919F5C9CE00D4ACAF /* FlightListDataSource.swift */,
-				3BE9044F19F71B2200B0977F /* TravelFundListDataSource.swift */,
+				3BE9045119F72A6000B0977F /* Data Sources */,
 				3BE9044B19F6F87F00B0977F /* InputVC.swift */,
 				3BF7917019EC702C0081CEE6 /* FlightVC.swift */,
 				3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */,
@@ -202,6 +203,16 @@
 				3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */,
 			);
 			name = Delegates;
+			sourceTree = "<group>";
+		};
+		3BE9045119F72A6000B0977F /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3BE9045219F72A8D00B0977F /* ListDataSource.swift */,
+				3B89746919F5C9CE00D4ACAF /* FlightListDataSource.swift */,
+				3BE9044F19F71B2200B0977F /* TravelFundListDataSource.swift */,
+			);
+			name = "Data Sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +323,7 @@
 				3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */,
 				3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */,
 				3BA67F6819E88364007CE97D /* Flight.swift in Sources */,
+				3BE9045319F72A8D00B0977F /* ListDataSource.swift in Sources */,
 				3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
 				3BE9045019F71B2200B0977F /* TravelFundListDataSource.swift in Sources */,

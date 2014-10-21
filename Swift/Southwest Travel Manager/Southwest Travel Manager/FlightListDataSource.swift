@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 
-class FlightListDataSource: NSObject, DataSourceProtocol {
+class FlightListDataSource: ListDataSource, DataSourceProtocol {
     
     var array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
     var token: RLMNotificationToken?
