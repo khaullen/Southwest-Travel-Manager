@@ -39,6 +39,15 @@ class Flight: RLMObject {
         return departureDateFormatter.stringFromDate(date)
     }
     
+    var airports: (Airport, Airport) {
+        get {
+            return (origin, destination)
+        }
+        set {
+            (origin, destination) = newValue
+        }
+    }
+    
 }
 
 private let departureDateFormatter: NSDateFormatter = {

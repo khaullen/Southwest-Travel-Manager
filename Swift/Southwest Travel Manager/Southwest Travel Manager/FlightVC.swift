@@ -45,7 +45,7 @@ class FlightVC: UITableViewController {
         returnTextField.inputView = returnPicker
 
         if (flight.realm != nil) {
-            flightDelegate.selectedAirports = (flight.origin, flight.destination)
+            flightDelegate.selectedAirports = flight.airports
             // TODO: set flights in flightPicker as well
             confirmationTextField.text = flight.confirmationCode
             costTextField.amount = flight.cost
@@ -91,14 +91,11 @@ class FlightVC: UITableViewController {
     }
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
-        let (origin, destination) = flightDelegate.selectedAirports
-        
         if (flight.realm != nil) {
             flight.realm.beginWriteTransaction()
         }
         
-        flight.origin = origin
-        flight.destination = destination
+        flight.airports = flightDelegate.selectedAirports
         flight.confirmationCode = confirmationTextField.text
         flight.cost = costTextField.amount
         flight.travelFund.expirationDate = expirationPicker.date
