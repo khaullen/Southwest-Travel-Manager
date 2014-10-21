@@ -48,6 +48,11 @@ class Flight: RLMObject {
         }
     }
     
+    class func flightStringForAirports(airports: (Airport, Airport)) -> String {
+        let (origin, destination) = airports
+        return origin.airportCode + " - " + destination.airportCode
+    }
+    
 }
 
 private let departureDateFormatter: NSDateFormatter = {

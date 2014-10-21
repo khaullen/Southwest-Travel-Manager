@@ -36,8 +36,7 @@ class FlightVC: UITableViewController {
         flightTextField.inputView = flightPicker
         flightDelegate.updateBlock = {
             [unowned self] delegate in
-            let (origin, destination) = delegate.selectedAirports
-            self.flightTextField.text = origin.airportCode + " - " + destination.airportCode
+            self.flightTextField.text = Flight.flightStringForAirports(delegate.selectedAirports)
         }
         
         expirationTextField.inputView = expirationPicker
