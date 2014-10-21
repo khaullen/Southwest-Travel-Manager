@@ -127,12 +127,12 @@ class FlightVC: UITableViewController {
     }
 
     @IBAction func outboundChanged(sender: UIDatePicker) {
-        outboundTextField.text = Flight.departureStringForDate(sender.date)
+        outboundTextField.text = Flight.mediumDepartureStringForDate(sender.date)
         returnPicker.minimumDate = sender.date
     }
     
     @IBAction func returnChanged(sender: UIDatePicker) {
-        returnTextField.text = Flight.departureStringForDate(sender.date)
+        returnTextField.text = Flight.mediumDepartureStringForDate(sender.date)
         outboundPicker.maximumDate = sender.date
     }
 }

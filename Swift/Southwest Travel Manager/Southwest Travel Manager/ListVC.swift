@@ -48,7 +48,7 @@ class ListVC: UITableViewController, EditDelegate {
                 if let flight = flight {
                     flightVC?.flight = flight
                     flightVC?.navigationItem.leftBarButtonItem = nil
-                    flightVC?.navigationItem.title = flight.origin.airportCode
+                    flightVC?.navigationItem.title = Flight.flightStringForAirports(flight.airports)
                 }
             }
         }

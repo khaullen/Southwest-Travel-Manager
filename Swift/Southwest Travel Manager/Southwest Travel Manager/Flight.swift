@@ -35,8 +35,12 @@ class Flight: RLMObject {
     
     // MARK: View Model
     
-    class func departureStringForDate(date: NSDate) -> String {
-        return departureDateFormatter.stringFromDate(date)
+    class func mediumDepartureStringForDate(date: NSDate) -> String {
+        return mediumDepartureDateFormatter.stringFromDate(date)
+    }
+    
+    class func fullDepartureStringForDate(date: NSDate) -> String {
+        return fullDepartureDateFormatter.stringFromDate(date)
     }
     
     var airports: (Airport, Airport) {
@@ -55,9 +59,16 @@ class Flight: RLMObject {
     
 }
 
-private let departureDateFormatter: NSDateFormatter = {
+private let mediumDepartureDateFormatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
     formatter.dateStyle = .MediumStyle
+    formatter.timeStyle = .ShortStyle
+    return formatter
+}()
+
+private let fullDepartureDateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateStyle = .FullStyle
     formatter.timeStyle = .ShortStyle
     return formatter
 }()
