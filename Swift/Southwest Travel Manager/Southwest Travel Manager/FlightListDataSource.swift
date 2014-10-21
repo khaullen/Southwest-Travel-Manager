@@ -25,10 +25,8 @@ class FlightListDataSource: NSObject, DataSourceProtocol {
     
     // MARK: DataSourceProtocol
     
-    func setUpdateBlock(block: () -> ()) -> () {
-        token = RLMRealm.defaultRealm().addNotificationBlock { (_, _) in
-            block()
-        }
+    func setUpdateBlock(block: RLMNotificationBlock) -> () {
+        token = RLMRealm.defaultRealm().addNotificationBlock(block)
     }
     
     // MARK: UITableViewDataSource
