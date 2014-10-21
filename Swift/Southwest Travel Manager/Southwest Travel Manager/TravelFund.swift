@@ -19,7 +19,13 @@ class TravelFund: RLMObject {
     // MARK: View Model
     
     class func expirationStringForDate(date: NSDate) -> String {
-        return date.description
+        return expirationDateFormatter.stringFromDate(date)
     }
 
 }
+
+private let expirationDateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateStyle = .LongStyle
+    return formatter
+}()

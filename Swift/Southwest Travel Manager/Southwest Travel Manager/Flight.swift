@@ -34,9 +34,16 @@ class Flight: RLMObject {
     dynamic var travelFund = TravelFund()
     
     // MARK: View Model
-
+    
     class func departureStringForDate(date: NSDate) -> String {
-        return date.description
+        return departureDateFormatter.stringFromDate(date)
     }
     
 }
+
+private let departureDateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateStyle = .MediumStyle
+    formatter.timeStyle = .ShortStyle
+    return formatter
+}()
