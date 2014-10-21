@@ -84,6 +84,8 @@ class FlightVC: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: IBActions
 
     @IBAction func cancelTapped(sender: UIBarButtonItem) {
         parentViewController?.dismissViewControllerAnimated(true, completion: nil)
@@ -112,8 +114,6 @@ class FlightVC: UITableViewController {
             delegate?.editor(self, didCreateNewFlight: flight)
         }
     }
-    
-    // MARK: IBActions
     
     @IBAction func expirationChanged(sender: UIDatePicker) {
         expirationTextField.text = TravelFund.expirationStringForDate(sender.date)
