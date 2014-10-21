@@ -18,4 +18,10 @@ class Airport: RLMObject {
     override class func primaryKey() -> String {
         return "airportCode"
     }
+    
+    // MARK: View Model
+    
+    var location: String {
+        return city + ", " + state
+    }
 }
