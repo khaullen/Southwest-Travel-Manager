@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlightVC: UITableViewController {
+class FlightVC: InputVC {
 
     @IBOutlet weak var flightTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!

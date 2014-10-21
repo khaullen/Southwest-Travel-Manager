@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TravelFundVC: UITableViewController {
+class TravelFundVC: InputVC {
 
     @IBOutlet weak var confirmationTextField: UITextField!
     @IBOutlet weak var balanceTextField: TSCurrencyTextField!
