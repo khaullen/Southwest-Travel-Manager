@@ -16,17 +16,11 @@ protocol EditDelegate {
     
 }
 
-@objc protocol DataSourceProtocol: UITableViewDataSource {
-    
-    func setUpdateBlock(block: RLMNotificationBlock) -> ()
-
-}
-
 class ListVC: UITableViewController, EditDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dataSource = tableView.dataSource as? DataSourceProtocol
+        let dataSource = tableView.dataSource as? ListDataSource
         dataSource?.setUpdateBlock {
             [unowned self] (_, _) in
             self.tableView.reloadData()

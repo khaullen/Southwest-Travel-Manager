@@ -9,29 +9,21 @@
 import UIKit
 import Realm
 
-class FlightListDataSource: ListDataSource, DataSourceProtocol {
+class FlightListDataSource: ListDataSource {
     
-    var array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
-    var token: RLMNotificationToken?
+    override init() {
+        super.init()
+        array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
+    }
     
     func flightAtIndexPath(indexPath: NSIndexPath) -> Flight? {
         // TODO: validate indexPath, return nil if not valid
-        return array.objectAtIndex(UInt(indexPath.row)) as? Flight
-    }
-    
-    // MARK: DataSourceProtocol
-    
-    func setUpdateBlock(block: RLMNotificationBlock) -> () {
-        token = RLMRealm.defaultRealm().addNotificationBlock(block)
+        return array?.objectAtIndex(UInt(indexPath.row)) as? Flight
     }
     
     // MARK: UITableViewDataSource
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(array?.count ?? 0)
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as UITableViewCell
         let flight = array?.objectAtIndex(UInt(indexPath.row)) as Flight
         cell.textLabel?.text = flight.origin.location + " -> " + flight.destination.location

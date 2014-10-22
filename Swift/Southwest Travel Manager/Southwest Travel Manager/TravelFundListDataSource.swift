@@ -9,28 +9,21 @@
 import UIKit
 import Realm
 
-class TravelFundListDataSource: ListDataSource, DataSourceProtocol {
-    var array = TravelFund.allObjects().arraySortedByProperty("expirationDate", ascending: true)
-    var token: RLMNotificationToken?
+class TravelFundListDataSource: ListDataSource {
+    
+    override init() {
+        super.init()
+        array = TravelFund.allObjects().arraySortedByProperty("expirationDate", ascending: true)
+    }
     
     func travelFundAtIndexPath(indexPath: NSIndexPath) -> TravelFund? {
         // TODO: validate indexPath, return nil if not valid
-        return array.objectAtIndex(UInt(indexPath.row)) as? TravelFund
-    }
-    
-    // MARK: DataSourceProtocol
-    
-    func setUpdateBlock(block: RLMNotificationBlock) -> () {
-        token = RLMRealm.defaultRealm().addNotificationBlock(block)
+        return array?.objectAtIndex(UInt(indexPath.row)) as? TravelFund
     }
     
     // MARK: UITableViewDataSource
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(array?.count ?? 0)
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
         let travelFund = array?.objectAtIndex(UInt(indexPath.row)) as TravelFund
         cell.textLabel?.text = travelFund.originalFlight?.confirmationCode
