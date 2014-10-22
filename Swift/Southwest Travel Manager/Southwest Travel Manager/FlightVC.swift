@@ -113,12 +113,12 @@ class FlightVC: InputVC {
     }
 
     @IBAction func outboundChanged(sender: AnyObject) {
-        outboundTextField.text = Flight.mediumDepartureStringForDate(outboundPicker.date)
+        outboundTextField.text = outboundPicker.date.mediumDepartureString
         returnPicker.minimumDate = outboundPicker.date
     }
     
     @IBAction func returnChanged(sender: AnyObject) {
-        returnTextField.text = Flight.mediumDepartureStringForDate(returnPicker.date)
+        returnTextField.text = returnPicker.date.mediumDepartureString
         outboundPicker.maximumDate = returnPicker.date
     }
     
