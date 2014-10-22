@@ -25,6 +25,18 @@ class TravelFundVC: InputVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (travelFund.realm != nil) {
+            if let flight = travelFund.originalFlight {
+                flightDelegate.selectAirports(flight.airports, inPicker: flightPicker)
+                confirmationTextField.text = flight.confirmationCode
+            }
+            costTextField.amount = travelFund.balance
+            expirationPicker.setDate(travelFund.expirationDate, animated: false)
+            notesTextField.text = travelFund.notes
+            
+            expirationChanged(expirationPicker)
+        }
     }
     
     override func setObject(object: AnyObject) -> () {
