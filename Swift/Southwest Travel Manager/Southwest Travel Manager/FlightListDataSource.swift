@@ -13,7 +13,8 @@ class FlightListDataSource: ListDataSource {
     
     override init() {
         super.init()
-        array = Flight.allObjects().arraySortedByProperty("outboundDepartureDate", ascending: true)
+        array = [Flight.objectsWhere("outboundDepartureDate > %@", NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: true),
+                Flight.objectsWhere("outboundDepartureDate <= %@", NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: false)]
     }
     
     func flightAtIndexPath(indexPath: NSIndexPath) -> Flight? {
@@ -22,9 +23,21 @@ class FlightListDataSource: ListDataSource {
     
     // MARK: UITableViewDataSource
     
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+            case 0: return "Upcoming Flights"
+            case 1: return "Past Flights"
+            default: return nil
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as UITableViewCell
-        let flight = array?.objectAtIndex(UInt(indexPath.row)) as Flight
+        let flight = array?[indexPath.section].objectAtIndex(UInt(indexPath.row)) as Flight
         cell.textLabel?.text = flight.origin.location + " -> " + flight.destination.location
         cell.detailTextLabel?.text = flight.outboundDepartureDate.fullDepartureString
         

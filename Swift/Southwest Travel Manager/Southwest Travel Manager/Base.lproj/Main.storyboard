@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Upcoming Flights-->
+        <!--Flights-->
         <scene sceneID="TXS-70-BRf">
             <objects>
                 <tableViewController id="uEE-sQ-NSq" customClass="ListVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,7 +43,7 @@
                             <outlet property="delegate" destination="uEE-sQ-NSq" id="k6d-YB-N9P"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Upcoming Flights" id="IAU-xQ-6Yj">
+                    <navigationItem key="navigationItem" title="Flights" id="IAU-xQ-6Yj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qN3-ya-ZP3">
                             <connections>
                                 <segue destination="Hg6-hG-ttw" kind="presentation" id="XMM-q4-wxd"/>

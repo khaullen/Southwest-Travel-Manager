@@ -13,7 +13,7 @@ class TravelFundListDataSource: ListDataSource {
     
     override init() {
         super.init()
-        array = TravelFund.allObjects().arraySortedByProperty("expirationDate", ascending: true)
+        array = [TravelFund.allObjects().arraySortedByProperty("expirationDate", ascending: true)]
     }
     
     func travelFundAtIndexPath(indexPath: NSIndexPath) -> TravelFund? {
@@ -24,7 +24,7 @@ class TravelFundListDataSource: ListDataSource {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
-        let travelFund = array?.objectAtIndex(UInt(indexPath.row)) as TravelFund
+        let travelFund = array?[indexPath.section].objectAtIndex(UInt(indexPath.row)) as TravelFund
         cell.textLabel?.text = travelFund.balance.currencyValue
         if let confirmationCode = travelFund.originalFlight?.confirmationCode {
             cell.detailTextLabel?.text = confirmationCode + " (" + NSDateFormatter.localizedStringFromDate(travelFund.expirationDate, dateStyle: .ShortStyle, timeStyle: .NoStyle) + ")"
