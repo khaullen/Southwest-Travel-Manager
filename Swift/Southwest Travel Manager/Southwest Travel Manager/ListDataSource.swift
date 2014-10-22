@@ -18,6 +18,11 @@ class ListDataSource: NSObject, UITableViewDataSource {
         token = RLMRealm.defaultRealm().addNotificationBlock(block)
     }
     
+    func objectAtIndexPath(indexPath: NSIndexPath) -> RLMObject {
+        // TODO: validate indexPath, return nil if not valid
+        return array?.objectAtIndex(UInt(indexPath.row)) as RLMObject
+    }
+    
     // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

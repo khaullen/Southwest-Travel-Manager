@@ -21,6 +21,8 @@ class InputVC: UITableViewController {
     @IBOutlet var expirationPicker: UIDatePicker!
 
     var delegate: EditDelegate?
+    
+    func setObject(object: AnyObject) -> () {}
 
     override func viewDidLoad() {
         super.viewDidLoad()

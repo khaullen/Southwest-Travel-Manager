@@ -17,8 +17,7 @@ class TravelFundListDataSource: ListDataSource {
     }
     
     func travelFundAtIndexPath(indexPath: NSIndexPath) -> TravelFund? {
-        // TODO: validate indexPath, return nil if not valid
-        return array?.objectAtIndex(UInt(indexPath.row)) as? TravelFund
+        return objectAtIndexPath(indexPath) as? TravelFund
     }
     
     // MARK: UITableViewDataSource

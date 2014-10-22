@@ -22,6 +22,12 @@ class TravelFundVC: InputVC {
         super.viewDidLoad()
     }
     
+    override func setObject(object: AnyObject) -> () {
+        if let newTravelFund = object as? TravelFund {
+            travelFund = newTravelFund
+        }
+    }
+    
     // MARK: IBActions
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {

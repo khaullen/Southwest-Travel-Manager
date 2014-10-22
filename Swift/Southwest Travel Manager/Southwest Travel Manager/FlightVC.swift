@@ -19,7 +19,12 @@ class FlightVC: InputVC {
     @IBOutlet var outboundPicker: UIDatePicker!
     @IBOutlet var returnPicker: UIDatePicker!
     
-    var flight = Flight()
+    var flight: Flight = Flight() {
+        didSet {
+            navigationItem.leftBarButtonItem = nil
+            navigationItem.title = Flight.flightStringForAirports(flight.airports)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +48,12 @@ class FlightVC: InputVC {
             roundtripToggled(roundtripSwitch)
             outboundChanged(outboundPicker)
             returnChanged(returnPicker)
+        }
+    }
+    
+    override func setObject(object: AnyObject) -> () {
+        if let newFlight = object as? Flight {
+            flight = newFlight
         }
     }
 

@@ -17,8 +17,7 @@ class FlightListDataSource: ListDataSource {
     }
     
     func flightAtIndexPath(indexPath: NSIndexPath) -> Flight? {
-        // TODO: validate indexPath, return nil if not valid
-        return array?.objectAtIndex(UInt(indexPath.row)) as? Flight
+        return objectAtIndexPath(indexPath) as? Flight
     }
     
     // MARK: UITableViewDataSource
