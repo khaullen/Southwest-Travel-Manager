@@ -25,8 +25,8 @@ class TravelFundListDataSource: ListDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
         let travelFund = array?.objectAtIndex(UInt(indexPath.row)) as TravelFund
-        cell.textLabel?.text = travelFund.originalFlight?.confirmationCode
-        cell.detailTextLabel?.text = travelFund.balance.description
+        cell.textLabel?.text = travelFund.balance.currencyValue
+        cell.detailTextLabel?.text = travelFund.originalFlight?.confirmationCode
         
         return cell
     }
