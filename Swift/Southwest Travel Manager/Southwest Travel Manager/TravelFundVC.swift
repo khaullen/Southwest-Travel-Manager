@@ -16,7 +16,12 @@ class TravelFundVC: InputVC {
         var fund = TravelFund()
         fund.originalFlight = Flight(travelFund: fund)
         return fund
-    }()
+    }() {
+        didSet {
+            navigationItem.leftBarButtonItem = nil
+            navigationItem.title = travelFund.originalFlight?.confirmationCode
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

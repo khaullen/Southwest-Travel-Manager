@@ -517,6 +517,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Iy1-NJ-d3V" kind="show" id="7Ge-zu-uyh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -887,5 +890,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gZH-nW-hEL"/>
+        <segue reference="7Ge-zu-uyh"/>
     </inferredMetricsTieBreakers>
 </document>
