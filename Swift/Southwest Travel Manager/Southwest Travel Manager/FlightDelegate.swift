@@ -51,4 +51,10 @@ class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedAirports = (allAirports[UInt(pickerView.selectedRowInComponent(0))] as Airport, allAirports[UInt(pickerView.selectedRowInComponent(1))] as Airport)
     }
+    
+    @IBAction func editingDidBegin(sender: UITextField) {
+        if let block = updateBlock {
+            block(delegate: self)
+        }
+    }
 }

@@ -76,6 +76,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingDidBegin:" destination="9vV-YB-Gy3" eventType="editingDidBegin" id="tAa-Jd-NfH"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOQ-hS-wQY">
                                                     <rect key="frame" x="16" y="12" width="90" height="21"/>
@@ -719,6 +722,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="editingDidBegin:" destination="WGx-2L-Njd" eventType="editingDidBegin" id="a9Q-wA-GVK"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmu-t3-jLQ">
                                                     <rect key="frame" x="16" y="12" width="90" height="21"/>
