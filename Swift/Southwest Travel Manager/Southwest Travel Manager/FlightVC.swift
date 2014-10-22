@@ -48,6 +48,14 @@ class FlightVC: InputVC {
             roundtripToggled(roundtripSwitch)
             outboundChanged(outboundPicker)
             returnChanged(returnPicker)
+        } else {
+            let sinceReferenceDate = Int(NSDate.timeIntervalSinceReferenceDate())
+            let fiveMinuteIntervals = sinceReferenceDate / (60 * 5)
+            let nextInterval = NSDate(timeIntervalSinceReferenceDate: NSTimeInterval((fiveMinuteIntervals + 1) * (60 * 5)))
+            outboundPicker.setDate(nextInterval, animated: false)
+            outboundTextField.placeholder = outboundPicker.date.mediumDepartureString
+            returnPicker.setDate(nextInterval.dateByAddingTimeInterval(60 * 60 * 24), animated: false)
+            returnTextField.placeholder = returnPicker.date.mediumDepartureString
         }
     }
     
