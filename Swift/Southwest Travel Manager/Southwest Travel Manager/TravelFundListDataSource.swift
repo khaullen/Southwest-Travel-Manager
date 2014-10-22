@@ -26,7 +26,9 @@ class TravelFundListDataSource: ListDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
         let travelFund = array?.objectAtIndex(UInt(indexPath.row)) as TravelFund
         cell.textLabel?.text = travelFund.balance.currencyValue
-        cell.detailTextLabel?.text = travelFund.originalFlight?.confirmationCode
+        if let confirmationCode = travelFund.originalFlight?.confirmationCode {
+            cell.detailTextLabel?.text = confirmationCode + " (" + NSDateFormatter.localizedStringFromDate(travelFund.expirationDate, dateStyle: .ShortStyle, timeStyle: .NoStyle) + ")"
+        }
         
         return cell
     }

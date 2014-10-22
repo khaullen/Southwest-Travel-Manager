@@ -33,6 +33,7 @@ class TravelFundVC: InputVC {
             }
             costTextField.amount = travelFund.balance
             expirationPicker.setDate(travelFund.expirationDate, animated: false)
+            unusedTicketSwitch.on = travelFund.unusedTicket
             notesTextField.text = travelFund.notes
             
             expirationChanged(expirationPicker)
