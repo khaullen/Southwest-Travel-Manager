@@ -166,6 +166,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="expirationChanged:" destination="q1o-yX-93c" eventType="editingDidBegin" id="GcJ-Vc-gRV"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0l3-Hg-3Wu">
                                                     <rect key="frame" x="16" y="12" width="90" height="20"/>
@@ -228,6 +231,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="outboundChanged:" destination="q1o-yX-93c" eventType="editingDidBegin" id="ct8-ot-60x"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outbound" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihp-md-GVC">
                                                     <rect key="frame" x="16" y="12" width="90" height="21"/>
@@ -257,6 +263,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="returnChanged:" destination="q1o-yX-93c" eventType="editingDidBegin" id="co5-Il-5Xf"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axe-e2-n3i">
                                                     <rect key="frame" x="16" y="12" width="90" height="21"/>
@@ -454,7 +463,7 @@
                         <!--1970-01-01 11:00:00 +0000-->
                     </date>
                     <connections>
-                        <action selector="outboundChanged:" destination="q1o-yX-93c" eventType="valueChanged" id="7of-Fm-Eql"/>
+                        <action selector="outboundChanged:" destination="q1o-yX-93c" eventType="valueChanged" id="ihP-YH-c84"/>
                     </connections>
                 </datePicker>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" id="WE9-On-rmc" userLabel="Return Picker">
@@ -678,6 +687,9 @@
                                                     <rect key="frame" x="114" y="12" width="470" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="expirationChanged:" destination="Iy1-NJ-d3V" eventType="editingDidBegin" id="Xn5-mq-od9"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiration" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smC-C8-ukZ">
                                                     <rect key="frame" x="16" y="12" width="90" height="20"/>

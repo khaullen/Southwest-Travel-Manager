@@ -40,8 +40,8 @@ class InputVC: UITableViewController {
         parentViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    @IBAction func expirationChanged(sender: UIDatePicker) {
-        expirationTextField.text = TravelFund.expirationStringForDate(sender.date)
+    @IBAction func expirationChanged(sender: AnyObject) {
+        expirationTextField.text = TravelFund.expirationStringForDate(expirationPicker.date)
     }
 
 }
