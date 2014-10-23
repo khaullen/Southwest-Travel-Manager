@@ -14,5 +14,5 @@ class TravelFundSelectionDataSource: TravelFundListDataSource {
         super.init()
         showSummary = false
     }
-   
+    
 }

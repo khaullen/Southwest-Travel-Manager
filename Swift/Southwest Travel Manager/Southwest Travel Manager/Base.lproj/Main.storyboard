@@ -506,12 +506,12 @@
         <scene sceneID="Z7t-ic-ABA">
             <objects>
                 <tableViewController id="x8W-2k-nM9" customClass="FundSelectionVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fIk-xD-VqE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fIk-xD-VqE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="travelFundCell" textLabel="UYw-bN-v3C" detailTextLabel="pAp-nM-060" style="IBUITableViewCellStyleValue2" id="spL-Hl-o0f">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="travelFundCell" textLabel="UYw-bN-v3C" detailTextLabel="pAp-nM-060" style="IBUITableViewCellStyleValue2" id="spL-Hl-o0f">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="spL-Hl-o0f" id="NtS-wK-G1m">
                                     <autoresizingMask key="autoresizingMask"/>
