@@ -13,8 +13,8 @@ class FlightListDataSource: ListDataSource {
     
     override init() {
         super.init()
-        array = [Flight.objectsWhere("outboundDepartureDate > %@", NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: true),
-                Flight.objectsWhere("outboundDepartureDate <= %@", NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: false)]
+        array = [Flight.objectsWhere("outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@)", NSDate(), NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: true),
+                Flight.objectsWhere("(roundtrip == false && outboundDepartureDate <= %@) OR (roundtrip == true && returnDepartureDate <= %@)", NSDate(), NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: false)]
     }
     
     func flightAtIndexPath(indexPath: NSIndexPath) -> Flight? {
