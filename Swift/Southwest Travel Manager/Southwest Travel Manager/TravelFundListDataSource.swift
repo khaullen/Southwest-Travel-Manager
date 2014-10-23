@@ -40,7 +40,11 @@ class TravelFundListDataSource: ListDataSource {
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("summaryCell", forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel?.text = "Summary!"
+            if let realmArray = array?[indexPath.section] {
+                let sumOfFunds = realmArray.sumOfProperty("balance").doubleValue
+                let count = realmArray.count
+                cell.textLabel?.text = String(realmArray.count) + " Fund" + (count > 1 ? "s, " : ", ") + sumOfFunds.currencyValue
+            }
             return cell
         }
     }
