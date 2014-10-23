@@ -22,17 +22,20 @@ class FlightListDataSource: ListDataSource {
     
     // MARK: UITableViewDataSource
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return array?.count ?? 0
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return max(super.tableView(tableView, numberOfRowsInSection: section), 1)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as UITableViewCell
-        let flight = array?[indexPath.section].objectAtIndex(UInt(indexPath.row)) as Flight
-        cell.textLabel?.text = flight.origin.location + " -> " + flight.destination.location
-        cell.detailTextLabel?.text = flight.outboundDepartureDate.departureStringWithStyle(.FullStyle, inTimeZone: flight.origin.timeZoneObject)
-        
-        return cell
+        if (array?[indexPath.section].count > UInt(indexPath.row)) {
+            let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as UITableViewCell
+            let flight = array?[indexPath.section].objectAtIndex(UInt(indexPath.row)) as Flight
+            cell.textLabel?.text = flight.origin.location + " -> " + flight.destination.location
+            cell.detailTextLabel?.text = flight.outboundDepartureDate.departureStringWithStyle(.FullStyle, inTimeZone: flight.origin.timeZoneObject)
+            return cell
+        } else {
+            return tableView.dequeueReusableCellWithIdentifier("infoCell", forIndexPath: indexPath) as UITableViewCell
+        }
     }
 
 }
