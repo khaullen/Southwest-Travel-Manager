@@ -12,12 +12,7 @@ class TravelFundVC: InputVC {
 
     @IBOutlet weak var unusedTicketSwitch: UISwitch!
 
-    var travelFund: TravelFund = {
-        var fund = TravelFund()
-        fund.originalFlight = Flight(travelFund: fund)
-        fund.originalFlight?.cancelled = true
-        return fund
-    }() {
+    var travelFund: TravelFund = TravelFund() {
         didSet {
             navigationItem.leftBarButtonItem = nil
             navigationItem.title = travelFund.originalFlight?.confirmationCode

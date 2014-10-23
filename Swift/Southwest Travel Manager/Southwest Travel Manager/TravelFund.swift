@@ -16,6 +16,12 @@ class TravelFund: RLMObject {
     dynamic var originalFlight: Flight?
     dynamic var unusedTicket = true
     
+    override init() {
+        super.init()
+        self.originalFlight = Flight(travelFund: self)
+        self.originalFlight?.cancelled = true
+    }
+
     // MARK: View Model
     
     class func expirationStringForDate(date: NSDate) -> String {
