@@ -22,6 +22,8 @@ class FlightListDataSource: ListDataSource {
     
     // MARK: UITableViewDataSource
     
+    // TODO: feature -- add long press to copy confirmation number
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return max(super.tableView(tableView, numberOfRowsInSection: section), 1)
     }
