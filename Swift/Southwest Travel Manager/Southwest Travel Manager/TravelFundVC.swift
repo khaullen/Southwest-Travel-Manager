@@ -46,6 +46,13 @@ class TravelFundVC: InputVC {
         }
     }
     
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        let hideSection = (travelFund.realm == nil)
+        return super.numberOfSectionsInTableView(tableView) - Int(hideSection)
+    }
+    
     // MARK: IBActions
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
