@@ -840,7 +840,7 @@
                             </tableViewSection>
                             <tableViewSection id="vbL-1q-MjZ" userLabel="Cancel Flight">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="iMT-Iq-HxP" style="IBUITableViewCellStyleDefault" id="qH1-ni-Gio">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="iMT-Iq-HxP" style="IBUITableViewCellStyleDefault" id="qH1-ni-Gio">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qH1-ni-Gio" id="pjb-qk-jXA">
                                             <autoresizingMask key="autoresizingMask"/>

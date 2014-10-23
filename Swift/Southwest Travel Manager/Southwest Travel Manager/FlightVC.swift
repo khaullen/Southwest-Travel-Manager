@@ -86,6 +86,8 @@ class FlightVC: InputVC {
         return super.tableView(tableView, numberOfRowsInSection: section) - Int(hideRow)
     }
     
+    // MARK: Table view delegate
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (5, 0):

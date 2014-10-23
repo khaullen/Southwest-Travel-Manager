@@ -49,6 +49,22 @@ class TravelFundVC: InputVC {
         return super.numberOfSectionsInTableView(tableView) - Int(hideSection)
     }
     
+    // MARK: Table view delegate
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (3, 0):
+            if let realm = travelFund.realm {
+                realm.transactionWithBlock({ () -> Void in
+                    realm.deleteObject(self.travelFund)
+                })
+            }
+            delegate?.editor(self, didUpdateObject: travelFund)
+        default:
+            return
+        }
+    }
+    
     // MARK: IBActions
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
