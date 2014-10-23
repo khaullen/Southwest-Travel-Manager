@@ -15,6 +15,7 @@ class TravelFundVC: InputVC {
     var travelFund: TravelFund = {
         var fund = TravelFund()
         fund.originalFlight = Flight(travelFund: fund)
+        fund.originalFlight?.cancelled = true
         return fund
     }() {
         didSet {

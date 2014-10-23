@@ -40,6 +40,18 @@ class Flight: RLMObject {
     init(travelFund: TravelFund) {
         self.travelFund = travelFund
         super.init()
+        travelFund.originalFlight = self
+    }
+    
+    func cancelFlight() {
+        if let realm = realm {
+            realm.transactionWithBlock({ () -> Void in
+                self.cancelled = true
+                self.checkInReminder = false
+                self.travelFund.balance = self.cost
+                self.travelFund.notes = self.notes
+            })
+        }
     }
     
     // MARK: View Model

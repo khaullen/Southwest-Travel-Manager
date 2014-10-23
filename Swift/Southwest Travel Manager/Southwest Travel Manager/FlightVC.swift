@@ -85,6 +85,16 @@ class FlightVC: InputVC {
         let hideRow = section == 1 && !roundtripSwitch.on
         return super.tableView(tableView, numberOfRowsInSection: section) - Int(hideRow)
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (5, 0):
+            flight.cancelFlight()
+            delegate?.editor(self, didUpdateObject: flight)
+        default:
+            return
+        }
+    }
 
     // MARK: - Navigation
 

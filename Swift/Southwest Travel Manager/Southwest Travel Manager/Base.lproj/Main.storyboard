@@ -380,7 +380,7 @@
                             </tableViewSection>
                             <tableViewSection id="xLs-t5-R8r" userLabel="Cancel Flight">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="GHr-IS-al6" style="IBUITableViewCellStyleDefault" id="qKn-oh-VZr">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="GHr-IS-al6" style="IBUITableViewCellStyleDefault" id="qKn-oh-VZr">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qKn-oh-VZr" id="uAi-e8-QBZ">
                                             <autoresizingMask key="autoresizingMask"/>
