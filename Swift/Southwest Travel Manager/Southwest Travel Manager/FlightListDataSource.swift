@@ -13,8 +13,7 @@ class FlightListDataSource: ListDataSource {
     
     override init() {
         super.init()
-        array = [Flight.objectsWhere("cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: true),
-                Flight.objectsWhere("cancelled == false && ((roundtrip == false && outboundDepartureDate <= %@) OR (roundtrip == true && returnDepartureDate <= %@))", NSDate(), NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: false)]
+        array = [Flight.objectsWhere("cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: true)]
     }
     
     func flightAtIndexPath(indexPath: NSIndexPath) -> Flight? {
@@ -24,15 +23,7 @@ class FlightListDataSource: ListDataSource {
     // MARK: UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-            case 0: return "Upcoming Flights"
-            case 1: return "Past Flights"
-            default: return nil
-        }
+        return array?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
