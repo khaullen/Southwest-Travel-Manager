@@ -40,6 +40,7 @@
 		3BE9045019F71B2200B0977F /* TravelFundListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9044F19F71B2200B0977F /* TravelFundListDataSource.swift */; };
 		3BE9045319F72A8D00B0977F /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9045219F72A8D00B0977F /* ListDataSource.swift */; };
 		3BE9045519F8614300B0977F /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9045419F8614300B0977F /* Extensions.swift */; };
+		3BEDCED11A12A366009AFA85 /* RCDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BEDCED01A12A366009AFA85 /* RCDatePicker.m */; };
 		3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */; };
 		3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
 		3BF7917119EC702C0081CEE6 /* FlightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7917019EC702C0081CEE6 /* FlightVC.swift */; };
@@ -97,6 +98,8 @@
 		3BE9044F19F71B2200B0977F /* TravelFundListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFundListDataSource.swift; sourceTree = "<group>"; };
 		3BE9045219F72A8D00B0977F /* ListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
 		3BE9045419F8614300B0977F /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3BEDCECF1A12A366009AFA85 /* RCDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDatePicker.h; sourceTree = "<group>"; };
+		3BEDCED01A12A366009AFA85 /* RCDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDatePicker.m; sourceTree = "<group>"; };
 		3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFund.swift; sourceTree = "<group>"; };
 		3BF7916C19EC54A20081CEE6 /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
 		3BF7917019EC702C0081CEE6 /* FlightVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightVC.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 				3B1A4C6F19DE0C08000F265C /* SouthwestTravelManager */,
 				3B1A4C8719DE0C09000F265C /* Tests */,
 				3BA67F6619E8687B007CE97D /* Realm */,
+				3BEDCED21A12A372009AFA85 /* RCDatePicker */,
 				3BC77E7B19F5739200FC27C7 /* TSCurrencyTextField */,
 				3B7A575E1A03C1C900EB1B34 /* ExSwift */,
 				3B1A4C6E19DE0C08000F265C /* Products */,
@@ -271,6 +275,15 @@
 			name = "Data Sources";
 			sourceTree = "<group>";
 		};
+		3BEDCED21A12A372009AFA85 /* RCDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				3BEDCECF1A12A366009AFA85 /* RCDatePicker.h */,
+				3BEDCED01A12A366009AFA85 /* RCDatePicker.m */,
+			);
+			name = RCDatePicker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -388,6 +401,7 @@
 				3BE9045319F72A8D00B0977F /* ListDataSource.swift in Sources */,
 				3BE9045519F8614300B0977F /* Extensions.swift in Sources */,
 				3B7A576B1A03C1C900EB1B34 /* Array.swift in Sources */,
+				3BEDCED11A12A366009AFA85 /* RCDatePicker.m in Sources */,
 				3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */,
 				3B7A57731A03C1C900EB1B34 /* Range.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
