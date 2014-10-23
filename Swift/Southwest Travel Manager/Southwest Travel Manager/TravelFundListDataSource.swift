@@ -11,6 +11,8 @@ import Realm
 
 class TravelFundListDataSource: ListDataSource {
     
+    var showSummary = true
+    
     override init() {
         super.init()
         // TODO: feature -- show used funds, expired funds
@@ -25,7 +27,7 @@ class TravelFundListDataSource: ListDataSource {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let superRows = super.tableView(tableView, numberOfRowsInSection: section)
-        let showSummaryRow = (section == 0)
+        let showSummaryRow = (section == 0) && showSummary
         return superRows + Int(showSummaryRow)
     }
     

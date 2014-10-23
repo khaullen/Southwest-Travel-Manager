@@ -556,7 +556,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJ2-93-opa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="G1M-lm-eey" customClass="TravelFundListDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="G1M-lm-eey" customClass="TravelFundSelectionDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="3708" y="-328"/>
         </scene>
