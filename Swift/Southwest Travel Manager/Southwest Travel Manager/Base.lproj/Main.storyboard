@@ -337,7 +337,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Apply Travel Funds" id="y7A-9m-cS6">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Wfu-H1-HJy" detailTextLabel="bVx-pD-K72" style="IBUITableViewCellStyleValue1" id="ScI-no-KSa">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="Wfu-H1-HJy" detailTextLabel="bVx-pD-K72" style="IBUITableViewCellStyleValue1" id="ScI-no-KSa">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ScI-no-KSa" id="7sK-hA-bMr">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -356,6 +356,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="x8W-2k-nM9" kind="show" id="gbs-86-8Mb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -498,6 +501,49 @@
                 </datePicker>
             </objects>
             <point key="canvasLocation" x="2995" y="-328"/>
+        </scene>
+        <!--Travel Funds-->
+        <scene sceneID="Z7t-ic-ABA">
+            <objects>
+                <tableViewController id="x8W-2k-nM9" customClass="FundSelectionVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fIk-xD-VqE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="travelFundCell" textLabel="UYw-bN-v3C" detailTextLabel="pAp-nM-060" style="IBUITableViewCellStyleValue2" id="spL-Hl-o0f">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="spL-Hl-o0f" id="NtS-wK-G1m">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UYw-bN-v3C">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pAp-nM-060">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="x8W-2k-nM9" id="FRA-zE-ftR"/>
+                            <outlet property="delegate" destination="x8W-2k-nM9" id="Vee-Fe-8V7"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Travel Funds" id="RdJ-fe-u4K">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="osj-bM-r66"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJ2-93-opa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3708" y="-328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DRz-ZA-dcy">

@@ -20,6 +20,7 @@
 		3B89746C19F6CF6C00D4ACAF /* TravelFundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */; };
 		3BA67F6319E8682A007CE97D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA67F6219E8682A007CE97D /* libc++.dylib */; };
 		3BA67F6819E88364007CE97D /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA67F6719E88364007CE97D /* Flight.swift */; };
+		3BC0837C19F99F1900ED60EA /* FundSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */; };
 		3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */; };
 		3BCB423B19EEFDC300B03AC4 /* airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB423A19EEFDC300B03AC4 /* airports.plist */; };
 		3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9044B19F6F87F00B0977F /* InputVC.swift */; };
@@ -60,6 +61,7 @@
 		3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFundVC.swift; sourceTree = "<group>"; };
 		3BA67F6219E8682A007CE97D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		3BA67F6719E88364007CE97D /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundSelectionVC.swift; sourceTree = "<group>"; };
 		3BC77E7719F5737D00FC27C7 /* Southwest Travel Manager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Southwest Travel Manager-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BC77E7819F5737E00FC27C7 /* TSCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCurrencyTextField.h; sourceTree = "<group>"; };
 		3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCurrencyTextField.m; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				3BE9044B19F6F87F00B0977F /* InputVC.swift */,
 				3BF7917019EC702C0081CEE6 /* FlightVC.swift */,
 				3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */,
+				3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */,
 				3BCB423919EEF2ED00B03AC4 /* Delegates */,
 			);
 			name = Controllers;
@@ -333,6 +336,7 @@
 				3BE9045019F71B2200B0977F /* TravelFundListDataSource.swift in Sources */,
 				3B6FFF6919F5605E00CD1540 /* RLMSupport.swift in Sources */,
 				3B89746C19F6CF6C00D4ACAF /* TravelFundVC.swift in Sources */,
+				3BC0837C19F99F1900ED60EA /* FundSelectionVC.swift in Sources */,
 				3B1A4C7519DE0C08000F265C /* ListVC.swift in Sources */,
 				3BF7917119EC702C0081CEE6 /* FlightVC.swift in Sources */,
 			);
