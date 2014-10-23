@@ -10,6 +10,8 @@ import UIKit
 
 class TravelFundSelectionDataSource: TravelFundListDataSource {
     
+    var targetAmount: Double?
+    
     override init() {
         super.init()
         showSummary = false
@@ -34,7 +36,11 @@ class TravelFundSelectionDataSource: TravelFundListDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
-            cell.detailTextLabel?.text = "Remaining balance"
+            if let target = targetAmount {
+                cell.detailTextLabel?.text = "Remaining balance"
+            } else {
+                cell.detailTextLabel?.text = "Total selected funds"
+            }
             return cell
         default:
             return UITableViewCell()
