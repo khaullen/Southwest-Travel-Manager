@@ -30,8 +30,7 @@ class TravelFundListDataSource: ListDataSource {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (array?[indexPath.section].count > UInt(indexPath.row)) {
-            let travelFund = array?[indexPath.section].objectAtIndex(UInt(indexPath.row)) as TravelFund
+        if let travelFund = travelFundAtIndexPath(indexPath) {
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
             cell.textLabel?.text = travelFund.balance.currencyValue
             if let confirmationCode = travelFund.originalFlight?.confirmationCode {
