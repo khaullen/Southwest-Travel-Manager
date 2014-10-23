@@ -13,7 +13,8 @@ class TravelFundListDataSource: ListDataSource {
     
     override init() {
         super.init()
-        array = [TravelFund.allObjects().arraySortedByProperty("expirationDate", ascending: true)]
+        // TODO: feature -- show used funds, expired funds
+        array = [TravelFund.objectsWhere("balance > 0 && expirationDate > %@", NSDate()).arraySortedByProperty("expirationDate", ascending: true)]
     }
     
     func travelFundAtIndexPath(indexPath: NSIndexPath) -> TravelFund? {
