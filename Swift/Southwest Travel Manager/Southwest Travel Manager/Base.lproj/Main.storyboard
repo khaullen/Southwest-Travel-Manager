@@ -531,9 +531,23 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="summaryCell" textLabel="gYn-i2-zTg" style="IBUITableViewCellStyleDefault" id="pFv-2X-Maw">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFv-2X-Maw" id="9S4-O0-u8a">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gYn-i2-zTg">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="x8W-2k-nM9" id="FRA-zE-ftR"/>
+                            <outlet property="dataSource" destination="G1M-lm-eey" id="gKK-bJ-93L"/>
                             <outlet property="delegate" destination="x8W-2k-nM9" id="Vee-Fe-8V7"/>
                         </connections>
                     </tableView>
@@ -542,6 +556,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJ2-93-opa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="G1M-lm-eey" customClass="TravelFundListDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="3708" y="-328"/>
         </scene>
