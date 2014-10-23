@@ -10,26 +10,16 @@ import Foundation
 
 extension NSDate {
     
-    var mediumDepartureString: String {
-        return mediumDepartureDateFormatter.stringFromDate(self)
-    }
-    
-    var fullDepartureString: String {
-        return fullDepartureDateFormatter.stringFromDate(self)
+    func departureStringWithStyle(style: NSDateFormatterStyle, inTimeZone timeZone: NSTimeZone?) -> String {
+        departureDateFormatter.dateStyle = style
+        departureDateFormatter.timeZone = timeZone
+        return departureDateFormatter.stringFromDate(self)
     }
 
 }
 
-private let mediumDepartureDateFormatter: NSDateFormatter = {
+private let departureDateFormatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
-    formatter.dateStyle = .MediumStyle
     formatter.timeStyle = .ShortStyle
     return formatter
-    }()
-
-private let fullDepartureDateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.dateStyle = .FullStyle
-    formatter.timeStyle = .ShortStyle
-    return formatter
-    }()
+}()

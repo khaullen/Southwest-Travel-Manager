@@ -24,4 +24,8 @@ class Airport: RLMObject {
     var location: String {
         return city + ", " + state
     }
+    
+    var timeZoneObject: NSTimeZone {
+        return NSTimeZone(name: timeZone)
+    }
 }

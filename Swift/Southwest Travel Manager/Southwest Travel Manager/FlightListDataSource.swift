@@ -39,7 +39,7 @@ class FlightListDataSource: ListDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as UITableViewCell
         let flight = array?[indexPath.section].objectAtIndex(UInt(indexPath.row)) as Flight
         cell.textLabel?.text = flight.origin.location + " -> " + flight.destination.location
-        cell.detailTextLabel?.text = flight.outboundDepartureDate.fullDepartureString
+        cell.detailTextLabel?.text = flight.outboundDepartureDate.departureStringWithStyle(.FullStyle, inTimeZone: flight.origin.timeZoneObject)
         
         return cell
     }

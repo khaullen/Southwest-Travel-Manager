@@ -29,6 +29,15 @@ class FlightVC: InputVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let superBlock = flightDelegate.updateBlock
+        flightDelegate.updateBlock = {
+            [unowned self] delegate in
+            superBlock?(delegate: delegate)
+            let (origin, destination) = delegate.selectedAirports
+            self.outboundPicker.timeZone = origin.timeZoneObject
+            self.returnPicker.timeZone = destination.timeZoneObject
+        }
+
         outboundTextField.inputView = outboundPicker
         returnTextField.inputView = returnPicker
 
@@ -53,9 +62,9 @@ class FlightVC: InputVC {
             let fiveMinuteIntervals = sinceReferenceDate / (60 * 5)
             let nextInterval = NSDate(timeIntervalSinceReferenceDate: NSTimeInterval((fiveMinuteIntervals + 1) * (60 * 5)))
             outboundPicker.setDate(nextInterval, animated: false)
-            outboundTextField.placeholder = outboundPicker.date.mediumDepartureString
+            outboundTextField.placeholder = outboundPicker.date.departureStringWithStyle(.MediumStyle, inTimeZone: outboundPicker.timeZone)
             returnPicker.setDate(nextInterval.dateByAddingTimeInterval(60 * 60 * 24), animated: false)
-            returnTextField.placeholder = returnPicker.date.mediumDepartureString
+            returnTextField.placeholder = returnPicker.date.departureStringWithStyle(.MediumStyle, inTimeZone: returnPicker.timeZone)
         }
     }
     
@@ -121,12 +130,12 @@ class FlightVC: InputVC {
     }
 
     @IBAction func outboundChanged(sender: AnyObject) {
-        outboundTextField.text = outboundPicker.date.mediumDepartureString
+        outboundTextField.text = outboundPicker.date.departureStringWithStyle(.MediumStyle, inTimeZone: outboundPicker.timeZone)
         returnPicker.minimumDate = outboundPicker.date
     }
     
     @IBAction func returnChanged(sender: AnyObject) {
-        returnTextField.text = returnPicker.date.mediumDepartureString
+        returnTextField.text = returnPicker.date.departureStringWithStyle(.MediumStyle, inTimeZone: returnPicker.timeZone)
         outboundPicker.maximumDate = returnPicker.date
     }
     
