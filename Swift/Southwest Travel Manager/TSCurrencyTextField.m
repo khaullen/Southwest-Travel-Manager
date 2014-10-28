@@ -72,7 +72,7 @@
 
 - (void) setAmount: (NSNumber *) amount
 {
-    NSString* amountString = [NSString stringWithFormat: @"%.*lf", _currencyNumberFormatter.maximumFractionDigits, amount.doubleValue];
+    NSString* amountString = [NSString stringWithFormat: @"%.*lf", (int)_currencyNumberFormatter.maximumFractionDigits, amount.doubleValue];
     [self setText: amountString];
 }
 
@@ -150,13 +150,13 @@
         return NO;
     }
     
-    int distanceFromEnd = textField.text.length - (range.location + range.length);
+    NSUInteger distanceFromEnd = textField.text.length - (range.location + range.length);
     
     NSString* changed = [textField.text stringByReplacingCharactersInRange: range withString: string];
     [textField setText: changed];
     
-    int pos = textField.text.length - distanceFromEnd;
-    if ( pos >= 0 && pos <= textField.text.length )
+    NSUInteger pos = textField.text.length - distanceFromEnd;
+    if ( pos <= textField.text.length )
     {
         [textField setCaratPosition: pos];
     }
