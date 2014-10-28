@@ -34,7 +34,7 @@ class TravelFundListDataSource: ListDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let travelFund = travelFundAtIndexPath(indexPath) {
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel?.text = travelFund.balance.currencyValue
+            cell.textLabel.text = travelFund.balance.currencyValue
             if let confirmationCode = travelFund.originalFlight?.confirmationCode {
                 cell.detailTextLabel?.text = confirmationCode + " (" + NSDateFormatter.localizedStringFromDate(travelFund.expirationDate, dateStyle: .ShortStyle, timeStyle: .NoStyle) + ")"
             }
@@ -44,7 +44,7 @@ class TravelFundListDataSource: ListDataSource {
             if let realmArray = array?[indexPath.section] {
                 let sumOfFunds = realmArray.sumOfProperty("balance").doubleValue
                 let count = realmArray.count
-                cell.textLabel?.text = String(realmArray.count) + " Fund" + (count > 1 ? "s, " : ", ") + sumOfFunds.currencyValue
+                cell.textLabel.text = String(realmArray.count) + " Fund" + (count > 1 ? "s, " : ", ") + (sumOfFunds.currencyValue ?? "")
             }
             return cell
         }

@@ -116,7 +116,7 @@ class FlightVC: InputVC {
         
         flight.airports = flightDelegate.selectedAirports
         flight.confirmationCode = confirmationTextField.text
-        flight.cost = costTextField.amount
+        flight.cost = Double(costTextField.amount)
         flight.travelFund.expirationDate = expirationPicker.date
         flight.roundtrip = roundtripSwitch.on
         flight.outboundDepartureDate = outboundPicker.date

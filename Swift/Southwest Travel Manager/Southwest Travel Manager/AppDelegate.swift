@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let allAirports = NSArray(contentsOfFile: airportsPath!)
             
             let realm = RLMRealm.defaultRealm()
-            allAirports.enumerateObjectsUsingBlock { (airportDict, index, stop) -> Void in
+            allAirports?.enumerateObjectsUsingBlock { (airportDict, index, stop) -> Void in
                 realm.transactionWithBlock({ () -> Void in
                     Airport.createOrUpdateInRealm(realm, withObject: airportDict)
                     return

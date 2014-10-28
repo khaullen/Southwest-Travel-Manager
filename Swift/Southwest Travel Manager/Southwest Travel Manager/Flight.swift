@@ -61,7 +61,7 @@ class Flight: RLMObject {
             return (origin, destination)
         }
         set {
-            (origin, destination) = newValue
+            (origin!, destination!) = newValue
         }
     }
     

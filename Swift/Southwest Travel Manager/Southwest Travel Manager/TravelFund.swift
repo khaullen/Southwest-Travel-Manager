@@ -32,7 +32,7 @@ class TravelFund: RLMObject {
 
 extension Double {
     
-    var currencyValue: String {
+    var currencyValue: String? {
         return currencyFormatter.stringFromNumber(self)
     }
     

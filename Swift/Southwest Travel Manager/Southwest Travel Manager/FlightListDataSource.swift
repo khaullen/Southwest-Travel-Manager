@@ -31,7 +31,7 @@ class FlightListDataSource: ListDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let flight = flightAtIndexPath(indexPath) {
             let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as UITableViewCell
-            cell.textLabel?.text = flight.origin.location + " -> " + flight.destination.location
+            cell.textLabel.text = flight.origin.location + " -> " + flight.destination.location
             cell.detailTextLabel?.text = flight.outboundDepartureDate.departureStringWithStyle(.FullStyle, inTimeZone: flight.origin.timeZoneObject)
             return cell
         } else {

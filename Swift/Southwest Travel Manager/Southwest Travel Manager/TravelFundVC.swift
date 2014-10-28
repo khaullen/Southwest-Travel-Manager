@@ -74,7 +74,7 @@ class TravelFundVC: InputVC {
         
         travelFund.originalFlight?.airports = flightDelegate.selectedAirports
         travelFund.originalFlight?.confirmationCode = confirmationTextField.text
-        travelFund.balance = costTextField.amount
+        travelFund.balance = Double(costTextField.amount)
         travelFund.expirationDate = expirationPicker.date
         travelFund.unusedTicket = unusedTicketSwitch.on
         travelFund.notes = notesTextField.text

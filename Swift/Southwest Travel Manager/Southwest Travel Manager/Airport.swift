@@ -26,6 +26,6 @@ class Airport: RLMObject {
     }
     
     var timeZoneObject: NSTimeZone {
-        return NSTimeZone(name: timeZone)
+        return NSTimeZone(name: timeZone)!
     }
 }
