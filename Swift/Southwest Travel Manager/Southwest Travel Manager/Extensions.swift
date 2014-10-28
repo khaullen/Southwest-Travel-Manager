@@ -1,5 +1,5 @@
 //
-//  NSDate+Extension.swift
+//  Extensions.swift
 //  Southwest Travel Manager
 //
 //  Created by Colin Regan on 10/22/14.
