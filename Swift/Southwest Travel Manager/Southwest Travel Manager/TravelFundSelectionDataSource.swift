@@ -12,12 +12,12 @@ import Realm
 class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelegate {
     
     var targetAmount: Double?
-    var selectedFunds: [Bool] = []
+    var fundSelectionState: [Bool] = []
     
     override init() {
         super.init()
         let realmArray = array?[0]
-        selectedFunds = Array(count: Int(realmArray?.count ?? 0), repeatedValue: false)
+        fundSelectionState = Array(count: Int(realmArray?.count ?? 0), repeatedValue: false)
         showSummary = false
     }
     
@@ -37,13 +37,22 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
         switch indexPath.section {
         case 0:
             let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-            cell.accessoryType = selectedFunds[indexPath.row] ? .Checkmark : .None
+            cell.accessoryType = fundSelectionState[indexPath.row] ? .Checkmark : .None
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
             if let target = targetAmount {
+                cell.textLabel.text = target.currencyValue
                 cell.detailTextLabel?.text = "Remaining balance"
             } else {
+                var realmArray = array?[0]
+                var selectedFunds = [TravelFund]()
+                for (index, selected) in enumerate(fundSelectionState) {
+                    if (selected) {
+                        selectedFunds.append(realmArray?.objectAtIndex(UInt(index)) as TravelFund)
+                    }
+                }
+                cell.textLabel.text = selectedFunds.map({ $0.balance }).reduce(0, +).currencyValue
                 cell.detailTextLabel?.text = "Total selected funds"
             }
             return cell
@@ -56,8 +65,8 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 0) {
-            selectedFunds[indexPath.row] = !selectedFunds[indexPath.row]
-            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            fundSelectionState[indexPath.row] = !fundSelectionState[indexPath.row]
+            tableView.reloadData()
         }
     }
     
