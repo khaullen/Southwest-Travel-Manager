@@ -552,7 +552,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Travel Funds" id="RdJ-fe-u4K">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="osj-bM-r66"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="osj-bM-r66">
+                            <connections>
+                                <action selector="doneTapped:" destination="x8W-2k-nM9" id="H6H-xK-dS1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJ2-93-opa" userLabel="First Responder" sceneMemberID="firstResponder"/>

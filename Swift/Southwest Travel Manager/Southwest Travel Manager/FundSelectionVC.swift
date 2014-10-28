@@ -10,4 +10,8 @@ import UIKit
 
 class FundSelectionVC: UITableViewController {
     
+    @IBAction func doneTapped(sender: UIBarButtonItem) {
+        
+    }
+    
 }
