@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 
 extension NSDate {
     
@@ -23,3 +24,16 @@ private let departureDateFormatter: NSDateFormatter = {
     formatter.timeStyle = .ShortStyle
     return formatter
 }()
+
+extension RLMArray {
+    
+    var swiftArray: [RLMObject] {
+        var array = [RLMObject]()
+        for object in self {
+            array.append(object)
+        }
+        return array
+    }
+
+}
+
