@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import Realm
 
-class TravelFundSelectionDataSource: TravelFundListDataSource {
+class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelegate {
     
     var targetAmount: Double?
+    var selectedFunds: [Bool] = []
     
     override init() {
         super.init()
+        let realmArray = array?[0]
+        selectedFunds = Array(count: Int(realmArray?.count ?? 0), repeatedValue: false)
         showSummary = false
     }
     
@@ -33,6 +37,7 @@ class TravelFundSelectionDataSource: TravelFundListDataSource {
         switch indexPath.section {
         case 0:
             let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+            cell.accessoryType = selectedFunds[indexPath.row] ? .Checkmark : .None
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
@@ -44,6 +49,15 @@ class TravelFundSelectionDataSource: TravelFundListDataSource {
             return cell
         default:
             return UITableViewCell()
+        }
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.section == 0) {
+            selectedFunds[indexPath.row] = !selectedFunds[indexPath.row]
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
         }
     }
     

@@ -506,7 +506,7 @@
         <scene sceneID="Z7t-ic-ABA">
             <objects>
                 <tableViewController id="x8W-2k-nM9" customClass="FundSelectionVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fIk-xD-VqE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fIk-xD-VqE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -548,7 +548,7 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="G1M-lm-eey" id="gKK-bJ-93L"/>
-                            <outlet property="delegate" destination="x8W-2k-nM9" id="Vee-Fe-8V7"/>
+                            <outlet property="delegate" destination="G1M-lm-eey" id="x3A-6L-4kd"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Travel Funds" id="RdJ-fe-u4K">
