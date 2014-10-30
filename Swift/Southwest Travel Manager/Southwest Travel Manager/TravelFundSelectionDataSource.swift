@@ -16,8 +16,8 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     
     override init() {
         super.init()
-        let realmArray = array?[0]
-        fundSelectionState = Array(count: Int(realmArray?.count ?? 0), repeatedValue: false)
+        let subarray = array[0]
+        fundSelectionState = Array(count: subarray.intCount, repeatedValue: false)
         showSummary = false
     }
     
@@ -45,11 +45,11 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
                 cell.textLabel.text = target.currencyValue
                 cell.detailTextLabel?.text = "Remaining balance"
             } else {
-                var realmArray = array?[0]
+                var subarray = array[0]
                 var selectedFunds = [TravelFund]()
                 for (index, selected) in enumerate(fundSelectionState) {
                     if (selected) {
-                        selectedFunds.append(realmArray?.objectAtIndex(UInt(index)) as TravelFund)
+                        selectedFunds.append(subarray[UInt(index)] as TravelFund)
                     }
                 }
                 cell.textLabel.text = selectedFunds.map({ $0.balance }).reduce(0, +).currencyValue

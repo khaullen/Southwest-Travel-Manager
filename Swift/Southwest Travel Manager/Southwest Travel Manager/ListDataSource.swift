@@ -11,7 +11,7 @@ import Realm
 
 class ListDataSource: NSObject, UITableViewDataSource {
     
-    var array: [RLMArray]?
+    var array: [RLMArray] = []
     var token: RLMNotificationToken?
     
     func setUpdateBlock(block: RLMNotificationBlock) -> () {
@@ -19,8 +19,8 @@ class ListDataSource: NSObject, UITableViewDataSource {
     }
     
     func objectAtIndexPath(indexPath: NSIndexPath) -> RLMObject? {
-        if (array?[indexPath.section].count > UInt(indexPath.row)) {
-            return array?[indexPath.section].objectAtIndex(UInt(indexPath.row)) as? RLMObject
+        if (array[indexPath.section].intCount > indexPath.row) {
+            return (array[indexPath.section][UInt(indexPath.row)] as RLMObject)
         } else {
             return nil
         }
@@ -29,7 +29,7 @@ class ListDataSource: NSObject, UITableViewDataSource {
     // MARK: UITableViewDataSource
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(array?[section].count ?? 0)
+        return array[section].intCount
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
