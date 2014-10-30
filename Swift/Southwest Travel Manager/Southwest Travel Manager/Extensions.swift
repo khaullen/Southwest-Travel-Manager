@@ -33,3 +33,10 @@ extension RLMArray {
 
 }
 
+extension RLMObject: Equatable {}
+
+public func ==(lhs: RLMObject, rhs: RLMObject) -> Bool {
+    return lhs.isEqualToObject(rhs)
+}
+
+
