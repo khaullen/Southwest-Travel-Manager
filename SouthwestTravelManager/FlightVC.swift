@@ -118,6 +118,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         
         let fundSelectionVC = segue.destinationViewController as FundSelectionVC
         fundSelectionVC.fundSelectionDataSource.targetAmount = (Double(costTextField.amount) > 0 ? Double(costTextField.amount) : nil)
+        fundSelectionVC.fundSelectionDataSource.selectedFunds = fundsUsed
         fundSelectionVC.delegate = self
     }
     
@@ -141,7 +142,8 @@ class FlightVC: InputVC, FundSelectionDelegate {
         flight.outboundDepartureDate = outboundPicker.date
         flight.returnDepartureDate = returnPicker.date
         flight.checkInReminder = checkInReminderSwitch.on
-        // TODO: handle funds used
+        flight.fundsUsed.removeAllObjects()
+        flight.fundsUsed.addObjectsFromArray(fundsUsed)
         flight.notes = notesTextField.text
         
         if (flight.realm != nil) {
