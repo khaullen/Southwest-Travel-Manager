@@ -58,15 +58,8 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 0) {
             if let selected = travelFundAtIndexPath(indexPath) {
-                // TODO: refactor after adding ExSwift
                 if (contains(selectedFunds, selected)) {
-                    var indexOfFund = -1
-                    for (index, fund) in enumerate(selectedFunds) {
-                        if (fund == selected) {
-                            indexOfFund = index
-                        }
-                    }
-                    selectedFunds.removeAtIndex(indexOfFund)
+                    selectedFunds.remove(selected)
                 } else {
                     selectedFunds.append(travelFundAtIndexPath(indexPath)!)
                 }
