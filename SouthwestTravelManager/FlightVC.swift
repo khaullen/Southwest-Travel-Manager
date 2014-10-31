@@ -8,7 +8,13 @@
 
 import UIKit
 
-class FlightVC: InputVC {
+protocol FundSelectionDelegate {
+    
+    func fundSelector(fundSelector: UIViewController, didSelectTravelFunds travelFunds: [TravelFund]) -> ()
+    
+}
+
+class FlightVC: InputVC, FundSelectionDelegate {
 
     @IBOutlet weak var roundtripSwitch: UISwitch!
     @IBOutlet weak var outboundTextField: UITextField!
@@ -23,6 +29,12 @@ class FlightVC: InputVC {
         didSet {
             navigationItem.leftBarButtonItem = nil
             navigationItem.title = Flight.flightStringForAirports(flight.airports)
+        }
+    }
+    
+    var fundsUsed: [TravelFund] = [] {
+        didSet {
+            fundsUsedLabel.text = fundsUsed.isEmpty ? "None" : fundsUsed.map({ $0.originalFlight!.confirmationCode }).reduce("", combine: { $0 == "" ? $1 : $0 + ", " + $1 })
         }
     }
     
@@ -50,7 +62,7 @@ class FlightVC: InputVC {
             outboundPicker.setDate(flight.outboundDepartureDate, animated: false)
             returnPicker.setDate(flight.returnDepartureDate, animated: false)
             checkInReminderSwitch.setOn(flight.checkInReminder, animated: false)
-            // TODO: set funds used label
+            fundsUsed = flight.fundsUsed.swiftArray()
             notesTextField.text = flight.notes
             
             expirationChanged(expirationPicker)
@@ -106,6 +118,12 @@ class FlightVC: InputVC {
         
         let fundSelectionVC = segue.destinationViewController as FundSelectionVC
         fundSelectionVC.fundSelectionDataSource.targetAmount = (Double(costTextField.amount) > 0 ? Double(costTextField.amount) : nil)
+        fundSelectionVC.delegate = self
+    }
+    
+    func fundSelector(fundSelector: UIViewController, didSelectTravelFunds travelFunds: [TravelFund]) {
+        navigationController?.popToViewController(self, animated: true)
+        fundsUsed = travelFunds
     }
     
     // MARK: IBActions

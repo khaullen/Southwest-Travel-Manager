@@ -30,6 +30,14 @@ extension RLMArray {
     var intCount: Int {
         return Int(count)
     }
+    
+    func swiftArray<T>() -> [T] {
+        var array = [T]()
+        for object in self {
+            array.append(object as T)
+        }
+        return array
+    }
 
 }
 

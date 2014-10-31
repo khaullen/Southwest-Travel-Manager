@@ -11,9 +11,10 @@ import UIKit
 class FundSelectionVC: UITableViewController {
     
     @IBOutlet var fundSelectionDataSource: TravelFundSelectionDataSource!
-    
+    var delegate: FundSelectionDelegate?
+
     @IBAction func doneTapped(sender: UIBarButtonItem) {
-        
+        delegate?.fundSelector(self, didSelectTravelFunds: fundSelectionDataSource.selectedFunds)
     }
     
 }
