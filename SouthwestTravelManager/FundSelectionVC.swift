@@ -10,6 +10,8 @@ import UIKit
 
 class FundSelectionVC: UITableViewController {
     
+    @IBOutlet var fundSelectionDataSource: TravelFundSelectionDataSource!
+    
     @IBAction func doneTapped(sender: UIBarButtonItem) {
         
     }

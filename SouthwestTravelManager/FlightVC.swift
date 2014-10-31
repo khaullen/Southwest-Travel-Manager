@@ -105,7 +105,7 @@ class FlightVC: InputVC {
         super.prepareForSegue(segue, sender: sender)
         
         let fundSelectionVC = segue.destinationViewController as FundSelectionVC
-        let fundDataSource = fundSelectionVC.tableView.dataSource as TravelFundSelectionDataSource
+        fundSelectionVC.fundSelectionDataSource.targetAmount = (Double(costTextField.amount) > 0 ? Double(costTextField.amount) : nil)
     }
     
     // MARK: IBActions

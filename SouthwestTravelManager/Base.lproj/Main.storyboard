@@ -8,7 +8,7 @@
         <!--Upcoming Flights-->
         <scene sceneID="TXS-70-BRf">
             <objects>
-                <tableViewController id="uEE-sQ-NSq" customClass="ListVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="uEE-sQ-NSq" customClass="ListVC" customModule="SouthwestTravelManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bek-b3-HZ9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,14 +66,14 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qnE-Vx-jxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="gLE-Wh-tOD" customClass="FlightListDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="gLE-Wh-tOD" customClass="FlightListDataSource" customModule="SouthwestTravelManager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1562" y="-324"/>
         </scene>
         <!--Flight-->
         <scene sceneID="jsG-Wk-pLE">
             <objects>
-                <tableViewController id="q1o-yX-93c" userLabel="Flight" customClass="FlightVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="q1o-yX-93c" userLabel="Flight" customClass="FlightVC" customModule="SouthwestTravelManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="dNN-ks-awE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -450,7 +450,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heH-HV-qP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="9vV-YB-Gy3" customClass="FlightDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="9vV-YB-Gy3" customClass="FlightDelegate" customModule="SouthwestTravelManager" customModuleProvider="target"/>
                 <pickerView contentMode="scaleToFill" id="h3A-sO-TNk">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -459,7 +459,7 @@
                         <outlet property="delegate" destination="9vV-YB-Gy3" id="g0i-Br-Qwo"/>
                     </connections>
                 </pickerView>
-                <customObject id="GKt-re-YQL" customClass="ConfirmationDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="GKt-re-YQL" customClass="ConfirmationDelegate" customModule="SouthwestTravelManager" customModuleProvider="target"/>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="5" id="3a9-RG-0Hz" userLabel="Expiration Picker">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -505,7 +505,7 @@
         <!--Travel Funds-->
         <scene sceneID="Z7t-ic-ABA">
             <objects>
-                <tableViewController id="x8W-2k-nM9" customClass="FundSelectionVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="x8W-2k-nM9" customClass="FundSelectionVC" customModule="SouthwestTravelManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="fIk-xD-VqE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -558,9 +558,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="fundSelectionDataSource" destination="G1M-lm-eey" id="qjm-xh-jVq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJ2-93-opa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="G1M-lm-eey" customClass="TravelFundSelectionDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="G1M-lm-eey" customClass="TravelFundSelectionDataSource" customModule="SouthwestTravelManager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="3708" y="-328"/>
         </scene>
@@ -583,7 +586,7 @@
         <!--Travel Funds-->
         <scene sceneID="7dR-vY-d94">
             <objects>
-                <tableViewController id="pab-CQ-hHw" customClass="ListVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="pab-CQ-hHw" customClass="ListVC" customModule="SouthwestTravelManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aKk-7c-rCZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -641,7 +644,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbc-Oj-JEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="Arx-vO-wfH" customClass="TravelFundListDataSource" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="Arx-vO-wfH" customClass="TravelFundListDataSource" customModule="SouthwestTravelManager" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1562" y="360"/>
         </scene>
@@ -705,7 +708,7 @@
         <!--Travel Fund-->
         <scene sceneID="1TB-1P-PpM">
             <objects>
-                <tableViewController id="Iy1-NJ-d3V" userLabel="Travel Fund" customClass="TravelFundVC" customModule="Southwest_Travel_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Iy1-NJ-d3V" userLabel="Travel Fund" customClass="TravelFundVC" customModule="SouthwestTravelManager" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="ROx-tP-NgF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -952,7 +955,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="krn-ce-igQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="CY7-Vy-xXs" customClass="ConfirmationDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="CY7-Vy-xXs" customClass="ConfirmationDelegate" customModule="SouthwestTravelManager" customModuleProvider="target"/>
                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="5" id="1aX-07-dfv" userLabel="Expiration Picker">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -966,7 +969,7 @@
                         <action selector="expirationChanged:" destination="Iy1-NJ-d3V" eventType="valueChanged" id="BRO-Zh-UI0"/>
                     </connections>
                 </datePicker>
-                <customObject id="WGx-2L-Njd" customClass="FlightDelegate" customModule="Southwest_Travel_Manager" customModuleProvider="target"/>
+                <customObject id="WGx-2L-Njd" customClass="FlightDelegate" customModule="SouthwestTravelManager" customModuleProvider="target"/>
                 <pickerView contentMode="scaleToFill" id="kdP-Y3-UC1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
