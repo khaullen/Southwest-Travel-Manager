@@ -93,6 +93,7 @@ class FlightVC: InputVC {
         case (5, 0):
             flight.cancelFlight()
             delegate?.editor(self, didUpdateObject: flight)
+            // TODO: feature -- add flight cancel workflow that navigates to new travel fund
         default:
             return
         }
