@@ -35,7 +35,9 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
         switch indexPath.section {
         case 0:
             let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-            cell.accessoryType = contains(selectedFunds, travelFundAtIndexPath(indexPath)!) ? .Checkmark : .None
+            let fund = travelFundAtIndexPath(indexPath)!
+            cell.textLabel.text = availableBalanceForFund(fund).currencyValue
+            cell.accessoryType = selectionStateForFund(fund) ? .Checkmark : .None
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
@@ -58,13 +60,33 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 0) {
             if let selected = travelFundAtIndexPath(indexPath) {
-                if (contains(selectedFunds, selected)) {
-                    selectedFunds.remove(selected)
-                } else {
-                    selectedFunds.append(travelFundAtIndexPath(indexPath)!)
-                }
+                toggleSelectionForFund(selected)
                 tableView.reloadData()
             }
+        }
+    }
+    
+    // MARK: Custom logic
+    
+    func selectionStateForFund(fund: TravelFund) -> Bool {
+        return contains(selectedFunds, fund)
+    }
+    
+    func toggleSelectionForFund(fund: TravelFund) -> Bool {
+        if (contains(selectedFunds, fund)) {
+            selectedFunds.remove(fund)
+            return false
+        } else {
+            selectedFunds.append(fund)
+            return true
+        }
+    }
+    
+    func availableBalanceForFund(travelFund: TravelFund) -> Double {
+        if (contains(selectedFunds, travelFund)) {
+            return 0
+        } else {
+            return travelFund.balance
         }
     }
     
