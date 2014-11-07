@@ -91,7 +91,7 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
         if let target = targetAmount {
             let fundIndex = orderedFunds.indexOf(fund)
             if let index = fundIndex {
-                let remainingBalance = target - orderedFunds[0...index].map({ $0.balance }).reduce(0, +) + fund.balance
+                let remainingBalance = max(target - orderedFunds[0...index].map({ $0.balance }).reduce(0, +) + fund.balance, 0)
                 return max(fund.balance - remainingBalance, 0)
             }
         }
