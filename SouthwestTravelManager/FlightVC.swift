@@ -62,7 +62,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
             outboundPicker.setDate(flight.outboundDepartureDate, animated: false)
             returnPicker.setDate(flight.returnDepartureDate, animated: false)
             checkInReminderSwitch.setOn(flight.checkInReminder, animated: false)
-            fundsUsed = makeDictionary(flight.fundsUsed.swiftArray())
+            fundsUsed = Dictionary(collection: flight.fundsUsed.swiftArray(), valueSelector: { (fund: TravelFund) -> Double in return 0 })
             notesTextField.text = flight.notes
             
             expirationChanged(expirationPicker)

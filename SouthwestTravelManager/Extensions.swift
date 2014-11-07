@@ -79,13 +79,15 @@ public func <(lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.compare(rhs) == .OrderedAscending
 }
 
-// Note: tried extending Array to add this functionality, but can't enforce that generic Elements be Hashable
-// TODO: turn this into a generic convenience initializer on Dictionary
-func makeDictionary <Element> (collection: Array<Element>) -> [Element: Double] {
-    var result: [Element: Double] = [:]
-    for item in collection {
-        result[item] = 0
+
+extension Dictionary {
+    
+    init(collection: [Key], valueSelector:(Key) -> Value) {
+        self.init()
+        for item in collection {
+            self[item] = valueSelector(item)
+        }
     }
-    return result
+    
 }
 

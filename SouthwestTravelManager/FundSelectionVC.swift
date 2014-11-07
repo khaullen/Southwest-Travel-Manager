@@ -14,8 +14,9 @@ class FundSelectionVC: UITableViewController {
     var delegate: FundSelectionDelegate?
 
     @IBAction func doneTapped(sender: UIBarButtonItem) {
-        // TODO: fix me
-        delegate?.fundSelector(self, didSelectTravelFunds: makeDictionary(fundSelectionDataSource.selectedFunds))
+        delegate?.fundSelector(self, didSelectTravelFunds: Dictionary(collection: fundSelectionDataSource.selectedFunds, valueSelector: { (fund: TravelFund) -> Double in
+            return fund.balance - self.fundSelectionDataSource.availableBalanceForFund(fund)
+        }))
     }
     
 }
