@@ -13,6 +13,11 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     
     var targetAmount: Double?
     var selectedFunds: [TravelFund] = []
+    var orderedFunds: [TravelFund] {
+        return selectedFunds.sortBy({ (first: TravelFund, second: TravelFund) -> Bool in
+            return first.unusedTicket > second.unusedTicket || (first.unusedTicket == second.unusedTicket && first.expirationDate < second.expirationDate)
+        })
+    }
     
     override init() {
         super.init()
@@ -84,9 +89,6 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     
     func availableBalanceForFund(fund: TravelFund) -> Double {
         if let target = targetAmount {
-            let orderedFunds = selectedFunds.sortBy({ (first: TravelFund, second: TravelFund) -> Bool in
-                return first.unusedTicket > second.unusedTicket || (first.unusedTicket == second.unusedTicket && first.expirationDate < second.expirationDate)
-            })
             let fundIndex = orderedFunds.indexOf(fund)
             if let index = fundIndex {
                 let remainingBalance = target - orderedFunds[0...index].map({ $0.balance }).reduce(0, +) + fund.balance
