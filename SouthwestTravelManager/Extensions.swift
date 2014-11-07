@@ -79,3 +79,11 @@ public func <(lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.compare(rhs) == .OrderedAscending
 }
 
+func makeDictionary <Element> (collection: Array<Element>) -> [Element: Double] {
+    var result: [Element: Double] = [:]
+    for item in collection {
+        result[item] = 0
+    }
+    return result
+}
+
