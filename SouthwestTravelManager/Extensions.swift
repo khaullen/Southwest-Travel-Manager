@@ -48,3 +48,17 @@ public func ==(lhs: RLMObject, rhs: RLMObject) -> Bool {
 }
 
 
+extension Double {
+    
+    var currencyValue: String? {
+        return currencyFormatter.stringFromNumber(self)
+    }
+    
+}
+
+private let currencyFormatter: NSNumberFormatter = {
+    let formatter = NSNumberFormatter()
+    formatter.numberStyle = .CurrencyStyle
+    return formatter
+}()
+
