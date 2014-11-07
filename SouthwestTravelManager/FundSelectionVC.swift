@@ -14,7 +14,8 @@ class FundSelectionVC: UITableViewController {
     var delegate: FundSelectionDelegate?
 
     @IBAction func doneTapped(sender: UIBarButtonItem) {
-        delegate?.fundSelector(self, didSelectTravelFunds: fundSelectionDataSource.selectedFunds)
+        // TODO: fix me
+        delegate?.fundSelector(self, didSelectTravelFunds: makeDictionary(fundSelectionDataSource.selectedFunds))
     }
     
 }

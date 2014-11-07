@@ -10,7 +10,7 @@ import UIKit
 
 protocol FundSelectionDelegate {
     
-    func fundSelector(fundSelector: UIViewController, didSelectTravelFunds travelFunds: [TravelFund]) -> ()
+    func fundSelector(fundSelector: UIViewController, didSelectTravelFunds travelFunds: [TravelFund: Double]) -> ()
     
 }
 
@@ -32,9 +32,9 @@ class FlightVC: InputVC, FundSelectionDelegate {
         }
     }
     
-    var fundsUsed: [TravelFund] = [] {
+    var fundsUsed: [TravelFund: Double] = [:] {
         didSet {
-            fundsUsedLabel.text = fundsUsed.isEmpty ? "None" : fundsUsed.map({ $0.originalFlight!.confirmationCode }).reduce("", combine: { $0 == "" ? $1 : $0 + ", " + $1 })
+            fundsUsedLabel.text = fundsUsed.isEmpty ? "None" : Array(fundsUsed.keys).map({ $0.originalFlight!.confirmationCode }).reduce("", combine: { $0 == "" ? $1 : $0 + ", " + $1 })
         }
     }
     
@@ -62,7 +62,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
             outboundPicker.setDate(flight.outboundDepartureDate, animated: false)
             returnPicker.setDate(flight.returnDepartureDate, animated: false)
             checkInReminderSwitch.setOn(flight.checkInReminder, animated: false)
-            fundsUsed = flight.fundsUsed.swiftArray()
+            fundsUsed = makeDictionary(flight.fundsUsed.swiftArray())
             notesTextField.text = flight.notes
             
             expirationChanged(expirationPicker)
@@ -118,11 +118,11 @@ class FlightVC: InputVC, FundSelectionDelegate {
         
         let fundSelectionVC = segue.destinationViewController as FundSelectionVC
         fundSelectionVC.fundSelectionDataSource.targetAmount = (Double(costTextField.amount) > 0 ? Double(costTextField.amount) : nil)
-        fundSelectionVC.fundSelectionDataSource.selectedFunds = fundsUsed
+        fundSelectionVC.fundSelectionDataSource.selectedFunds = Array(fundsUsed.keys)
         fundSelectionVC.delegate = self
     }
     
-    func fundSelector(fundSelector: UIViewController, didSelectTravelFunds travelFunds: [TravelFund]) {
+    func fundSelector(fundSelector: UIViewController, didSelectTravelFunds travelFunds: [TravelFund: Double]) {
         navigationController?.popToViewController(self, animated: true)
         fundsUsed = travelFunds
     }
