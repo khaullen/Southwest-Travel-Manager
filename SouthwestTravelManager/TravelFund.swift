@@ -34,4 +34,5 @@ private let expirationDateFormatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
     formatter.dateStyle = .LongStyle
     return formatter
-    }()
+}()
+

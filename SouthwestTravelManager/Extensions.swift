@@ -62,3 +62,20 @@ private let currencyFormatter: NSNumberFormatter = {
     return formatter
 }()
 
+
+extension Bool: Comparable {}
+
+public func <(lhs: Bool, rhs: Bool) -> Bool {
+    return !lhs && rhs
+}
+
+extension NSDate: Comparable {}
+
+public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.isEqualToDate(rhs)
+}
+
+public func <(lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.compare(rhs) == .OrderedAscending
+}
+
