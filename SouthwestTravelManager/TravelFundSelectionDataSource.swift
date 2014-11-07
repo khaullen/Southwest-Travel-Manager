@@ -42,7 +42,7 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
             if let target = targetAmount {
-                cell.textLabel.text = target.currencyValue
+                cell.textLabel.text = max(target - selectedFunds.map({ $0.balance }).reduce(0, +), 0).currencyValue
                 cell.detailTextLabel?.text = "Remaining balance"
             } else {
                 cell.textLabel.text = selectedFunds.map({ $0.balance }).reduce(0, +).currencyValue
