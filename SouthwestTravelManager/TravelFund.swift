@@ -36,3 +36,19 @@ private let expirationDateFormatter: NSDateFormatter = {
     return formatter
 }()
 
+
+// Allows TravelFunds to be used as keys within dictionaries
+extension TravelFund: Hashable {
+    
+    // TODO: fix this hack
+    override var hashValue: Int {
+        return Int(expirationDate.timeIntervalSinceReferenceDate)
+    }
+    
+}
+
+// For some reason, the == function is not inherited from RLMObject
+func ==(lhs: TravelFund, rhs: TravelFund) -> Bool {
+    return lhs.isEqualToObject(rhs)
+}
+
