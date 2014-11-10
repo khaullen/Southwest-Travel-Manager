@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 protocol FundSelectionDelegate {
     
@@ -130,9 +131,8 @@ class FlightVC: InputVC, FundSelectionDelegate {
     // MARK: IBActions
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
-        if (flight.realm != nil) {
-            flight.realm.beginWriteTransaction()
-        }
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
         
         flight.airports = flightDelegate.selectedAirports
         flight.confirmationCode = confirmationTextField.text
@@ -147,11 +147,13 @@ class FlightVC: InputVC, FundSelectionDelegate {
         flight.notes = notesTextField.text
         
         if (flight.realm != nil) {
-            flight.realm.commitWriteTransaction()
             delegate?.editor(self, didUpdateObject: flight)
         } else {
             delegate?.editor(self, didCreateNewObject: flight)
         }
+        
+        realm.addOrUpdateObject(flight)
+        realm.commitWriteTransaction()
     }
     
     @IBAction func roundtripToggled(sender: UISwitch) {

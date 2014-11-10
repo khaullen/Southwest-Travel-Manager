@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Realm
 
 class TravelFundVC: InputVC {
 
@@ -68,9 +69,8 @@ class TravelFundVC: InputVC {
     // MARK: IBActions
     
     @IBAction func saveTapped(sender: UIBarButtonItem) {
-        if (travelFund.realm != nil) {
-            travelFund.realm.beginWriteTransaction()
-        }
+        let realm = RLMRealm.defaultRealm()
+        realm.beginWriteTransaction()
         
         travelFund.originalFlight?.airports = flightDelegate.selectedAirports
         travelFund.originalFlight?.confirmationCode = confirmationTextField.text
@@ -80,11 +80,13 @@ class TravelFundVC: InputVC {
         travelFund.notes = notesTextField.text
         
         if (travelFund.realm != nil) {
-            travelFund.realm.commitWriteTransaction()
             delegate?.editor(self, didUpdateObject: travelFund)
         } else {
             delegate?.editor(self, didCreateNewObject: travelFund)
         }
+        
+        realm.addOrUpdateObject(travelFund)
+        realm.commitWriteTransaction()
     }
     
 }

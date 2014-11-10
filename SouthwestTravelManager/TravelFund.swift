@@ -15,6 +15,11 @@ class TravelFund: RLMObject {
     dynamic var notes = ""
     dynamic var originalFlight: Flight?
     dynamic var unusedTicket = true
+    dynamic var uuid = NSUUID().UUIDString
+    
+    override class func primaryKey() -> String {
+        return "uuid"
+    }
     
     override init() {
         super.init()

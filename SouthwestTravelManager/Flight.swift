@@ -32,7 +32,12 @@ class Flight: RLMObject {
     dynamic var roundtrip = false
     dynamic var ticketNumber = ""
     dynamic var travelFund: TravelFund
+    dynamic var uuid = NSUUID().UUIDString
     
+    override class func primaryKey() -> String {
+        return "uuid"
+    }
+
     override convenience init() {
         self.init(travelFund: TravelFund())
     }

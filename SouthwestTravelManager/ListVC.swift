@@ -47,11 +47,6 @@ class ListVC: UITableViewController, EditDelegate {
     
     func editor(editor: UIViewController, didCreateNewObject object: RLMObject) {
         dismissViewControllerAnimated(true, completion: nil)
-        
-        let realm = RLMRealm.defaultRealm()
-        realm.transactionWithBlock { () -> Void in
-            realm.addObject(object)
-        }
     }
     
     func editor(editor: UIViewController, didUpdateObject object: RLMObject) {
