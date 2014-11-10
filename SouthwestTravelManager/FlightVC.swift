@@ -54,7 +54,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         outboundTextField.inputView = outboundPicker
         returnTextField.inputView = returnPicker
 
-        if (flight.realm != nil) {
+        if (!flight.isNew) {
             flightDelegate.selectAirports(flight.airports, inPicker: flightPicker)
             confirmationTextField.text = flight.confirmationCode
             costTextField.amount = flight.cost
@@ -90,7 +90,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let hideSection = (flight.realm == nil)
+        let hideSection = flight.isNew
         return super.numberOfSectionsInTableView(tableView) - Int(hideSection)
     }
 
