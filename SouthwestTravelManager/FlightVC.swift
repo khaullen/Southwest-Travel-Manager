@@ -99,6 +99,15 @@ class FlightVC: InputVC, FundSelectionDelegate {
         return super.tableView(tableView, numberOfRowsInSection: section) - Int(hideRow)
     }
     
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        if (!flight.isNew && indexPath.section == 3 && indexPath.row == 0) {
+            cell.accessoryType = .None
+            cell.userInteractionEnabled = false
+        }
+        return cell
+    }
+    
     // MARK: Table view delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
