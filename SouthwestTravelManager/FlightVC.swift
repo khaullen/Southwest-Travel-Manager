@@ -142,11 +142,10 @@ class FlightVC: InputVC, FundSelectionDelegate {
         flight.outboundDepartureDate = outboundPicker.date
         flight.returnDepartureDate = returnPicker.date
         flight.checkInReminder = checkInReminderSwitch.on
-        flight.fundsUsed.removeAllObjects()
-        flight.fundsUsed.addObjectsFromArray(fundsUsed)
+        flight.useFunds(fundsUsed)
         flight.notes = notesTextField.text
         
-        if (flight.realm != nil) {
+        if (!flight.isNew) {
             delegate?.editor(self, didUpdateObject: flight)
         } else {
             delegate?.editor(self, didCreateNewObject: flight)

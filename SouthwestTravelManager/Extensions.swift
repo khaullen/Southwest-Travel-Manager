@@ -41,6 +41,14 @@ extension RLMArray {
 
 }
 
+extension RLMObject {
+    
+    var isNew: Bool {
+        return realm == nil
+    }
+    
+}
+
 extension RLMObject: Equatable {}
 
 public func ==(lhs: RLMObject, rhs: RLMObject) -> Bool {

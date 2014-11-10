@@ -48,6 +48,16 @@ class Flight: RLMObject {
         travelFund.originalFlight = self
     }
     
+    func useFunds(funds: [TravelFund: Double]) {
+        // No support for modifying funds used after creation
+        if isNew {
+            for (fund, amountApplied) in funds {
+                fund.balance -= amountApplied
+            }
+            fundsUsed.addObjectsFromArray(Array(funds.keys))
+        }
+    }
+    
     func cancelFlight() {
         if let realm = realm {
             realm.transactionWithBlock({ () -> Void in
