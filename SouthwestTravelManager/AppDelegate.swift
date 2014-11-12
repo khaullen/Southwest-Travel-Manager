@@ -16,7 +16,7 @@ import Realm
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    private let notificationManager = NotificationManager.sharedManager // initializes singleton
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
