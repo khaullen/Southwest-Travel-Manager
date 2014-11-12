@@ -18,8 +18,23 @@ class NotificationManager {
         return Static.instance
     }
     
+    let operationQueue = NSOperationQueue()
+    
     let token = RLMRealm.defaultRealm().addNotificationBlock { (note, realm) -> Void in
+        let operation = LocalNotificationOperation()
+        NotificationManager.sharedManager.operationQueue.addOperation(operation)
+    }
+    
+}
+
+
+class LocalNotificationOperation: NSOperation {
+    
+    override func main() {
+        
+        let realm = RLMRealm.defaultRealm()
         println(realm)
+        
     }
     
 }
