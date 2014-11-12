@@ -23,7 +23,7 @@ class NotificationManager {
     
     init() {
         let queue = NSOperationQueue()
-        token = RLMRealm.defaultRealm().addNotificationBlock { (note, realm) -> Void in
+        token = RLMRealm.defaultRealm().addNotificationBlock { (_, _) in
             let operation = LocalNotificationOperation()
             queue.addOperation(operation)
         }
