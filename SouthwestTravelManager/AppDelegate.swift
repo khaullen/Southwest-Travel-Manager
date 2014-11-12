@@ -32,8 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 })
             }
         })
+        
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil))
 
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        // TODO: feature -- do something if these notifications are not sufficient
+        println(notificationSettings)
     }
 
     func applicationWillResignActive(application: UIApplication) {
