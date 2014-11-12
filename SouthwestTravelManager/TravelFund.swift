@@ -45,9 +45,8 @@ private let expirationDateFormatter: NSDateFormatter = {
 // Allows TravelFunds to be used as keys within dictionaries
 extension TravelFund: Hashable {
     
-    // TODO: fix this hack
     override var hashValue: Int {
-        return Int(expirationDate.timeIntervalSinceReferenceDate)
+        return uuid.hashValue
     }
     
 }
