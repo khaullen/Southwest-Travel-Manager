@@ -9,6 +9,9 @@
 import UIKit
 import Realm
 
+// TODO: About page
+// TODO: Local notifications
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
