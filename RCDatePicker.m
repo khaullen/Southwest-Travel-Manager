@@ -21,13 +21,27 @@
 
 @synthesize RCTimeZone = _RCTimeZone;
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [super setTimeZone:[NSTimeZone localTimeZone]];
+        [self setupTimeZones];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setupTimeZones];
+    }
+    return self;
+}
+
+- (void)setupTimeZones
+{
+    super.timeZone = self.timeZone = [NSTimeZone localTimeZone];
 }
 
 - (void)setTimeZone:(NSTimeZone *)timeZone {
