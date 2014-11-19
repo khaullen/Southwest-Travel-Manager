@@ -40,6 +40,18 @@ class LocalNotificationOperation: NSOperation {
         let realm = RLMRealm.defaultRealm()
         println(realm)
         
+        // TODO: feature -- add periodic notifications to use funds
+        // TODO: feature -- reminder to cancel flights if not checked in
+        
+        // Check in alerts
+        let allFlights = Flight.objectsWhere("checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).arraySortedByProperty("outboundDepartureDate", ascending: true)
+        let notifications = allFlights.swiftArray().map({ (f: Flight) -> [UILocalNotification] in
+            return f.segments.map({ (s: Segment) -> UILocalNotification in
+                return s.checkInReminder()
+            })
+        }).flattenAny()
+        
+        UIApplication.sharedApplication().scheduledLocalNotifications = notifications
     }
     
 }

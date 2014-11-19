@@ -86,3 +86,50 @@ class Flight: RLMObject {
     }
     
 }
+
+
+
+struct Segment {
+    
+    let airportA: Airport
+    let airportB: Airport
+    let arrivalDate: NSDate
+    let checkedIn: Bool
+    let departureDate: NSDate
+    let flightNumber: String
+    
+    // TODO: feature -- add custom sound (up to 30 seconds, aiff/wav)
+    // afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
+    
+    func checkInReminder() -> UILocalNotification {
+        let reminder = UILocalNotification()
+        reminder.fireDate = departureDate.dateByAddingTimeInterval(-60 * 5)
+        reminder.timeZone = airportA.timeZoneObject
+        reminder.alertBody = "Check in for \(Flight.flightStringForAirports(airportA, airportB))"
+        reminder.alertAction = "Check In"
+        reminder.soundName = UILocalNotificationDefaultSoundName
+        
+        return reminder
+    }
+    
+}
+
+extension Flight {
+    
+    var outboundSegment: Segment {
+        return Segment(airportA: origin, airportB: destination, arrivalDate: outboundArrivalDate, checkedIn: outboundCheckedIn, departureDate: outboundDepartureDate, flightNumber: outboundFlightNumber)
+    }
+    
+    var returnSegment: Segment? {
+        return roundtrip ? Segment(airportA: destination, airportB: origin, arrivalDate: returnArrivalDate, checkedIn: returnCheckedIn, departureDate: returnDepartureDate, flightNumber: returnFlightNumber) : nil
+    }
+    
+    var segments: [Segment] {
+        if let returnSegment = returnSegment {
+            return [outboundSegment, returnSegment]
+        } else {
+            return [outboundSegment]
+        }
+    }
+    
+}

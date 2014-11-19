@@ -10,7 +10,7 @@ import UIKit
 import Realm
 
 // TODO: About page
-// TODO: Local notifications
+// TODO: feature -- electronic boarding pass management (QR code)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
+        // TODO: feature -- add check in action
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil))
 
         return true
