@@ -103,7 +103,7 @@ struct Segment {
     
     func checkInReminder() -> UILocalNotification {
         let reminder = UILocalNotification()
-        reminder.fireDate = departureDate.dateByAddingTimeInterval(-60 * 5)
+        reminder.fireDate = departureDate.dateByAddingTimeInterval((-60 * 5) /* five minutes */ + (-60 * 60 * 24) /* and one day */)
         reminder.timeZone = airportA.timeZoneObject
         reminder.alertBody = "Check in for \(Flight.flightStringForAirports(airportA, airportB))"
         reminder.alertAction = "Check In"
