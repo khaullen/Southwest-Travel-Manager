@@ -38,7 +38,6 @@ class LocalNotificationOperation: NSOperation {
     override func main() {
         
         let realm = RLMRealm.defaultRealm()
-        println(realm)
         
         // TODO: feature -- add periodic notifications to use funds
         // TODO: feature -- reminder to cancel flights if not checked in
@@ -52,6 +51,7 @@ class LocalNotificationOperation: NSOperation {
         }).flattenAny()
         
         UIApplication.sharedApplication().scheduledLocalNotifications = notifications
+        println(UIApplication.sharedApplication().scheduledLocalNotifications)
     }
     
 }
