@@ -169,9 +169,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
     
     @IBAction func roundtripToggled(sender: UISwitch) {
         tableView.reloadData()
-        if (!sender.on) {
-            outboundPicker.maximumDate = nil
-        }
+        outboundPicker.maximumDate = sender.on ? returnPicker.date : nil
     }
 
     @IBAction func outboundChanged(sender: AnyObject) {
@@ -181,7 +179,9 @@ class FlightVC: InputVC, FundSelectionDelegate {
     
     @IBAction func returnChanged(sender: AnyObject) {
         returnTextField.text = returnPicker.date.departureStringWithStyle(.MediumStyle, inTimeZone: returnPicker.timeZone)
-        outboundPicker.maximumDate = returnPicker.date
+        if roundtripSwitch.on {
+            outboundPicker.maximumDate = returnPicker.date
+        }
     }
     
 }
