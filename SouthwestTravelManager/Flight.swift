@@ -54,7 +54,7 @@ class Flight: RLMObject {
             for (fund, amountApplied) in funds {
                 fund.balance -= amountApplied
             }
-            fundsUsed.addObjectsFromArray(Array(funds.keys))
+            fundsUsed.addObjects(Array(funds.keys))
         }
     }
     

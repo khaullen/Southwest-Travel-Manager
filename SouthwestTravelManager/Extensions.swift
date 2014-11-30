@@ -25,20 +25,20 @@ private let departureDateFormatter: NSDateFormatter = {
     return formatter
 }()
 
-extension RLMArray {
+extension RLMResults {
     
     var intCount: Int {
         return Int(count)
     }
-    
-    func swiftArray<T>() -> [T] {
-        var array = [T]()
-        for object in self {
-            array.append(object as T)
-        }
-        return array
-    }
 
+}
+
+public func swiftArray<T, S: SequenceType>(collection: S) -> [T] {
+    var array = [T]()
+    for object in collection {
+        array.append(object as T)
+    }
+    return array
 }
 
 extension RLMObject {

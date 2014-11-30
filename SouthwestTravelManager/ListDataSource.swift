@@ -11,7 +11,7 @@ import Realm
 
 class ListDataSource: NSObject, UITableViewDataSource {
     
-    var array: [RLMArray] = []
+    var array: [RLMResults] = []
     var token: RLMNotificationToken?
     
     func setUpdateBlock(block: RLMNotificationBlock) -> () {
