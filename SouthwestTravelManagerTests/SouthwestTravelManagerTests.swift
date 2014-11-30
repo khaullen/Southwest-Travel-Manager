@@ -1,6 +1,6 @@
 //
-//  Southwest_Travel_ManagerTests.swift
-//  Southwest Travel ManagerTests
+//  SouthwestTravelManagerTests.swift
+//  SouthwestTravelManagerTests
 //
 //  Created by Colin Regan on 10/2/14.
 //  Copyright (c) 2014 Red Cup. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class Southwest_Travel_ManagerTests: XCTestCase {
+class SouthwestTravelManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
