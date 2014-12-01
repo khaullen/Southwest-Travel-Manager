@@ -45,7 +45,7 @@ class LocalNotificationOperation: NSOperation {
         // Check in alerts
         let allFlights = Flight.objectsWhere("checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
         let notifications = swiftArray(allFlights).map({ (f: Flight) -> [UILocalNotification] in
-            return f.segments.map({ (s: Segment) -> UILocalNotification in
+            return f.segments.map({ (s: Flight.Segment) -> UILocalNotification in
                 return s.checkInReminder()
             })
         }).flattenAny()
