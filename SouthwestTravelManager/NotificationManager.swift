@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Realm
 
 class NotificationManager {
@@ -55,7 +56,8 @@ class LocalNotificationOperation: NSOperation {
         // TODO: feature -- reminder to cancel flights if not checked in
         
         // Check in alerts
-        let allFlights = Flight.objectsInRealm(backgroundRealm, "checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
+        let predicate = "checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))"
+        let allFlights = Flight.objectsInRealm(backgroundRealm, predicate, NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
         let notifications = swiftArray(allFlights).map({ (f: Flight) -> [UILocalNotification] in
             return f.segments.map({ (s: Flight.Segment) -> UILocalNotification in
                 return s.checkInReminder()
