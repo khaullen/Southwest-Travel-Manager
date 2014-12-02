@@ -35,15 +35,27 @@ class NotificationManager {
 
 class LocalNotificationOperation: NSOperation {
     
+    let realm: RLMRealm
+    
+    init(realm: RLMRealm) {
+        self.realm = realm
+        super.init()
+    }
+    
+    override convenience init() {
+        self.init(realm: RLMRealm.defaultRealm())
+    }
+    
     override func main() {
         
-        let realm = RLMRealm.defaultRealm()
+        // Needed to refetch realm in background thread
+        let backgroundRealm = RLMRealm(path: realm.path)
         
         // TODO: feature -- add periodic notifications to use funds
         // TODO: feature -- reminder to cancel flights if not checked in
         
         // Check in alerts
-        let allFlights = Flight.objectsWhere("checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
+        let allFlights = Flight.objectsInRealm(backgroundRealm, "checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
         let notifications = swiftArray(allFlights).map({ (f: Flight) -> [UILocalNotification] in
             return f.segments.map({ (s: Flight.Segment) -> UILocalNotification in
                 return s.checkInReminder()
