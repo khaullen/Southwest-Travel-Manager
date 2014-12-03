@@ -80,9 +80,10 @@ class Flight: RLMObject {
         }
     }
     
+    // TODO: feature -- add bidirectional arrow (↔ or ⇄) for roundtrip flights
     class func flightStringForAirports(airports: (Airport, Airport)) -> String {
         let (origin, destination) = airports
-        return origin.airportCode + " -> " + destination.airportCode
+        return origin.city + " → " + destination.city
     }
     
 }

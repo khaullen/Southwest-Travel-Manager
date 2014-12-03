@@ -15,9 +15,7 @@ class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var selectedAirports: (Airport, Airport) {
         didSet {
-            if let block = updateBlock {
-                block(delegate: self)
-            }
+            updateBlock?(delegate: self)
         }
     }
     
@@ -53,8 +51,6 @@ class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     @IBAction func editingDidBegin(sender: UITextField) {
-        if let block = updateBlock {
-            block(delegate: self)
-        }
+        updateBlock?(delegate: self)
     }
 }
