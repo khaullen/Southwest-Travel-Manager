@@ -58,7 +58,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Upcoming Flights" id="IAU-xQ-6Yj">
-                        <barButtonItem key="leftBarButtonItem" title="ⓘ" style="plain" id="ioa-Mo-Duz">
+                        <barButtonItem key="leftBarButtonItem" title="ⓘ" id="ioa-Mo-Duz">
                             <connections>
                                 <segue destination="TrU-i2-Ath" kind="presentation" id="HH0-Bk-7MM"/>
                             </connections>
