@@ -21,6 +21,7 @@
 		3B2BBF1A1A2E33F500393C8C /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
 		3B30CC1D1A03390900D89D5C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B30CC1C1A03390900D89D5C /* Default-568h@2x.png */; };
 		3B560FC21A2FF2D1008E3834 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC11A2FF2D1008E3834 /* AboutVC.swift */; };
+		3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
 		3B58882B1A2B942600532BE2 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B58882A1A2B942600532BE2 /* Realm.framework */; };
 		3B58882D1A2B944900532BE2 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B58882C1A2B944900532BE2 /* RLMSupport.swift */; };
 		3B78F93C19F06ADB0066074D /* ConfirmationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */; };
@@ -78,6 +79,7 @@
 		3B1A4C8A19DE0C09000F265C /* SouthwestTravelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthwestTravelManagerTests.swift; sourceTree = "<group>"; };
 		3B30CC1C1A03390900D89D5C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		3B560FC11A2FF2D1008E3834 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		3B560FC31A30DD6A008E3834 /* Passenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
 		3B58882A1A2B942600532BE2 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		3B58882C1A2B944900532BE2 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				3BA67F6719E88364007CE97D /* Flight.swift */,
 				3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */,
 				3BF7916C19EC54A20081CEE6 /* Airport.swift */,
+				3B560FC31A30DD6A008E3834 /* Passenger.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				3BE9045319F72A8D00B0977F /* ListDataSource.swift in Sources */,
 				3BE9045519F8614300B0977F /* Extensions.swift in Sources */,
 				3B7A576B1A03C1C900EB1B34 /* Array.swift in Sources */,
+				3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */,
 				3BEDCED11A12A366009AFA85 /* RCDatePicker.m in Sources */,
 				3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */,
 				3B7A57731A03C1C900EB1B34 /* Range.swift in Sources */,
