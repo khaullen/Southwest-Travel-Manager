@@ -10,11 +10,28 @@ import Foundation
 
 class AboutVC: UITableViewController {
     
+    var user: Passenger {
+        get {
+            return Passenger(firstName: firstNameTextField.text, lastName: lastNameTextField.text, accountNumber: accountNumberTextField.text)
+        }
+        set {
+            firstNameTextField.text = newValue.firstName
+            lastNameTextField.text = newValue.lastName
+            accountNumberTextField.text = newValue.accountNumber
+        }
+    }
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var accountNumberTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        user = Passenger.defaultPassenger
+    }
+    
     @IBAction func doneTapped(sender: UIBarButtonItem) {
+        Passenger.defaultPassenger = user
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
