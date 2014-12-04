@@ -52,6 +52,12 @@ class FlightVC: InputVC, FundSelectionDelegate {
             let (origin, destination) = delegate.selectedAirports
             self.outboundPicker.timeZone = origin.timeZoneObject
             self.returnPicker.timeZone = destination.timeZoneObject
+            if (self.outboundTextField.text != "") {
+                self.outboundChanged(self.outboundTextField)
+            }
+            if (self.returnTextField.text != "") {
+                self.returnChanged(self.returnTextField)
+            }
         }
 
         outboundTextField.inputView = outboundPicker
