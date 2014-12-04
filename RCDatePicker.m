@@ -21,6 +21,8 @@
 
 @synthesize RCTimeZone = _RCTimeZone;
 
+#pragma mark - Initialization
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -44,6 +46,8 @@
     super.timeZone = self.timeZone = [NSTimeZone localTimeZone];
 }
 
+#pragma mark - Overridden methods
+
 - (void)setTimeZone:(NSTimeZone *)timeZone {
     self.RCTimeZone = timeZone;
 }
@@ -63,6 +67,28 @@
 - (NSDate *)date {
     return [self trueDateInTimeZone:self.RCTimeZone forDate:[super date]];
 }
+
+- (void)setMaximumDate:(NSDate *)maximumDate
+{
+    [super setMaximumDate:[self fakeDateForTimeZone:self.RCTimeZone forDate:maximumDate]];
+}
+
+- (NSDate *)maximumDate
+{
+    return [self trueDateInTimeZone:self.RCTimeZone forDate:[super maximumDate]];
+}
+
+- (void)setMinimumDate:(NSDate *)minimumDate
+{
+    [super setMinimumDate:[self fakeDateForTimeZone:self.RCTimeZone forDate:minimumDate]];
+}
+
+- (NSDate *)minimumDate
+{
+    return [self trueDateInTimeZone:self.RCTimeZone forDate:[super minimumDate]];
+}
+
+#pragma mark - Helpers
 
 - (NSDate *)fakeDateForTimeZone:(NSTimeZone *)timeZone forDate:(NSDate *)date {
     NSTimeInterval timeOffset = [timeZone secondsFromGMT] - [super.timeZone secondsFromGMT];
