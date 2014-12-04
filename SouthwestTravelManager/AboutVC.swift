@@ -10,6 +10,10 @@ import Foundation
 
 class AboutVC: UITableViewController {
     
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var accountNumberTextField: UITextField!
+    
     @IBAction func doneTapped(sender: UIBarButtonItem) {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }

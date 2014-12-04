@@ -298,6 +298,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="accountNumberTextField" destination="3Fw-h1-Dr2" id="TKz-od-EvA"/>
+                        <outlet property="firstNameTextField" destination="F7w-5c-shO" id="Fvz-bz-puh"/>
+                        <outlet property="lastNameTextField" destination="z3d-1M-5mf" id="bbG-p8-bPJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZ1-WM-cGP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
