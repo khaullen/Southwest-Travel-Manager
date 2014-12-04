@@ -21,12 +21,14 @@ class AboutVC: UITableViewController {
         }
     }
     
+    @IBOutlet weak var versionCell: UITableViewCell!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var accountNumberTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        versionCell.detailTextLabel?.text = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? String
         user = Passenger.defaultPassenger
     }
     
