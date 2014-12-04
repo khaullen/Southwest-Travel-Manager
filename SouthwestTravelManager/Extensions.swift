@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import Realm
 
 extension NSDate {
@@ -94,6 +95,25 @@ extension Dictionary {
         self.init()
         for item in collection {
             self[item] = valueSelector(item)
+        }
+    }
+    
+}
+
+
+extension UIApplication {
+    
+    func openUntilSuccessful(urls: [NSURL]) -> Bool {
+        if (urls.isEmpty) {
+            return false
+        }
+        
+        var array = urls
+        let url = array.shift()
+        if openURL(url) {
+            return true
+        } else {
+            return openUntilSuccessful(array)
         }
     }
     
