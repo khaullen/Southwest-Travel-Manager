@@ -9,6 +9,10 @@
 import UIKit
 import Realm
 
+// TODO: migrate flights and funds from Core Data
+// TODO: graphics
+// TODO: test check in notifications
+
 // TODO: feature -- electronic boarding pass management (QR code)
 
 @UIApplicationMain
