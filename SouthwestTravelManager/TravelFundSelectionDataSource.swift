@@ -41,16 +41,16 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
         case 0:
             let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
             let fund = travelFundAtIndexPath(indexPath)!
-            cell.textLabel.text = availableBalanceForFund(fund).currencyValue
+            cell.textLabel?.text = availableBalanceForFund(fund).currencyValue
             cell.accessoryType = selectionStateForFund(fund) ? .Checkmark : .None
             return cell
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
             if let target = targetAmount {
-                cell.textLabel.text = max(target - selectedFunds.map({ $0.balance }).reduce(0, +), 0).currencyValue
+                cell.textLabel?.text = max(target - selectedFunds.map({ $0.balance }).reduce(0, +), 0).currencyValue
                 cell.detailTextLabel?.text = "Remaining balance"
             } else {
-                cell.textLabel.text = selectedFunds.map({ $0.balance }).reduce(0, +).currencyValue
+                cell.textLabel?.text = selectedFunds.map({ $0.balance }).reduce(0, +).currencyValue
                 cell.detailTextLabel?.text = "Total selected funds"
             }
             return cell

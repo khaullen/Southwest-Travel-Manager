@@ -109,7 +109,8 @@ extension UIApplication {
         }
         
         var array = urls
-        let url = array.shift()
+        // TODO: figure out why shift doesn't work here
+        let url = array.removeAtIndex(0)
         if openURL(url) {
             return true
         } else {
