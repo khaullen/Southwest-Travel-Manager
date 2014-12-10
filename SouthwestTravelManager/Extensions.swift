@@ -120,3 +120,17 @@ extension UIApplication {
     
 }
 
+extension UIDevice {
+    
+    var machineName: String {
+        var systemInfo = UnsafeMutablePointer<utsname>.alloc(1)
+        uname(systemInfo);
+        var machine = systemInfo.memory.machine
+        systemInfo.destroy()
+        return ""
+        // TODO: fix this
+//        return NSString(CString: machine, encoding: NSString.defaultCStringEncoding())
+    }
+    
+}
+
