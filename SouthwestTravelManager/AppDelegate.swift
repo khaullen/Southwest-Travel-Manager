@@ -9,7 +9,6 @@
 import UIKit
 import Realm
 
-// TODO: About page
 // TODO: feature -- electronic boarding pass management (QR code)
 
 @UIApplicationMain
