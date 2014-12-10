@@ -58,7 +58,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Upcoming Flights" id="IAU-xQ-6Yj">
-                        <barButtonItem key="leftBarButtonItem" title="ⓘ" id="ioa-Mo-Duz">
+                        <barButtonItem key="leftBarButtonItem" title="About" id="ioa-Mo-Duz">
                             <connections>
                                 <segue destination="TrU-i2-Ath" kind="presentation" id="HH0-Bk-7MM"/>
                             </connections>
@@ -891,6 +891,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Travel Funds" id="Fco-tH-W1p">
+                        <barButtonItem key="leftBarButtonItem" title="About" id="YvZ-2u-pzT">
+                            <connections>
+                                <segue destination="TrU-i2-Ath" kind="presentation" id="Jdq-iZ-a4z"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="9WO-zl-IYe">
                             <connections>
                                 <segue destination="ESI-tr-2BR" kind="presentation" id="ber-YS-pNQ"/>
@@ -1259,6 +1264,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gZH-nW-hEL"/>
+        <segue reference="Jdq-iZ-a4z"/>
         <segue reference="7Ge-zu-uyh"/>
     </inferredMetricsTieBreakers>
 </document>
