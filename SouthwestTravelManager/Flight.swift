@@ -107,7 +107,7 @@ extension Flight {
         func checkInReminder() -> UILocalNotification {
             let reminder = UILocalNotification()
             reminder.fireDate = departureDate.dateByAddingTimeInterval((-60 * 5) /* five minutes */ + (-60 * 60 * 24) /* and one day */)
-            reminder.timeZone = airportA.timeZoneObject
+            // NOTE: do not set timeZone attribute -- http://stackoverflow.com/questions/18424569/understanding-uilocalnotification-timezone
             reminder.alertBody = "Check in for \(Flight.flightStringForAirports(airportA, airportB))"
             reminder.alertAction = "Check In"
             reminder.soundName = UILocalNotificationDefaultSoundName

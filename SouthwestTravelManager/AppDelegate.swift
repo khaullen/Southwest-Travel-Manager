@@ -11,7 +11,6 @@ import Realm
 
 // TODO: migrate flights and funds from Core Data
 // TODO: graphics
-// TODO: test check in notifications
 
 // TODO: feature -- electronic boarding pass management (QR code)
 
@@ -38,6 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // TODO: feature -- add check in action
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil))
+        
+        let a: UILocalNotification? = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification
+        println("Launched with notification: \(a)")
 
         return true
     }
