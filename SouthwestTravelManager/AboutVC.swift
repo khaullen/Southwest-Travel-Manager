@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MessageUI
 
-class AboutVC: UITableViewController {
+class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     var user: Passenger {
         get {
@@ -36,27 +37,8 @@ class AboutVC: UITableViewController {
         Passenger.defaultPassenger = user
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    struct Constants {
-        
-        static let FACEBOOK_LINK = "fb://profile/117102751770408"
-        static let FACEBOOK_SAFARI_LINK = "http://www.facebook.com/SouthwestTravelManager"
-        static let ITUNES_LINK = "itms-apps://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8"
-        static let REVIEW_LINK = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=559944769&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8"
 
-        static var VERSION_STRING: String {
-            return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String
-        }
-        
-        static var EMAIL_SUPPORT_BODY: String {
-            return "\n\n\n\nVersion \(VERSION_STRING)\n\(UIDevice.currentDevice().systemName) \(UIDevice.currentDevice().systemVersion)\n\(UIDevice.currentDevice().machineName)"
-        }
-        
-        static func TELL_FRIEND_BODY(from: String) -> String {
-            return "Hey check out this app:\n\nhttp://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8\n\nIt's a utility app for Southwest Airlines travelers that reminds you to check in for upcoming flights and manages your unused travel funds.\n\n\nRegards,\n\(from)"
-        }
-        
-    }
+    // TODO: disable mail buttons if MFMailComposeViewController.canSendMail() returns false
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 2) {
@@ -76,7 +58,41 @@ class AboutVC: UITableViewController {
         }
     }
     
+    // MARK: Email
+    
     func presentMailComposeViewControllerTo(recipients: [String]?, subject: String?, messageBody: String?) {
-        // TODO: complete
+        let mailVC = MFMailComposeViewController()
+        mailVC.setToRecipients(recipients)
+        mailVC.setSubject(subject)
+        mailVC.setMessageBody(messageBody, isHTML: false)
+        mailVC.mailComposeDelegate = self
+        presentViewController(mailVC, animated: true, completion: nil)
     }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    struct Constants {
+        
+        static let FACEBOOK_LINK = "fb://profile/117102751770408"
+        static let FACEBOOK_SAFARI_LINK = "http://www.facebook.com/SouthwestTravelManager"
+        static let ITUNES_LINK = "itms-apps://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8"
+        static let REVIEW_LINK = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=559944769&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8"
+        
+        static var VERSION_STRING: String {
+            return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String
+        }
+        
+        static var EMAIL_SUPPORT_BODY: String {
+            return "\n\n\n\nVersion \(VERSION_STRING)\n\(UIDevice.currentDevice().systemName) \(UIDevice.currentDevice().systemVersion)\n\(UIDevice.currentDevice().machineName)"
+        }
+        
+        static func TELL_FRIEND_BODY(from: String) -> String {
+            return "Hey check out this app:\n\nhttp://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8\n\nIt's a utility app for Southwest Airlines travelers that reminds you to check in for upcoming flights and manages your unused travel funds.\n\n\nRegards,\n\(from)"
+        }
+        
+    }
+
+
 }
