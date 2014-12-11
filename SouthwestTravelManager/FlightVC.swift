@@ -96,7 +96,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         }
     }
 
-    // MARK: - Table view data source
+    // MARK: Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let hideSection = flight.isNew
@@ -130,7 +130,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         }
     }
 
-    // MARK: - Navigation
+    // MARK: Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         super.prepareForSegue(segue, sender: sender)

@@ -43,7 +43,7 @@ class TravelFundVC: InputVC {
         }
     }
     
-    // MARK: - Table view data source
+    // MARK: Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         let hideSection = (travelFund.isNew)
