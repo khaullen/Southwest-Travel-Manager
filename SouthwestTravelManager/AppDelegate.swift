@@ -10,7 +10,7 @@ import UIKit
 import Realm
 
 // TODO: migrate flights and funds from Core Data
-// TODO: graphics
+// TODO: action sheet for destruction
 
 // TODO: feature -- electronic boarding pass management (QR code)
 

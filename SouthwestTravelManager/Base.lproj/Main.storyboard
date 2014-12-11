@@ -86,7 +86,7 @@
                         <sections>
                             <tableViewSection id="IdR-rJ-d6X">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="DFr-w3-3bD" style="IBUITableViewCellStyleDefault" id="Szs-8e-nul">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="DFr-w3-3bD" imageView="tjG-yd-AXh" rowHeight="108" style="IBUITableViewCellStyleDefault" id="Szs-8e-nul">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Szs-8e-nul" id="bQl-UK-GbE">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -97,6 +97,9 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ClearArtwork" id="tjG-yd-AXh">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1261,6 +1264,7 @@
     <resources>
         <image name="33-cabinet" width="20" height="26"/>
         <image name="38-airplane" width="22" height="24"/>
+        <image name="ClearArtwork" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gZH-nW-hEL"/>
