@@ -53,14 +53,22 @@ class TravelFundVC: InputVC {
     // MARK: Table view delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case (3, 0):
-            if let realm = travelFund.realm {
-                realm.transactionWithBlock({ () -> Void in
-                    realm.deleteObject(self.travelFund)
-                })
-            }
-            delegate?.editor(self, didUpdateObject: travelFund)
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            alertController.addAction(UIAlertAction(title: "Delete Fund", style: .Destructive, handler: { (alert: UIAlertAction!) -> Void in
+                if let realm = self.travelFund.realm {
+                    realm.transactionWithBlock({ () -> Void in
+                        realm.deleteObject(self.travelFund)
+                    })
+                }
+                self.delegate?.editor(self, didUpdateObject: self.travelFund)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alert: UIAlertAction!) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            presentViewController(alertController, animated: true, completion: nil)
         default:
             return
         }

@@ -127,11 +127,18 @@ class FlightVC: InputVC, FundSelectionDelegate {
     // MARK: Table view delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case (5, 0):
-            flight.cancelFlight()
-            delegate?.editor(self, didUpdateObject: flight)
-            // TODO: feature -- add flight cancel workflow that navigates to new travel fund
+            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            alertController.addAction(UIAlertAction(title: "Cancel Flight", style: .Destructive, handler: { (alert: UIAlertAction!) -> Void in
+                self.flight.cancelFlight()
+                self.delegate?.editor(self, didUpdateObject: self.flight)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alert: UIAlertAction!) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            presentViewController(alertController, animated: true, completion: nil)
         default:
             return
         }
