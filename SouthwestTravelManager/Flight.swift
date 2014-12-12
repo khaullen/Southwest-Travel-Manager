@@ -53,6 +53,7 @@ class Flight: RLMObject {
         if isNew {
             for (fund, amountApplied) in funds {
                 fund.balance -= amountApplied
+                fund.unusedTicket = false
             }
             fundsUsed.addObjects(Array(funds.keys))
         }
