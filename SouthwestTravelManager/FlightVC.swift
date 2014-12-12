@@ -40,6 +40,12 @@ class FlightVC: InputVC, FundSelectionDelegate {
         didSet {
             fundsUsed = fundsUsed.filter({ return $1 > 0 }) // filter out any fund that has 0 funds applied
             fundsUsedLabel.text = fundsUsed.isEmpty ? "None" : Array(fundsUsed.keys).map({ $0.originalFlight!.confirmationCode }).reduce("", combine: { $0 == "" ? $1 : $0 + ", " + $1 })
+            
+            if (!fundsUsed.isEmpty) {
+                // Assign expiration date to earlier of earliest fund used and current expiration date
+                expirationPicker.date = min(expirationPicker.date, minElement(fundsUsed.keys.map({ $0.expirationDate })))
+                expirationChanged(expirationPicker)
+            }
         }
     }
     
