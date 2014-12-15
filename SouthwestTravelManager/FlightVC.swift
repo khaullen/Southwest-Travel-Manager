@@ -130,7 +130,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case (5, 0):
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            let alertController = UIAlertController(title: nil, message: nil, cell: tableView.cellForRowAtIndexPath(indexPath)!)
             alertController.addAction(UIAlertAction(title: "Cancel Flight", style: .Destructive, handler: { (alert: UIAlertAction!) -> Void in
                 self.flight.cancelFlight()
                 self.delegate?.editor(self, didUpdateObject: self.flight)

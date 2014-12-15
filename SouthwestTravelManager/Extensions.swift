@@ -134,3 +134,14 @@ extension UIDevice {
     
 }
 
+extension UIAlertController {
+    
+    /// Convenience initializer for creating an ActionSheet style alert controller that will display properly over a UITableViewCell
+    convenience init(title: String?, message: String?, cell: UITableViewCell) {
+        self.init(title: title, message: message, preferredStyle: .ActionSheet)
+        popoverPresentationController?.sourceView = cell
+        popoverPresentationController?.sourceRect = cell.bounds
+    }
+    
+}
+

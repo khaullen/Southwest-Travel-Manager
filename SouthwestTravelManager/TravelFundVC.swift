@@ -56,7 +56,7 @@ class TravelFundVC: InputVC {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch (indexPath.section, indexPath.row) {
         case (3, 0):
-            let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+            let alertController = UIAlertController(title: nil, message: nil, cell: tableView.cellForRowAtIndexPath(indexPath)!)
             alertController.addAction(UIAlertAction(title: "Delete Fund", style: .Destructive, handler: { (alert: UIAlertAction!) -> Void in
                 if let realm = self.travelFund.realm {
                     realm.transactionWithBlock({ () -> Void in
