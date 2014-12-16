@@ -25,6 +25,7 @@ class NotificationManager {
     init() {
         let queue = NSOperationQueue()
         token = RLMRealm.defaultRealm().addNotificationBlock { (_, _) in
+            // FIXME: Excessive jobs added to queue on launch, likely due to Airport job
             let operation = LocalNotificationOperation()
             queue.addOperation(operation)
         }
