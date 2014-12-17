@@ -229,6 +229,7 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="QOL-TU-w7m">
+                                <string key="footerTitle">Southwest and Southwest Airlines are registered trademarks of Southwest Airlines Co.  SW Travel Manager is not affiliated with nor endorsed by Southwest Airlines.</string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="TDU-a9-3hw" style="IBUITableViewCellStyleDefault" id="R6V-cg-C5D">
                                         <autoresizingMask key="autoresizingMask"/>
