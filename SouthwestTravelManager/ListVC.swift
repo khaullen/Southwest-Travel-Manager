@@ -52,6 +52,25 @@ class ListVC: UITableViewController, EditDelegate {
     func editor(editor: UIViewController, didUpdateObject object: RLMObject) {
         navigationController?.popViewControllerAnimated(true)
     }
+    
+    // MARK: UITableViewDelegate
+    
+    override func tableView(tableView: UITableView, shouldShowMenuForRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        let dataSource = tableView.dataSource as? ListDataSource
+        return dataSource?.objectAtIndexPath(indexPath) != nil
+    }
+    
+    override func tableView(tableView: UITableView, canPerformAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject) -> Bool {
+        return (NSStringFromSelector(action) == "copy:")
+    }
+    
+    override func tableView(tableView: UITableView, performAction action: Selector, forRowAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject!) {
+        if (NSStringFromSelector(action) == "copy:") {
+            let dataSource = tableView.dataSource as? ListDataSource
+            let object = dataSource?.objectAtIndexPath(indexPath)
+            UIPasteboard.generalPasteboard().string = object?.copyString
+        }
+    }
 
 }
 

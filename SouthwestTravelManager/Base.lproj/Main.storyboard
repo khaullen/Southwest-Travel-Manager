@@ -1268,8 +1268,8 @@
         <image name="ClearArtwork" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gZH-nW-hEL"/>
-        <segue reference="Jdq-iZ-a4z"/>
         <segue reference="7Ge-zu-uyh"/>
+        <segue reference="HH0-Bk-7MM"/>
+        <segue reference="gZH-nW-hEL"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -53,6 +53,10 @@ extension RLMObject {
         return realm == nil ? .New : .Existing
     }
     
+    var copyString: String? {
+        return nil
+    }
+    
 }
 
 extension RLMObject: Equatable {}

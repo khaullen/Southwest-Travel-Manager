@@ -33,6 +33,10 @@ class TravelFund: RLMObject {
         return expirationDateFormatter.stringFromDate(date)
     }
     
+    override var copyString: String? {
+        return originalFlight?.confirmationCode
+    }
+
 }
 
 private let expirationDateFormatter: NSDateFormatter = {

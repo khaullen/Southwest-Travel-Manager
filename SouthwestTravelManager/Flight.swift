@@ -81,6 +81,10 @@ class Flight: RLMObject {
         }
     }
     
+    override var copyString: String? {
+        return confirmationCode
+    }
+    
 }
 
 
