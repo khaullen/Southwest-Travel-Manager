@@ -28,4 +28,18 @@ class Airport: RLMObject {
     var timeZoneObject: NSTimeZone {
         return NSTimeZone(name: timeZone)!
     }
+    
+    enum StringFormat {
+        case City
+        case CityState
+    }
+    
+    // TODO: feature -- add bidirectional arrow (↔ or ⇄) for roundtrip flights
+
+    func to(destination: Airport, format: StringFormat, roundtrip: Bool) -> String {
+        switch format {
+        case .City: return city + " → " + destination.city
+        case .CityState: return location + " → " + destination.city
+        }
+    }
 }

@@ -30,7 +30,8 @@ class InputVC: UITableViewController {
         flightTextField.inputView = flightPicker
         flightDelegate.updateBlock = {
             [unowned self] delegate in
-            self.flightTextField.text = Flight.flightStringForAirports(delegate.selectedAirports)
+            let (origin, destination) = delegate.selectedAirports
+            self.flightTextField.text = origin.to(destination, format: .City, roundtrip: false)
         }
         
         // TODO: feature -- default airport automatically set in picker and placeholder
