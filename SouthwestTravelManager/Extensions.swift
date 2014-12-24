@@ -44,8 +44,13 @@ public func swiftArray<T, S: SequenceType>(collection: S) -> [T] {
 
 extension RLMObject {
     
-    var isNew: Bool {
-        return realm == nil
+    enum PersistedState {
+        case New
+        case Existing
+    }
+    
+    var persistedState: PersistedState {
+        return realm == nil ? .New : .Existing
     }
     
 }

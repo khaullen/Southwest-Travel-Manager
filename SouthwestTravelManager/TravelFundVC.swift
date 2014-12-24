@@ -23,7 +23,7 @@ class TravelFundVC: InputVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (!travelFund.isNew) {
+        if (travelFund.persistedState == .Existing) {
             if let flight = travelFund.originalFlight {
                 flightDelegate.selectAirports(flight.airports, inPicker: flightPicker)
                 confirmationTextField.text = flight.confirmationCode
@@ -46,7 +46,7 @@ class TravelFundVC: InputVC {
     // MARK: Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let hideSection = (travelFund.isNew)
+        let hideSection = (travelFund.persistedState == .New)
         return super.numberOfSectionsInTableView(tableView) - Int(hideSection)
     }
     
@@ -87,7 +87,7 @@ class TravelFundVC: InputVC {
         travelFund.unusedTicket = unusedTicketSwitch.on
         travelFund.notes = notesTextField.text
         
-        if (!travelFund.isNew) {
+        if (travelFund.persistedState == .Existing) {
             delegate?.editor(self, didUpdateObject: travelFund)
         } else {
             delegate?.editor(self, didCreateNewObject: travelFund)

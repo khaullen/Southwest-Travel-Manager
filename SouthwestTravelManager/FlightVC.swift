@@ -70,7 +70,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         outboundTextField.inputView = outboundPicker
         returnTextField.inputView = returnPicker
 
-        if (!flight.isNew) {
+        if (flight.persistedState == .Existing) {
             flightDelegate.selectAirports(flight.airports, inPicker: flightPicker)
             confirmationTextField.text = flight.confirmationCode
             costTextField.amount = flight.cost
@@ -106,7 +106,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
     // MARK: Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let hideSection = flight.isNew
+        let hideSection = (flight.persistedState == .New)
         return super.numberOfSectionsInTableView(tableView) - Int(hideSection)
     }
 
@@ -117,7 +117,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
-        if (!flight.isNew && indexPath.section == 3 && indexPath.row == 0) {
+        if (flight.persistedState == .Existing && indexPath.section == 3 && indexPath.row == 0) {
             cell.accessoryType = .None
             cell.userInteractionEnabled = false
         }
@@ -177,7 +177,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         flight.useFunds(fundsUsed)
         flight.notes = notesTextField.text
         
-        if (!flight.isNew) {
+        if (flight.persistedState == .Existing) {
             delegate?.editor(self, didUpdateObject: flight)
         } else {
             delegate?.editor(self, didCreateNewObject: flight)

@@ -50,7 +50,7 @@ class Flight: RLMObject {
     
     func useFunds(funds: [TravelFund: Double]) {
         // No support for modifying funds used after creation
-        if isNew {
+        if persistedState == .New {
             for (fund, amountApplied) in funds {
                 fund.balance -= amountApplied
                 fund.unusedTicket = false
