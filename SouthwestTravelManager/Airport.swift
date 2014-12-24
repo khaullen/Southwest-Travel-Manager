@@ -33,13 +33,12 @@ class Airport: RLMObject {
         case City
         case CityState
     }
-    
-    // TODO: feature -- add bidirectional arrow (↔ or ⇄) for roundtrip flights
 
     func to(destination: Airport, format: StringFormat, roundtrip: Bool) -> String {
+        let arrow = roundtrip ? " ⇄ " : " → "
         switch format {
-        case .City: return city + " → " + destination.city
-        case .CityState: return location + " → " + destination.city
+        case .City: return city + arrow + destination.city
+        case .CityState: return location + arrow + destination.city
         }
     }
 }

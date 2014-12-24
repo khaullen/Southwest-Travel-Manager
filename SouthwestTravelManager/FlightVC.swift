@@ -32,7 +32,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
     var flight: Flight = Flight() {
         didSet {
             navigationItem.leftBarButtonItem = nil
-            navigationItem.title = flight.origin.to(flight.destination, format: .City, roundtrip: false)
+            navigationItem.title = flight.origin.to(flight.destination, format: .City, roundtrip: flight.roundtrip)
         }
     }
     
