@@ -37,6 +37,10 @@ struct Passenger {
         set {
             NSUserDefaults.standardUserDefaults().setObject([firstNameKey: newValue.firstName, lastNameKey: newValue.lastName], forKey: passengerNameKey)
             NSUserDefaults.standardUserDefaults().setObject([accountHashKey: newValue.accountNumber], forKey: accountNumberKey)
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                NSUserDefaults.standardUserDefaults().synchronize()
+                return
+            })
         }
     }
     
