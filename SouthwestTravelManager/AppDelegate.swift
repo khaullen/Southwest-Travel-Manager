@@ -10,8 +10,9 @@ import UIKit
 import Realm
 
 // TODO: feature -- add analytics
-
+// TODO: feature -- return to go next field
 // TODO: feature -- electronic boarding pass management (QR code)
+// TODO: feature -- pull down to do stuff
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
