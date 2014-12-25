@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let allAirports = NSArray(contentsOfFile: airportsPath!)
             
             let realm = RLMRealm.defaultRealm()
+            // FIXME: shouldn't need to re-add all flights on each launch
+            // TODO: feature -- pull airports.plist from a server
             allAirports?.enumerateObjectsUsingBlock { (airportDict, index, stop) -> Void in
                 realm.transactionWithBlock({ () -> Void in
                     Airport.createOrUpdateInRealm(realm, withObject: airportDict)
