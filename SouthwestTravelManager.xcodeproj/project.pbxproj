@@ -42,6 +42,7 @@
 		3BA67F6819E88364007CE97D /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA67F6719E88364007CE97D /* Flight.swift */; };
 		3BC0837C19F99F1900ED60EA /* FundSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */; };
 		3BC0837E19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0837D19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift */; };
+		3BC472B41A4CDDC900DEB676 /* Radar.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 3BC472B31A4CDDC900DEB676 /* Radar.aiff */; };
 		3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */; };
 		3BCB423B19EEFDC300B03AC4 /* airports.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BCB423A19EEFDC300B03AC4 /* airports.plist */; };
 		3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9044B19F6F87F00B0977F /* InputVC.swift */; };
@@ -100,6 +101,7 @@
 		3BA67F6719E88364007CE97D /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundSelectionVC.swift; sourceTree = "<group>"; };
 		3BC0837D19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFundSelectionDataSource.swift; sourceTree = "<group>"; };
+		3BC472B31A4CDDC900DEB676 /* Radar.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Radar.aiff; sourceTree = "<group>"; };
 		3BC77E7719F5737D00FC27C7 /* SouthwestTravelManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SouthwestTravelManager-Bridging-Header.h"; sourceTree = "<group>"; };
 		3BC77E7819F5737E00FC27C7 /* TSCurrencyTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCurrencyTextField.h; sourceTree = "<group>"; };
 		3BC77E7919F5737E00FC27C7 /* TSCurrencyTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCurrencyTextField.m; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				3BCB423A19EEFDC300B03AC4 /* airports.plist */,
 				3B1A4C7119DE0C08000F265C /* Info.plist */,
+				3BC472B31A4CDDC900DEB676 /* Radar.aiff */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				3B1A4C7A19DE0C08000F265C /* Main.storyboard in Resources */,
 				3B7A57701A03C1C900EB1B34 /* Info.plist in Resources */,
 				3B1A4C7F19DE0C09000F265C /* LaunchScreen.xib in Resources */,
+				3BC472B41A4CDDC900DEB676 /* Radar.aiff in Resources */,
 				3B1A4C7C19DE0C09000F265C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
