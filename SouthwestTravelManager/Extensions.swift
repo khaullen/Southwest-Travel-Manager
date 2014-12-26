@@ -34,6 +34,7 @@ extension RLMResults {
 
 }
 
+// FIXME: shouldn't need T, should be able to use Generator type
 public func swiftArray<T, S: SequenceType>(collection: S) -> [T] {
     var array = [T]()
     for object in collection {
@@ -118,7 +119,7 @@ extension UIApplication {
         }
         
         var array = urls
-        // TODO: figure out why shift doesn't work here
+        // FIXME: figure out why shift doesn't work here
         let url = array.removeAtIndex(0)
         if openURL(url) {
             return true
@@ -137,7 +138,7 @@ extension UIDevice {
         var machine = systemInfo.memory.machine
         systemInfo.destroy()
         return ""
-        // TODO: fix this
+        // FIXME:
 //        return NSString(CString: machine, encoding: NSString.defaultCStringEncoding())
     }
     

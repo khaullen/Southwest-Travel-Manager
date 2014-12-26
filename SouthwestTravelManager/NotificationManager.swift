@@ -59,6 +59,7 @@ class LocalNotificationOperation: NSOperation {
         // Check in alerts
         let predicate = "checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))"
         let allFlights = Flight.objectsInRealm(backgroundRealm, predicate, NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
+        // FIXME: shouldn't need swiftArray since allFlights is a sequence type
         let notifications = swiftArray(allFlights).map({ (f: Flight) -> [UILocalNotification] in
             return f.segments.map({ (s: Flight.Segment) -> UILocalNotification in
                 return s.checkInReminder()
