@@ -100,16 +100,13 @@ extension Flight {
         let departureDate: NSDate
         let flightNumber: String
         
-        // TODO: feature -- add custom sound (up to 30 seconds, aiff/wav)
-        // afconvert /System/Library/Sounds/Submarine.aiff ~/Desktop/sub.caf -d ima4 -f caff -v
-        
         func checkInReminder() -> UILocalNotification {
             let reminder = UILocalNotification()
             reminder.fireDate = departureDate.dateByAddingTimeInterval((-60 * 5) /* five minutes */ + (-60 * 60 * 24) /* and one day */)
             // NOTE: do not set timeZone attribute -- http://stackoverflow.com/questions/18424569/understanding-uilocalnotification-timezone
             reminder.alertBody = "Check in for \(airportA.to(airportB, format: .City, roundtrip: false))"
             reminder.alertAction = "Check In"
-            reminder.soundName = UILocalNotificationDefaultSoundName
+            reminder.soundName = "Radar.aiff"
             
             return reminder
         }
