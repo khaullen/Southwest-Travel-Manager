@@ -38,7 +38,7 @@ class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
-    // TODO: feature -- disable mail buttons if MFMailComposeViewController.canSendMail() returns false
+    // TODO: disable mail buttons if MFMailComposeViewController.canSendMail() returns false
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 2) {

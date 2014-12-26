@@ -9,10 +9,10 @@
 import UIKit
 import Realm
 
-// TODO: feature -- add analytics
-// TODO: feature -- return to go next field
-// TODO: feature -- electronic boarding pass management (QR code)
-// TODO: feature -- pull down to do stuff
+// TODO: add analytics
+// TODO: return to go next field
+// TODO: electronic boarding pass management (QR code)
+// TODO: pull down to do stuff
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let realm = RLMRealm.defaultRealm()
             // FIXME: shouldn't need to re-add all flights on each launch
-            // TODO: feature -- pull airports.plist from a server
+            // TODO: pull airports.plist from a server
             allAirports?.enumerateObjectsUsingBlock { (airportDict, index, stop) -> Void in
                 realm.transactionWithBlock({ () -> Void in
                     Airport.createOrUpdateInRealm(realm, withObject: airportDict)
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         
-        // TODO: feature -- add check in action
+        // TODO: add check in action
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil))
         
         let a: UILocalNotification? = launchOptions?[UIApplicationLaunchOptionsLocalNotificationKey] as? UILocalNotification
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-        // TODO: feature -- do something if these notifications are not sufficient
+        // TODO: do something if these notifications are not sufficient
         println(notificationSettings)
     }
     

@@ -9,8 +9,8 @@
 import UIKit
 import Realm
 
-// TODO: feature -- countdown timer
-// TODO: feature -- check in webview
+// TODO: countdown timer
+// TODO: check in webview
 
 protocol FundSelectionDelegate {
     

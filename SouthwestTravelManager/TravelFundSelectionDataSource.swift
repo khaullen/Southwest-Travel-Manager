@@ -60,7 +60,7 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     }
     
     // MARK: UITableViewDelegate
-    // TODO: feature -- add "Create new fund" button to bottom
+    // TODO: add "Create new fund" button to bottom
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (indexPath.section == 0) {

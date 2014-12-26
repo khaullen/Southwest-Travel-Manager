@@ -34,7 +34,7 @@ class InputVC: UITableViewController {
             self.flightTextField.text = origin.to(destination, format: .City, roundtrip: false)
         }
         
-        // TODO: feature -- default airport automatically set in picker and placeholder
+        // TODO: default airport automatically set in picker and placeholder
         expirationTextField.inputView = expirationPicker
         expirationPicker.setDate(NSDate(timeIntervalSinceNow: 60 * 60 * 24 * 365), animated: false)
         expirationTextField.placeholder = TravelFund.expirationStringForDate(expirationPicker.date)

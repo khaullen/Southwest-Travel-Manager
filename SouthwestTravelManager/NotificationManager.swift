@@ -53,8 +53,8 @@ class LocalNotificationOperation: NSOperation {
         // Needed to refetch realm in background thread
         let backgroundRealm = RLMRealm(path: realm.path)
         
-        // TODO: feature -- add periodic notifications to use funds
-        // TODO: feature -- reminder to cancel flights if not checked in
+        // TODO: add periodic notifications to use funds
+        // TODO: reminder to cancel flights if not checked in
         
         // Check in alerts
         let predicate = "checkInReminder == true && cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))"
