@@ -144,6 +144,14 @@ extension UIDevice {
     
 }
 
+extension NSBundle {
+    
+    var versionString: String {
+        return objectForInfoDictionaryKey("CFBundleShortVersionString") as String
+    }
+    
+}
+
 extension UIAlertController {
     
     /// Convenience initializer for creating an ActionSheet style alert controller that will display properly over a UITableViewCell

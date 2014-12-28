@@ -29,7 +29,7 @@ class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        versionCell.detailTextLabel?.text = AboutVC.Constants.VERSION_STRING
+        versionCell.detailTextLabel?.text = NSBundle.mainBundle().versionString
         user = Passenger.defaultPassenger
     }
     
@@ -80,12 +80,8 @@ class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
         static let ITUNES_LINK = "itms-apps://itunes.apple.com/us/app/sw-travel-manager/id559944769?ls=1&mt=8"
         static let REVIEW_LINK = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=559944769&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8"
         
-        static var VERSION_STRING: String {
-            return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as String
-        }
-        
         static var EMAIL_SUPPORT_BODY: String {
-            return "\n\n\n\nVersion \(VERSION_STRING)\n\(UIDevice.currentDevice().systemName) \(UIDevice.currentDevice().systemVersion)\n\(UIDevice.currentDevice().machineName)"
+            return "\n\n\n\nVersion \(NSBundle.mainBundle().versionString)\n\(UIDevice.currentDevice().systemName) \(UIDevice.currentDevice().systemVersion)\n\(UIDevice.currentDevice().machineName)"
         }
         
         static func TELL_FRIEND_BODY(from: String) -> String {
