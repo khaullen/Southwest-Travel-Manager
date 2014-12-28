@@ -19,6 +19,19 @@ class Airport: RLMObject {
         return "airportCode"
     }
     
+    // MARK: Utility methods
+    
+    class func loadAirportsFromArray(array: [[String: String]], intoRealm realm: RLMRealm = RLMRealm.defaultRealm()) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            for airportDict in array {
+                realm.transactionWithBlock({ () -> Void in
+                    Airport.createOrUpdateInRealm(realm, withObject: airportDict)
+                    return
+                })
+            }
+        }
+    }
+    
     // MARK: View Model
     
     var location: String {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Realm
+import Alamofire
 
 // TODO: add analytics
 // TODO: return to go next field
@@ -22,20 +23,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
-            let airportsPath = NSBundle.mainBundle().pathForResource("airports", ofType: "plist")
-            let allAirports = NSArray(contentsOfFile: airportsPath!)
+        // Load Airports into database
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             
-            let realm = RLMRealm.defaultRealm()
-            // FIXME: shouldn't need to re-add all flights on each launch
-            // TODO: pull airports.plist from a server
-            allAirports?.enumerateObjectsUsingBlock { (airportDict, index, stop) -> Void in
-                realm.transactionWithBlock({ () -> Void in
-                    Airport.createOrUpdateInRealm(realm, withObject: airportDict)
-                    return
+            let bundleVersionKey = "LAST_VERSION_AIRPORT_LOAD"
+            let lastVersionLoad = NSUserDefaults.standardUserDefaults().stringForKey(bundleVersionKey)
+            
+            // if no lastVersionLoad or lastVersionLoad is different than current version, load from bundle, then update NSUserDefaults
+            if !(lastVersionLoad? == NSBundle.mainBundle().versionString) {
+                let airportsPath = NSBundle.mainBundle().pathForResource("airports", ofType: "plist")
+                let allAirports = NSArray(contentsOfFile: airportsPath!) as [[String: String]]
+                Airport.loadAirportsFromArray(allAirports)
+                
+                NSUserDefaults.standardUserDefaults().setObject(NSBundle.mainBundle().versionString, forKey: bundleVersionKey)
+            }
+            
+            let networkFetchKey = "LAST_AIRPORT_FETCH"
+            let lastFetchDate = NSUserDefaults.standardUserDefaults().objectForKey(networkFetchKey) as NSDate?
+            
+            // if lastFetchDate does not exist or lastFetchDate is older than x days old, load from network
+            if !(lastFetchDate?.timeIntervalSinceNow > -60 * 60 * 24 * 3) {
+                
+                Alamofire.request(.GET, "https://raw.githubusercontent.com/khaullen/Southwest-Travel-Manager/swift/SouthwestTravelManager/airports.plist").responsePropertyList({ (_, _, data, _) -> Void in
+                    if let airports = data as? [[String: String]] {
+                        Airport.loadAirportsFromArray(airports)
+                        NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: networkFetchKey)
+                    }
                 })
             }
-        })
+            
+        }
         
         // TODO: add check in action
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: .Badge | .Sound | .Alert, categories: nil))
