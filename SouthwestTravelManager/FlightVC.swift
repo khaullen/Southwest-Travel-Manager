@@ -104,19 +104,28 @@ class FlightVC: InputVC, FundSelectionDelegate {
     }
 
     // MARK: Table view data source
-    
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let hideSection = (flight.persistedState == .New)
-        return super.numberOfSectionsInTableView(tableView) - Int(hideSection)
-    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let hideRow = section == 1 && !roundtripSwitch.on
-        return super.tableView(tableView, numberOfRowsInSection: section) - Int(hideRow)
+        let superRows = super.tableView(tableView, numberOfRowsInSection: section)
+        switch section {
+        case 1:
+            let hideReturnRow = !roundtripSwitch.on
+            return superRows - Int(hideReturnRow)
+        case 5:
+            let hideCheckInButton = !flight.segments.map({ $0.checkInAvailable }).reduce(false, combine: { $0 || $1 })
+            let hideCancelFlightButton = flight.persistedState == .New
+            return superRows - Int(hideCheckInButton) - Int(hideCancelFlightButton)
+        default: return superRows
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Switches indexPath to cancelFlight if appropriate
+        let indexPath = (indexPath == NSIndexPath(forRow: 0, inSection: 5) && tableView.numberOfRowsInSection(indexPath.section) == 1) ? NSIndexPath(forRow: 1, inSection: 5) : indexPath
+        
         let cell = super.tableView(tableView, cellForRowAtIndexPath: indexPath)
+        
+        // Disables editing fundsUsed for existing flights
         if (flight.persistedState == .Existing && indexPath.section == 3 && indexPath.row == 0) {
             cell.accessoryType = .None
             cell.userInteractionEnabled = false
@@ -128,8 +137,11 @@ class FlightVC: InputVC, FundSelectionDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        switch (indexPath.section, indexPath.row) {
-        case (5, 0):
+        
+        switch tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier ?? "" {
+        case "checkIn":
+            println("Check In")
+        case "cancelFlight":
             let alertController = UIAlertController(title: nil, message: nil, cell: tableView.cellForRowAtIndexPath(indexPath)!)
             alertController.addAction(UIAlertAction(title: "Cancel Flight", style: .Destructive, handler: { (alert: UIAlertAction!) -> Void in
                 self.flight.cancelFlight()
