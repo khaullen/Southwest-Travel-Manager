@@ -100,6 +100,10 @@ extension Flight {
         let departureDate: NSDate
         let flightNumber: String
         
+        var checkInAvailable: Bool {
+            return !checkedIn && departureDate.timeIntervalSinceNow < 60 * 60 * 24 /* one day */ && departureDate.timeIntervalSinceNow > 0
+        }
+        
         func checkInReminder() -> UILocalNotification {
             let reminder = UILocalNotification()
             reminder.fireDate = departureDate.dateByAddingTimeInterval((-60 * 5) /* five minutes */ + (-60 * 60 * 24) /* and one day */)
