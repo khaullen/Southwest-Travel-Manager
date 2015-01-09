@@ -52,7 +52,7 @@ class Airport: RLMObject {
         let arrow = roundtrip ? " ⇄ " : " → "
         switch format {
         case .City: return city + arrow + destination.city
-        case .CityState: return location + arrow + destination.city
+        case .CityState: return location + arrow + destination.location
         }
     }
 }
