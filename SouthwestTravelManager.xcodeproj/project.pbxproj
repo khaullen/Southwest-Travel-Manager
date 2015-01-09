@@ -24,6 +24,7 @@
 		3B2BBF1A1A2E33F500393C8C /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
 		3B560FC21A2FF2D1008E3834 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC11A2FF2D1008E3834 /* AboutVC.swift */; };
 		3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
+		3B713D521A5FA685001D5CDB /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
 		3B78F93C19F06ADB0066074D /* ConfirmationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */; };
 		3B7A576B1A03C1C900EB1B34 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A575F1A03C1C900EB1B34 /* Array.swift */; };
 		3B7A576C1A03C1C900EB1B34 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57601A03C1C900EB1B34 /* Dictionary.swift */; };
@@ -516,6 +517,7 @@
 			files = (
 				3B2BBF1A1A2E33F500393C8C /* Airport.swift in Sources */,
 				3B1A4C8B19DE0C09000F265C /* SouthwestTravelManagerTests.swift in Sources */,
+				3B713D521A5FA685001D5CDB /* Passenger.swift in Sources */,
 				3B2BBF181A2E33EF00393C8C /* Extensions.swift in Sources */,
 				3B2BBF191A2E33F200393C8C /* TravelFund.swift in Sources */,
 				3B2BBF171A2E33C500393C8C /* Flight.swift in Sources */,

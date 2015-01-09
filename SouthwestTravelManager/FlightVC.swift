@@ -140,7 +140,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
         
         switch tableView.cellForRowAtIndexPath(indexPath)?.reuseIdentifier ?? "" {
         case "checkIn":
-            println("Check In")
+            flight.checkIn()
         case "cancelFlight":
             let alertController = UIAlertController(title: nil, message: nil, cell: tableView.cellForRowAtIndexPath(indexPath)!)
             alertController.addAction(UIAlertAction(title: "Cancel Flight", style: .Destructive, handler: { (alert: UIAlertAction!) -> Void in

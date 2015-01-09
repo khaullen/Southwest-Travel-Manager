@@ -34,6 +34,12 @@ class Flight: RLMObject {
     dynamic var travelFund: TravelFund
     dynamic var uuid = NSUUID().UUIDString
     
+    var checkInURL: NSURL {
+        // TODO: request name if not available
+        let passenger = Passenger.defaultPassenger
+        return NSURL(string: "https://www.southwest.com/flight/retrieveCheckinDoc.html?forceNewSession=yes&firstName=" + passenger.firstName.uppercaseString + "&lastName=" + passenger.lastName.uppercaseString + "&confirmationNumber=" + confirmationCode)!
+    }
+    
     override class func primaryKey() -> String {
         return "uuid"
     }
@@ -57,6 +63,11 @@ class Flight: RLMObject {
             }
             fundsUsed.addObjects(Array(funds.keys))
         }
+    }
+    
+    func checkIn() {
+        UIApplication.sharedApplication().openURL(checkInURL)
+        // TODO: mark segment as checked in?
     }
     
     func cancelFlight() {
