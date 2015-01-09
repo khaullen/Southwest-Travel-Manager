@@ -10,7 +10,7 @@ import UIKit
 import Realm
 
 // TODO: countdown timer
-// TODO: check in webview
+// TODO: dual global timers: a) timer to launch countdown view and b) timer to open check in URL
 
 protocol FundSelectionDelegate {
     
