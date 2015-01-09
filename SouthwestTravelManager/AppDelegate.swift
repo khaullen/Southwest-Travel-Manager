@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if !(lastVersionLoad? == NSBundle.mainBundle().versionString) {
                 let airportsPath = NSBundle.mainBundle().pathForResource("airports", ofType: "plist")
                 let allAirports = NSArray(contentsOfFile: airportsPath!) as [[String: String]]
+                // FIXME: there may be an issue with loading airports simultaneously from two different threads. first try fixing by updating Realm and checking the changelog, otherwise just serialize this instead of letting them run in parallel
                 Airport.loadAirportsFromArray(allAirports)
                 
                 NSUserDefaults.standardUserDefaults().setObject(NSBundle.mainBundle().versionString, forKey: bundleVersionKey)
