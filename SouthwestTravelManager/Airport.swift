@@ -21,8 +21,9 @@ class Airport: RLMObject {
     
     // MARK: Utility methods
     
-    class func loadAirportsFromArray(array: [[String: String]], intoRealm realm: RLMRealm = RLMRealm.defaultRealm()) {
+    class func loadAirportsFromArray(array: [[String: String]]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            let realm = RLMRealm.defaultRealm()
             for airportDict in array {
                 realm.transactionWithBlock({ () -> Void in
                     Airport.createOrUpdateInRealm(realm, withObject: airportDict)
