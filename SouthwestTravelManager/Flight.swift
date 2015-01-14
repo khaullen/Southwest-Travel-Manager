@@ -96,6 +96,12 @@ class Flight: RLMObject {
         return confirmationCode
     }
     
+    // MARK: Queries
+    
+    class var futureFlights: RLMResults {
+        return Flight.objectsWhere("cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
+    }
+    
 }
 
 

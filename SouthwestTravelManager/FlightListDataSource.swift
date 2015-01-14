@@ -13,7 +13,7 @@ class FlightListDataSource: ListDataSource {
     
     override init() {
         super.init()
-        array = [Flight.objectsWhere("cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)]
+        array = [Flight.futureFlights]
     }
     
     func flightAtIndexPath(indexPath: NSIndexPath) -> Flight? {
