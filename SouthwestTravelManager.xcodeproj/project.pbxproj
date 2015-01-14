@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B1643BC1A38B4B0001DE931 /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1643BB1A38B4B0001DE931 /* RLMSupport.swift */; };
-		3B1643BF1A38B58B001DE931 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1643BD1A38B4C0001DE931 /* Realm.framework */; };
-		3B1643C01A38B5A4001DE931 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B1643BD1A38B4C0001DE931 /* Realm.framework */; };
 		3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7219DE0C08000F265C /* AppDelegate.swift */; };
 		3B1A4C7519DE0C08000F265C /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7419DE0C08000F265C /* ListVC.swift */; };
 		3B1A4C7A19DE0C08000F265C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7819DE0C08000F265C /* Main.storyboard */; };
@@ -22,7 +19,10 @@
 		3B2BBF181A2E33EF00393C8C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9045419F8614300B0977F /* Extensions.swift */; };
 		3B2BBF191A2E33F200393C8C /* TravelFund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */; };
 		3B2BBF1A1A2E33F500393C8C /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
-		3B521FF71A65FDD000D320EA /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1643BB1A38B4B0001DE931 /* RLMSupport.swift */; };
+		3B521FFC1A66006E00D320EA /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B521FFB1A66006E00D320EA /* RLMSupport.swift */; };
+		3B521FFD1A66008300D320EA /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B521FFB1A66006E00D320EA /* RLMSupport.swift */; };
+		3B521FFE1A66019D00D320EA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B521FF91A66004500D320EA /* Realm.framework */; };
+		3B521FFF1A6601A300D320EA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B521FF91A66004500D320EA /* Realm.framework */; };
 		3B560FC21A2FF2D1008E3834 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC11A2FF2D1008E3834 /* AboutVC.swift */; };
 		3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
 		3B713D521A5FA685001D5CDB /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
@@ -105,8 +105,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3B1643BB1A38B4B0001DE931 /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
-		3B1643BD1A38B4C0001DE931 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		3B1A4C6D19DE0C08000F265C /* SouthwestTravelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthwestTravelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A4C7119DE0C08000F265C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1A4C7219DE0C08000F265C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +116,8 @@
 		3B1A4C8919DE0C09000F265C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1A4C8A19DE0C09000F265C /* SouthwestTravelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthwestTravelManagerTests.swift; sourceTree = "<group>"; };
 		3B1BEEFD1A50A76000616750 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		3B521FF91A66004500D320EA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		3B521FFB1A66006E00D320EA /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		3B560FC11A2FF2D1008E3834 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		3B560FC31A30DD6A008E3834 /* Passenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
 		3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationDelegate.swift; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BA67F6319E8682A007CE97D /* libc++.dylib in Frameworks */,
-				3B1643BF1A38B58B001DE931 /* Realm.framework in Frameworks */,
+				3B521FFE1A66019D00D320EA /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,8 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B1643C01A38B5A4001DE931 /* Realm.framework in Frameworks */,
 				3B2BBF161A2D3E1A00393C8C /* libc++.dylib in Frameworks */,
+				3B521FFF1A6601A300D320EA /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,9 +278,9 @@
 		3BA67F6619E8687B007CE97D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				3B1643BB1A38B4B0001DE931 /* RLMSupport.swift */,
+				3B521FFB1A66006E00D320EA /* RLMSupport.swift */,
 				3BA67F6219E8682A007CE97D /* libc++.dylib */,
-				3B1643BD1A38B4C0001DE931 /* Realm.framework */,
+				3B521FF91A66004500D320EA /* Realm.framework */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -496,7 +496,7 @@
 				3B7A576B1A03C1C900EB1B34 /* Array.swift in Sources */,
 				3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */,
 				3BEDCED11A12A366009AFA85 /* RCDatePicker.m in Sources */,
-				3B1643BC1A38B4B0001DE931 /* RLMSupport.swift in Sources */,
+				3B521FFC1A66006E00D320EA /* RLMSupport.swift in Sources */,
 				3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */,
 				3B7A57731A03C1C900EB1B34 /* Range.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
@@ -518,7 +518,7 @@
 			files = (
 				3B2BBF1A1A2E33F500393C8C /* Airport.swift in Sources */,
 				3B1A4C8B19DE0C09000F265C /* SouthwestTravelManagerTests.swift in Sources */,
-				3B521FF71A65FDD000D320EA /* RLMSupport.swift in Sources */,
+				3B521FFD1A66008300D320EA /* RLMSupport.swift in Sources */,
 				3B713D521A5FA685001D5CDB /* Passenger.swift in Sources */,
 				3B2BBF181A2E33EF00393C8C /* Extensions.swift in Sources */,
 				3B2BBF191A2E33F200393C8C /* TravelFund.swift in Sources */,

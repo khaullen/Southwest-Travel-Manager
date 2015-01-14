@@ -20,6 +20,29 @@
 
 @class RLMObject, RLMSchema, RLMMigration, RLMNotificationToken;
 
+/**
+ An RLMRealm instance (also referred to as "a realm") represents a Realm
+ database.
+
+ Realms can either be stored on disk (see +[RLMRealm realmWithPath:]) or in
+ memory (see +[RLMRealm inMemoryRealmWithIdentifier:]).
+
+ RLMRealm instances are cached internally, and constructing equivalent RLMRealm
+ objects (with the same path or identifier) multiple times on a single thread
+ within a single iteration of the run loop will normally return the same
+ RLMRealm object. If you specifically want to ensure a RLMRealm object is
+ destroyed (for example, if you wish to open a realm, check some property, and
+ then possibly delete the realm file and re-open it), place the code which uses
+ the realm within an `@autoreleasepool {}` and ensure you have no other
+ strong references to it.
+
+ @warning RLMRealm instances are not thread safe and can not be shared across
+ threads or dispatch queues. You must call this method on each thread you want
+ to interact with the realm on. For dispatch queues, this means that you must
+ call it in each block which is dispatched, as a queue is not guaranteed to run
+ on a consistent thread.
+ */
+
 @interface RLMRealm : NSObject
 /**---------------------------------------------------------------------------------------
  *  @name Creating & Initializing a Realm
@@ -34,36 +57,12 @@
  your Application on iOS, and in your application's Application Support
  directory on OS X.
 
- `RLMRealm` objects are cached internally by Realm, and calling this method
- multiple times on a single thread within a single iteration of the run loop
- will normally return the same `RLMRealm` object. If you specifically want to
- ensure a `RLMRealm` object is destroyed (for example, if you wish to open a
- Realm, check some property, and then possibly delete the Realm file and
- re-open it), place the code which uses the Realm within an `@autoreleasepool
- {}` and ensure you have no other references to it.
-
- @warning `RLMRealm` instances are not thread safe and can not be shared across
- threads or dispatch queues. You must call this method on each thread you want
- to interact with the Realm on. For dispatch queues, this means that you must
- call it in each block which is dispatched, as a queue is not guaranteed to run
- on a consistent thread.
-
  @return The default `RLMRealm` instance for the current thread.
  */
 + (instancetype)defaultRealm;
 
 /**
- Obtains an `RLMRealm` instance persisted at a specific file.
-
- `RLMRealm` objects are cached internally by Realm, and calling this method
- multiple times with the same path on a single thread within a single iteration
- of the run loop on will normally return the same `RLMRealm` object.
-
- @warning `RLMRealm` instances are not thread safe and can not be shared across
- threads or dispatch queues. You must call this method on each thread you want
- to interact with the Realm on. For dispatch queues, this means that you must
- call it in each block which is dispatched, as a queue is not guaranteed to run
- on a consistent thread.
+ Obtains an `RLMRealm` instance persisted at a specific file path.
 
  @param path Path to the file you want the data saved in.
 
@@ -72,10 +71,11 @@
 + (instancetype)realmWithPath:(NSString *)path;
 
 /**
- Obtains an `RLMRealm` instance with persistence to a specific file with options.
+ Obtains an `RLMRealm` instance with persistence to a specific file path with
+ options.
 
- Like `realmWithPath`, but with the ability to open read-only realms and get
- errors as a `NSError` out parameter rather than exceptions.
+ Like `realmWithPath:`, but with the ability to open read-only realms and get
+ errors as an `NSError` inout parameter rather than exceptions.
 
  @warning Read-only Realms do not support changes made to the file while the
  `RLMRealm` exists. This means that you cannot open a Realm as both read-only
@@ -92,6 +92,48 @@
  @return An `RLMRealm` instance.
  */
 + (instancetype)realmWithPath:(NSString *)path readOnly:(BOOL)readonly error:(NSError **)error;
+
+/**
+ Obtains an `RLMRealm` instance persisted to an encrypted file.
+
+ The on-disk storage for encrypted Realms are encrypted using AES256+HMAC-SHA2,
+ but otherwise they behave like normal persisted Realms.
+
+ Encrypted Realms currently cannot be opened while lldb is attached to the
+ process since lldb cannot forward mach exceptions to the process being
+ debugged. Attempting to open an encrypted Realm with lldb attached will result
+ in an EXC_BAD_ACCESS.
+
+ @param path        Path to the file you want the data saved in.
+ @param key         64-byte key to use to encrypt the data.
+ @param readonly    BOOL indicating if this Realm is read-only (must use for read-only files)
+ @param error       If an error occurs, upon return contains an `NSError` object
+                    that describes the problem. If you are not interested in
+                    possible errors, pass in `NULL`.
+
+ @return An encrypted `RLMRealm` instance.
+ */
++ (instancetype)encryptedRealmWithPath:(NSString *)path
+                                   key:(NSData *)key
+                              readOnly:(BOOL)readonly
+                                 error:(NSError **)error;
+
+/**
+ Set the encryption key to use when opening Realms at a certain path.
+
+ This can be used as an alternative to explicitly passing the key to
+ `encryptedRealmWithPath:key:readOnly:error:` each time a Realm instance is
+ needed. The encryption key will be used any time a Realm is opened with
+ `realmWithPath:` or `defaultRealm`.
+
+ If you do not want Realm to hold on to your encryption keys any longer than
+ needed, then use `encryptedRealmWithPath:key:readOnly:error:` rather than this
+ method.
+
+ @param key     64-byte encryption key to use, or `nil` to unset.
+ @param path    Realm path to set the encryption key for.
+ */
++ (void)setEncryptionKey:(NSData *)key forRealmsAtPath:(NSString *)path;
 
 /**
  Obtains an `RLMRealm` instance for an un-persisted in-memory Realm. The identifier
@@ -474,6 +516,17 @@ typedef void (^RLMMigrationBlock)(RLMMigration *migration, NSUInteger oldSchemaV
  @see               setSchemaVersion:withMigrationBlock:
  */
 + (NSError *)migrateRealmAtPath:(NSString *)realmPath;
+
+/**
+ Performs the registered migration block on an encrypted Realm at the given path.
+
+ As `migrateRealmAtPath:`, but for encrypted realms.
+
+ @param realmPath   The path of the Realm to migrate.
+ @param key         64-byte encryption key.
+ @return            The error that occurred while applying the migration, if any.
+ */
++ (NSError *)migrateEncryptedRealmAtPath:(NSString *)realmPath key:(NSData *)key;
 
 #pragma mark -
 
