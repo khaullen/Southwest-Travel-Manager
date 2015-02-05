@@ -308,14 +308,10 @@
 		3BCB423719EEF2B500B03AC4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B1A4C7419DE0C08000F265C /* ListVC.swift */,
-				3BE9045119F72A6000B0977F /* Data Sources */,
-				3BE9044B19F6F87F00B0977F /* InputVC.swift */,
-				3BF7917019EC702C0081CEE6 /* FlightVC.swift */,
-				3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */,
+				3BE9045119F72A6000B0977F /* Lists */,
+				3BCB423919EEF2ED00B03AC4 /* Input */,
 				3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */,
 				3B560FC11A2FF2D1008E3834 /* AboutVC.swift */,
-				3BCB423919EEF2ED00B03AC4 /* Delegates */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -332,24 +328,28 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		3BCB423919EEF2ED00B03AC4 /* Delegates */ = {
+		3BCB423919EEF2ED00B03AC4 /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				3BE9044B19F6F87F00B0977F /* InputVC.swift */,
+				3BF7917019EC702C0081CEE6 /* FlightVC.swift */,
+				3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */,
 				3BF7917219EE550D0081CEE6 /* FlightDelegate.swift */,
 				3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */,
 			);
-			name = Delegates;
+			name = Input;
 			sourceTree = "<group>";
 		};
-		3BE9045119F72A6000B0977F /* Data Sources */ = {
+		3BE9045119F72A6000B0977F /* Lists */ = {
 			isa = PBXGroup;
 			children = (
+				3B1A4C7419DE0C08000F265C /* ListVC.swift */,
 				3BE9045219F72A8D00B0977F /* ListDataSource.swift */,
 				3B89746919F5C9CE00D4ACAF /* FlightListDataSource.swift */,
 				3BE9044F19F71B2200B0977F /* TravelFundListDataSource.swift */,
 				3BC0837D19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift */,
 			);
-			name = "Data Sources";
+			name = Lists;
 			sourceTree = "<group>";
 		};
 		3BEDCED21A12A372009AFA85 /* RCDatePicker */ = {
