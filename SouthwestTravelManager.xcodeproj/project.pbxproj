@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F575D6B1A83025400BA6433 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F575D6A1A83025400BA6433 /* ProgressView.swift */; };
+		2F575D6F1A83ED1200BA6433 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F575D6E1A83ED1200BA6433 /* CheckInVC.swift */; };
 		3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7219DE0C08000F265C /* AppDelegate.swift */; };
 		3B1A4C7519DE0C08000F265C /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7419DE0C08000F265C /* ListVC.swift */; };
 		3B1A4C7A19DE0C08000F265C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7819DE0C08000F265C /* Main.storyboard */; };
@@ -107,6 +108,7 @@
 
 /* Begin PBXFileReference section */
 		2F575D6A1A83025400BA6433 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressView.swift; path = ../ProgressView.swift; sourceTree = "<group>"; };
+		2F575D6E1A83ED1200BA6433 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
 		3B1A4C6D19DE0C08000F265C /* SouthwestTravelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthwestTravelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A4C7119DE0C08000F265C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1A4C7219DE0C08000F265C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				3BCB423919EEF2ED00B03AC4 /* Input */,
 				3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */,
 				3B560FC11A2FF2D1008E3834 /* AboutVC.swift */,
+				2F575D6E1A83ED1200BA6433 /* CheckInVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				3B7A57731A03C1C900EB1B34 /* Range.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
 				3B7A57751A03C1C900EB1B34 /* String.swift in Sources */,
+				2F575D6F1A83ED1200BA6433 /* CheckInVC.swift in Sources */,
 				3B7A57711A03C1C900EB1B34 /* Int.swift in Sources */,
 				3B7A576D1A03C1C900EB1B34 /* Double.swift in Sources */,
 				3BE9045019F71B2200B0977F /* TravelFundListDataSource.swift in Sources */,
