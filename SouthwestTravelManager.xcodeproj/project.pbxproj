@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F575D6B1A83025400BA6433 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F575D6A1A83025400BA6433 /* ProgressView.swift */; };
 		3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7219DE0C08000F265C /* AppDelegate.swift */; };
 		3B1A4C7519DE0C08000F265C /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7419DE0C08000F265C /* ListVC.swift */; };
 		3B1A4C7A19DE0C08000F265C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7819DE0C08000F265C /* Main.storyboard */; };
@@ -105,6 +106,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F575D6A1A83025400BA6433 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressView.swift; path = ../ProgressView.swift; sourceTree = "<group>"; };
 		3B1A4C6D19DE0C08000F265C /* SouthwestTravelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthwestTravelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A4C7119DE0C08000F265C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1A4C7219DE0C08000F265C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F575D6D1A83EB4900BA6433 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F575D6A1A83025400BA6433 /* ProgressView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		3B1A4C6419DE0C08000F265C = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +218,7 @@
 			children = (
 				3B1A4C7219DE0C08000F265C /* AppDelegate.swift */,
 				3B7B356B1A13FD5200C099E5 /* NotificationManager.swift */,
+				2F575D6D1A83EB4900BA6433 /* Views */,
 				3BCB423719EEF2B500B03AC4 /* Controllers */,
 				3BCB423819EEF2C700B03AC4 /* Models */,
 				3B1A4C7819DE0C08000F265C /* Main.storyboard */,
@@ -510,6 +521,7 @@
 				3BC0837C19F99F1900ED60EA /* FundSelectionVC.swift in Sources */,
 				3B1A4C7519DE0C08000F265C /* ListVC.swift in Sources */,
 				3BF7917119EC702C0081CEE6 /* FlightVC.swift in Sources */,
+				2F575D6B1A83025400BA6433 /* ProgressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
