@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F4F37541B5444FE000C3D11 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4F37531B5444FE000C3D11 /* Alamofire.framework */; };
 		2F575D6B1A83025400BA6433 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F575D6A1A83025400BA6433 /* ProgressView.swift */; };
 		2F575D6F1A83ED1200BA6433 /* CheckInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F575D6E1A83ED1200BA6433 /* CheckInVC.swift */; };
 		3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7219DE0C08000F265C /* AppDelegate.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2F4F37531B5444FE000C3D11 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		2F575D6A1A83025400BA6433 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressView.swift; path = ../ProgressView.swift; sourceTree = "<group>"; };
 		2F575D6E1A83ED1200BA6433 /* CheckInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInVC.swift; sourceTree = "<group>"; };
 		3B1A4C6D19DE0C08000F265C /* SouthwestTravelManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthwestTravelManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 			files = (
 				3BA67F6319E8682A007CE97D /* libc++.dylib in Frameworks */,
 				3B521FFE1A66019D00D320EA /* Realm.framework in Frameworks */,
+				2F4F37541B5444FE000C3D11 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +181,7 @@
 				3B7A575E1A03C1C900EB1B34 /* ExSwift */,
 				3B1A4C6E19DE0C08000F265C /* Products */,
 				3BC77E7719F5737D00FC27C7 /* SouthwestTravelManager-Bridging-Header.h */,
+				2F4F37531B5444FE000C3D11 /* Alamofire.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -341,6 +345,7 @@
 				3B1A4C6A19DE0C08000F265C /* Frameworks */,
 				3B1A4C6B19DE0C08000F265C /* Resources */,
 				3B1BEF081A50A80200616750 /* Copy Frameworks */,
+				2F4F37551B54451D000C3D11 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -428,6 +433,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2F4F37551B54451D000C3D11 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3B1A4C6919DE0C08000F265C /* Sources */ = {
@@ -603,6 +626,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SouthwestTravelManager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -621,6 +645,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SouthwestTravelManager/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
