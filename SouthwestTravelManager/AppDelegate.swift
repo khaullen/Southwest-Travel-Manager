@@ -30,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let lastVersionLoad = NSUserDefaults.standardUserDefaults().stringForKey(bundleVersionKey)
             
             // if no lastVersionLoad or lastVersionLoad is different than current version, load from bundle, then update NSUserDefaults
-            if !(lastVersionLoad? == NSBundle.mainBundle().versionString) {
+            if !(lastVersionLoad == NSBundle.mainBundle().versionString) {
                 let airportsPath = NSBundle.mainBundle().pathForResource("airports", ofType: "plist")
-                let allAirports = NSArray(contentsOfFile: airportsPath!) as [[String: String]]
+                let allAirports = NSArray(contentsOfFile: airportsPath!) as! [[String: String]]
                 // FIXME: there may be an issue with loading airports simultaneously from two different threads. first try fixing by updating Realm and checking the changelog, otherwise just serialize this instead of letting them run in parallel
                 Airport.loadAirportsFromArray(allAirports)
                 
@@ -40,17 +40,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             let networkFetchKey = "LAST_AIRPORT_FETCH"
-            let lastFetchDate = NSUserDefaults.standardUserDefaults().objectForKey(networkFetchKey) as NSDate?
+            let lastFetchDate = NSUserDefaults.standardUserDefaults().objectForKey(networkFetchKey) as! NSDate?
             
             // if lastFetchDate does not exist or lastFetchDate is older than x days old, load from network
             if !(lastFetchDate?.timeIntervalSinceNow > -60 * 60 * 24 * 3) {
                 
-                Alamofire.request(.GET, "https://raw.githubusercontent.com/khaullen/Southwest-Travel-Manager/swift/SouthwestTravelManager/airports.plist").responsePropertyList({ (_, _, data, _) -> Void in
+                Alamofire.request(.GET, "https://raw.githubusercontent.com/khaullen/Southwest-Travel-Manager/swift/SouthwestTravelManager/airports.plist").responsePropertyList { (_, _, data, _) -> Void in
                     if let airports = data as? [[String: String]] {
                         Airport.loadAirportsFromArray(airports)
                         NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: networkFetchKey)
                     }
-                })
+                }
             }
             
         }

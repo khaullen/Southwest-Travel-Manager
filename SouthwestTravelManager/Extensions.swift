@@ -38,7 +38,7 @@ extension RLMResults {
 public func swiftArray<T, S: SequenceType>(collection: S) -> [T] {
     var array = [T]()
     for object in collection {
-        array.append(object as T)
+        array.append(object as! T)
     }
     return array
 }
@@ -147,7 +147,7 @@ extension UIDevice {
 extension NSBundle {
     
     var versionString: String {
-        return objectForInfoDictionaryKey("CFBundleShortVersionString") as String
+        return objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
     }
     
 }

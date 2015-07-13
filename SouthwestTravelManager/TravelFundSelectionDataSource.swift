@@ -14,7 +14,7 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
     var targetAmount: Double?
     var selectedFunds: [TravelFund] = []
     var orderedFunds: [TravelFund] {
-        return selectedFunds.sortBy({ (first: TravelFund, second: TravelFund) -> Bool in
+        return selectedFunds.sorted({ (first: TravelFund, second: TravelFund) -> Bool in
             return first.unusedTicket > second.unusedTicket || (first.unusedTicket == second.unusedTicket && first.expirationDate < second.expirationDate)
         })
     }
@@ -45,12 +45,12 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
             cell.accessoryType = selectionStateForFund(fund) ? .Checkmark : .None
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("travelFundCell", forIndexPath: indexPath) as! UITableViewCell
             if let target = targetAmount {
-                cell.textLabel?.text = max(target - selectedFunds.map({ $0.balance }).reduce(0, +), 0).currencyValue
+                cell.textLabel?.text = max(target - selectedFunds.map({ $0.balance }).reduce(0, combine: +), 0).currencyValue
                 cell.detailTextLabel?.text = "Remaining balance"
             } else {
-                cell.textLabel?.text = selectedFunds.map({ $0.balance }).reduce(0, +).currencyValue
+                cell.textLabel?.text = selectedFunds.map({ $0.balance }).reduce(0, combine: +).currencyValue
                 cell.detailTextLabel?.text = "Total selected funds"
             }
             return cell
@@ -91,7 +91,7 @@ class TravelFundSelectionDataSource: TravelFundListDataSource, UITableViewDelega
         if let target = targetAmount {
             let fundIndex = orderedFunds.indexOf(fund)
             if let index = fundIndex {
-                let remainingBalance = max(target - orderedFunds[0...index].map({ $0.balance }).reduce(0, +) + fund.balance, 0)
+                let remainingBalance = max(target - orderedFunds[0...index].map({ $0.balance }).reduce(0, combine: +) + fund.balance, 0)
                 return max(fund.balance - remainingBalance, 0)
             }
         }

@@ -20,7 +20,7 @@ class ListDataSource: NSObject, UITableViewDataSource {
     
     func objectAtIndexPath(indexPath: NSIndexPath) -> RLMObject? {
         if (array[indexPath.section].intCount > indexPath.row) {
-            return (array[indexPath.section][UInt(indexPath.row)] as RLMObject)
+            return (array[indexPath.section][UInt(indexPath.row)] as! RLMObject)
         } else {
             return nil
         }

@@ -20,7 +20,7 @@ class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     override init() {
-        selectedAirports = (allAirports.firstObject() as Airport, allAirports.firstObject() as Airport)
+        selectedAirports = (allAirports.firstObject() as! Airport, allAirports.firstObject() as! Airport)
     }
     
     func selectAirports(airports: (Airport, Airport), inPicker picker: UIPickerView) -> () {
@@ -43,11 +43,11 @@ class FlightDelegate: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     // MARK: UIPickerViewDelegate
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return (allAirports.objectAtIndex(UInt(row)) as Airport).airportCode
+        return (allAirports.objectAtIndex(UInt(row)) as! Airport).airportCode
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedAirports = (allAirports[UInt(pickerView.selectedRowInComponent(0))] as Airport, allAirports[UInt(pickerView.selectedRowInComponent(1))] as Airport)
+        selectedAirports = (allAirports[UInt(pickerView.selectedRowInComponent(0))] as! Airport, allAirports[UInt(pickerView.selectedRowInComponent(1))] as! Airport)
     }
     
     @IBAction func editingDidBegin(sender: UITextField) {

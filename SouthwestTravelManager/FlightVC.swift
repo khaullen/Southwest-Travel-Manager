@@ -161,7 +161,7 @@ class FlightVC: InputVC, FundSelectionDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         super.prepareForSegue(segue, sender: sender)
         
-        let fundSelectionVC = segue.destinationViewController as FundSelectionVC
+        let fundSelectionVC = segue.destinationViewController as! FundSelectionVC
         fundSelectionVC.fundSelectionDataSource.targetAmount = (Double(costTextField.amount) > 0 ? Double(costTextField.amount) : nil)
         fundSelectionVC.fundSelectionDataSource.selectedFunds = Array(fundsUsed.keys)
         fundSelectionVC.delegate = self

@@ -27,8 +27,8 @@ struct Passenger {
     // Uses weird NSUserDefaults schema for backwards compatibility with version 1.2.1
     static var defaultPassenger: Passenger {
         get {
-            let name = NSUserDefaults.standardUserDefaults().objectForKey(passengerNameKey) as [String: String]?
-            let account = NSUserDefaults.standardUserDefaults().objectForKey(accountNumberKey) as [String: String]?
+            let name = NSUserDefaults.standardUserDefaults().objectForKey(passengerNameKey) as! [String: String]?
+            let account = NSUserDefaults.standardUserDefaults().objectForKey(accountNumberKey) as! [String: String]?
             let firstName = name?[firstNameKey] ?? ""
             let lastName = name?[lastNameKey] ?? ""
             let accountNumber = account?[accountHashKey] ?? ""
