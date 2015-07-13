@@ -42,6 +42,16 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>AUA</string>
+        <key>city</key>
+        <string>Aruba</string>
+        <key>state</key>
+        <string>Aruba</string>
+        <key>timeZone</key>
+        <string>America/Aruba</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>AUS</string>
@@ -132,6 +142,16 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>BZE</string>
+        <key>city</key>
+        <string>Belize City</string>
+        <key>state</key>
+        <string>Belize</string>
+        <key>timeZone</key>
+        <string>America/Belize</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>CAK</string>
@@ -192,6 +212,16 @@
 		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>CUN</string>
+        <key>city</key>
+        <string>Cancun</string>
+        <key>state</key>
+        <string>Mexico</string>
+        <key>timeZone</key>
+        <string>America/Cancun</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>DAL</string>
@@ -442,6 +472,16 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>LIR</string>
+        <key>city</key>
+        <string>Liberia</string>
+        <key>state</key>
+        <string>Costa Rica</string>
+        <key>timeZone</key>
+        <string>America/Costa_Rica</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>LIT</string>
@@ -462,6 +502,16 @@
 		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>MBJ</string>
+        <key>city</key>
+        <string>Montego Bay</string>
+        <key>state</key>
+        <string>Jamaica</string>
+        <key>timeZone</key>
+        <string>America/Jamaica</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>MCI</string>
@@ -492,6 +542,26 @@
 		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>MEM</string>
+        <key>city</key>
+        <string>Memphis</string>
+        <key>state</key>
+        <string>TN</string>
+        <key>timeZone</key>
+        <string>America/Chicago</string>
+    </dict>
+    <dict>
+        <key>airportCode</key>
+        <string>MEX</string>
+        <key>city</key>
+        <string>Mexico City</string>
+        <key>state</key>
+        <string>Mexico</string>
+        <key>timeZone</key>
+        <string>America/Mexico_City</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>MHT</string>
@@ -532,6 +602,16 @@
 		<key>timeZone</key>
 		<string>America/Chicago</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>NAS</string>
+        <key>city</key>
+        <string>Nassau</string>
+        <key>state</key>
+        <string>Bahamas</string>
+        <key>timeZone</key>
+        <string>America/Nassau</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>OAK</string>
@@ -632,6 +712,26 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>PNS</string>
+        <key>city</key>
+        <string>Pensacola</string>
+        <key>state</key>
+        <string>FL</string>
+        <key>timeZone</key>
+        <string>America/New_York</string>
+    </dict>
+    <dict>
+        <key>airportCode</key>
+        <string>PUJ</string>
+        <key>city</key>
+        <string>Punta Cana</string>
+        <key>state</key>
+        <string>Dominican Republic</string>
+        <key>timeZone</key>
+        <string>America/Aruba</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>PVD</string>
@@ -642,6 +742,16 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>PVR</string>
+        <key>city</key>
+        <string>Puerto Vallarta</string>
+        <key>state</key>
+        <string>Mexico</string>
+        <key>timeZone</key>
+        <string>America/Mexico_City</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>PWM</string>
@@ -662,6 +772,16 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>RIC</string>
+        <key>city</key>
+        <string>Richmond</string>
+        <key>state</key>
+        <string>VA</string>
+        <key>timeZone</key>
+        <string>America/New_York</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>RNO</string>
@@ -752,6 +872,26 @@
 		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
+    <dict>
+        <key>airportCode</key>
+        <string>SJD</string>
+        <key>city</key>
+        <string>Cabo San Lucas/Los Cabos</string>
+        <key>state</key>
+        <string>Mexico</string>
+        <key>timeZone</key>
+        <string>America/Mazatlan</string>
+    </dict>
+    <dict>
+        <key>airportCode</key>
+        <string>SJO</string>
+        <key>city</key>
+        <string>San Jose</string>
+        <key>state</key>
+        <string>Costa Rica</string>
+        <key>timeZone</key>
+        <string>America/Costa_Rica</string>
+    </dict>
 	<dict>
 		<key>airportCode</key>
 		<string>SJU</string>
