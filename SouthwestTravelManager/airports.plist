@@ -74,16 +74,6 @@
 	</dict>
 	<dict>
 		<key>airportCode</key>
-		<string>BKG</string>
-		<key>city</key>
-		<string>Branson</string>
-		<key>state</key>
-		<string>MO</string>
-		<key>timeZone</key>
-		<string>America/Chicago</string>
-	</dict>
-	<dict>
-		<key>airportCode</key>
 		<string>BNA</string>
 		<key>city</key>
 		<string>Nashville</string>
@@ -322,7 +312,7 @@
 		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>airportCode</key>
 		<string>GRR</string>
 		<key>city</key>
@@ -372,7 +362,7 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>airportCode</key>
 		<string>ICT</string>
 		<key>city</key>
@@ -401,16 +391,6 @@
 		<string>NY</string>
 		<key>timeZone</key>
 		<string>America/New_York</string>
-	</dict>
-	<dict>
-		<key>airportCode</key>
-		<string>JAN</string>
-		<key>city</key>
-		<string>Jackson</string>
-		<key>state</key>
-		<string>MS</string>
-		<key>timeZone</key>
-		<string>America/Chicago</string>
 	</dict>
 	<dict>
 		<key>airportCode</key>
@@ -662,7 +642,7 @@
 		<key>timeZone</key>
 		<string>America/New_York</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>airportCode</key>
 		<string>PWM</string>
 		<key>city</key>
@@ -692,7 +672,7 @@
 		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>airportCode</key>
 		<string>ROC</string>
 		<key>city</key>
@@ -772,7 +752,7 @@
 		<key>timeZone</key>
 		<string>America/Los_Angeles</string>
 	</dict>
-    <dict>
+	<dict>
 		<key>airportCode</key>
 		<string>SJU</string>
 		<key>city</key>
