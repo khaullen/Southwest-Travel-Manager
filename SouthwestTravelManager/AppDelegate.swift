@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // if lastFetchDate does not exist or lastFetchDate is older than x days old, load from network
             if !(lastFetchDate?.timeIntervalSinceNow > -60 * 60 * 24 * 3) {
                 
-                Alamofire.request(.GET, "https://raw.githubusercontent.com/khaullen/Southwest-Travel-Manager/swift/SouthwestTravelManager/airports.plist").responsePropertyList { (_, _, data, _) -> Void in
+                Alamofire.request(.GET, "https://raw.githubusercontent.com/khaullen/Southwest-Travel-Manager/master/SouthwestTravelManager/airports.plist").responsePropertyList { (_, _, data, _) -> Void in
                     if let airports = data as? [[String: String]] {
                         Airport.loadAirportsFromArray(airports)
                         NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: networkFetchKey)

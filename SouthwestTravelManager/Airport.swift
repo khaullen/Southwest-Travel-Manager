@@ -21,6 +21,7 @@ class Airport: RLMObject {
     
     // MARK: Utility methods
     
+    // TODO: should replace airports instead of just adding missing ones so that discontinued ones are removed
     class func loadAirportsFromArray(array: [[String: String]]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
             let realm = RLMRealm.defaultRealm()
