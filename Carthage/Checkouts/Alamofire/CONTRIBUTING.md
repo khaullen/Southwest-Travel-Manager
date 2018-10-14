@@ -28,13 +28,13 @@ If you discover a security issue, please bring it to our attention right away!
 Please **DO NOT** file a public issue,
 instead send your report privately to <security@alamofire.org>.
 This will help ensure that any vulnerabilities that _are_ found
-can be [disclosed responsibly](http://en.wikipedia.org/wiki/Responsible_disclosure)
+can be [disclosed responsibly](https://en.wikipedia.org/wiki/Responsible_disclosure)
 to any affected parties.
 
 ## Reporting Other Issues
 
 A great way to contribute to the project
-is to send a detailed issue when you encounter an problem.
+is to send a detailed issue when you encounter a problem.
 We always appreciate a well-written, thorough bug report.
 
 Check that the project issues database
@@ -45,7 +45,7 @@ Doing this helps prioritize the most common problems and requests.
 When reporting issues, please include the following:
 
 * The version of Xcode you're using
-* The version of iOS or OS X you're targeting
+* The version of iOS or macOS you're targeting
 * The full output of any stack trace or compiler error
 * A code snippet that reproduces the described behavior, if applicable
 * Any other details that would be useful in understanding the problem
@@ -88,4 +88,4 @@ See [CONDUCT.md](https://github.com/Alamofire/Foundation/blob/master/CONDUCT.md)
 
 ---
 
-*Some of the ideas and wording for the statements above were based on work by the [Docker](https://github.com/docker/docker/blob/master/CONTRIBUTING.md) and [Linux](http://elinux.org/Developer_Certificate_Of_Origin) communities. We commend them for their efforts to facilitate collaboration in their projects.*
+*Some of the ideas and wording for the statements above were based on work by the [Docker](https://github.com/docker/docker/blob/master/CONTRIBUTING.md) and [Linux](https://elinux.org/Developer_Certificate_Of_Origin) communities. We commend them for their efforts to facilitate collaboration in their projects.*

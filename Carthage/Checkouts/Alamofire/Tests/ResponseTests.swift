@@ -1,96 +1,321 @@
-// ResponseTests.swift
 //
-// Copyright (c) 2014–2015 Alamofire Software Foundation (http://alamofire.org/)
+//  ResponseTests.swift
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+//  Copyright (c) 2014-2018 Alamofire Software Foundation (http://alamofire.org/)
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
+//
 
 import Alamofire
 import Foundation
 import XCTest
 
-class JSONResponseTestCase: BaseTestCase {
-    func testGETRequestJSONResponse() {
+class ResponseTestCase: BaseTestCase {
+    func testThatResponseReturnsSuccessResultWithValidData() {
         // Given
-        let URL = "http://httpbin.org/get"
-        let expectation = expectationWithDescription("\(URL)")
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
 
-        var request: NSURLRequest?
-        var response: NSHTTPURLResponse?
-        var JSON: AnyObject?
-        var error: NSError?
+        var response: DefaultDataResponse?
 
         // When
-        Alamofire.request(.GET, URL, parameters: ["foo": "bar"])
-            .responseJSON { responseRequest, responseResponse, responseJSON, responseError in
-                request = responseRequest
-                response = responseResponse
-                JSON = responseJSON
-                error = responseError
-
-                expectation.fulfill()
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).response { resp in
+            response = resp
+            expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
-        XCTAssertNotNil(request, "request should not be nil")
-        XCTAssertNotNil(response, "response should not be nil")
-        XCTAssertNotNil(JSON, "JSON should not be nil")
-        XCTAssertNil(error, "error should be nil")
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertNil(response?.error)
 
-        if let args = JSON?["args"] as? NSObject {
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+
+    func testThatResponseReturnsFailureResultWithOptionalDataAndError() {
+        // Given
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail with 404")
+
+        var response: DefaultDataResponse?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).response { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertNotNil(response?.error)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+}
+
+// MARK: -
+
+class ResponseDataTestCase: BaseTestCase {
+    func testThatResponseDataReturnsSuccessResultWithValidData() {
+        // Given
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
+
+        var response: DataResponse<Data>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseData { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+
+    func testThatResponseDataReturnsFailureResultWithOptionalDataAndError() {
+        // Given
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail with 404")
+
+        var response: DataResponse<Data>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseData { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+}
+
+// MARK: -
+
+class ResponseStringTestCase: BaseTestCase {
+    func testThatResponseStringReturnsSuccessResultWithValidString() {
+        // Given
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
+
+        var response: DataResponse<String>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseString { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+
+    func testThatResponseStringReturnsFailureResultWithOptionalDataAndError() {
+        // Given
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail with 404")
+
+        var response: DataResponse<String>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseString { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+}
+
+// MARK: -
+
+class ResponseJSONTestCase: BaseTestCase {
+    func testThatResponseJSONReturnsSuccessResultWithValidJSON() {
+        // Given
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
+
+        var response: DataResponse<Any>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseJSON { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+
+    func testThatResponseStringReturnsFailureResultWithOptionalDataAndError() {
+        // Given
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail with 404")
+
+        var response: DataResponse<Any>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseJSON { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+
+    func testThatResponseJSONReturnsSuccessResultForGETRequest() {
+        // Given
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
+
+        var response: DataResponse<Any>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseJSON { resp in
+            response = resp
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+
+        if
+            let responseDictionary = response?.result.value as? [String: Any],
+            let args = responseDictionary["args"] as? [String: String]
+        {
             XCTAssertEqual(args, ["foo": "bar"], "args should match parameters")
         } else {
             XCTFail("args should not be nil")
         }
     }
 
-    func testPOSTRequestJSONResponse() {
+    func testThatResponseJSONReturnsSuccessResultForPOSTRequest() {
         // Given
-        let URL = "http://httpbin.org/post"
-        let expectation = expectationWithDescription("\(URL)")
+        let urlString = "https://httpbin.org/post"
+        let expectation = self.expectation(description: "request should succeed")
 
-        var request: NSURLRequest?
-        var response: NSHTTPURLResponse?
-        var JSON: AnyObject?
-        var error: NSError?
+        var response: DataResponse<Any>?
 
         // When
-        Alamofire.request(.POST, URL, parameters: ["foo": "bar"])
-            .responseJSON { responseRequest, responseResponse, responseJSON, responseError in
-                request = responseRequest
-                response = responseResponse
-                JSON = responseJSON
-                error = responseError
-
-                expectation.fulfill()
+        Alamofire.request(urlString, method: .post, parameters: ["foo": "bar"]).responseJSON { resp in
+            response = resp
+            expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
-        XCTAssertNotNil(request, "request should not be nil")
-        XCTAssertNotNil(response, "response should not be nil")
-        XCTAssertNotNil(JSON, "JSON should not be nil")
-        XCTAssertNil(error, "error should be nil")
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
 
-        if let form = JSON?["form"] as? NSObject {
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+
+        if
+            let responseDictionary = response?.result.value as? [String: Any],
+            let form = responseDictionary["form"] as? [String: String]
+        {
             XCTAssertEqual(form, ["foo": "bar"], "form should match parameters")
         } else {
             XCTFail("form should not be nil")
@@ -100,197 +325,320 @@ class JSONResponseTestCase: BaseTestCase {
 
 // MARK: -
 
-class RedirectResponseTestCase: BaseTestCase {
-    func testThatRequestWillPerformHTTPRedirectionByDefault() {
+class ResponseMapTestCase: BaseTestCase {
+    func testThatMapTransformsSuccessValue() {
         // Given
-        let redirectURLString = "http://www.apple.com"
-        let URLString = "http://httpbin.org/redirect-to?url=\(redirectURLString)"
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
 
-        let expectation = expectationWithDescription("Request should redirect to \(redirectURLString)")
-
-        var request: NSURLRequest?
-        var response: NSHTTPURLResponse?
-        var data: AnyObject?
-        var error: NSError?
+        var response: DataResponse<String>?
 
         // When
-        Alamofire.request(.GET, URLString)
-            .response { responseRequest, responseResponse, responseData, responseError in
-                request = responseRequest
-                response = responseResponse
-                data = responseData
-                error = responseError
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseJSON { resp in
+            response = resp.map { json in
+                // json["args"]["foo"] is "bar": use this invariant to test the map function
+                return ((json as? [String: Any])?["args"] as? [String: Any])?["foo"] as? String ?? "invalid"
+            }
 
-                expectation.fulfill()
+            expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
-        XCTAssertNotNil(request, "request should not be nil")
-        XCTAssertNotNil(response, "response should not be nil")
-        XCTAssertNotNil(data, "data should not be nil")
-        XCTAssertNil(error, "error should be nil")
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
+        XCTAssertEqual(response?.result.value, "bar")
 
-        XCTAssertEqual(response?.URL?.URLString ?? "", redirectURLString, "response URL should match the redirect URL")
-        XCTAssertEqual(response?.statusCode ?? -1, 200, "response should have a 200 status code")
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
     }
 
-    func testThatRequestWillPerformRedirectionMultipleTimesByDefault() {
+    func testThatMapPreservesFailureError() {
         // Given
-        let redirectURLString = "http://httpbin.org/get"
-        let URLString = "http://httpbin.org/redirect/5"
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail with 404")
 
-        let expectation = expectationWithDescription("Request should redirect to \(redirectURLString)")
-
-        var request: NSURLRequest?
-        var response: NSHTTPURLResponse?
-        var data: AnyObject?
-        var error: NSError?
+        var response: DataResponse<String>?
 
         // When
-        Alamofire.request(.GET, URLString)
-            .response { responseRequest, responseResponse, responseData, responseError in
-                request = responseRequest
-                response = responseResponse
-                data = responseData
-                error = responseError
-
-                expectation.fulfill()
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseData { resp in
+            response = resp.map { _ in "ignored" }
+            expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
-        XCTAssertNotNil(request, "request should not be nil")
-        XCTAssertNotNil(response, "response should not be nil")
-        XCTAssertNotNil(data, "data should not be nil")
-        XCTAssertNil(error, "error should be nil")
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
 
-        XCTAssertEqual(response?.URL?.URLString ?? "", redirectURLString, "response URL should match the redirect URL")
-        XCTAssertEqual(response?.statusCode ?? -1, 200, "response should have a 200 status code")
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+}
+
+// MARK: -
+
+class ResponseFlatMapTestCase: BaseTestCase {
+    func testThatFlatMapTransformsSuccessValue() {
+        // Given
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
+
+        var response: DataResponse<String>?
+
+        // When
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseJSON { resp in
+            response = resp.flatMap { json in
+                // json["args"]["foo"] is "bar": use this invariant to test the flatMap function
+                return ((json as? [String: Any])?["args"] as? [String: Any])?["foo"] as? String ?? "invalid"
+            }
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
+        XCTAssertEqual(response?.result.value, "bar")
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
     }
 
-    func testThatTaskOverrideClosureCanPerformHTTPRedirection() {
+    func testThatFlatMapCatchesTransformationError() {
         // Given
-        let redirectURLString = "http://www.apple.com"
-        let URLString = "http://httpbin.org/redirect-to?url=\(redirectURLString)"
+        struct TransformError: Error {}
 
-        let expectation = expectationWithDescription("Request should redirect to \(redirectURLString)")
-        let delegate: Alamofire.Manager.SessionDelegate = Alamofire.Manager.sharedInstance.delegate
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
 
-        delegate.taskWillPerformHTTPRedirection = { _, _, _, request in
-            return request
-        }
-
-        var request: NSURLRequest?
-        var response: NSHTTPURLResponse?
-        var data: AnyObject?
-        var error: NSError?
+        var response: DataResponse<String>?
 
         // When
-        Alamofire.request(.GET, URLString)
-            .response { responseRequest, responseResponse, responseData, responseError in
-                request = responseRequest
-                response = responseResponse
-                data = responseData
-                error = responseError
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseData { resp in
+            response = resp.flatMap { json in
+                throw TransformError()
+            }
 
-                expectation.fulfill()
+            expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
-        XCTAssertNotNil(request, "request should not be nil")
-        XCTAssertNotNil(response, "response should not be nil")
-        XCTAssertNotNil(data, "data should not be nil")
-        XCTAssertNil(error, "error should be nil")
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
 
-        XCTAssertEqual(response?.URL?.URLString ?? "", redirectURLString, "response URL should match the redirect URL")
-        XCTAssertEqual(response?.statusCode ?? -1, 200, "response should have a 200 status code")
+        if let error = response?.result.error {
+            XCTAssertTrue(error is TransformError)
+        } else {
+            XCTFail("flatMap should catch the transformation error")
+        }
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
     }
 
-    func testThatTaskOverrideClosureCanCancelHTTPRedirection() {
+    func testThatFlatMapPreservesFailureError() {
         // Given
-        let redirectURLString = "http://www.apple.com"
-        let URLString = "http://httpbin.org/redirect-to?url=\(redirectURLString)"
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail with 404")
 
-        let expectation = expectationWithDescription("Request should not redirect to \(redirectURLString)")
-        let delegate: Alamofire.Manager.SessionDelegate = Alamofire.Manager.sharedInstance.delegate
-
-        delegate.taskWillPerformHTTPRedirection = { _, _, _, _ in
-            return nil
-        }
-
-        var request: NSURLRequest?
-        var response: NSHTTPURLResponse?
-        var data: AnyObject?
-        var error: NSError?
+        var response: DataResponse<String>?
 
         // When
-        Alamofire.request(.GET, URLString)
-            .response { responseRequest, responseResponse, responseData, responseError in
-                request = responseRequest
-                response = responseResponse
-                data = responseData
-                error = responseError
-
-                expectation.fulfill()
+        Alamofire.request(urlString, parameters: ["foo": "bar"]).responseData { resp in
+            response = resp.flatMap { _ in "ignored" }
+            expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
-        XCTAssertNotNil(request, "request should not be nil")
-        XCTAssertNotNil(response, "response should not be nil")
-        XCTAssertNotNil(data, "data should not be nil")
-        XCTAssertNil(error, "error should be nil")
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
 
-        XCTAssertEqual(response?.URL?.URLString ?? "", URLString, "response URL should match the origin URL")
-        XCTAssertEqual(response?.statusCode ?? -1, 302, "response should have a 302 status code")
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+}
+
+// MARK: -
+
+enum TestError: Error {
+    case error(error: Error)
+}
+
+enum TransformationError: Error {
+    case error
+
+    func alwaysFails() throws -> TestError {
+        throw TransformationError.error
+    }
+}
+
+class ResponseMapErrorTestCase: BaseTestCase {
+    func testThatMapErrorTransformsFailureValue() {
+        // Given
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should not succeed")
+
+        var response: DataResponse<Any>?
+
+        // When
+        Alamofire.request(urlString).responseJSON { resp in
+            response = resp.mapError { error in
+                return TestError.error(error: error)
+            }
+
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
+        guard let error = response?.error as? TestError, case .error = error else { XCTFail(); return }
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
     }
 
-    func testThatTaskOverrideClosureIsCalledMultipleTimesForMultipleHTTPRedirects() {
+    func testThatMapErrorPreservesSuccessValue() {
         // Given
-        let redirectURLString = "http://httpbin.org/get"
-        let URLString = "http://httpbin.org/redirect/5"
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
 
-        let expectation = expectationWithDescription("Request should redirect to \(redirectURLString)")
-        let delegate: Alamofire.Manager.SessionDelegate = Alamofire.Manager.sharedInstance.delegate
-        var totalRedirectCount = 0
-
-        delegate.taskWillPerformHTTPRedirection = { _, _, _, request in
-            ++totalRedirectCount
-            return request
-        }
-
-        var request: NSURLRequest?
-        var response: NSHTTPURLResponse?
-        var data: AnyObject?
-        var error: NSError?
+        var response: DataResponse<Data>?
 
         // When
-        Alamofire.request(.GET, URLString)
-            .response { responseRequest, responseResponse, responseData, responseError in
-                request = responseRequest
-                response = responseResponse
-                data = responseData
-                error = responseError
-
-                expectation.fulfill()
+        Alamofire.request(urlString).responseData { resp in
+            response = resp.mapError { TestError.error(error: $0) }
+            expectation.fulfill()
         }
 
-        waitForExpectationsWithTimeout(self.defaultTimeout, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
 
         // Then
-        XCTAssertNotNil(request, "request should not be nil")
-        XCTAssertNotNil(response, "response should not be nil")
-        XCTAssertNotNil(data, "data should not be nil")
-        XCTAssertNil(error, "error should be nil")
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
 
-        XCTAssertEqual(response?.URL?.URLString ?? "", redirectURLString, "response URL should match the redirect URL")
-        XCTAssertEqual(response?.statusCode ?? -1, 200, "response should have a 200 status code")
-        XCTAssertEqual(totalRedirectCount, 5, "total redirect count should be 5")
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+}
+
+// MARK: -
+
+class ResponseFlatMapErrorTestCase: BaseTestCase {
+    func testThatFlatMapErrorPreservesSuccessValue() {
+        // Given
+        let urlString = "https://httpbin.org/get"
+        let expectation = self.expectation(description: "request should succeed")
+
+        var response: DataResponse<Data>?
+
+        // When
+        Alamofire.request(urlString).responseData { resp in
+            response = resp.flatMapError { TestError.error(error: $0) }
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isSuccess, true)
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+
+    func testThatFlatMapErrorCatchesTransformationError() {
+        // Given
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail")
+
+        var response: DataResponse<Data>?
+
+        // When
+        Alamofire.request(urlString).responseData { resp in
+            response = resp.flatMapError { _ in try TransformationError.error.alwaysFails() }
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
+
+        if let error = response?.result.error {
+            XCTAssertTrue(error is TransformationError)
+        } else {
+            XCTFail("flatMapError should catch the transformation error")
+        }
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
+    }
+
+    func testThatFlatMapErrorTransformsError() {
+        // Given
+        let urlString = "https://invalid-url-here.org/this/does/not/exist"
+        let expectation = self.expectation(description: "request should fail")
+
+        var response: DataResponse<Data>?
+
+        // When
+        Alamofire.request(urlString).responseData { resp in
+            response = resp.flatMapError { TestError.error(error: $0) }
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: timeout, handler: nil)
+
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        XCTAssertEqual(response?.result.isFailure, true)
+        guard let error = response?.error as? TestError, case .error = error else { XCTFail(); return }
+
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
+        }
     }
 }

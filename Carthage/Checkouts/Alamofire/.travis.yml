@@ -1,31 +1,60 @@
 language: objective-c
-osx_image: beta-xcode6.3
+osx_image: xcode9.4
+branches:
+  only:
+    - master
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
   - LANG=en_US.UTF-8
+  - WORKSPACE=Alamofire.xcworkspace
+  - IOS_FRAMEWORK_SCHEME="Alamofire iOS"
+  - MACOS_FRAMEWORK_SCHEME="Alamofire macOS"
+  - TVOS_FRAMEWORK_SCHEME="Alamofire tvOS"
+  - WATCHOS_FRAMEWORK_SCHEME="Alamofire watchOS"
+  - EXAMPLE_SCHEME="iOS Example"
   matrix:
-    - DESTINATION="OS=8.1,name=iPhone 5S" SCHEME="Alamofire iOS" SDK=iphonesimulator8.3 BUILD_EXAMPLE="YES" POD_LINT="NO"
-    - DESTINATION="OS=8.2,name=iPhone 6" SCHEME="Alamofire iOS" SDK=iphonesimulator8.3 BUILD_EXAMPLE="YES" POD_LINT="NO"
-    - DESTINATION="OS=8.3,name=iPhone 6 Plus" SCHEME="Alamofire iOS" SDK=iphonesimulator8.3 BUILD_EXAMPLE="YES" POD_LINT="NO"
-    - DESTINATION="arch=x86_64" SCHEME="Alamofire OSX" SDK=macosx10.10 BUILD_EXAMPLE="NO" POD_LINT="YES"
+    - DESTINATION="OS=4.3,name=Apple Watch - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME"  RUN_TESTS="NO"  BUILD_EXAMPLE="NO"  POD_LINT="NO"
+    - DESTINATION="OS=3.2,name=Apple Watch - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME"  RUN_TESTS="NO"  BUILD_EXAMPLE="NO"  POD_LINT="NO"
+    - DESTINATION="OS=2.2,name=Apple Watch - 42mm" SCHEME="$WATCHOS_FRAMEWORK_SCHEME"  RUN_TESTS="NO"  BUILD_EXAMPLE="NO"  POD_LINT="NO"
+
+    - DESTINATION="OS=11.4,name=iPhone X"          SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" BUILD_EXAMPLE="YES" POD_LINT="NO"
+    - DESTINATION="OS=10.3.1,name=iPhone 7 Plus"   SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" BUILD_EXAMPLE="YES" POD_LINT="NO"
+    - DESTINATION="OS=9.3,name=iPhone 6"           SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" BUILD_EXAMPLE="YES" POD_LINT="NO"
+    # - DESTINATION="OS=8.4,name=iPhone 4S"          SCHEME="$IOS_FRAMEWORK_SCHEME"      RUN_TESTS="YES" BUILD_EXAMPLE="YES" POD_LINT="NO"
+
+    - DESTINATION="OS=11.4,name=Apple TV 4K"       SCHEME="$TVOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" BUILD_EXAMPLE="NO"  POD_LINT="NO"
+    - DESTINATION="OS=10.2,name=Apple TV 1080p"    SCHEME="$TVOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" BUILD_EXAMPLE="NO"  POD_LINT="NO"
+    - DESTINATION="OS=9.2,name=Apple TV 1080p"     SCHEME="$TVOS_FRAMEWORK_SCHEME"     RUN_TESTS="YES" BUILD_EXAMPLE="NO"  POD_LINT="NO"
+
+    - DESTINATION="arch=x86_64"                    SCHEME="$MACOS_FRAMEWORK_SCHEME"    RUN_TESTS="YES" BUILD_EXAMPLE="NO"  POD_LINT="YES"
 before_install:
-  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
+  - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
 script:
   - set -o pipefail
-  - xcodebuild -project Alamofire.xcodeproj -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" 
-    -configuration Debug ONLY_ACTIVE_ARCH=NO test | xcpretty -c
-  - xcodebuild -project Alamofire.xcodeproj -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" 
-    -configuration Release ONLY_ACTIVE_ARCH=NO test | xcpretty -c
-  - if [ $BUILD_EXAMPLE == "YES" ]; then 
-      xcodebuild -project "iOS Example.xcodeproj" -scheme "iOS Example" -sdk "$SDK" -destination "$DESTINATION" 
-      -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty -c; 
+  - xcodebuild -version
+  - xcodebuild -showsdks
+
+  # Build Framework in Debug and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+    else
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
-  - if [ $BUILD_EXAMPLE == "YES" ]; then 
-      xcodebuild -project "iOS Example.xcodeproj" -scheme "iOS Example" -sdk "$SDK" -destination "$DESTINATION" 
-      -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -c; 
+
+  # Build Framework in Release and Run Tests if specified
+  - if [ $RUN_TESTS == "YES" ]; then
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty;
+    else
+      xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEME" -destination "$DESTINATION" -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty;
     fi
-  - if [ $POD_LINT == "YES" ]; then 
-      pod lib lint --quick; 
+
+  # Build Example in Debug if specified
+  - if [ $BUILD_EXAMPLE == "YES" ]; then
+      xcodebuild -workspace "$WORKSPACE" -scheme "$EXAMPLE_SCHEME" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO build | xcpretty;
+    fi
+
+  # Run `pod lib lint` if specified
+  - if [ $POD_LINT == "YES" ]; then
+      pod lib lint;
     fi
