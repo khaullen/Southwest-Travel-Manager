@@ -29,17 +29,6 @@
 		3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
 		3B713D521A5FA685001D5CDB /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
 		3B78F93C19F06ADB0066074D /* ConfirmationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */; };
-		3B7A576B1A03C1C900EB1B34 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A575F1A03C1C900EB1B34 /* Array.swift */; };
-		3B7A576C1A03C1C900EB1B34 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57601A03C1C900EB1B34 /* Dictionary.swift */; };
-		3B7A576D1A03C1C900EB1B34 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57611A03C1C900EB1B34 /* Double.swift */; };
-		3B7A576E1A03C1C900EB1B34 /* ExSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57631A03C1C900EB1B34 /* ExSwift.swift */; };
-		3B7A576F1A03C1C900EB1B34 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57641A03C1C900EB1B34 /* Float.swift */; };
-		3B7A57701A03C1C900EB1B34 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B7A57651A03C1C900EB1B34 /* Info.plist */; };
-		3B7A57711A03C1C900EB1B34 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57661A03C1C900EB1B34 /* Int.swift */; };
-		3B7A57721A03C1C900EB1B34 /* NSArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57671A03C1C900EB1B34 /* NSArray.swift */; };
-		3B7A57731A03C1C900EB1B34 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57681A03C1C900EB1B34 /* Range.swift */; };
-		3B7A57741A03C1C900EB1B34 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A57691A03C1C900EB1B34 /* Sequence.swift */; };
-		3B7A57751A03C1C900EB1B34 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7A576A1A03C1C900EB1B34 /* String.swift */; };
 		3B7B356C1A13FD5200C099E5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B356B1A13FD5200C099E5 /* NotificationManager.swift */; };
 		3B89746A19F5C9CE00D4ACAF /* FlightListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89746919F5C9CE00D4ACAF /* FlightListDataSource.swift */; };
 		3B89746C19F6CF6C00D4ACAF /* TravelFundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */; };
@@ -103,18 +92,6 @@
 		3B560FC11A2FF2D1008E3834 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		3B560FC31A30DD6A008E3834 /* Passenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
 		3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationDelegate.swift; sourceTree = "<group>"; };
-		3B7A575F1A03C1C900EB1B34 /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		3B7A57601A03C1C900EB1B34 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		3B7A57611A03C1C900EB1B34 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
-		3B7A57621A03C1C900EB1B34 /* ExSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExSwift.h; sourceTree = "<group>"; };
-		3B7A57631A03C1C900EB1B34 /* ExSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExSwift.swift; sourceTree = "<group>"; };
-		3B7A57641A03C1C900EB1B34 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Float.swift; sourceTree = "<group>"; };
-		3B7A57651A03C1C900EB1B34 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B7A57661A03C1C900EB1B34 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
-		3B7A57671A03C1C900EB1B34 /* NSArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSArray.swift; sourceTree = "<group>"; };
-		3B7A57681A03C1C900EB1B34 /* Range.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
-		3B7A57691A03C1C900EB1B34 /* Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sequence.swift; sourceTree = "<group>"; };
-		3B7A576A1A03C1C900EB1B34 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3B7B356B1A13FD5200C099E5 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3B89746919F5C9CE00D4ACAF /* FlightListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightListDataSource.swift; sourceTree = "<group>"; };
 		3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFundVC.swift; sourceTree = "<group>"; };
@@ -178,7 +155,6 @@
 				3BA67F6619E8687B007CE97D /* Realm */,
 				3BEDCED21A12A372009AFA85 /* RCDatePicker */,
 				3BC77E7B19F5739200FC27C7 /* TSCurrencyTextField */,
-				3B7A575E1A03C1C900EB1B34 /* ExSwift */,
 				3B1A4C6E19DE0C08000F265C /* Products */,
 				3BC77E7719F5737D00FC27C7 /* SouthwestTravelManager-Bridging-Header.h */,
 				2F4F37531B5444FE000C3D11 /* Alamofire.framework */,
@@ -236,26 +212,6 @@
 				3B1A4C8919DE0C09000F265C /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3B7A575E1A03C1C900EB1B34 /* ExSwift */ = {
-			isa = PBXGroup;
-			children = (
-				3B7A575F1A03C1C900EB1B34 /* Array.swift */,
-				3B7A57601A03C1C900EB1B34 /* Dictionary.swift */,
-				3B7A57611A03C1C900EB1B34 /* Double.swift */,
-				3B7A57621A03C1C900EB1B34 /* ExSwift.h */,
-				3B7A57631A03C1C900EB1B34 /* ExSwift.swift */,
-				3B7A57641A03C1C900EB1B34 /* Float.swift */,
-				3B7A57651A03C1C900EB1B34 /* Info.plist */,
-				3B7A57661A03C1C900EB1B34 /* Int.swift */,
-				3B7A57671A03C1C900EB1B34 /* NSArray.swift */,
-				3B7A57681A03C1C900EB1B34 /* Range.swift */,
-				3B7A57691A03C1C900EB1B34 /* Sequence.swift */,
-				3B7A576A1A03C1C900EB1B34 /* String.swift */,
-			);
-			name = ExSwift;
-			path = ExSwift/ExSwift;
 			sourceTree = "<group>";
 		};
 		3BA67F6619E8687B007CE97D /* Realm */ = {
@@ -420,7 +376,6 @@
 			files = (
 				3BCB423B19EEFDC300B03AC4 /* airports.plist in Resources */,
 				3B1A4C7A19DE0C08000F265C /* Main.storyboard in Resources */,
-				3B7A57701A03C1C900EB1B34 /* Info.plist in Resources */,
 				3B1A4C7F19DE0C09000F265C /* LaunchScreen.xib in Resources */,
 				3BC472B41A4CDDC900DEB676 /* Radar.aiff in Resources */,
 				3B1A4C7C19DE0C09000F265C /* Images.xcassets in Resources */,
@@ -459,33 +414,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B7A57721A03C1C900EB1B34 /* NSArray.swift in Sources */,
 				3BF7917319EE550D0081CEE6 /* FlightDelegate.swift in Sources */,
-				3B7A576C1A03C1C900EB1B34 /* Dictionary.swift in Sources */,
 				3B1A4C7319DE0C08000F265C /* AppDelegate.swift in Sources */,
-				3B7A576F1A03C1C900EB1B34 /* Float.swift in Sources */,
 				3B78F93C19F06ADB0066074D /* ConfirmationDelegate.swift in Sources */,
-				3B7A576E1A03C1C900EB1B34 /* ExSwift.swift in Sources */,
 				3B560FC21A2FF2D1008E3834 /* AboutVC.swift in Sources */,
 				3B89746A19F5C9CE00D4ACAF /* FlightListDataSource.swift in Sources */,
 				3BF7916B19EC50AB0081CEE6 /* TravelFund.swift in Sources */,
 				3BC77E7A19F5737E00FC27C7 /* TSCurrencyTextField.m in Sources */,
 				3BA67F6819E88364007CE97D /* Flight.swift in Sources */,
-				3B7A57741A03C1C900EB1B34 /* Sequence.swift in Sources */,
 				3B7B356C1A13FD5200C099E5 /* NotificationManager.swift in Sources */,
 				3BE9045319F72A8D00B0977F /* ListDataSource.swift in Sources */,
 				3BE9045519F8614300B0977F /* Extensions.swift in Sources */,
-				3B7A576B1A03C1C900EB1B34 /* Array.swift in Sources */,
 				3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */,
 				3BEDCED11A12A366009AFA85 /* RCDatePicker.m in Sources */,
 				3B521FFC1A66006E00D320EA /* RLMSupport.swift in Sources */,
 				3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */,
-				3B7A57731A03C1C900EB1B34 /* Range.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
-				3B7A57751A03C1C900EB1B34 /* String.swift in Sources */,
 				2F575D6F1A83ED1200BA6433 /* CheckInVC.swift in Sources */,
-				3B7A57711A03C1C900EB1B34 /* Int.swift in Sources */,
-				3B7A576D1A03C1C900EB1B34 /* Double.swift in Sources */,
 				3BE9045019F71B2200B0977F /* TravelFundListDataSource.swift in Sources */,
 				3BC0837E19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift in Sources */,
 				3B89746C19F6CF6C00D4ACAF /* TravelFundVC.swift in Sources */,
