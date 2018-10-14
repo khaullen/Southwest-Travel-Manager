@@ -20,16 +20,16 @@ import Realm
 
 extension RLMObject {
     // Swift query convenience functions
-    public class func objectsWhere(predicateFormat: String, _ args: CVarArgType...) -> RLMResults {
+    public class func objectsWhere(_ predicateFormat: String, _ args: CVarArg...) -> RLMResults {
         return objectsWhere(predicateFormat, args: getVaList(args))
     }
 
-    public class func objectsInRealm(realm: RLMRealm, _ predicateFormat: String, _ args: CVarArgType...) -> RLMResults {
-        return objectsInRealm(realm, `where`: predicateFormat, args: getVaList(args))
+    public class func objectsInRealm(_ realm: RLMRealm, _ predicateFormat: String, _ args: CVarArg...) -> RLMResults {
+        return objects(in: realm, where: predicateFormat, args: getVaList(args))
     }
 }
 
-extension RLMArray: SequenceType {
+extension RLMArray: Sequence {
     // Support Sequence-style enumeration
     public func generate() -> GeneratorOf<RLMObject> {
         var i: UInt  = 0
@@ -44,16 +44,16 @@ extension RLMArray: SequenceType {
     }
 
     // Swift query convenience functions
-    public func indexOfObjectWhere(predicateFormat: String, _ args: CVarArgType...) -> UInt {
-        return indexOfObjectWhere(predicateFormat, args: getVaList(args))
+    public func indexOfObjectWhere(_ predicateFormat: String, _ args: CVarArg...) -> UInt {
+        return index(ofObjectWhere: predicateFormat, args: getVaList(args))
     }
 
-    public func objectsWhere(predicateFormat: String, _ args: CVarArgType...) -> RLMResults {
+    public func objectsWhere(_ predicateFormat: String, _ args: CVarArg...) -> RLMResults {
         return objectsWhere(predicateFormat, args: getVaList(args))
     }
 }
 
-extension RLMResults: SequenceType {
+extension RLMResults: Sequence {
     // Support Sequence-style enumeration
     public func generate() -> GeneratorOf<RLMObject> {
         var i: UInt  = 0
@@ -68,11 +68,11 @@ extension RLMResults: SequenceType {
     }
 
     // Swift query convenience functions
-    public func indexOfObjectWhere(predicateFormat: String, _ args: CVarArgType...) -> UInt {
-        return indexOfObjectWhere(predicateFormat, args: getVaList(args))
+    public func indexOfObjectWhere(_ predicateFormat: String, _ args: CVarArg...) -> UInt {
+        return index(ofObjectWhere: predicateFormat, args: getVaList(args))
     }
 
-    public func objectsWhere(predicateFormat: String, _ args: CVarArgType...) -> RLMResults {
+    public func objectsWhere(_ predicateFormat: String, _ args: CVarArg...) -> RLMResults {
         return objectsWhere(predicateFormat, args: getVaList(args))
     }
 }

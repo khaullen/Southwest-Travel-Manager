@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 import Realm
 
-extension NSDate {
+extension Date {
     
-    func departureStringWithStyle(style: NSDateFormatterStyle, inTimeZone timeZone: NSTimeZone?) -> String {
+    func departureStringWithStyle(_ style: DateFormatter.Style, inTimeZone timeZone: TimeZone?) -> String {
         departureDateFormatter.dateStyle = style
         departureDateFormatter.timeZone = timeZone
-        return departureDateFormatter.stringFromDate(self)
+        return departureDateFormatter.string(from: self)
     }
 
 }
 
-private let departureDateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.timeStyle = .ShortStyle
+private let departureDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.timeStyle = .short
     return formatter
 }()
 
@@ -35,7 +35,7 @@ extension RLMResults {
 }
 
 // FIXME: shouldn't need T, should be able to use Generator type
-public func swiftArray<T, S: SequenceType>(collection: S) -> [T] {
+public func swiftArray<T, S: Sequence>(_ collection: S) -> [T] {
     var array = [T]()
     for object in collection {
         array.append(object as! T)
@@ -46,12 +46,12 @@ public func swiftArray<T, S: SequenceType>(collection: S) -> [T] {
 extension RLMObject {
     
     enum PersistedState {
-        case New
-        case Existing
+        case new
+        case existing
     }
     
     var persistedState: PersistedState {
-        return realm == nil ? .New : .Existing
+        return realm == nil ? .new : .existing
     }
     
     var copyString: String? {
@@ -63,21 +63,21 @@ extension RLMObject {
 extension RLMObject: Equatable {}
 
 public func ==(lhs: RLMObject, rhs: RLMObject) -> Bool {
-    return lhs.isEqualToObject(rhs)
+    return lhs.isEqual(to: rhs)
 }
 
 
 extension Double {
     
     var currencyValue: String? {
-        return currencyFormatter.stringFromNumber(self)
+        return currencyFormatter.string(from: NSNumber(self))
     }
     
 }
 
-private let currencyFormatter: NSNumberFormatter = {
-    let formatter = NSNumberFormatter()
-    formatter.numberStyle = .CurrencyStyle
+private let currencyFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .currency
     return formatter
 }()
 
@@ -88,14 +88,14 @@ public func <(lhs: Bool, rhs: Bool) -> Bool {
     return !lhs && rhs
 }
 
-extension NSDate: Comparable {}
+extension Date: Comparable {}
 
-public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.isEqualToDate(rhs)
+public func ==(lhs: Date, rhs: Date) -> Bool {
+    return (lhs == rhs)
 }
 
-public func <(lhs: NSDate, rhs: NSDate) -> Bool {
-    return lhs.compare(rhs) == .OrderedAscending
+public func <(lhs: Date, rhs: Date) -> Bool {
+    return lhs.compare(rhs) == .orderedAscending
 }
 
 
@@ -113,14 +113,14 @@ extension Dictionary {
 
 extension UIApplication {
     
-    func openUntilSuccessful(urls: [NSURL]) -> Bool {
+    func openUntilSuccessful(_ urls: [URL]) -> Bool {
         if (urls.isEmpty) {
             return false
         }
         
         var array = urls
         // FIXME: figure out why shift doesn't work here
-        let url = array.removeAtIndex(0)
+        let url = array.remove(at: 0)
         if openURL(url) {
             return true
         } else {
@@ -133,10 +133,10 @@ extension UIApplication {
 extension UIDevice {
     
     var machineName: String {
-        var systemInfo = UnsafeMutablePointer<utsname>.alloc(1)
+        let systemInfo = UnsafeMutablePointer<utsname>.allocate(capacity: 1)
         uname(systemInfo);
-        var machine = systemInfo.memory.machine
-        systemInfo.destroy()
+        var machine = systemInfo.pointee.machine
+        systemInfo.deinitialize()
         return ""
         // FIXME:
 //        return NSString(CString: machine, encoding: NSString.defaultCStringEncoding())
@@ -144,10 +144,10 @@ extension UIDevice {
     
 }
 
-extension NSBundle {
+extension Bundle {
     
     var versionString: String {
-        return objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+        return object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
     }
     
 }
@@ -156,7 +156,7 @@ extension UIAlertController {
     
     /// Convenience initializer for creating an ActionSheet style alert controller that will display properly over a UITableViewCell
     convenience init(title: String?, message: String?, cell: UITableViewCell) {
-        self.init(title: title, message: message, preferredStyle: .ActionSheet)
+        self.init(title: title, message: message, preferredStyle: .actionSheet)
         popoverPresentationController?.sourceView = cell
         popoverPresentationController?.sourceRect = cell.bounds
     }

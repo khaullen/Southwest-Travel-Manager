@@ -22,12 +22,12 @@ class Airport: RLMObject {
     // MARK: Utility methods
     
     // TODO: should replace airports instead of just adding missing ones so that discontinued ones are removed
-    class func loadAirportsFromArray(array: [[String: String]]) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let realm = RLMRealm.defaultRealm()
+    class func loadAirportsFromArray(_ array: [[String: String]]) {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
+            let realm = RLMRealm.default()
             for airportDict in array {
-                realm.transactionWithBlock({ () -> Void in
-                    Airport.createOrUpdateInRealm(realm, withObject: airportDict)
+                realm?.transaction({ () -> Void in
+                    Airport.createOrUpdate(in: realm, with: airportDict)
                     return
                 })
             }
@@ -40,20 +40,20 @@ class Airport: RLMObject {
         return city + ", " + state
     }
     
-    var timeZoneObject: NSTimeZone {
-        return NSTimeZone(name: timeZone)!
+    var timeZoneObject: TimeZone {
+        return TimeZone(name: timeZone)!
     }
     
     enum StringFormat {
-        case City
-        case CityState
+        case city
+        case cityState
     }
 
-    func to(destination: Airport, format: StringFormat, roundtrip: Bool) -> String {
+    func to(_ destination: Airport, format: StringFormat, roundtrip: Bool) -> String {
         let arrow = roundtrip ? " ⇄ " : " → "
         switch format {
-        case .City: return city + arrow + destination.city
-        case .CityState: return location + arrow + destination.location
+        case .city: return city + arrow + destination.city
+        case .cityState: return location + arrow + destination.location
         }
     }
 }

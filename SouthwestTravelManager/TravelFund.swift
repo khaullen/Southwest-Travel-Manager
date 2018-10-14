@@ -11,11 +11,11 @@ import Realm
 
 class TravelFund: RLMObject {
     dynamic var balance = 0.0
-    dynamic var expirationDate = NSDate(timeIntervalSinceNow: 60 * 60 * 24 * 365)
+    dynamic var expirationDate = Date(timeIntervalSinceNow: 60 * 60 * 24 * 365)
     dynamic var notes = ""
     dynamic var originalFlight: Flight?
     dynamic var unusedTicket = true
-    dynamic var uuid = NSUUID().UUIDString
+    dynamic var uuid = UUID().uuidString
     
     override class func primaryKey() -> String {
         return "uuid"
@@ -29,8 +29,8 @@ class TravelFund: RLMObject {
 
     // MARK: View Model
     
-    class func expirationStringForDate(date: NSDate) -> String {
-        return expirationDateFormatter.stringFromDate(date)
+    class func expirationStringForDate(_ date: Date) -> String {
+        return expirationDateFormatter.string(from: date)
     }
     
     override var copyString: String? {
@@ -39,9 +39,9 @@ class TravelFund: RLMObject {
 
 }
 
-private let expirationDateFormatter: NSDateFormatter = {
-    let formatter = NSDateFormatter()
-    formatter.dateStyle = .LongStyle
+private let expirationDateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .long
     return formatter
 }()
 
@@ -57,6 +57,6 @@ extension TravelFund: Hashable {
 
 // For some reason, the == function is not inherited from RLMObject
 func ==(lhs: TravelFund, rhs: TravelFund) -> Bool {
-    return lhs.isEqualToObject(rhs)
+    return lhs.isEqual(to: rhs)
 }
 

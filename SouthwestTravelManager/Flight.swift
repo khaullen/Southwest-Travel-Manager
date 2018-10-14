@@ -10,7 +10,7 @@ import UIKit
 import Realm
 
 class Flight: RLMObject {
-    dynamic var bookingDate = NSDate()
+    dynamic var bookingDate = Date()
     dynamic var cancelled = false
     dynamic var checkInReminder = false
     dynamic var confirmationCode = ""
@@ -20,24 +20,24 @@ class Flight: RLMObject {
     dynamic var fundsUsed = RLMArray(objectClassName: TravelFund.className())
     dynamic var notes = ""
     dynamic var origin = Airport()
-    dynamic var outboundArrivalDate = NSDate()
+    dynamic var outboundArrivalDate = Date()
     dynamic var outboundCheckedIn = false
-    dynamic var outboundDepartureDate = NSDate()
+    dynamic var outboundDepartureDate = Date()
     dynamic var outboundFlightNumber = ""
     dynamic var pointsEarned = 0
-    dynamic var returnArrivalDate = NSDate()
+    dynamic var returnArrivalDate = Date()
     dynamic var returnCheckedIn = false
-    dynamic var returnDepartureDate = NSDate()
+    dynamic var returnDepartureDate = Date()
     dynamic var returnFlightNumber = ""
     dynamic var roundtrip = false
     dynamic var ticketNumber = ""
     dynamic var travelFund: TravelFund
-    dynamic var uuid = NSUUID().UUIDString
+    dynamic var uuid = UUID().uuidString
     
-    var checkInURL: NSURL {
+    var checkInURL: URL {
         // TODO: request name if not available
         let passenger = Passenger.defaultPassenger
-        return NSURL(string: "https://www.southwest.com/flight/retrieveCheckinDoc.html?forceNewSession=yes&firstName=" + passenger.firstName.uppercaseString + "&lastName=" + passenger.lastName.uppercaseString + "&confirmationNumber=" + confirmationCode)!
+        return URL(string: "https://www.southwest.com/flight/retrieveCheckinDoc.html?forceNewSession=yes&firstName=" + passenger.firstName.uppercased() + "&lastName=" + passenger.lastName.uppercased() + "&confirmationNumber=" + confirmationCode)!
     }
     
     override class func primaryKey() -> String {
@@ -54,25 +54,25 @@ class Flight: RLMObject {
         travelFund.originalFlight = self
     }
     
-    func useFunds(funds: [TravelFund: Double]) {
+    func useFunds(_ funds: [TravelFund: Double]) {
         // No support for modifying funds used after creation
-        if persistedState == .New {
+        if persistedState == .new {
             for (fund, amountApplied) in funds {
                 fund.balance -= amountApplied
                 fund.unusedTicket = false
             }
-            fundsUsed.addObjects(Array(funds.keys))
+            fundsUsed?.addObjects(Array(funds.keys) as NSFastEnumeration)
         }
     }
     
     func checkIn() {
-        UIApplication.sharedApplication().openURL(checkInURL)
+        UIApplication.shared.openURL(checkInURL)
         // TODO: mark segment as checked in?
     }
     
     func cancelFlight() {
         if let realm = realm {
-            realm.transactionWithBlock({ () -> Void in
+            realm.transaction({ () -> Void in
                 self.cancelled = true
                 self.checkInReminder = false
                 self.travelFund.balance = self.cost
@@ -85,7 +85,7 @@ class Flight: RLMObject {
     
     var airports: (Airport, Airport) {
         get {
-            return (origin, destination)
+            return (origin!, destination!)
         }
         set {
             (origin!, destination!) = newValue
@@ -99,7 +99,7 @@ class Flight: RLMObject {
     // MARK: Queries
     
     class var futureFlights: RLMResults {
-        return Flight.objectsWhere("cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", NSDate(), NSDate()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
+        return Flight.objectsWhere("cancelled == false && (outboundDepartureDate > %@ OR (roundtrip == true && returnDepartureDate > %@))", Date(), Date()).sortedResultsUsingProperty("outboundDepartureDate", ascending: true)
     }
     
 }
@@ -112,9 +112,9 @@ extension Flight {
         
         let airportA: Airport
         let airportB: Airport
-        let arrivalDate: NSDate
+        let arrivalDate: Date
         let checkedIn: Bool
-        let departureDate: NSDate
+        let departureDate: Date
         let flightNumber: String
         
         var checkInAvailable: Bool {
@@ -123,9 +123,9 @@ extension Flight {
         
         func checkInReminder() -> UILocalNotification {
             let reminder = UILocalNotification()
-            reminder.fireDate = departureDate.dateByAddingTimeInterval((-60 * 5) /* five minutes */ + (-60 * 60 * 24) /* and one day */)
+            reminder.fireDate = departureDate.addingTimeInterval((-60 * 5) /* five minutes */ + (-60 * 60 * 24) /* and one day */)
             // NOTE: do not set timeZone attribute -- http://stackoverflow.com/questions/18424569/understanding-uilocalnotification-timezone
-            reminder.alertBody = "Check in for \(airportA.to(airportB, format: .City, roundtrip: false))"
+            reminder.alertBody = "Check in for \(airportA.to(airportB, format: .city, roundtrip: false))"
             reminder.alertAction = "Check In"
             reminder.soundName = "Radar.aiff"
             
@@ -135,11 +135,11 @@ extension Flight {
     }
     
     var outboundSegment: Segment {
-        return Segment(airportA: origin, airportB: destination, arrivalDate: outboundArrivalDate, checkedIn: outboundCheckedIn, departureDate: outboundDepartureDate, flightNumber: outboundFlightNumber)
+        return Segment(airportA: origin!, airportB: destination!, arrivalDate: outboundArrivalDate, checkedIn: outboundCheckedIn, departureDate: outboundDepartureDate, flightNumber: outboundFlightNumber)
     }
     
     var returnSegment: Segment? {
-        return roundtrip ? Segment(airportA: destination, airportB: origin, arrivalDate: returnArrivalDate, checkedIn: returnCheckedIn, departureDate: returnDepartureDate, flightNumber: returnFlightNumber) : nil
+        return roundtrip ? Segment(airportA: destination!, airportB: origin!, arrivalDate: returnArrivalDate, checkedIn: returnCheckedIn, departureDate: returnDepartureDate, flightNumber: returnFlightNumber) : nil
     }
     
     var segments: [Segment] {

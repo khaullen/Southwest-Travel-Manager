@@ -18,27 +18,27 @@ struct Passenger {
         return firstName + lastName
     }
     
-    private static let passengerNameKey = "Passenger Name"
-    private static let firstNameKey = "First"
-    private static let lastNameKey = "Last"
-    private static let accountNumberKey = "Account Number"
-    private static let accountHashKey = "Account #"
+    fileprivate static let passengerNameKey = "Passenger Name"
+    fileprivate static let firstNameKey = "First"
+    fileprivate static let lastNameKey = "Last"
+    fileprivate static let accountNumberKey = "Account Number"
+    fileprivate static let accountHashKey = "Account #"
     
     // Uses weird NSUserDefaults schema for backwards compatibility with version 1.2.1
     static var defaultPassenger: Passenger {
         get {
-            let name = NSUserDefaults.standardUserDefaults().objectForKey(passengerNameKey) as! [String: String]?
-            let account = NSUserDefaults.standardUserDefaults().objectForKey(accountNumberKey) as! [String: String]?
+            let name = UserDefaults.standard.object(forKey: passengerNameKey) as! [String: String]?
+            let account = UserDefaults.standard.object(forKey: accountNumberKey) as! [String: String]?
             let firstName = name?[firstNameKey] ?? ""
             let lastName = name?[lastNameKey] ?? ""
             let accountNumber = account?[accountHashKey] ?? ""
             return Passenger(firstName: firstName, lastName: lastName, accountNumber: accountNumber)
         }
         set {
-            NSUserDefaults.standardUserDefaults().setObject([firstNameKey: newValue.firstName, lastNameKey: newValue.lastName], forKey: passengerNameKey)
-            NSUserDefaults.standardUserDefaults().setObject([accountHashKey: newValue.accountNumber], forKey: accountNumberKey)
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                NSUserDefaults.standardUserDefaults().synchronize()
+            UserDefaults.standard.set([firstNameKey: newValue.firstName, lastNameKey: newValue.lastName], forKey: passengerNameKey)
+            UserDefaults.standard.set([accountHashKey: newValue.accountNumber], forKey: accountNumberKey)
+            DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
+                UserDefaults.standard.synchronize()
                 return
             })
         }

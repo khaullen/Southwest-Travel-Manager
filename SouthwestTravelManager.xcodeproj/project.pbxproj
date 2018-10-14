@@ -386,9 +386,11 @@
 					3B1A4C6C19DE0C08000F265C = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = LNDEN3GJH5;
+						LastSwiftMigration = 0830;
 					};
 					3B1A4C8319DE0C09000F265C = {
 						CreatedOnToolsVersion = 6.0.1;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -633,6 +635,7 @@
 				PRODUCT_NAME = SouthwestTravelManager;
 				SWIFT_OBJC_BRIDGING_HEADER = "SouthwestTravelManager-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -651,6 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = SouthwestTravelManager;
 				SWIFT_OBJC_BRIDGING_HEADER = "SouthwestTravelManager-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -669,6 +673,7 @@
 				INFOPLIST_FILE = SouthwestTravelManagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = SouthwestTravelManagerTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -683,6 +688,7 @@
 				INFOPLIST_FILE = SouthwestTravelManagerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = SouthwestTravelManagerTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
