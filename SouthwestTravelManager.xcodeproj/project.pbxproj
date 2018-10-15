@@ -16,15 +16,10 @@
 		3B1A4C7C19DE0C09000F265C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7B19DE0C09000F265C /* Images.xcassets */; };
 		3B1A4C7F19DE0C09000F265C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1A4C7D19DE0C09000F265C /* LaunchScreen.xib */; };
 		3B1A4C8B19DE0C09000F265C /* SouthwestTravelManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A4C8A19DE0C09000F265C /* SouthwestTravelManagerTests.swift */; };
-		3B2BBF161A2D3E1A00393C8C /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA67F6219E8682A007CE97D /* libc++.dylib */; };
 		3B2BBF171A2E33C500393C8C /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA67F6719E88364007CE97D /* Flight.swift */; };
 		3B2BBF181A2E33EF00393C8C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9045419F8614300B0977F /* Extensions.swift */; };
 		3B2BBF191A2E33F200393C8C /* TravelFund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916A19EC50AB0081CEE6 /* TravelFund.swift */; };
 		3B2BBF1A1A2E33F500393C8C /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7916C19EC54A20081CEE6 /* Airport.swift */; };
-		3B521FFC1A66006E00D320EA /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B521FFB1A66006E00D320EA /* RLMSupport.swift */; };
-		3B521FFD1A66008300D320EA /* RLMSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B521FFB1A66006E00D320EA /* RLMSupport.swift */; };
-		3B521FFE1A66019D00D320EA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B521FF91A66004500D320EA /* Realm.framework */; };
-		3B521FFF1A6601A300D320EA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B521FF91A66004500D320EA /* Realm.framework */; };
 		3B560FC21A2FF2D1008E3834 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC11A2FF2D1008E3834 /* AboutVC.swift */; };
 		3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
 		3B713D521A5FA685001D5CDB /* Passenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B560FC31A30DD6A008E3834 /* Passenger.swift */; };
@@ -32,7 +27,6 @@
 		3B7B356C1A13FD5200C099E5 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7B356B1A13FD5200C099E5 /* NotificationManager.swift */; };
 		3B89746A19F5C9CE00D4ACAF /* FlightListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89746919F5C9CE00D4ACAF /* FlightListDataSource.swift */; };
 		3B89746C19F6CF6C00D4ACAF /* TravelFundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */; };
-		3BA67F6319E8682A007CE97D /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA67F6219E8682A007CE97D /* libc++.dylib */; };
 		3BA67F6819E88364007CE97D /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA67F6719E88364007CE97D /* Flight.swift */; };
 		3BC0837C19F99F1900ED60EA /* FundSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */; };
 		3BC0837E19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0837D19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift */; };
@@ -87,15 +81,12 @@
 		3B1A4C8419DE0C09000F265C /* SouthwestTravelManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthwestTravelManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B1A4C8919DE0C09000F265C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B1A4C8A19DE0C09000F265C /* SouthwestTravelManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthwestTravelManagerTests.swift; sourceTree = "<group>"; };
-		3B521FF91A66004500D320EA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		3B521FFB1A66006E00D320EA /* RLMSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RLMSupport.swift; sourceTree = "<group>"; };
 		3B560FC11A2FF2D1008E3834 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		3B560FC31A30DD6A008E3834 /* Passenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Passenger.swift; sourceTree = "<group>"; };
 		3B78F93B19F06ADB0066074D /* ConfirmationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationDelegate.swift; sourceTree = "<group>"; };
 		3B7B356B1A13FD5200C099E5 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		3B89746919F5C9CE00D4ACAF /* FlightListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightListDataSource.swift; sourceTree = "<group>"; };
 		3B89746B19F6CF6C00D4ACAF /* TravelFundVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFundVC.swift; sourceTree = "<group>"; };
-		3BA67F6219E8682A007CE97D /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		3BA67F6719E88364007CE97D /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		3BC0837B19F99F1900ED60EA /* FundSelectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundSelectionVC.swift; sourceTree = "<group>"; };
 		3BC0837D19F9A7EB00ED60EA /* TravelFundSelectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelFundSelectionDataSource.swift; sourceTree = "<group>"; };
@@ -121,8 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BA67F6319E8682A007CE97D /* libc++.dylib in Frameworks */,
-				3B521FFE1A66019D00D320EA /* Realm.framework in Frameworks */,
 				2F4F37541B5444FE000C3D11 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,8 +120,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B2BBF161A2D3E1A00393C8C /* libc++.dylib in Frameworks */,
-				3B521FFF1A6601A300D320EA /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +139,6 @@
 			children = (
 				3B1A4C6F19DE0C08000F265C /* SouthwestTravelManager */,
 				3B1A4C8719DE0C09000F265C /* Tests */,
-				3BA67F6619E8687B007CE97D /* Realm */,
 				3BEDCED21A12A372009AFA85 /* RCDatePicker */,
 				3BC77E7B19F5739200FC27C7 /* TSCurrencyTextField */,
 				3B1A4C6E19DE0C08000F265C /* Products */,
@@ -212,16 +198,6 @@
 				3B1A4C8919DE0C09000F265C /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3BA67F6619E8687B007CE97D /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				3B521FFB1A66006E00D320EA /* RLMSupport.swift */,
-				3BA67F6219E8682A007CE97D /* libc++.dylib */,
-				3B521FF91A66004500D320EA /* Realm.framework */,
-			);
-			name = Realm;
 			sourceTree = "<group>";
 		};
 		3BC77E7B19F5739200FC27C7 /* TSCurrencyTextField */ = {
@@ -427,7 +403,6 @@
 				3BE9045519F8614300B0977F /* Extensions.swift in Sources */,
 				3B560FC41A30DD6A008E3834 /* Passenger.swift in Sources */,
 				3BEDCED11A12A366009AFA85 /* RCDatePicker.m in Sources */,
-				3B521FFC1A66006E00D320EA /* RLMSupport.swift in Sources */,
 				3BE9044C19F6F87F00B0977F /* InputVC.swift in Sources */,
 				3BF7916D19EC54A20081CEE6 /* Airport.swift in Sources */,
 				2F575D6F1A83ED1200BA6433 /* CheckInVC.swift in Sources */,
@@ -447,7 +422,6 @@
 			files = (
 				3B2BBF1A1A2E33F500393C8C /* Airport.swift in Sources */,
 				3B1A4C8B19DE0C09000F265C /* SouthwestTravelManagerTests.swift in Sources */,
-				3B521FFD1A66008300D320EA /* RLMSupport.swift in Sources */,
 				3B713D521A5FA685001D5CDB /* Passenger.swift in Sources */,
 				3B2BBF181A2E33EF00393C8C /* Extensions.swift in Sources */,
 				3B2BBF191A2E33F200393C8C /* TravelFund.swift in Sources */,
