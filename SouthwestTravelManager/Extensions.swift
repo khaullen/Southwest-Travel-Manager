@@ -113,7 +113,7 @@ extension Dictionary {
 
 extension UIApplication {
     
-    func openUntilSuccessful(_ urls: [URL]) -> Bool {
+    @discardableResult func openUntilSuccessful(_ urls: [URL]) -> Bool {
         if (urls.isEmpty) {
             return false
         }

@@ -19,12 +19,12 @@ class NotificationManager {
         return Static.instance
     }
     
-    let operationQueue: NSOperationQueue
+    let operationQueue: OperationQueue
     let token: RLMNotificationToken
     
     init() {
-        let queue = NSOperationQueue()
-        token = RLMRealm.defaultRealm().addNotificationBlock { (_, _) in
+        let queue = OperationQueue()
+        token = RLMRealm.default().addNotificationBlock { (_, _) in
             // FIXME: Excessive jobs added to queue on launch, likely due to Airport job
             let operation = LocalNotificationOperation()
             queue.addOperation(operation)
@@ -35,12 +35,12 @@ class NotificationManager {
 }
 
 
-class LocalNotificationOperation: NSOperation {
+class LocalNotificationOperation: Operation {
     
     override func main() {
         
         // Needed to refetch realm in background thread
-        let realm = RLMRealm.defaultRealm()
+        _ = RLMRealm.default()
         
         // TODO: add periodic notifications to use funds
         // TODO: reminder to cancel flights if not checked in
@@ -52,10 +52,10 @@ class LocalNotificationOperation: NSOperation {
             return f.segments.map({ (s: Flight.Segment) -> UILocalNotification in
                 return s.checkInReminder()
             })
-        }).flattenAny()
+        }).joined()
         
-        UIApplication.sharedApplication().scheduledLocalNotifications = notifications
-        println(UIApplication.sharedApplication().scheduledLocalNotifications)
+        UIApplication.shared.scheduledLocalNotifications = Array(notifications)
+        print(UIApplication.shared.scheduledLocalNotifications ?? [])
     }
     
 }

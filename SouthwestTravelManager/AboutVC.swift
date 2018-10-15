@@ -13,7 +13,7 @@ class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     var user: Passenger {
         get {
-            return Passenger(firstName: firstNameTextField.text, lastName: lastNameTextField.text, accountNumber: accountNumberTextField.text)
+            return Passenger(firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", accountNumber: accountNumberTextField.text ?? "")
         }
         set {
             firstNameTextField.text = newValue.firstName
@@ -29,29 +29,29 @@ class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        versionCell.detailTextLabel?.text = NSBundle.mainBundle().versionString
+        versionCell.detailTextLabel?.text = Bundle.main.versionString
         user = Passenger.defaultPassenger
     }
     
     @IBAction func doneTapped(sender: UIBarButtonItem) {
         Passenger.defaultPassenger = user
-        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        presentingViewController?.dismiss(animated: true, completion: nil)
     }
 
     // TODO: disable mail buttons if MFMailComposeViewController.canSendMail() returns false
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.section == 2) {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
             switch (indexPath.row) {
             case 0: // Facebook
-                UIApplication.sharedApplication().openUntilSuccessful([AboutVC.Constants.FACEBOOK_LINK, AboutVC.Constants.FACEBOOK_SAFARI_LINK].map({ NSURL(string: $0)! }))
+                UIApplication.shared.openUntilSuccessful([AboutVC.Constants.FACEBOOK_LINK, AboutVC.Constants.FACEBOOK_SAFARI_LINK].map({ URL(string: $0)! }))
             case 1: // App Store
-                UIApplication.sharedApplication().openUntilSuccessful([AboutVC.Constants.REVIEW_LINK, AboutVC.Constants.FACEBOOK_SAFARI_LINK].map({ NSURL(string: $0)! }))
+                UIApplication.shared.openUntilSuccessful([AboutVC.Constants.REVIEW_LINK, AboutVC.Constants.FACEBOOK_SAFARI_LINK].map({ URL(string: $0)! }))
             case 2: // Tell a friend
-                presentMailComposeViewControllerTo(nil, subject: "SW Travel Manager app", messageBody: AboutVC.Constants.TELL_FRIEND_BODY(user.firstName))
+                presentMailComposeViewControllerTo(recipients: [], subject: "SW Travel Manager app", messageBody: AboutVC.Constants.TELL_FRIEND_BODY(from: user.firstName))
             case 3: // Email support
-                presentMailComposeViewControllerTo(["support@redcup.la"], subject: nil, messageBody: AboutVC.Constants.EMAIL_SUPPORT_BODY)
+                presentMailComposeViewControllerTo(recipients: ["support@sidebench.com"], subject: "", messageBody: AboutVC.Constants.EMAIL_SUPPORT_BODY)
                 
             default: break
             }
@@ -60,17 +60,17 @@ class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     // MARK: Email
     
-    func presentMailComposeViewControllerTo(recipients: [String]?, subject: String?, messageBody: String?) {
+    func presentMailComposeViewControllerTo(recipients: [String], subject: String, messageBody: String) {
         let mailVC = MFMailComposeViewController()
         mailVC.setToRecipients(recipients)
         mailVC.setSubject(subject)
         mailVC.setMessageBody(messageBody, isHTML: false)
         mailVC.mailComposeDelegate = self
-        presentViewController(mailVC, animated: true, completion: nil)
+        present(mailVC, animated: true, completion: nil)
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
-        dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
     
     struct Constants {
@@ -81,7 +81,7 @@ class AboutVC: UITableViewController, MFMailComposeViewControllerDelegate {
         static let REVIEW_LINK = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=559944769&pageNumber=0&sortOrdering=1&type=Purple+Software&mt=8"
         
         static var EMAIL_SUPPORT_BODY: String {
-            return "\n\n\n\nVersion \(NSBundle.mainBundle().versionString)\n\(UIDevice.currentDevice().systemName) \(UIDevice.currentDevice().systemVersion)\n\(UIDevice.currentDevice().machineName)"
+            return "\n\n\n\nVersion \(Bundle.main.versionString)\n\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)\n\(UIDevice.current.machineName)"
         }
         
         static func TELL_FRIEND_BODY(from: String) -> String {
